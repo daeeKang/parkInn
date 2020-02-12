@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Button from '@material-ui/core/Button/Button';
 
-function App() {
-  return <div>Park Inn App</div>;
+class App extends Component {
+  render() {
+    return (
+      <div>
+        Park Inn App
+        <Button> Hi </Button>
+      </div>
+    );
+  }
 }
 
 export default App;
