@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ParkInn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAq-GD-L94">
+                                <rect key="frame" x="94.5" y="144" width="225" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="WmO-ry-5aq"/>
+                                    <constraint firstAttribute="height" constant="86" id="oka-sS-O2c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-ZD-oob">
+                                <rect key="frame" x="64" y="406" width="286" height="84"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gu-Sf-2Cx">
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V04-0R-2gA">
+                                        <rect key="frame" x="0.0" y="50" width="286" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I61-QB-JwZ" customClass="MDCButton">
+                                <rect key="frame" x="186" y="506" width="42" height="30"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8YQ-kT-0aQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wAq-GD-L94" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1GT-d4-Akq"/>
+                            <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9My-lj-b82"/>
+                            <constraint firstItem="I61-QB-JwZ" firstAttribute="centerX" secondItem="V04-0R-2gA" secondAttribute="centerX" id="TeV-ku-oW8"/>
+                            <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YQM-8H-4kG"/>
+                            <constraint firstItem="YZA-ZD-oob" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fdc-i6-kbG"/>
+                            <constraint firstItem="wAq-GD-L94" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="gU1-uj-a7Y"/>
+                            <constraint firstItem="I61-QB-JwZ" firstAttribute="top" secondItem="YZA-ZD-oob" secondAttribute="bottom" constant="16" id="gu5-QT-gOS"/>
+                            <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hSk-X5-dUI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YZA-ZD-oob" secondAttribute="trailing" constant="64" id="jN0-ke-8rg"/>
+                            <constraint firstItem="YZA-ZD-oob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="tcE-aI-X2Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <segue destination="cga-fs-HB6" kind="show" identifier="toMainVC" id="q24-i4-tEE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0XT-ct-Zda">
+            <objects>
+                <viewController id="cga-fs-HB6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DRT-Gm-k0e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Wni-3b-Cb9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8u9-da-EWz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tps-Sh-XzT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="127"/>
+        </scene>
+    </scenes>
+</document>
