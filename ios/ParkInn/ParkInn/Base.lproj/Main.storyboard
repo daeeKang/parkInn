@@ -22,11 +22,11 @@
                                     <constraint firstAttribute="height" constant="86" id="oka-sS-O2c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-ZD-oob">
-                                <rect key="frame" x="64" y="406" width="286" height="84"/>
+                                <rect key="frame" x="64" y="374" width="286" height="84"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gu-Sf-2Cx">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="34"/>
@@ -41,7 +41,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I61-QB-JwZ" customClass="MDCButton">
-                                <rect key="frame" x="186" y="506" width="42" height="30"/>
+                                <rect key="frame" x="64" y="474" width="286" height="30"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -50,13 +50,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="I61-QB-JwZ" firstAttribute="width" secondItem="V04-0R-2gA" secondAttribute="width" id="0d3-sD-sR6"/>
                             <constraint firstItem="wAq-GD-L94" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1GT-d4-Akq"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9My-lj-b82"/>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="centerX" secondItem="V04-0R-2gA" secondAttribute="centerX" id="TeV-ku-oW8"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YQM-8H-4kG"/>
-                            <constraint firstItem="YZA-ZD-oob" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fdc-i6-kbG"/>
+                            <constraint firstItem="YZA-ZD-oob" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-32" id="fdc-i6-kbG"/>
                             <constraint firstItem="wAq-GD-L94" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="gU1-uj-a7Y"/>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="top" secondItem="YZA-ZD-oob" secondAttribute="bottom" constant="16" id="gu5-QT-gOS"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hSk-X5-dUI"/>
@@ -126,6 +127,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="ParkInn" id="8u9-da-EWz">
                         <barButtonItem key="backBarButtonItem" title="Back" id="igE-6p-g7f"/>
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="eH1-kG-gC5">
+                            <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="managementButton" destination="6z4-zt-YGn" id="mPr-Ho-SbB"/>
@@ -138,33 +142,33 @@
             </objects>
             <point key="canvasLocation" x="1897.1014492753625" y="126.5625"/>
         </scene>
-        <!--ManagementVC-->
+        <!--Manage-->
         <scene sceneID="vhX-Rx-GyN">
             <objects>
-                <viewController id="AhQ-yT-AZM" customClass="ManagementVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Manage" id="AhQ-yT-AZM" customClass="ManagementVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xMm-ed-vIf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="GQe-1y-thU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lTw-RE-q3i"/>
+                    <navigationItem key="navigationItem" title="Manage" id="lTw-RE-q3i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qGf-YQ-1D8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2780" y="127"/>
         </scene>
-        <!--StatsVC-->
+        <!--Statistics-->
         <scene sceneID="pNC-ZV-8Wn">
             <objects>
                 <viewController id="dHL-XQ-PPV" customClass="StatsVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Fa-K2-UgC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="C8V-Jp-nXC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aBB-AP-75X"/>
+                    <navigationItem key="navigationItem" title="Statistics" id="aBB-AP-75X"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xe6-rr-bqE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,7 +186,7 @@
                         <color key="backgroundColor" cyan="0.86411166191101074" magenta="0.74310505390167236" yellow="0.47924783825874329" black="0.59554102453025615" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <color key="barTintColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -198,5 +202,6 @@
     <resources>
         <image name="car" catalog="system" width="64" height="46"/>
         <image name="chart.pie" catalog="system" width="64" height="60"/>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
     </resources>
 </document>
