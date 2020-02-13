@@ -41,7 +41,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I61-QB-JwZ" customClass="MDCButton">
-                                <rect key="frame" x="64" y="474" width="286" height="30"/>
+                                <rect key="frame" x="64" y="490" width="286" height="30"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -59,7 +59,7 @@
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YQM-8H-4kG"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-32" id="fdc-i6-kbG"/>
                             <constraint firstItem="wAq-GD-L94" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="gU1-uj-a7Y"/>
-                            <constraint firstItem="I61-QB-JwZ" firstAttribute="top" secondItem="YZA-ZD-oob" secondAttribute="bottom" constant="16" id="gu5-QT-gOS"/>
+                            <constraint firstItem="I61-QB-JwZ" firstAttribute="top" secondItem="YZA-ZD-oob" secondAttribute="bottom" constant="32" id="gu5-QT-gOS"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hSk-X5-dUI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YZA-ZD-oob" secondAttribute="trailing" constant="64" id="jN0-ke-8rg"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="tcE-aI-X2Z"/>
@@ -67,12 +67,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="8dd-NG-BnA" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="q24-i4-tEE"/>
+                        <segue destination="IFc-nS-J4k" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="QKl-7d-Vsi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+            <point key="canvasLocation" x="-671" y="-595"/>
         </scene>
         <!--ParkInn-->
         <scene sceneID="0XT-ct-Zda">
@@ -133,6 +133,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="managementButton" destination="6z4-zt-YGn" id="mPr-Ho-SbB"/>
+                        <outlet property="menuButton" destination="eH1-kG-gC5" id="ORz-xQ-ZPk"/>
                         <outlet property="statsButton" destination="UHy-C3-qgz" id="fkC-j8-qLK"/>
                         <segue destination="dHL-XQ-PPV" kind="show" identifier="toStatsVC" id="Zax-AT-yFi"/>
                         <segue destination="AhQ-yT-AZM" kind="show" identifier="toManagementVC" id="QaS-fQ-ir0"/>
@@ -174,6 +175,40 @@
             </objects>
             <point key="canvasLocation" x="1897" y="-595"/>
         </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="pt6-k7-w5T">
+            <objects>
+                <viewController id="IFc-nS-J4k" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e3B-zA-Vbg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Upr-Wf-bJv"/>
+                    </view>
+                    <connections>
+                        <segue destination="8dd-NG-BnA" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="9ui-HN-aan"/>
+                        <segue destination="AJT-an-gVT" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="Hkp-MC-Wzd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u2J-yA-k7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-671" y="127"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uYX-Jr-MUK">
+            <objects>
+                <viewController id="AJT-an-gVT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PtY-dv-VLi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qvQ-lC-Dus"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9tn-18-LGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613" y="-595"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vB6-0g-jgN">
             <objects>
@@ -186,7 +221,7 @@
                         <color key="backgroundColor" cyan="0.86411166191101074" magenta="0.74310505390167236" yellow="0.47924783825874329" black="0.59554102453025615" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <color key="barTintColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -196,7 +231,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbf-0O-z8Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986.95652173913049" y="126.5625"/>
+            <point key="canvasLocation" x="613" y="127"/>
         </scene>
     </scenes>
     <resources>
@@ -204,4 +239,5 @@
         <image name="chart.pie" catalog="system" width="64" height="60"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
     </resources>
+    <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
