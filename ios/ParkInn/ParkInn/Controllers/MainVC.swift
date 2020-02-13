@@ -35,8 +35,11 @@ class MainVC: UIViewController {
         self.menuButton.target = self.revealViewController()
         self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
 
+        // Add gestures for panning to open/close and tap to close
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        self.statsButton.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        self.managementButton.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
 
     // MARK: - Segues
