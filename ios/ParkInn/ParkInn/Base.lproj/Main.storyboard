@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,9 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I61-QB-JwZ" customClass="MDCButton">
                                 <rect key="frame" x="186" y="506" width="42" height="30"/>
-                                <state key="normal" title="Log In"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8YQ-kT-0aQ"/>
                                 </connections>
@@ -64,28 +66,46 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="cga-fs-HB6" kind="show" identifier="toMainVC" id="q24-i4-tEE"/>
+                        <segue destination="8dd-NG-BnA" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="q24-i4-tEE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="0XT-ct-Zda">
             <objects>
-                <viewController id="cga-fs-HB6" sceneMemberID="viewController">
+                <viewController title="Home" id="cga-fs-HB6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DRT-Gm-k0e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Wni-3b-Cb9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8u9-da-EWz"/>
+                    <navigationItem key="navigationItem" title="Home" id="8u9-da-EWz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tps-Sh-XzT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988" y="127"/>
+            <point key="canvasLocation" x="1897.1014492753625" y="126.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vB6-0g-jgN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8dd-NG-BnA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mre-Cr-MGm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cga-fs-HB6" kind="relationship" relationship="rootViewController" id="h5I-Df-zg1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbf-0O-z8Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986.95652173913049" y="126.5625"/>
         </scene>
     </scenes>
 </document>
