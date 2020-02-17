@@ -8,5 +8,4 @@ let CompanySchema = new Schema({
     revenue: Number,
 });
 
-const Company = mongoose.model('Company', CompanySchema);
-module.exports = Company;
+module.exports = mongoose.model('Company', CompanySchema);

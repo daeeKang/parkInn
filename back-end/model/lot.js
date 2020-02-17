@@ -10,5 +10,4 @@ let LotSchema = new Schema({
     }],
 });
 
-const Lot = mongoose.model('Lot', LotSchema);
-module.exports = Lot;
+module.exports = mongoose.model('Lot', LotSchema);
