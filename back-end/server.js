@@ -1,19 +1,30 @@
-//run 'nodemon' for continuous build :-) 
-const model = require('./model/Model');
 const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+const Mongoose = require('mongoose');
 const app = express();
+const dotenv = require('dotenv');
 const port = 3000;
 
-app.get('/', (req, res) => res.send('is running dude'));
+//initial set up
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+dotenv.config();
+
+//bring in routes
+const companyRoute =  require('./routes/Company');
+const lotRoute =      require('./routes/Lot');
+
+//tell app to use brought in routes
+app.use('/Company', companyRoute);
+app.use('/Lot', lotRoute);
+
+//connect to mongodb
+//if this isn't working, you don't have a .env file saved in this directory
+Mongoose.connect(
+  process.env.MONGO_URI
+)
 
 app.listen(port, () => console.log(`dab on em we listenin on port ${port}`));
 
 //example of connecting to server
-const uri = "mongodb+srv://unlvparking:FsaFB21eTuI0ud6j@parkinn-lkp9z.azure.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("parkinn").collection("user");
-  // perform actions on the collection object
-  client.close();
-});
+
