@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const model = require('../model/Model')
 
-console.log("we in customer");
-
 router.post('/AddCustomer', (req, res) => {
     const customer = new model.Customer({
         username: req.body.username,
