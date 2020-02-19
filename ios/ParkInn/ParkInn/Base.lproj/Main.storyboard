@@ -79,7 +79,7 @@
             <objects>
                 <viewController id="7Bk-Sp-2pN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1br-Lb-pZd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="0zP-F1-e0S"/>
@@ -153,7 +153,6 @@
                         <outlet property="statsButton" destination="UHy-C3-qgz" id="fkC-j8-qLK"/>
                         <segue destination="dHL-XQ-PPV" kind="show" identifier="toStatsVC" id="Zax-AT-yFi"/>
                         <segue destination="AhQ-yT-AZM" kind="show" identifier="toManagementVC" id="QaS-fQ-ir0"/>
-                        <segue destination="7Bk-Sp-2pN" kind="show" id="omU-PI-txk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tps-Sh-XzT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -211,16 +210,41 @@
             </objects>
             <point key="canvasLocation" x="-671" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--MenuVC-->
         <scene sceneID="uYX-Jr-MUK">
             <objects>
-                <viewController id="AJT-an-gVT" sceneMemberID="viewController">
+                <viewController id="AJT-an-gVT" customClass="MenuVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PtY-dv-VLi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-cJ-ocP">
+                                <rect key="frame" x="16" y="814" width="382" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-NC-sEs">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="3fy-38-Brk"/>
+                                        </constraints>
+                                        <state key="normal" title="Settings" image="gear" catalog="system"/>
+                                        <connections>
+                                            <action selector="settingsPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="jnn-o2-efs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qvQ-lC-Dus" firstAttribute="trailing" secondItem="Ehk-cJ-ocP" secondAttribute="trailing" constant="16" id="3LZ-Xk-Yup"/>
+                            <constraint firstItem="qvQ-lC-Dus" firstAttribute="bottom" secondItem="Ehk-cJ-ocP" secondAttribute="bottom" constant="16" id="MBd-61-YHU"/>
+                            <constraint firstItem="Ehk-cJ-ocP" firstAttribute="leading" secondItem="qvQ-lC-Dus" secondAttribute="leading" constant="16" id="RTU-lG-K60"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qvQ-lC-Dus"/>
                     </view>
+                    <connections>
+                        <segue destination="7Bk-Sp-2pN" kind="show" identifier="toSettingsVC" id="mkr-hX-FNd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tn-18-LGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,6 +278,7 @@
     <resources>
         <image name="car" catalog="system" width="64" height="46"/>
         <image name="chart.pie" catalog="system" width="64" height="60"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
     </resources>
     <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
