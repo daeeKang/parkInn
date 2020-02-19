@@ -1009,6 +1009,7 @@ const int FrontViewPositionNone = 0xff;
 
 - (void)_notifyPanGestureEnded
 {
+    _isOpen = !_isOpen;
     CGFloat xLocation, dragProgress, overProgress;
     [self _getDragLocation:&xLocation progress:&dragProgress overdrawProgress:&overProgress];
     
