@@ -14,11 +14,17 @@ class MenuVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
     }
     
 
     @IBAction func settingsPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toSettingsVC", sender: nil)
+        // Get the Navigation Controller
+        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
+
+        // Get the MainVC instance to push SettingsVC
+        guard let mainVC = navControl.children.first as? MainVC else { return }
+        mainVC.performSegue(withIdentifier: "toSettingsVC", sender: nil)
     }
     /*
     // MARK: - Navigation
