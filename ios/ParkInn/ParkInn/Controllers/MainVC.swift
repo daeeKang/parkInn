@@ -38,8 +38,6 @@ class MainVC: UIViewController {
         // Add gestures for panning to open/close and tap to close
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        self.statsButton.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        self.managementButton.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
 
     // MARK: - Segues
@@ -50,5 +48,11 @@ class MainVC: UIViewController {
 
     @IBAction func openManagementVC(_ sender: Any) {
         performSegue(withIdentifier: "toManagementVC", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if revealViewController().isOpen {
+            revealViewController()?.revealToggle(animated: true)
+        }
     }
 }
