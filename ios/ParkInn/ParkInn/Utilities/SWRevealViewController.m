@@ -594,6 +594,9 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
     SWContextTransitionObject *_frontTransitioningController;
     SWContextTransitionObject *_rightTransitioningController;
 }
+
+@property (readwrite) BOOL isOpen;
+
 @end
 
 
@@ -669,6 +672,7 @@ const int FrontViewPositionNone = 0xff;
     _draggableBorderWidth = 0.0f;
     _clipsViewsToBounds = NO;
     _extendsPointInsideHit = NO;
+    _isOpen = NO;
 }
 
 
@@ -840,10 +844,10 @@ const int FrontViewPositionNone = 0xff;
 
 - (void)revealToggleAnimated:(BOOL)animated
 {
+    _isOpen = !_isOpen;
     FrontViewPosition toggledFrontViewPosition = FrontViewPositionLeft;
     if (_frontViewPosition <= FrontViewPositionLeft)
         toggledFrontViewPosition = FrontViewPositionRight;
-    
     [self setFrontViewPosition:toggledFrontViewPosition animated:animated];
 }
 
