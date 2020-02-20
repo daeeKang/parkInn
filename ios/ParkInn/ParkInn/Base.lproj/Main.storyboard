@@ -219,19 +219,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-cJ-ocP">
-                                <rect key="frame" x="16" y="770" width="382" height="76"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-cJ-ocP">
+                                <rect key="frame" x="16" y="692" width="382" height="154"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-lI-bVs">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="22"/>
                                         <state key="normal" title="Statistics" image="chart.pie.fill" catalog="system"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-c6-mJa">
-                                        <rect key="frame" x="0.0" y="22" width="382" height="22"/>
+                                        <rect key="frame" x="0.0" y="61" width="382" height="22"/>
                                         <state key="normal" title="Managment" image="rectangle.3.offgrid.fill" catalog="system"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-NC-sEs">
-                                        <rect key="frame" x="0.0" y="44" width="382" height="32"/>
+                                        <rect key="frame" x="0.0" y="122" width="382" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="3fy-38-Brk"/>
                                         </constraints>
@@ -254,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tn-18-LGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="-595"/>
+            <point key="canvasLocation" x="611.59420289855075" y="-595.3125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vB6-0g-jgN">
