@@ -220,10 +220,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-cJ-ocP">
-                                <rect key="frame" x="16" y="814" width="382" height="32"/>
+                                <rect key="frame" x="16" y="770" width="382" height="76"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-lI-bVs">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="22"/>
+                                        <state key="normal" title="Statistics" image="chart.pie.fill" catalog="system"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-c6-mJa">
+                                        <rect key="frame" x="0.0" y="22" width="382" height="22"/>
+                                        <state key="normal" title="Managment" image="rectangle.3.offgrid.fill" catalog="system"/>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-NC-sEs">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="32"/>
+                                        <rect key="frame" x="0.0" y="44" width="382" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="3fy-38-Brk"/>
                                         </constraints>
@@ -276,8 +284,10 @@
     <resources>
         <image name="car" catalog="system" width="64" height="46"/>
         <image name="chart.pie" catalog="system" width="64" height="60"/>
+        <image name="chart.pie.fill" catalog="system" width="64" height="62"/>
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+        <image name="rectangle.3.offgrid.fill" catalog="system" width="64" height="40"/>
     </resources>
     <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
