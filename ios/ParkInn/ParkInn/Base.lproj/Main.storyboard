@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ParkInn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAq-GD-L94">
-                                <rect key="frame" x="94.5" y="144" width="225" height="86"/>
+                                <rect key="frame" x="94.666666666666686" y="144" width="225" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="WmO-ry-5aq"/>
                                     <constraint firstAttribute="height" constant="86" id="oka-sS-O2c"/>
@@ -74,17 +74,17 @@
             </objects>
             <point key="canvasLocation" x="-671" y="-595"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="tKU-YF-MAY">
             <objects>
                 <viewController id="7Bk-Sp-2pN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1br-Lb-pZd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="0zP-F1-e0S"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FBA-xj-gGA"/>
+                    <navigationItem key="navigationItem" title="Settings" id="FBA-xj-gGA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWz-dI-qI3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,41 +219,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-cJ-ocP">
-                                <rect key="frame" x="16" y="623" width="382" height="223"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-cJ-ocP">
+                                <rect key="frame" x="16" y="677.33333333333337" width="382" height="168.66666666666663"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-lI-bVs">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="22"/>
-                                        <state key="normal" title="Statistics" image="chart.pie.fill" catalog="system"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-lI-bVs" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
+                                        <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Statistics" image="chart.pie.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium"/>
+                                        </state>
                                         <connections>
                                             <action selector="statisticsPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="Tzw-Bs-lIa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-c6-mJa">
-                                        <rect key="frame" x="0.0" y="61" width="382" height="22"/>
-                                        <state key="normal" title="Managment" image="rectangle.3.offgrid.fill" catalog="system"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-c6-mJa" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="48" width="382" height="24"/>
+                                        <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-2" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Managment" image="rectangle.grid.2x2.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
                                         <connections>
                                             <action selector="managmentPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="LHu-3q-kSo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-NC-sEs">
-                                        <rect key="frame" x="0.0" y="122" width="382" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="3fy-38-Brk"/>
-                                        </constraints>
-                                        <state key="normal" title="Settings" image="gear" catalog="system"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-NC-sEs" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="96" width="382" height="24.666666666666671"/>
+                                        <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Settings" image="gear" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
                                         <connections>
                                             <action selector="settingsPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="jnn-o2-efs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4L-Fa-yTr">
-                                        <rect key="frame" x="0.0" y="193" width="382" height="30"/>
-                                        <state key="normal" title="Logout"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4L-Fa-yTr" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="144.66666666666663" width="382" height="24"/>
+                                        <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Logout" image="arrow.left.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
                                         <connections>
                                             <action selector="logoutPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="CPW-7X-ySI"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="wV3-lI-bVs" firstAttribute="leading" secondItem="Ehk-cJ-ocP" secondAttribute="leading" id="0u9-HG-Zzj"/>
+                                    <constraint firstItem="7dn-NC-sEs" firstAttribute="leading" secondItem="Ehk-cJ-ocP" secondAttribute="leading" id="41u-cw-N7h"/>
+                                    <constraint firstItem="O4L-Fa-yTr" firstAttribute="leading" secondItem="Ehk-cJ-ocP" secondAttribute="leading" id="69O-jr-hZ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="I5g-c6-mJa" secondAttribute="trailing" id="7pq-YC-UbV"/>
+                                    <constraint firstAttribute="trailing" secondItem="7dn-NC-sEs" secondAttribute="trailing" id="BLw-MP-rJS"/>
+                                    <constraint firstAttribute="trailing" secondItem="O4L-Fa-yTr" secondAttribute="trailing" id="Mel-kx-GBN"/>
+                                    <constraint firstAttribute="trailing" secondItem="wV3-lI-bVs" secondAttribute="trailing" id="fhI-XL-DwG"/>
+                                    <constraint firstItem="I5g-c6-mJa" firstAttribute="leading" secondItem="Ehk-cJ-ocP" secondAttribute="leading" id="pd9-hP-T0D"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
@@ -295,12 +325,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left.circle" catalog="system" width="64" height="60"/>
         <image name="car" catalog="system" width="64" height="46"/>
         <image name="chart.pie" catalog="system" width="64" height="60"/>
         <image name="chart.pie.fill" catalog="system" width="64" height="62"/>
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
-        <image name="rectangle.3.offgrid.fill" catalog="system" width="64" height="40"/>
+        <image name="rectangle.grid.2x2.fill" catalog="system" width="64" height="48"/>
     </resources>
     <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
