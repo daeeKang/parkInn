@@ -23,7 +23,6 @@ class MenuVC: UIViewController {
             self.mainVC = mainVC
         }
     }
-    
 
     @IBAction func settingsPressed(_ sender: Any) {
         mainVC?.performSegue(withIdentifier: "toSettingsVC", sender: nil)
