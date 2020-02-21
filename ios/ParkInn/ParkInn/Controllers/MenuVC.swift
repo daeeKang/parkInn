@@ -26,6 +26,24 @@ class MenuVC: UIViewController {
         guard let mainVC = navControl.children.first as? MainVC else { return }
         mainVC.performSegue(withIdentifier: "toSettingsVC", sender: nil)
     }
+    
+    @IBAction func statisticsPressed(_ sender: Any) {
+        // Get the Navigation Controller
+        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
+
+        // Get the MainVC instance to push SettingsVC
+        guard let mainVC = navControl.children.first as? MainVC else { return }
+        mainVC.performSegue(withIdentifier: "toStatsVC", sender: nil)
+    }
+    
+    @IBAction func managmentPressed(_ sender: Any) {
+        // Get the Navigation Controller
+        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
+
+        // Get the MainVC instance to push SettingsVC
+        guard let mainVC = navControl.children.first as? MainVC else { return }
+        mainVC.performSegue(withIdentifier: "toManagementVC", sender: nil)
+    }
     /*
     // MARK: - Navigation
 

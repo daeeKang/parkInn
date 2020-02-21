@@ -225,10 +225,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-lI-bVs">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="22"/>
                                         <state key="normal" title="Statistics" image="chart.pie.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="statisticsPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="Tzw-Bs-lIa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-c6-mJa">
                                         <rect key="frame" x="0.0" y="61" width="382" height="22"/>
                                         <state key="normal" title="Managment" image="rectangle.3.offgrid.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="managmentPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="LHu-3q-kSo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-NC-sEs">
                                         <rect key="frame" x="0.0" y="122" width="382" height="32"/>
