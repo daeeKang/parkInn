@@ -10,58 +10,34 @@ import UIKit
 
 class MenuVC: UIViewController {
 
+    weak var navControl: UINavigationController?
+    weak var mainVC: MainVC?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-
+        // Setup weak references to navigation controller and MainVC for segue use
+        if let navControl = revealViewController()?.frontViewController as? UINavigationController,
+            let mainVC = navControl.children.first as? MainVC {
+            self.navControl = navControl
+            self.mainVC = mainVC
+        }
     }
     
 
     @IBAction func settingsPressed(_ sender: Any) {
-        // Get the Navigation Controller
-        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
-
-        // Get the MainVC instance to push SettingsVC
-        guard let mainVC = navControl.children.first as? MainVC else { return }
-        mainVC.performSegue(withIdentifier: "toSettingsVC", sender: nil)
+        mainVC?.performSegue(withIdentifier: "toSettingsVC", sender: nil)
     }
     
     @IBAction func statisticsPressed(_ sender: Any) {
-        // Get the Navigation Controller
-        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
-
-        // Get the MainVC instance to push SettingsVC
-        guard let mainVC = navControl.children.first as? MainVC else { return }
-        mainVC.performSegue(withIdentifier: "toStatsVC", sender: nil)
+        mainVC?.performSegue(withIdentifier: "toStatsVC", sender: nil)
     }
     
     @IBAction func managmentPressed(_ sender: Any) {
-        // Get the Navigation Controller
-        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
-
-        // Get the MainVC instance to push SettingsVC
-        guard let mainVC = navControl.children.first as? MainVC else { return }
-        mainVC.performSegue(withIdentifier: "toManagementVC", sender: nil)
+        mainVC?.performSegue(withIdentifier: "toManagementVC", sender: nil)
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
-        // Get the Navigation Controller
-        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
-        
-        navControl.dismiss(animated: true, completion: nil)
-
+        navControl?.dismiss(animated: true, completion: nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
