@@ -44,6 +44,16 @@ class MenuVC: UIViewController {
         guard let mainVC = navControl.children.first as? MainVC else { return }
         mainVC.performSegue(withIdentifier: "toManagementVC", sender: nil)
     }
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        // Get the Navigation Controller
+        guard let navControl = revealViewController()?.frontViewController as? UINavigationController else { return }
+        
+        navControl.dismiss(animated: true, completion: nil)
+
+    }
+    
+    
     /*
     // MARK: - Navigation
 

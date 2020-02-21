@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-cJ-ocP">
-                                <rect key="frame" x="16" y="692" width="382" height="154"/>
+                                <rect key="frame" x="16" y="623" width="382" height="223"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-lI-bVs">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="22"/>
@@ -244,6 +244,13 @@
                                         <state key="normal" title="Settings" image="gear" catalog="system"/>
                                         <connections>
                                             <action selector="settingsPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="jnn-o2-efs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4L-Fa-yTr">
+                                        <rect key="frame" x="0.0" y="193" width="382" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="logoutPressed:" destination="AJT-an-gVT" eventType="touchUpInside" id="CPW-7X-ySI"/>
                                         </connections>
                                     </button>
                                 </subviews>
