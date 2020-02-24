@@ -3,11 +3,13 @@ const bodyParser = require('body-parser');
 const Mongoose = require('mongoose');
 const app = express();
 const dotenv = require('dotenv');
-const port = 3000;
+const path = require('path');
+const port = 9000;
 
 //initial set up
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'client/build')))
 dotenv.config();
 
 //bring in routes
