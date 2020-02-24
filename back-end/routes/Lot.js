@@ -20,4 +20,15 @@ router.post('/AddLot', (req, res) => {
     });
 });
 
+router.get('/GetLots/:companyid', async (req, res) => {
+    
+  const lots = await model.Lot.find({companyid: req.params.companyid});
+  try{
+      res.send(lots);
+  }
+  catch(err){
+      res.status(500).send(err);
+  }
+});
+
 module.exports = router;
