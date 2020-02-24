@@ -5,7 +5,14 @@ let CompanySchema = new Schema({
     companyid: {type: String, required: true, unique: true},
     companyName: {type: String, required: true},
     lots: [Number],
-    revenue: Number,
+    revenue: [{
+        amount: Number,
+        date: Date,
+    }],
+    statistic: {
+        loadCapacity: Number,
+        averageTimeParked: Number, 
+    },
 });
 
 module.exports = mongoose.model('Company', CompanySchema);

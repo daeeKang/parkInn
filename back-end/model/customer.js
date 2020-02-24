@@ -10,6 +10,8 @@ let CustomerSchema = new Schema({
     car: [{
         color: String,
         license: String,
+        make: String,
+        model: String,
     }],
 });
 

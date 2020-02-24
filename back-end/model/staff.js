@@ -1,0 +1,13 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+let StaffSchema = new Schema({
+    username: {type: String, required: true, unique: true},
+    first: {type: String, required: true},
+    last: {type: String, requred: true},
+    employeeid: String,
+    companyid: {type: String, required: true, unique: true},
+    admin: {type: Boolean, required: true},
+});
+
+module.exports = mongoose.model('Staff', StaffSchema);
