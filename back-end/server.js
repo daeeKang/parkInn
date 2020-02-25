@@ -14,11 +14,13 @@ dotenv.config();
 const companyRoute =  require('./routes/Company');
 const lotRoute =      require('./routes/Lot');
 const customerRoute = require('./routes/Customer');
+const userRoute = require('./routes/User');
 
 //tell app to use brought in routes
 app.use('/Company', companyRoute);
 app.use('/Lot', lotRoute);
 app.use('/Customer', customerRoute);
+app.use('/User', userRoute);
 
 //connect to mongodb
 //if this isn't working, you don't have a .env file saved in this directory
