@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Navigation from './Layout/Navigation';
+import Sidebar from './Components/Sidebar/Sidebar';
+import Main from './Components/Main';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Navigation></Navigation>
+        <Sidebar />
+        <Main id='page-wrap' />
       </div>
     );
   }
