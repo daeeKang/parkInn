@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Sidebar from './Components/Sidebar/Sidebar';
+import Main from './Components/Main';
 
-function App() {
-  return <div>Park Inn App</div>;
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Sidebar />
+        <Main id='page-wrap' />
+      </div>
+    );
+  }
 }
 
 export default App;
