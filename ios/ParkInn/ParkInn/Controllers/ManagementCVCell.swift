@@ -10,6 +10,7 @@ import UIKit
 
 class ManagementCVCell: UICollectionViewCell {
     
+    //Item within the cell
     @IBOutlet weak var testLabel: UILabel!
     
 }
