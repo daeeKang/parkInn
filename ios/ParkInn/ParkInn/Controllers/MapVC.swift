@@ -36,6 +36,10 @@ class MapVC: UIViewController {
     @IBAction func menuButtonPressed(_ sender: Any) {
         self.revealViewController()?.revealToggle(animated: true)
     }
+
+    @IBAction func locationButtonPressed(_ sender: Any) {
+        centerMapOnUser()
+    }
 }
 
 // MARK: - Delegation for Map View
