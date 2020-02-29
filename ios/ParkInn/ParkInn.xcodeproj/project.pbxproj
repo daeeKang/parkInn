@@ -13,6 +13,9 @@
 		8E02805A23F5653800057727 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805923F5653800057727 /* StatsVC.swift */; };
 		8E02805C23F5654600057727 /* ManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805B23F5654600057727 /* ManagementVC.swift */; };
 		8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E02806323F5E8F400057727 /* SWRevealViewController.m */; };
+		8E33BFAB240A26E000A29F55 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E33BFAA240A26E000A29F55 /* User.storyboard */; };
+		8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFAC240A27A800A29F55 /* MapVC.swift */; };
+		8E33BFB3240A338000A29F55 /* UserMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB2240A338000A29F55 /* UserMenuVC.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -52,6 +55,9 @@
 		8E02806223F5E8F300057727 /* ParkInn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParkInn-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E02806323F5E8F400057727 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8E02806423F5E8F400057727 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		8E33BFAA240A26E000A29F55 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		8E33BFAC240A27A800A29F55 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		8E33BFB2240A338000A29F55 /* UserMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuVC.swift; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 				8E98C92823F38022008F612A /* AppDelegate.swift */,
 				8E98C92A23F38022008F612A /* SceneDelegate.swift */,
 				8E98C92E23F38022008F612A /* Main.storyboard */,
+				8E33BFAA240A26E000A29F55 /* User.storyboard */,
 				8E98C93123F38024008F612A /* Assets.xcassets */,
 				8E98C93323F38024008F612A /* LaunchScreen.storyboard */,
 				8E98C93623F38024008F612A /* Info.plist */,
@@ -201,6 +208,8 @@
 				8E02805923F5653800057727 /* StatsVC.swift */,
 				8E02805B23F5654600057727 /* ManagementVC.swift */,
 				038B185023FCC2A300410A1A /* MenuVC.swift */,
+				8E33BFAC240A27A800A29F55 /* MapVC.swift */,
+				8E33BFB2240A338000A29F55 /* UserMenuVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E98C93523F38024008F612A /* LaunchScreen.storyboard in Resources */,
+				8E33BFAB240A26E000A29F55 /* User.storyboard in Resources */,
 				8E98C93223F38024008F612A /* Assets.xcassets in Resources */,
 				8E98C93023F38022008F612A /* Main.storyboard in Resources */,
 			);
@@ -459,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E33BFB3240A338000A29F55 /* UserMenuVC.swift in Sources */,
 				8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */,
 				8E98C92D23F38022008F612A /* LoginVC.swift in Sources */,
 				8E02805A23F5653800057727 /* StatsVC.swift in Sources */,
@@ -466,6 +477,7 @@
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
 				8E98C92923F38022008F612A /* AppDelegate.swift in Sources */,
+				8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */,
 				8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
