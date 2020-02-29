@@ -4,6 +4,7 @@ const Mongoose = require('mongoose');
 const app = express();
 const dotenv = require('dotenv');
 const port = 3000;
+const db = Mongoose.connection;
 
 //initial set up
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -25,8 +26,12 @@ app.use('/User', userRoute);
 //connect to mongodb
 //if this isn't working, you don't have a .env file saved in this directory
 Mongoose.connect(
-  process.env.MONGO_URI
+  process.env.MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 )
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('dab on em we connected to mongoDB');
+}); 
 
 app.listen(port, () => console.log(`dab on em we listenin on port ${port}`));
 

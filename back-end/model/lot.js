@@ -3,18 +3,23 @@ const Schema = mongoose.Schema;
 
 let LotSchema = new Schema({
     companyid: {type: String, required: true},
-    lotid: Number,
+    lotid: {type: Number, required: true},
     spots: [{
         spotid: String,
         active: Boolean,
         unavailable: Date,
+        category: String,
     }],
     totalSpots: Number,
     availableSpots: Number,
     peakTimes: [{
         hour: Number,
         count: Number,
-    }]
+    }],
+    location: {
+        latitude: String, 
+        longitude: String,
+    },
 });
 
 LotSchema.methods.CreateTimeSlots = function(hours = 24){
@@ -23,4 +28,4 @@ LotSchema.methods.CreateTimeSlots = function(hours = 24){
     };
 };
 
-module.exports = mongoose.model('Lot', LotSchema);
+module.exports = mongoose.model('Lot', LotSchema, 'lots');

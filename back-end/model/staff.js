@@ -10,4 +10,4 @@ let StaffSchema = new Schema({
     admin: {type: Boolean, required: true},
 });
 
-module.exports = mongoose.model('Staff', StaffSchema);
+module.exports = mongoose.model('Staff', StaffSchema, 'staffs');
