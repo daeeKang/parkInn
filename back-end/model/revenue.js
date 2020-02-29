@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let RevenueSchema = new Schema({
-    companyid: {type: String, required: true, unique: true},
+    companyid: {type: String, required: true},
     lotid: Number,
     amount: {type: Number, required: true},
     date: {type: Date, required: true},

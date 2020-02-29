@@ -27,7 +27,7 @@ app.use('/User', userRoute);
 //if this isn't working, you don't have a .env file saved in this directory
 Mongoose.connect(
   process.env.MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
-)
+);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log('dab on em we connected to mongoDB');

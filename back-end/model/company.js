@@ -6,8 +6,8 @@ let CompanySchema = new Schema({
     companyName: {type: String, required: true},
     lotids: [Number],
     statistic: {
-        loadCapacity: Number,
-        averageTimeParked: Number, 
+        loadCapacity: {type: Number, default: 0},
+        averageTimeParked: {type: Number, default: 0},
     },
 });
 

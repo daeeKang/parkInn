@@ -8,7 +8,7 @@ let UserSchema = new Schema({
     role: {type: String, required: true},
     first: {type: String, required: true},
     last: {type: String, required: true},
-    companyid: String,
+    companyid: {type: String, default: null},
 });
 
 UserSchema.methods.GenerateHash = function(password) {

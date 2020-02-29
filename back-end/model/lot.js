@@ -7,8 +7,8 @@ let LotSchema = new Schema({
     spots: [{
         spotid: String,
         active: Boolean,
-        unavailable: Date,
-        category: String,
+        unavailable: {type: Date, default: null},
+        category: {type: String, default: 'general'},
     }],
     totalSpots: Number,
     availableSpots: Number,
@@ -17,8 +17,8 @@ let LotSchema = new Schema({
         count: Number,
     }],
     location: {
-        latitude: String, 
-        longitude: String,
+        latitude: Number, 
+        longitude: Number,
     },
 });
 
