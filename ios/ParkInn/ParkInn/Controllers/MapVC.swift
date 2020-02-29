@@ -23,7 +23,26 @@ class MapVC: UIViewController {
         super.viewDidLoad()
 
         setupMenu()
+        setupMapView()
         verifyLocationService()
+
+        // FOR DEBUGGING ONLY
+        #if DEBUG
+
+        // In production these will be created from the GET request to the server
+        let southpoint = LotAnnotation(title: "South Point", coordinate: CLLocationCoordinate2D(latitude: 36.012926, longitude: -115.175648), info: "South Point Casino Parking Garage")
+
+        let mResort = LotAnnotation(title: "M Resort", coordinate: CLLocationCoordinate2D(latitude: 35.964762, longitude: -115.166790), info: "M Resort Parking Garage")
+
+        mapView.addAnnotations([southpoint, mResort])
+        #endif
+    }
+
+    private func setupMapView() {
+        // Add any configuration changes to the map view
+
+        // Register the custom annotation
+        mapView.register(LotMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 
     private func setupMenu() {
@@ -42,9 +61,9 @@ class MapVC: UIViewController {
     }
 }
 
-// MARK: - Delegation for Map View
-
-extension MapVC: MKMapViewDelegate, CLLocationManagerDelegate {
+// MARK: - CLLocationManagerDelegate
+// This controls the delegation for user location
+extension MapVC: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Check if there are any valid locations
@@ -108,10 +127,31 @@ extension MapVC: MKMapViewDelegate, CLLocationManagerDelegate {
             fatalError("Verify Location returned with an unknown type")
         }
     }
+}
 
+// MARK: - MKMapViewDelegate
 
+extension MapVC: MKMapViewDelegate {
 
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // Make sure that we are dealing with a LotAnnotation object
+        guard let lotAnnotation = view.annotation as? LotAnnotation else { return }
 
+        let lotName = lotAnnotation.title
+        let lotDesc = lotAnnotation.info
+
+        // For now, testing with alert controller. To be replaced with displaying a Lot page
+        let ac = UIAlertController(title: lotName, message: lotDesc, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // Center the map on the selected annotation
+        if let location = view.annotation?.coordinate {
+            self.centerMap(at: location)
+        }
+    }
 }
 
 // MARK: - SWRevealViewControllerDelegate
