@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YyH-K0-QVt">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyH-K0-QVt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <connections>
                                     <outlet property="delegate" destination="ENg-mR-61y" id="HWt-4l-uKx"/>
@@ -56,12 +56,30 @@
                                     <action selector="menuButtonPressed:" destination="ENg-mR-61y" eventType="touchUpInside" id="GKm-Mb-y3V"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-Eb-GsS" customClass="MDCFloatingButton">
+                                <rect key="frame" x="332" y="60" width="50" height="50"/>
+                                <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Uqk-SF-gIf"/>
+                                    <constraint firstAttribute="width" constant="50" id="sAM-R0-MmS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="location.north" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" weight="semibold"/>
+                                </state>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="ENg-mR-61y" eventType="touchUpInside" id="81C-ge-DSg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Nzh-rG-3JG" firstAttribute="trailing" secondItem="YyH-K0-QVt" secondAttribute="trailing" id="1XZ-oh-012"/>
                             <constraint firstItem="zTL-5X-YtS" firstAttribute="top" secondItem="Nzh-rG-3JG" secondAttribute="top" constant="16" id="42q-FX-ZmO"/>
+                            <constraint firstItem="Nzh-rG-3JG" firstAttribute="trailing" secondItem="2Cm-Eb-GsS" secondAttribute="trailing" constant="32" id="MdI-Wj-w9q"/>
                             <constraint firstItem="zTL-5X-YtS" firstAttribute="leading" secondItem="Nzh-rG-3JG" secondAttribute="leading" constant="32" id="Uzm-VZ-DN6"/>
+                            <constraint firstItem="2Cm-Eb-GsS" firstAttribute="top" secondItem="Nzh-rG-3JG" secondAttribute="top" constant="16" id="cOe-yu-KuZ"/>
                             <constraint firstItem="YyH-K0-QVt" firstAttribute="top" secondItem="ovE-LD-5t2" secondAttribute="top" id="eR3-NB-dKx"/>
                             <constraint firstItem="YyH-K0-QVt" firstAttribute="leading" secondItem="Nzh-rG-3JG" secondAttribute="leading" id="hGW-8G-6d6"/>
                             <constraint firstAttribute="bottom" secondItem="YyH-K0-QVt" secondAttribute="bottom" id="ulh-Jk-by7"/>
@@ -94,5 +112,6 @@
     </scenes>
     <resources>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+        <image name="location.north" catalog="system" width="54" height="64"/>
     </resources>
 </document>
