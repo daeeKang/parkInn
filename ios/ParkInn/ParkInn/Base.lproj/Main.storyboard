@@ -7,6 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--User-->
+        <scene sceneID="ydC-dZ-55m">
+            <objects>
+                <viewControllerPlaceholder storyboardName="User" id="bRn-uM-GG0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJ6-Co-Llt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1633" y="-526"/>
+        </scene>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -45,6 +53,7 @@
                     </view>
                     <connections>
                         <segue destination="IFc-nS-J4k" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="QKl-7d-Vsi"/>
+                        <segue destination="bRn-uM-GG0" kind="presentation" identifier="toUserSB" modalPresentationStyle="fullScreen" id="JnQ-4X-MtA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
