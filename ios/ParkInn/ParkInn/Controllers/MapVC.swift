@@ -8,15 +8,22 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
+    let locationManager = CLLocationManager()
+
+    // Controls the zoom of the mapview
+    private let regionZoom: Double = 1000
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupMenu()
+        verifyLocationService()
     }
 
     private func setupMenu() {
@@ -30,6 +37,80 @@ class MapVC: UIViewController {
         self.revealViewController()?.revealToggle(animated: true)
     }
 }
+
+// MARK: - Delegation for Map View
+
+extension MapVC: MKMapViewDelegate, CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Check if there are any valid locations
+        guard let location = locations.last else { return }
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        centerMap(at: center)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        // Check the authorizations again
+        verifyLocationAuthorization()
+    }
+
+    private func centerMapOnUser() {
+        if let location = locationManager.location?.coordinate {
+            centerMap(at: location)
+        }
+    }
+
+    private func centerMap(at center: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionZoom, longitudinalMeters: regionZoom)
+        mapView.setRegion(region, animated: true)
+    }
+
+    private func verifyLocationService() {
+        if CLLocationManager.locationServicesEnabled() {
+            // Setup Location Manager
+            setupLocationManager()
+            verifyLocationAuthorization()
+        } else {
+            // Display Alert for no location
+        }
+    }
+
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = .greatestFiniteMagnitude
+
+    }
+
+    private func verifyLocationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+            case .notDetermined:
+                // Ask for permission
+                locationManager.requestWhenInUseAuthorization()
+                break
+            case .restricted:
+                // Display that their permissions are restricted
+                break
+            case .denied:
+                // Display alert notifying that location services are disabled
+                break
+            case .authorizedAlways, .authorizedWhenInUse:
+                // Location services available - Begin Updating Location
+                locationManager.startUpdatingLocation()
+
+                // Center the map on the user
+                centerMapOnUser()
+                break
+            @unknown default:
+            fatalError("Verify Location returned with an unknown type")
+        }
+    }
+
+
+
+
+}
+
+// MARK: - SWRevealViewControllerDelegate
 
 extension MapVC: SWRevealViewControllerDelegate {
     func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
