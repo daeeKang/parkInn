@@ -1,0 +1,18 @@
+.controls{
+    position: fixed;
+    display: inline;
+    z-index: 69;
+    top: 5vh;
+    right: 5vw;
+    background-color: #fda766;
+    padding: 20px;
+    opacity: 50%;
+    border-radius: 15px;
+    transition: opacity .2s ease-out;
+}
+.controls:hover{
+    opacity: 100%;
+}
+button {
+    display: block;
+}
