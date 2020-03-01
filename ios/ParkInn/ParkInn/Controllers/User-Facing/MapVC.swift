@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
 
 class MapVC: UIViewController {
 
@@ -35,6 +36,8 @@ class MapVC: UIViewController {
         let mResort = LotAnnotation(title: "M Resort", coordinate: CLLocationCoordinate2D(latitude: 35.964762, longitude: -115.166790), info: "M Resort Parking Garage")
 
         mapView.addAnnotations([southpoint, mResort])
+
+        fetchLots(with: "8e9fe90e-bd10-48d2-8084-8f259157c832")
         #endif
     }
 
@@ -50,6 +53,14 @@ class MapVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         self.revealViewController()?.delegate = self
+    }
+
+    private func fetchLots(with companyID: String) {
+        let url = URL(string: "http://kyles-macbook-pro-13.local:3000/Lot/GetLots/\(companyID)/")!
+        AF.request(url).response { response in
+            let lots = try! JSONDecoder().decode([Lot].self, from: response.data!)
+            print(lots)
+        }
     }
 
     @IBAction func menuButtonPressed(_ sender: Any) {
@@ -125,6 +136,13 @@ extension MapVC: CLLocationManagerDelegate {
                 break
             @unknown default:
             fatalError("Verify Location returned with an unknown type")
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let lotVC = segue.destination as? LotVC,
+            let info = sender as? (String, String) {
+            lotVC.lotInfo = info
         }
     }
 }

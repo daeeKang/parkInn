@@ -10,21 +10,21 @@ import UIKit
 
 class LotVC: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+
+    var lotInfo: (String, String)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        populateView()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func populateView() {
+        guard lotInfo != nil else { return }
+        nameLabel.text = lotInfo!.0
+        descriptionLabel.text = lotInfo!.1
     }
-    */
 
 }
