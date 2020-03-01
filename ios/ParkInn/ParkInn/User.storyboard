@@ -88,6 +88,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="YyH-K0-QVt" id="GLG-oz-h8o"/>
+                        <segue destination="XOA-2H-7b0" kind="show" identifier="toLotVC" id="7I3-1C-J12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u0-j0-jDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -108,6 +109,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2N-qu-uL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-161" y="650"/>
+        </scene>
+        <!--LotVC-->
+        <scene sceneID="x0l-Hh-GVI">
+            <objects>
+                <viewController storyboardIdentifier="LotVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XOA-2H-7b0" customClass="LotVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8UT-xC-qnw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yuG-eA-Hno">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="UgR-Ek-QL3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="South Point Casino Garage" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARK-QF-aeK">
+                                <rect key="frame" x="16" y="308" width="390" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking Garage on Maryland Parkway" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPo-2Z-CHq">
+                                <rect key="frame" x="16" y="350.5" width="390" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="ARK-QF-aeK" secondAttribute="trailing" constant="8" id="0Pu-xp-eUJ"/>
+                            <constraint firstItem="yuG-eA-Hno" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" id="6Qb-7g-srb"/>
+                            <constraint firstItem="yuG-eA-Hno" firstAttribute="top" secondItem="8UT-xC-qnw" secondAttribute="top" id="Apl-Bp-sN2"/>
+                            <constraint firstItem="DPo-2Z-CHq" firstAttribute="top" secondItem="ARK-QF-aeK" secondAttribute="bottom" constant="4" id="CWV-1h-EZ2"/>
+                            <constraint firstItem="ARK-QF-aeK" firstAttribute="top" secondItem="yuG-eA-Hno" secondAttribute="bottom" constant="8" id="OAN-Zx-KIp"/>
+                            <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="yuG-eA-Hno" secondAttribute="trailing" id="QVe-gy-9sx"/>
+                            <constraint firstItem="DPo-2Z-CHq" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" constant="16" id="Uge-Ak-cFt"/>
+                            <constraint firstItem="ARK-QF-aeK" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" constant="16" id="Yrl-Dw-WGo"/>
+                            <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="DPo-2Z-CHq" secondAttribute="trailing" constant="8" id="pZu-JX-Cvv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7xy-1w-JeU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2DL-1T-fRa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EE2-4g-HCe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991" y="-100"/>
         </scene>
     </scenes>
     <resources>

@@ -140,10 +140,8 @@ extension MapVC: MKMapViewDelegate {
         let lotName = lotAnnotation.title
         let lotDesc = lotAnnotation.info
 
-        // For now, testing with alert controller. To be replaced with displaying a Lot page
-        let ac = UIAlertController(title: lotName, message: lotDesc, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        // Navigate to LotVC
+        performSegue(withIdentifier: "toLotVC", sender: (lotName, lotDesc)) // Sender should eventually be the lot model object
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
