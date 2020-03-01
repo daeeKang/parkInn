@@ -69,7 +69,7 @@ extension MapVC: CLLocationManagerDelegate {
         // Check if there are any valid locations
         guard let location = locations.last else { return }
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        centerMap(at: center)
+        centerMap(at: center, zoom: regionZoom)
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -79,12 +79,12 @@ extension MapVC: CLLocationManagerDelegate {
 
     private func centerMapOnUser() {
         if let location = locationManager.location?.coordinate {
-            centerMap(at: location)
+            centerMap(at: location, zoom: regionZoom)
         }
     }
 
-    private func centerMap(at center: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionZoom, longitudinalMeters: regionZoom)
+    private func centerMap(at center: CLLocationCoordinate2D, zoom: Double) {
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: zoom, longitudinalMeters: zoom)
         mapView.setRegion(region, animated: true)
     }
 
@@ -149,7 +149,7 @@ extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // Center the map on the selected annotation
         if let location = view.annotation?.coordinate {
-            self.centerMap(at: location)
+            self.centerMap(at: location, zoom: 350)
         }
     }
 }
