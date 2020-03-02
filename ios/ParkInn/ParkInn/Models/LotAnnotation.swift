@@ -12,11 +12,11 @@ import MapKit
 class LotAnnotation: NSObject, MKAnnotation {
     var title: String?
     var coordinate: CLLocationCoordinate2D
-    var info: String? // Should Probably be another model class at some point
+    var lot: Lot
 
-    init(title: String?, coordinate: CLLocationCoordinate2D, info: String?) {
-        self.title = title
-        self.coordinate = coordinate
-        self.info = info
+    init(lot: Lot) {
+        self.lot = lot
+        self.title = "Lot \(lot.lotID)" // This should be replaced with a Lot name if one is added later
+        self.coordinate = CLLocationCoordinate2D(latitude: lot.location.latitude, longitude: lot.location.longitude)
     }
 }
