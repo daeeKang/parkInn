@@ -16,8 +16,10 @@ const companyRoute =  require('./routes/Company');
 const lotRoute =      require('./routes/Lot');
 const customerRoute = require('./routes/Customer');
 const userRoute = require('./routes/User');
+const staffRoute = require('./routes/Staff');
 
 //tell app to use brought in routes
+app.use('/Staff', staffRoute);
 app.use('/Company', companyRoute);
 app.use('/Lot', lotRoute);
 app.use('/Customer', customerRoute);
