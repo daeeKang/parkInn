@@ -6,25 +6,27 @@ const db = Mongoose.connection;
 const randomLocation = require('random-location');
 const randomDate = require('random-date-generator');
 const Chance = require('chance');
+const fs = require('fs');
 const chance = new Chance();
 dotenv.config();
-let documentCount = 0;
+let documentCount = 0; 
+const lotName = ['Cottage Cheese', 'Swenson', 'Green Lot', 'Blue Lot', 'Thomas and Cheese', 'Jefferson and Mac', 'The Library', 'University Gateway'];
 
 function createCompanies() {
     const company1 = new model.Company({
-        companyid: uuidv4(),
+        companyid: '8e9fe90e-bd10-48d2-8084-8f259157c832',
         companyName: 'MGM',
         lotids: [1, 2, 3, 4, 5],
       });
       const company2 = new model.Company({
-        companyid: uuidv4(),
+        companyid: '04d9c007-f341-413d-ab0f-ae1834c14a19',
         companyName: 'Flamingo',
-        lotids: [1, 2],
+        lotids: [6, 7],
       });
       const company3 = new model.Company({
-        companyid: uuidv4(),
+        companyid: 'b20228c1-0c64-4a89-9e7b-612a439e3dd5',
         companyName: 'Sapphire',
-        lotids: [1],
+        lotids: [8],
       });
       company1.save().then(res => {
         documentCount++;
@@ -63,10 +65,15 @@ function createLot(lotid, companyid, name){
     const lot = new model.Lot({
         companyid: companyid,
         lotid: lotid,
+        lotName: lotName[lotid-1],
         spots: parkingSpots,
         totalSpots: parkingSpots.length,
         availableSpots: parkingSpots.length,
         location: generateLocation(),
+        img:{
+            data: fs.readFileSync(`${__dirname}/images/image${lotid}.png`),
+            contentType: 'image/png', 
+        },
     });
     lot.CreateTimeSlots();
     lot.save().then(res => {

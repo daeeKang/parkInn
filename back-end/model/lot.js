@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 let LotSchema = new Schema({
     companyid: {type: String, required: true},
     lotid: {type: Number, required: true},
+    lotName: {type: String, default: null},
     spots: [{
         spotid: String,
         active: Boolean,
@@ -20,6 +21,7 @@ let LotSchema = new Schema({
         latitude: Number, 
         longitude: Number,
     },
+    img: {data: Buffer, contentType: String},
 });
 
 LotSchema.methods.CreateTimeSlots = function(hours = 24){
