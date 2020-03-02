@@ -5,7 +5,6 @@ const {check, validationResult } = require('express-validator');
 router.post('/AddUser', [
     check('username').isEmail(), 
     check('password').isLength({min: 5}).withMessage("must be at least 5 characters long")
-                     .matches(/^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/).withMessage("Does not match this regex that Will gave me lol")
     ], 
     (req, res) => {
         
