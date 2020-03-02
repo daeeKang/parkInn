@@ -60,8 +60,8 @@ router.patch('/UpdateSpot', async (req, res) => {
     })
 })
 
-router.get('/GetLots/:companyid', async (req, res) => { 
-  const lots = await model.Lot.find({companyid: req.params.companyid});
+router.get('/GetLots', async (req, res) => { 
+  const lots = await model.Lot.find({companyid: req.body.companyid});
   try{
       return res.send(lots);
   }

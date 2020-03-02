@@ -27,12 +27,12 @@ router.post('/AddUser', (req, res) => {
     });
 });
 
-router.get('/GetUser/:username/:password', async (req, res) => {
+router.get('/GetUser', async (req, res) => {
 
-    const userData = await model.User.findOne({username: req.params.username});
+    const userData = await model.User.findOne({username: req.body.username});
 
     try{
-        if(userData.ValidPassword(req.params.password)){
+        if(userData.ValidPassword(req.body.password)){
             res.send(userData);
         }
         else{
