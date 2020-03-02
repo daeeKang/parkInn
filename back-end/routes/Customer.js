@@ -35,9 +35,9 @@ router.get('/GetCustomers', async (req, res) => {
     }
 });
 
-router.get('/GetCustomer/:username', async (req, res) => {
+router.get('/GetCustomer', async (req, res) => {
     
-    const customer = await model.Customer.find({username: req.params.username});
+    const customer = await model.Customer.find({username: req.body.username});
     try{
         res.send(customer);
     }
