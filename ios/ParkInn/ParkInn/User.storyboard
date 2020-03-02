@@ -118,7 +118,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yuG-eA-Hno">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yuG-eA-Hno">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="UgR-Ek-QL3"/>
@@ -136,6 +136,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iax-Rm-1pA">
+                                <rect key="frame" x="158" y="403" width="98" height="30"/>
+                                <state key="normal" title="Get Directions"/>
+                                <connections>
+                                    <action selector="getDirectionsPressed:" destination="XOA-2H-7b0" eventType="touchUpInside" id="ahV-40-KhU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -143,10 +150,12 @@
                             <constraint firstItem="yuG-eA-Hno" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" id="6Qb-7g-srb"/>
                             <constraint firstItem="yuG-eA-Hno" firstAttribute="top" secondItem="8UT-xC-qnw" secondAttribute="top" id="Apl-Bp-sN2"/>
                             <constraint firstItem="DPo-2Z-CHq" firstAttribute="top" secondItem="ARK-QF-aeK" secondAttribute="bottom" constant="4" id="CWV-1h-EZ2"/>
+                            <constraint firstItem="iax-Rm-1pA" firstAttribute="centerX" secondItem="8UT-xC-qnw" secondAttribute="centerX" id="O7l-5Q-adJ"/>
                             <constraint firstItem="ARK-QF-aeK" firstAttribute="top" secondItem="yuG-eA-Hno" secondAttribute="bottom" constant="8" id="OAN-Zx-KIp"/>
                             <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="yuG-eA-Hno" secondAttribute="trailing" id="QVe-gy-9sx"/>
                             <constraint firstItem="DPo-2Z-CHq" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" constant="16" id="Uge-Ak-cFt"/>
                             <constraint firstItem="ARK-QF-aeK" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" constant="16" id="Yrl-Dw-WGo"/>
+                            <constraint firstItem="iax-Rm-1pA" firstAttribute="top" secondItem="DPo-2Z-CHq" secondAttribute="bottom" constant="32" id="ht6-zc-GbH"/>
                             <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="DPo-2Z-CHq" secondAttribute="trailing" constant="8" id="pZu-JX-Cvv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7xy-1w-JeU"/>

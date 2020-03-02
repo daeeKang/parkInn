@@ -16,6 +16,7 @@ class MapVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
 
     let locationManager = CLLocationManager()
+    var lotAnnotations = [LotAnnotation]()
 
     // Controls the zoom of the mapview
     private let regionZoom: Double = 1000
@@ -29,14 +30,7 @@ class MapVC: UIViewController {
 
         // FOR DEBUGGING ONLY
         #if DEBUG
-
-        // In production these will be created from the GET request to the server
-        let southpoint = LotAnnotation(title: "South Point", coordinate: CLLocationCoordinate2D(latitude: 36.012926, longitude: -115.175648), info: "South Point Casino Parking Garage")
-
-        let mResort = LotAnnotation(title: "M Resort", coordinate: CLLocationCoordinate2D(latitude: 35.964762, longitude: -115.166790), info: "M Resort Parking Garage")
-
-        mapView.addAnnotations([southpoint, mResort])
-
+        // Get Lots with Company ID: "8e9fe90e-bd10-48d2-8084-8f259157c832"
         fetchLots(with: "8e9fe90e-bd10-48d2-8084-8f259157c832")
         #endif
     }
@@ -56,10 +50,15 @@ class MapVC: UIViewController {
     }
 
     private func fetchLots(with companyID: String) {
+        #warning("This method needs to be reworked once the server is hosted")
+        // TEMPORARY URL Used for testing lot decoding -> The actual URL should be constructed with a constant BASE_URL
         let url = URL(string: "http://kyles-macbook-pro-13.local:3000/Lot/GetLots/\(companyID)/")!
         AF.request(url).response { response in
             let lots = try! JSONDecoder().decode([Lot].self, from: response.data!)
-            print(lots)
+            for lot in lots {
+                self.lotAnnotations.append(LotAnnotation(lot: lot))
+            }
+            self.mapView.addAnnotations(self.lotAnnotations)
         }
     }
 
@@ -141,8 +140,8 @@ extension MapVC: CLLocationManagerDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let lotVC = segue.destination as? LotVC,
-            let info = sender as? (String, String) {
-            lotVC.lotInfo = info
+            let lot = sender as? Lot {
+            lotVC.lot = lot
         }
     }
 }
@@ -155,17 +154,14 @@ extension MapVC: MKMapViewDelegate {
         // Make sure that we are dealing with a LotAnnotation object
         guard let lotAnnotation = view.annotation as? LotAnnotation else { return }
 
-        let lotName = lotAnnotation.title
-        let lotDesc = lotAnnotation.info
-
         // Navigate to LotVC
-        performSegue(withIdentifier: "toLotVC", sender: (lotName, lotDesc)) // Sender should eventually be the lot model object
+        performSegue(withIdentifier: "toLotVC", sender: lotAnnotation.lot)
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // Center the map on the selected annotation
-        if let location = view.annotation?.coordinate {
-            self.centerMap(at: location, zoom: 350)
+        if let location = view.annotation {
+            self.centerMap(at: location.coordinate, zoom: 350)
         }
     }
 }
