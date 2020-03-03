@@ -16,7 +16,9 @@ class LotAnnotation: NSObject, MKAnnotation {
 
     init(lot: Lot) {
         self.lot = lot
-        self.title = "Lot \(lot.lotID)" // This should be replaced with a Lot name if one is added later
+
+        // Setting the title to lot name if it exists, if not then to the lot id
+        self.title = lot.lotName ?? "Lot \(lot.lotID)"
         self.coordinate = CLLocationCoordinate2D(latitude: lot.location.latitude, longitude: lot.location.longitude)
     }
 }
