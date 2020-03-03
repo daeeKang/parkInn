@@ -163,6 +163,7 @@
                     <navigationItem key="navigationItem" id="2DL-1T-fRa"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="DPo-2Z-CHq" id="DN0-TH-eKI"/>
+                        <outlet property="lotImage" destination="yuG-eA-Hno" id="g9k-dt-lhK"/>
                         <outlet property="nameLabel" destination="ARK-QF-aeK" id="JUi-06-0iz"/>
                     </connections>
                 </viewController>
