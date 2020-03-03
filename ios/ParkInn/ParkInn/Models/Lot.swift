@@ -56,6 +56,8 @@ struct Coordinate: Decodable {
 struct Image: Decodable {
     var data: ImageData
     var contentType: String
+
+    // Creates a UIImage using the data from the Data object
     var image: UIImage? {
         return UIImage(data: data.data)
     }
@@ -68,6 +70,7 @@ struct ImageData: Decodable {
         case bytes = "data"
     }
 
+    // Turns the array of UInt8 into a Data object
     var data: Data {
         return Data(bytes: bytes, count: bytes.count)
     }
