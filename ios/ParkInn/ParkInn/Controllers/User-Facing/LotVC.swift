@@ -25,8 +25,11 @@ class LotVC: UIViewController {
 
     private func populateView() {
         if let lot = self.lot {
-            nameLabel.text = "Lot \(lot.lotID)"
+            nameLabel.text = lot.lotName ?? "Lot \(lot.lotID)"
             descriptionLabel.text = "\(lot.availableSpots)/\(lot.availableSpots) Spots Available"
+
+            lotImage.image = lot.imageDetails.image
+
         }
     }
 
