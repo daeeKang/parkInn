@@ -9,6 +9,7 @@ import CardIcon from './../Card/CardIcon';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const lightBlue = "#b3e5fc";
+import Login from '../LoginPage/Login' //just place holder for now maybe lol
 
 export default props => {
     return (
@@ -71,6 +72,7 @@ export default props => {
                     </Card>
                 </GridItem>
             {/* </Grid> */}
+            <Login/>
         </div>
     )
 }
