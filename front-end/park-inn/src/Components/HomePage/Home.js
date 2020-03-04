@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css'
 import { Grid, Divider } from '@material-ui/core';
+// import Login from '../LoginPage/Login' //just place holder for now maybe lol
 import GridItem from './../Grid/GridItem';
 import Card from './../Card/Card';
 import CardBody from './../Card/CardBody';
@@ -9,7 +10,6 @@ import CardIcon from './../Card/CardIcon';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const lightBlue = "#b3e5fc";
-import Login from '../LoginPage/Login' //just place holder for now maybe lol
 
 export default props => {
     return (
@@ -72,7 +72,8 @@ export default props => {
                     </Card>
                 </GridItem>
             {/* </Grid> */}
-            <Login/>
+
+            {/* <Login/> */}
         </div>
     )
 }
