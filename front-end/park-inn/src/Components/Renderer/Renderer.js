@@ -6,15 +6,16 @@ import { Stage, Layer, Star, Text, Line, Rect } from 'react-konva';
 export default class Renderer extends React.Component {
     state = {
         scale: 1,
+        snappingRatio: 10,
         isDrawing: true,
         isPan: false,
         stage: {
             draggable: true,
-            x: window.innerWidth/2,
+            x: (window.innerWidth/2),
             y: window.innerHeight/2
         },
         walls: [
-                       
+
         ], 
         stars: [
             // //this is just filler for now 
@@ -42,6 +43,15 @@ export default class Renderer extends React.Component {
         ],
     }
 
+    //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
+    snapGrid(roundTo, num){
+        let rem = num % roundTo;
+        if(rem < roundTo / 2){
+            return num - rem;
+        } else {
+            return num + (roundTo - rem);
+        }
+    }
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
     //this is star stuff we will remove this
@@ -116,8 +126,8 @@ export default class Renderer extends React.Component {
 
         let walls = this.state.walls;
         walls.push({
-            x: e.evt.layerX - this.state.stage.x,
-            y: e.evt.layerY - this.state.stage.y,
+            x: this.snapGrid(this.state.snappingRatio, e.evt.layerX - this.state.stage.x),
+            y: this.snapGrid(this.state.snappingRatio, e.evt.layerY - this.state.stage.y),
             width: 0,
             height: 0
         })
@@ -132,8 +142,8 @@ export default class Renderer extends React.Component {
         
         let walls = this.state.walls;
         let wall = walls[walls.length - 1];
-        wall.width = e.evt.layerX - this.state.stage.x - wall.x;
-        wall.height = e.evt.layerY - this.state.stage.y - wall.y;
+        wall.width = this.snapGrid(this.state.snappingRatio, e.evt.layerX - this.state.stage.x - wall.x);
+        wall.height = this.snapGrid(this.state.snappingRatio, e.evt.layerY - this.state.stage.y - wall.y);
         
         this.setState({
             walls: walls
@@ -201,7 +211,7 @@ export default class Renderer extends React.Component {
                     <Layer>
                         {[...Array(200)].map((_, i) => (
                             <Line
-                                points={[-2500, i * 25 - 2500, 2500, i * 25 - 2500]}
+                                points={[-2500, i * 50 - 2500, 2500, i * 50 - 2500]}
                                 strokeWidth={.3}
                                 closed
                                 stroke={'#add8e6'}
@@ -212,7 +222,7 @@ export default class Renderer extends React.Component {
                         ))}
                         {[...Array(200)].map((_, i) => (
                             <Line
-                                points={[i * 25 - 2500, -2500, i * 25 - 2500, 2500]}
+                                points={[i * 50 - 2500, -2500, i * 50 - 2500, 2500]}
                                 strokeWidth={.3}
                                 closed
                                 stroke={'#add8e6'}
