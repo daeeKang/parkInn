@@ -164,7 +164,6 @@
 				8EA1AC0223F52F3C00CC0ECA /* Models */,
 				8EA1AC0123F52F3600CC0ECA /* Views */,
 				8EA1AC0023F52F2500CC0ECA /* Controllers */,
-				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 				8E98C92823F38022008F612A /* AppDelegate.swift */,
 				8E98C92A23F38022008F612A /* SceneDelegate.swift */,
 				8E98C92E23F38022008F612A /* Main.storyboard */,
@@ -200,7 +199,6 @@
 				8E98C92C23F38022008F612A /* LoginVC.swift */,
 				8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */,
 				8E02805923F5653800057727 /* StatsVC.swift */,
-				8E02805B23F5654600057727 /* ManagementVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +206,8 @@
 		8EA1AC0123F52F3600CC0ECA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
+				8E02805B23F5654600057727 /* ManagementVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
