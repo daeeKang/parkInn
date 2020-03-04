@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import './App.css'
 import Sidebar from './Components/Sidebar/Sidebar';
 import Main from './Components/Main';
+import Footer from './Components/Footer/Footer';
 
 class App extends Component {
   render() {
@@ -8,6 +10,7 @@ class App extends Component {
       <div>
         <Sidebar />
         <Main id='page-wrap' />
+        <Footer />
       </div>
     );
   }

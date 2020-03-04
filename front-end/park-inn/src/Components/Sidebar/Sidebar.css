@@ -19,7 +19,7 @@
   }
   
   .bm-burger-bars {
-    background: #373a47;
+    background: #263238;
   }
   
   .bm-cross-button {
@@ -35,6 +35,7 @@
     background: #ffffff;
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
+    font-variant-caps: small-caps;
   }
   
   .bm-morph-shape {
@@ -42,7 +43,7 @@
   }
   
   .bm-item-list {
-    color: #b8b7ad;
+    color: #bdc3c7;
   }
   
   .bm-overlay {
