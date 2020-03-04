@@ -82,8 +82,8 @@ router.patch('/UpdateSpot', async (req, res) => {
     })
 })
 
-router.get('/GetLots', async (req, res) => { 
-  const lots = await model.Lot.find({companyid: req.body.companyid});
+router.get('/GetLots/:companyid', async (req, res) => { 
+  const lots = await model.Lot.find({companyid: req.params.companyid});
   try{
       return res.send(lots);
   }
@@ -92,24 +92,24 @@ router.get('/GetLots', async (req, res) => {
   }
 })
 
-router.get('/GetLot', async(req, res) => {
-  const lot = await model.Lot.find({companyid: req.body.companyid, lotid: req.body.lotid});
+router.get('/GetLot/:companyid/:lotid', async(req, res) => {
+  const lot = await model.Lot.find({companyid: req.params.companyid, lotid: req.params.lotid});
 
   if(lot.length == 0) return res.send('no lot found, btw change these error messages lmao');
 
   return res.send(lot[0]);
 })
 
-router.get('/GetAllSpots', async(req, res) => {
-  const lot = await model.Lot.find({companyid: req.body.companyid, lotid: req.body.lotid});
+router.get('/GetAllSpots/:companyid/:lotid', async(req, res) => {
+  const lot = await model.Lot.find({companyid: req.params.companyid, lotid: req.params.lotid});
 
   if(lot.length == 0) return res.send('no lot found, btw change these error messages lmao');
 
   res.send(lot[0].spots);
 })
 
-router.get('/GetParkingSpot', async(req, res) => {
-  const lot = await model.Lot.find({companyid: req.body.companyid, lotid: req.body.lotid});
+router.get('/GetParkingSpot/:companyid/:lotid', async(req, res) => {
+  const lot = await model.Lot.find({companyid: req.params.companyid, lotid: req.params.lotid});
   
   //check if we found the lot
   if(lot.length == 0) return res.send('no lot found, btw change these error messages lmao');
@@ -127,8 +127,8 @@ router.get('/GetParkingSpot', async(req, res) => {
   return res.send(out);
 })
 
-router.get('/GetPeakTimes', async(req, res) => {
-  const lot = await model.Lot.find({companyid: req.body.companyid, lotid: req.body.lotid});
+router.get('/GetPeakTimes/:companyid/:lotid', async(req, res) => {
+  const lot = await model.Lot.find({companyid: req.params.companyid, lotid: req.params.lotid});
 
   if(lot.length == 0) return res.send('no lot found, btw change these error messages lmao');
 

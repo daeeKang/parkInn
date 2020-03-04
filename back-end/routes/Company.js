@@ -20,4 +20,22 @@ router.post('/AddCompany', (req, res) => {
     });
 });
 
+router.get('/GetCompany/:companyName', async (req, res) => {
+
+  const company = await model.Company.findOne({companyName: req.params.companyName});
+
+  if(company == null){
+    res.send("No company " + req.params.companyName + " found");
+  }
+  else{
+    try{
+      res.send(company);
+    }
+    catch(err){
+      res.status(500).send(err);
+    }
+  }
+
+});
+
 module.exports = router;
