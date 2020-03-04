@@ -11,25 +11,24 @@ import Foundation
 class Lot: Decodable {
     let companyID: String
     let lotID: Int
-    let lotName: String?
+    let name: String?
     let spots: [Spot]
     let totalSpots: Int
     let availableSpots: Int
     let peakTimes: [PeakTime]
     let location: Coordinate
-    let imageDetails: Image
-
+    let imageURL: String?
 
     enum CodingKeys: String, CodingKey {
         case companyID = "companyid"
         case lotID = "lotid"
-        case lotName
+        case name = "lotName"
         case spots
         case totalSpots
         case availableSpots
         case peakTimes
         case location
-        case imageDetails = "img"
+        case imageURL = "img"
     }
 }
 
@@ -50,28 +49,4 @@ struct PeakTime: Decodable {
 struct Coordinate: Decodable {
     var latitude: Double
     var longitude: Double
-}
-
-
-struct Image: Decodable {
-    var data: ImageData
-    var contentType: String
-
-    // Creates a UIImage using the data from the Data object
-    var image: UIImage? {
-        return UIImage(data: data.data)
-    }
-}
-
-struct ImageData: Decodable {
-    var bytes: [UInt8]
-
-    enum CodingKeys: String, CodingKey {
-        case bytes = "data"
-    }
-
-    // Turns the array of UInt8 into a Data object
-    var data: Data {
-        return Data(bytes: bytes, count: bytes.count)
-    }
 }

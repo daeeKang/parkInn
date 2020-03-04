@@ -19,6 +19,7 @@
 		8E33BFB3240A338000A29F55 /* UserMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB2240A338000A29F55 /* UserMenuVC.swift */; };
 		8E33BFB5240A516300A29F55 /* LotAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB4240A516300A29F55 /* LotAnnotation.swift */; };
 		8E33BFB7240A633C00A29F55 /* LotMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */; };
+		8E4CC297240F9DD500C73960 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */; };
 		8E4E0426240C56CE00016031 /* LotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E0425240C56CE00016031 /* LotVC.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
@@ -66,6 +67,7 @@
 		8E33BFB2240A338000A29F55 /* UserMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuVC.swift; sourceTree = "<group>"; };
 		8E33BFB4240A516300A29F55 /* LotAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotAnnotation.swift; sourceTree = "<group>"; };
 		8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotMarkerView.swift; sourceTree = "<group>"; };
+		8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extensions.swift"; sourceTree = "<group>"; };
 		8E4E0425240C56CE00016031 /* LotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotVC.swift; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				8E02806423F5E8F400057727 /* SWRevealViewController.h */,
 				8E02806323F5E8F400057727 /* SWRevealViewController.m */,
+				8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				8E33BFB7240A633C00A29F55 /* LotMarkerView.swift in Sources */,
 				8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */,
 				35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */,
+				8E4CC297240F9DD500C73960 /* UIImage+extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
