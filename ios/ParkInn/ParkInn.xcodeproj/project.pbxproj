@@ -200,7 +200,6 @@
 				8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */,
 				8E02805923F5653800057727 /* StatsVC.swift */,
 				8E02805B23F5654600057727 /* ManagementVC.swift */,
-				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +207,7 @@
 		8EA1AC0123F52F3600CC0ECA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
