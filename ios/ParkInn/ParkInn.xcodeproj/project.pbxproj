@@ -44,8 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCVCell.swift; sourceTree = "<group>"; };
 		038B185023FCC2A300410A1A /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCVCell.swift; sourceTree = "<group>"; };
 		47CCD8676814AB4A0B0E29DD /* Pods-ParkInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.debug.xcconfig"; sourceTree = "<group>"; };
 		59ED785E62F4300390FFA17C /* Pods-ParkInn-ParkInnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn-ParkInnUITests.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn-ParkInnUITests/Pods-ParkInn-ParkInnUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D79A73D19344D7644F81A9E /* Pods-ParkInnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInnTests.debug.xcconfig"; path = "Target Support Files/Pods-ParkInnTests/Pods-ParkInnTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 				8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */,
 				8E02805923F5653800057727 /* StatsVC.swift */,
 				038B185023FCC2A300410A1A /* MenuVC.swift */,
+				8E02805B23F5654600057727 /* ManagementVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
-				8E02805B23F5654600057727 /* ManagementVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
