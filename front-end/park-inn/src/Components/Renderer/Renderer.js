@@ -17,30 +17,6 @@ export default class Renderer extends React.Component {
         walls: [
 
         ], 
-        stars: [
-            // //this is just filler for now 
-            // //TO-DO: REMOVE THIS
-            // {
-            //     x: Math.random() * window.innerWidth,
-            //     y: Math.random() * window.innerHeight
-            // },
-            // {
-            //     x: Math.random() * window.innerWidth,
-            //     y: Math.random() * window.innerHeight
-            // },
-            // {
-            //     x: Math.random() * window.innerWidth,
-            //     y: Math.random() * window.innerHeight
-            // },
-            // {
-            //     x: Math.random() * window.innerWidth,
-            //     y: Math.random() * window.innerHeight
-            // },
-            // {
-            //     x: Math.random() * window.innerWidth,
-            //     y: Math.random() * window.innerHeight
-            // },
-        ],
     }
 
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
@@ -54,30 +30,6 @@ export default class Renderer extends React.Component {
     }
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
-    //this is star stuff we will remove this
-    handleDragStart = e => {
-        e.target.setAttrs({
-            shadowOffset: {
-                x: 15,
-                y: 15
-            },
-            scaleX: 1.1,
-            scaleY: 1.1
-        });
-        this.setState({
-            isPan: false
-        })
-    };
-    handleDragEnd = e => {
-        e.target.to({
-            duration: 0.5,
-            easing: Konva.Easings.ElasticEaseOut,
-            scaleX: 1,
-            scaleY: 1,
-            shadowOffsetX: 5,
-            shadowOffsetY: 5
-        });
-    };
     //stage handeling
     handleStageDrag = e => {
         if (this.state.isPan){
@@ -243,27 +195,6 @@ export default class Renderer extends React.Component {
                                 fill="black"
                             />
                         })}
-                    </Layer>
-                    <Layer>
-                        {this.state.stars.map((star, i) => (
-                            <Star
-                                key={i}
-                                x={star.x}
-                                y={star.y}
-                                numPoints={5}
-                                innerRadius={20}
-                                outerRadius={40}
-                                fill="#89b717"
-                                opacity={0.8}
-                                draggable
-                                rotation={Math.random() * 180}
-                                shadowColor="black"
-                                shadowBlur={10}
-                                shadowOpacity={0.6}
-                                onDragStart={this.handleDragStart}
-                                onDragEnd={this.handleDragEnd}
-                            />
-                        ))}
                     </Layer>
                 </Stage>
             </div>
