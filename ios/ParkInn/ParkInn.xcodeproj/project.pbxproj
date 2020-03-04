@@ -164,6 +164,7 @@
 				8EA1AC0223F52F3C00CC0ECA /* Models */,
 				8EA1AC0123F52F3600CC0ECA /* Views */,
 				8EA1AC0023F52F2500CC0ECA /* Controllers */,
+				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 				8E98C92823F38022008F612A /* AppDelegate.swift */,
 				8E98C92A23F38022008F612A /* SceneDelegate.swift */,
 				8E98C92E23F38022008F612A /* Main.storyboard */,
@@ -207,7 +208,6 @@
 		8EA1AC0123F52F3600CC0ECA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
