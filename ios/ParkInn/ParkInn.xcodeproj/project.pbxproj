@@ -207,6 +207,7 @@
 		8EA1AC0123F52F3600CC0ECA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,7 +215,6 @@
 		8EA1AC0223F52F3C00CC0ECA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
