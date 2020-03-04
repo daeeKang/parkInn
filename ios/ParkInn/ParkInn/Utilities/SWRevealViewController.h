@@ -297,6 +297,9 @@ typedef NS_ENUM(NSInteger, SWRevealToggleAnimationType)
 // Defines the front view's shadow color, default is blackColor
 @property (nonatomic) UIColor *frontViewShadowColor;
 
+// Contains whether or not the reveal is showing
+@property (nonatomic, readonly) BOOL isOpen;
+
 // Defines whether the controller should clip subviews to its view bounds. Default is NO.
 // Set this to YES when you are presenting this controller as a non full-screen child of a
 // custom container controller which does not explicitly clips its subviews.
