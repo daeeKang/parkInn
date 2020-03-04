@@ -15,7 +15,7 @@ class LotVC: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var lotImage: UIImageView!
 
-    var lot: Lot?
+    var lot: Lot!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,14 @@ class LotVC: UIViewController {
     }
 
     private func populateView() {
-        if let lot = self.lot {
-            nameLabel.text = lot.lotName ?? "Lot \(lot.lotID)"
-            descriptionLabel.text = "\(lot.availableSpots)/\(lot.availableSpots) Spots Available"
+        // Populate the labels with Lot information
+        nameLabel.text = lot.name ?? "Lot \(lot.lotID)"
+        descriptionLabel.text = "\(lot.availableSpots)/\(lot.availableSpots) Spots Available"
 
-            lotImage.image = lot.imageDetails.image
-
+        // If an imageURL was retrieved, load it into lotImage
+        if let urlString = lot.imageURL,
+            let imageURL = URL(string: urlString) {
+            lotImage.load(url: imageURL)
         }
     }
 
