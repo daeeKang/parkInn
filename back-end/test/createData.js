@@ -70,10 +70,6 @@ function createLot(lotid, companyid, name){
         totalSpots: parkingSpots.length,
         availableSpots: parkingSpots.length,
         location: generateLocation(),
-        img:{
-            data: fs.readFileSync(`${__dirname}/images/image${lotid}.png`),
-            contentType: 'image/png', 
-        },
     });
     lot.CreateTimeSlots();
     lot.save().then(res => {
