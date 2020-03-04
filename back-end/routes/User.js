@@ -54,4 +54,23 @@ router.get('/GetUser', async (req, res) => {
 
 });
 
+router.get('/GetUser/:username/:password', async (req, res) => {
+
+    const userData = await model.User.findOne({username: req.params.username});
+
+    try{
+        if(userData.ValidPassword(req.params.password)){
+            res.send(userData);
+        }
+        else{
+            res.status(401).send({rtnCode: 1});        
+        }
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).send(err);
+    }
+
+});
+
 module.exports = router;
