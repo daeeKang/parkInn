@@ -4,15 +4,11 @@ const Schema = mongoose.Schema;
 let CompanySchema = new Schema({
     companyid: {type: String, required: true, unique: true},
     companyName: {type: String, required: true},
-    lots: [Number],
-    revenue: [{
-        amount: Number,
-        date: Date,
-    }],
+    lotids: [Number],
     statistic: {
-        loadCapacity: Number,
-        averageTimeParked: Number, 
+        loadCapacity: {type: Number, default: 0},
+        averageTimeParked: {type: Number, default: 0},
     },
 });
 
-module.exports = mongoose.model('Company', CompanySchema);
+module.exports = mongoose.model('Company', CompanySchema, 'companies');

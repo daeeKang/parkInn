@@ -6,8 +6,8 @@ let StaffSchema = new Schema({
     first: {type: String, required: true},
     last: {type: String, requred: true},
     employeeid: String,
-    companyid: {type: String, required: true, unique: true},
+    companyid: {type: String, required: true},
     admin: {type: Boolean, required: true},
 });
 
-module.exports = mongoose.model('Staff', StaffSchema);
+module.exports = mongoose.model('Staff', StaffSchema, 'staffs');
