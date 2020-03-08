@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
   - MaterialComponents (103.1.0):
     - MaterialComponents/ActionSheet (= 103.1.0)
     - "MaterialComponents/ActionSheet+Theming (= 103.1.0)"
@@ -578,11 +581,13 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
+  - Charts
   - MaterialComponents
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Charts
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
@@ -591,12 +596,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   MaterialComponents: 0312a643d1aed5e5f10cba4be06a6aa62bd07c14
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
 
-PODFILE CHECKSUM: 80ef46513aff4efccc75eb1f0f6a8dbf48534275
+PODFILE CHECKSUM: 481720af7479a1a04a91572b86f5269f5ff2f83e
 
 COCOAPODS: 1.8.4
