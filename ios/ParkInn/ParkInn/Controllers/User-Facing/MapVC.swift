@@ -50,9 +50,7 @@ class MapVC: UIViewController {
     }
 
     private func fetchLots(with companyID: String) {
-        #warning("This method needs to be reworked once the server is hosted")
-        // TEMPORARY URL Used for testing lot decoding -> The actual URL should be constructed with a constant BASE_URL
-        let url = URL(string: "http://kyles-macbook-pro-13.local:3000/Lot/GetLots/\(companyID)/")!
+        let url = URL(string: "http://vtcolo.dyndns.org:8000/Lot/GetLots/\(companyID)/")!
         AF.request(url).response { response in
             let lots = try! JSONDecoder().decode([Lot].self, from: response.data!)
             for lot in lots {
