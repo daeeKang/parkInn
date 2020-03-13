@@ -1,18 +1,49 @@
+*:focus {
+    outline: 0; /* hax to remove border when selecting tingz */
+  }
+
 .controls{
     position: fixed;
     display: inline;
     z-index: 69;
-    top: 5vh;
-    right: 5vw;
-    background-color: #fda766;
+    top: 1vh;
+    right: 1vw;
     padding: 20px;
-    opacity: 50%;
-    border-radius: 15px;
+    opacity: 100%;
     transition: opacity .2s ease-out;
 }
-.controls:hover{
+
+.devBox {
+    position: fixed;
+    display: inline;
+    z-index: 69;
+    top: 80vh;
+    padding: 10px;
+    right: 5vw;
     opacity: 100%;
+    border-style: dotted;
+    color: black;
+    background-color: lightgray;
 }
+
+
+
+.buttonSelected {
+    background: #b3e1ff;
+}
+
 button {
     display: block;
+    text-decoration: none;
+    color: #668ad8;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 2px #668ad8;
+    text-align: center;
+    overflow: hidden;
+    font-weight: bold;
+    transition: .4s;
+    margin: 10px;
 }
+

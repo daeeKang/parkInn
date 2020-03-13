@@ -198,21 +198,30 @@ export default class Renderer extends React.Component {
         });
     };
 
+    //-----------------------------STATE BASED STYLING------------------------------------------------//
+    buttonSelected = {
+        background: '#b3e1ff'
+    }
+
     //-----------------------------RENDER---:-)-------------------------kill me-----------------------//
     render() {
         return (
             <div>
-                <div className="controls">
+                <div className="devBox">
+                    <p>dev console</p>
                     <p>
+                        stage pos:
                         {this.state.stage.x}, {this.state.stage.y}
                     </p>
-                    <button onClick={this.resetOrigin}>reset origin</button>
-                    <button onClick={this.toggleMoveStage}>move stage</button>
-                    <button onClick={this.toggleDrawingMode}>
-                        drawing mode
+                </div>
+                <div className="controls">
+                <button onClick={this.resetOrigin}>reset</button>
+                    <button onClick={this.toggleMoveStage} style={this.state.isPan ? this.buttonSelected: null}>move</button>
+                    <button onClick={this.toggleDrawingMode}  style={this.state.isDrawing ? this.buttonSelected: null}>
+                        wall
                     </button>
                     <button onClick={this.toggleDrawParkingLots}>
-                        make parking l0ts
+                        parking
                     </button>
                 </div>
 
