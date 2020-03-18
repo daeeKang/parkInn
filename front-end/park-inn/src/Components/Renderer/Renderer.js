@@ -5,17 +5,23 @@ import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 
 export default class Renderer extends React.Component {
     state = {
+        //state
+        drawingState: "pan",
+
+        //stage
         scale: 1,
         snappingRatio: 10,
-        isDrawing: true,
-        isPan: false,
-        isDrawParkingLot: false,
         stage: {
-            draggable: true,
-            x: window.innerWidth / 2,
-            y: window.innerHeight / 2
+            x: 0,
+            y: 0
         },
-        walls: []
+        walls: [],
+
+        //dev
+        cursorLocation: {
+            x: 0,
+            y: 0
+        }
     };
 
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
@@ -28,26 +34,20 @@ export default class Renderer extends React.Component {
         }
     }
 
-    getRelativePointerPosition = node => {
-        // the function will return pointer position relative to the passed node
-        var transform = node.getAbsoluteTransform().copy();
-        // to detect relative position we need to invert transform
-        transform.invert();
-
-        // get pointer (say mouse or touch) position
-        var pos = node.getPointerPosition();
-
-        // now we find relative point
-        return transform.point(pos);
+    getRelativePointerPosition = s => {
+        let pos = s.getPointerPosition();
+        return {
+            x: pos.x / this.state.scale - this.state.stage.x / this.state.scale,
+            y: pos.y / this.state.scale - this.state.stage.y / this.state.scale
+        };
     };
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
     //stage handeling
     handleStageDrag = e => {
-        if (this.state.isPan) {
+        if (this.state.drawingState === "pan") {
             this.setState({
                 stage: {
-                    draggable: true,
                     x: e.target.attrs.x,
                     y: e.target.attrs.y
                 }
@@ -57,6 +57,7 @@ export default class Renderer extends React.Component {
 
     //disable this for now sh1t is w0nky
 
+    //used for zooming in and out of the map duh lmfao xd
     stageZoom = e => {
         //this is code copied from stack overflow dont ask me how it works lol
         e.evt.preventDefault();
@@ -88,76 +89,94 @@ export default class Renderer extends React.Component {
                     ) * newScale
             }
         });
-
-        console.log(this.state.stage.x, this.state.stage.y);
     };
 
     //variables used for drawing
     isPaint = false;
     selectionBox = null;
 
+    //this function is used for drawing rectangles, whatever we need
     startDrawing = e => {
         //create rectangle
-        if (this.state.isDrawing) {
-            if (this.isPaint) {
-                //we finish painting object
-                this.isPaint = false;
-                let walls = this.state.walls;
-                let wall = walls[walls.length - 1];
-                if (wall.width === 0 || wall.height === 0) {
-                    walls.pop();
+        switch (this.state.drawingState) {
+            case "drawWall":
+                //enter here if we are finished painting object
+                if (this.isPaint) {
+                    this.isPaint = false;
+                    let walls = this.state.walls;
+                    let wall = walls[walls.length - 1];
+                    if (wall.width === 0 || wall.height === 0) {
+                        walls.pop();
+                    }
+                    this.setState({
+                        walls: walls
+                    });
+                    return;
                 }
+                //else enter here to start drawing rectangle
+                let stage = e.target.getStage();
+                let walls = this.state.walls;
+                let pos = this.getRelativePointerPosition(stage);
+
+                this.setState({
+                    cursorLocation: {
+                        x: pos.x,
+                        y: pos.y
+                    }
+                });
+
+                walls.push({
+                    x: this.snapGrid(this.state.snappingRatio, pos.x),
+                    y: this.snapGrid(this.state.snappingRatio, pos.y),
+                    width: 0,
+                    height: 0
+                });
                 this.setState({
                     walls: walls
                 });
-                return;
-            }
-
-            let stage = e.target.getStage();
-            let walls = this.state.walls;
-
-            let pos = this.getRelativePointerPosition(stage);
-            walls.push({
-                x: this.snapGrid(this.state.snappingRatio, pos.x),
-                y: this.snapGrid(this.state.snappingRatio, pos.y),
-                width: 0,
-                height: 0
-            });
-            this.setState({
-                walls: walls
-            });
-            console.log(walls);
-            this.isPaint = true;
-        } else if (this.state.isDrawParkingLot) {
-            let stage = e.target.getStage();
-            this.selectionBox.x = this.snapGrid(
-                this.state.snappingRatio,
-                stage.getPointerPosition().x - this.state.stage.x
-            );
-            this.selectionBox.y = this.snapGrid(
-                this.state.snappingRatio,
-                stage.getPointerPosition().y - this.state.stage.y
-            );
-        } else {
-            return;
+                console.log(walls);
+                this.isPaint = true;
+                break;
+            case "drawParkingLots":
+                break;
         }
     };
+    //this function checks if we are currently drawing. if we are, then get out cursor position and use that to redefine the width of the box we are drawing
     sizeDrawing = e => {
         if (!this.isPaint) return;
 
-        if (this.state.isDrawing) {
-            let walls = this.state.walls;
-            let wall = walls[walls.length - 1];
-            let stage = e.target.getStage();
-            let pos = this.getRelativePointerPosition(stage);
-            wall.width = this.snapGrid(this.state.snappingRatio, pos.x);
-            wall.height = this.snapGrid(this.state.snappingRatio, pos.y);
+        switch (this.state.drawingState) {
+            case "drawWall":
+                let walls = this.state.walls;
+                let wall = walls[walls.length - 1];
+                let stage = e.target.getStage();
 
-            this.setState({
-                walls: walls
-            });
-        } else if (this.state.isDrawParkingLot) {
-        } else return;
+                let pos = this.getRelativePointerPosition(stage);
+
+                wall.width = this.snapGrid(
+                    this.state.snappingRatio,
+                    pos.x - wall.x
+                );
+                wall.height = this.snapGrid(
+                    this.state.snappingRatio,
+                    pos.y - wall.y
+                );
+
+                this.setState({
+                    walls: walls
+                });
+                break;
+            case "drawParkingLots":
+                break;
+        }
+    };
+
+    objectClick = e => {
+        switch (this.state.drawingState) {
+            case "erase":
+                console.log(e);
+                break;
+        }
     };
 
     //---------------------------BUTTON TYPA TINGZ--------------------------------//
@@ -167,41 +186,52 @@ export default class Renderer extends React.Component {
                 draggable: true,
                 x: 0,
                 y: 0
-            }
+            },
+            scale: 1
         });
     };
     toggleMoveStage = e => {
-        this.setState({
-            isPan: !this.state.isPan,
-            isDrawing: false,
-            isDrawParkingLot: false,
-            stage: {
-                x: this.state.stage.x,
-                y: this.state.stage.y
-            }
-        });
+        this.changeDrawingState("pan");
     };
     toggleDrawingMode = e => {
-        this.isPaint = false; //this is for when a user clicks a button while drawing a square so end the drawing ja feel
-        this.setState({
-            isDrawing: !this.state.isDrawing,
-            isDrawParkingLot: false,
-            isPan: false
-        });
+        this.changeDrawingState("drawWall");
     };
     toggleDrawParkingLots = e => {
-        this.isPaint = false;
-        this.setState({
-            isDrawing: false,
-            isDrawParkingLot: !this.state.isDrawParkingLot,
-            isPan: false
-        });
+        this.changeDrawingState("drawParkingLots");
+    };
+    toggleErase = e => {
+        this.changeDrawingState("erase");
+    };
+
+    //-----------------------------STATE CHANGE HANDLING----------------------------------------------//
+
+    changeDrawingState = inState => {
+        switch (inState) {
+            case "pan":
+                this.setState({
+                    drawingState: inState
+                });
+                break;
+            case "erase":
+            case "drawParkingLots":
+            case "drawWall":
+                this.isPaint = false;
+                this.setState({
+                    drawingState: inState
+                });
+                break;
+            default:
+                console.log(
+                    "shit boi u not supposed to be in here lmfao didn't write state or something fucked up"
+                );
+                break;
+        }
     };
 
     //-----------------------------STATE BASED STYLING------------------------------------------------//
     buttonSelected = {
-        background: '#b3e1ff'
-    }
+        background: "#b3e1ff"
+    };
 
     //-----------------------------RENDER---:-)-------------------------kill me-----------------------//
     render() {
@@ -213,22 +243,63 @@ export default class Renderer extends React.Component {
                         stage pos:
                         {this.state.stage.x}, {this.state.stage.y}
                     </p>
+                    <p>
+                        cursor pos:
+                        {this.state.cursorLocation.x},
+                        {this.state.cursorLocation.y}
+                    </p>
                 </div>
+
                 <div className="controls">
-                <button onClick={this.resetOrigin}>reset</button>
-                    <button onClick={this.toggleMoveStage} style={this.state.isPan ? this.buttonSelected: null}>move</button>
-                    <button onClick={this.toggleDrawingMode}  style={this.state.isDrawing ? this.buttonSelected: null}>
+                    <button onClick={this.resetOrigin}>reset</button>
+                    <button
+                        onClick={this.toggleMoveStage}
+                        style={
+                            this.state.drawingState === "pan"
+                                ? this.buttonSelected
+                                : null
+                        }
+                    >
+                        move
+                    </button>
+                    <button
+                        onClick={this.toggleDrawingMode}
+                        style={
+                            this.state.drawingState === "drawWall"
+                                ? this.buttonSelected
+                                : null
+                        }
+                    >
                         wall
                     </button>
-                    <button onClick={this.toggleDrawParkingLots}>
+                    <button
+                        onClick={this.toggleDrawParkingLots}
+                        style={
+                            this.state.drawingState === "drawParkingLots"
+                                ? this.buttonSelected
+                                : null
+                        }
+                    >
                         parking
                     </button>
+                    <button
+                        onClick={this.toggleErase}
+                        style={
+                            this.state.drawingState === "erase"
+                                ? this.buttonSelected
+                                : null
+                        }
+                    >
+                        erase
+                    </button>
                 </div>
+
+                {/*--------------------------below is the shit for rendering-------------------------------------*/}
 
                 <Stage
                     width={window.innerWidth}
                     height={window.innerHeight}
-                    draggable={this.state.isPan}
+                    draggable={this.state.drawingState === "pan"}
                     x={this.state.stage.x}
                     y={this.state.stage.y}
                     scaleX={this.state.scale}
@@ -242,14 +313,14 @@ export default class Renderer extends React.Component {
                         {[...Array(200)].map((_, i) => (
                             <Line
                                 points={[
-                                    -2500,
-                                    i * 50 - 2500,
-                                    2500,
-                                    i * 50 - 2500
+                                    -5000,
+                                    i * 50 - 5000,
+                                    5000,
+                                    i * 50 - 5000
                                 ]}
                                 strokeWidth={0.3}
                                 closed
-                                stroke={"#add8e6"}
+                                stroke={"black"}
                                 opacity={0.5}
                                 perfectDrawEnabled={false}
                                 listening={false}
@@ -258,14 +329,14 @@ export default class Renderer extends React.Component {
                         {[...Array(200)].map((_, i) => (
                             <Line
                                 points={[
-                                    i * 50 - 2500,
-                                    -2500,
-                                    i * 50 - 2500,
-                                    2500
+                                    i * 50 - 5000,
+                                    -5000,
+                                    i * 50 - 5000,
+                                    5000
                                 ]}
                                 strokeWidth={0.3}
                                 closed
-                                stroke={"#add8e6"}
+                                stroke={"black"}
                                 opacity={0.5}
                                 perfectDrawEnabled={false}
                                 listening={false}
@@ -282,6 +353,7 @@ export default class Renderer extends React.Component {
                                     width={wall.width}
                                     height={wall.height}
                                     fill="black"
+                                    onClick={this.objectClick}
                                 />
                             );
                         })}
