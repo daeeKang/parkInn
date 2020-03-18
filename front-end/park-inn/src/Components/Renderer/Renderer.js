@@ -137,7 +137,7 @@ export default class Renderer extends React.Component {
                 console.log(walls);
                 this.isPaint = true;
                 break;
-            case "drawParkingLots":
+            case "drawParkingSpots":
                 break;
         }
     };
@@ -166,7 +166,7 @@ export default class Renderer extends React.Component {
                     walls: walls
                 });
                 break;
-            case "drawParkingLots":
+            case "drawParkingSpots":
                 break;
         }
     };
@@ -196,8 +196,8 @@ export default class Renderer extends React.Component {
     toggleDrawingMode = e => {
         this.changeDrawingState("drawWall");
     };
-    toggleDrawParkingLots = e => {
-        this.changeDrawingState("drawParkingLots");
+    toggleDrawParkingSpots = e => {
+        this.changeDrawingState("drawParkingSpots");
     };
     toggleErase = e => {
         this.changeDrawingState("erase");
@@ -213,7 +213,7 @@ export default class Renderer extends React.Component {
                 });
                 break;
             case "erase":
-            case "drawParkingLots":
+            case "drawParkingSpots":
             case "drawWall":
                 this.isPaint = false;
                 this.setState({
@@ -273,9 +273,9 @@ export default class Renderer extends React.Component {
                         wall
                     </button>
                     <button
-                        onClick={this.toggleDrawParkingLots}
+                        onClick={this.toggleDrawParkingSpots}
                         style={
-                            this.state.drawingState === "drawParkingLots"
+                            this.state.drawingState === "drawParkingSpots"
                                 ? this.buttonSelected
                                 : null
                         }
