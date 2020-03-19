@@ -16,6 +16,13 @@ export default class Renderer extends React.Component {
             y: 0
         },
         walls: [],
+        lotRect: {
+            x: 0,
+            y: 0,
+            width: 0,
+            height: 0,
+            visible: false
+        },
 
         //dev
         cursorLocation: {
@@ -99,7 +106,8 @@ export default class Renderer extends React.Component {
     startDrawing = e => {
         //create rectangle
         switch (this.state.drawingState) {
-            case "drawWall":
+            case "drawWall": {
+                //note we need these brackets here to create scope otherwise same scope for entire switch
                 //enter here if we are finished painting object
                 if (this.isPaint) {
                     this.isPaint = false;
@@ -117,14 +125,12 @@ export default class Renderer extends React.Component {
                 let stage = e.target.getStage();
                 let walls = this.state.walls;
                 let pos = this.getRelativePointerPosition(stage);
-
                 this.setState({
                     cursorLocation: {
                         x: pos.x,
                         y: pos.y
                     }
                 });
-
                 walls.push({
                     x: this.snapGrid(this.state.snappingRatio, pos.x),
                     y: this.snapGrid(this.state.snappingRatio, pos.y),
@@ -137,8 +143,44 @@ export default class Renderer extends React.Component {
                 console.log(walls);
                 this.isPaint = true;
                 break;
-            case "drawParkingSpots":
+            }
+            case "drawParkingSpots": {
+                if (this.isPaint) {
+                    //set parking lot shit here
+                    this.setState({
+                        lotRect: {
+                            x: this.state.lotRect.x,
+                            y: this.state.lotRect.y,
+                            width: 0,
+                            height: 0,
+                            visible: false
+                        }
+                    });
+                    this.isPaint = false;
+                    return;
+                }
+                let stage = e.target.getStage();
+                let pos = this.getRelativePointerPosition(stage);
+
+                this.setState({
+                    lotRect: {
+                        x: this.snapGrid(this.state.snappingRatio, pos.x),
+                        y: this.snapGrid(this.state.snappingRatio, pos.y),
+                        width: 0,
+                        height: 0,
+                        visible: true
+                    }
+                });
+
+                this.setState({
+                    cursorLocation: {
+                        x: pos.x,
+                        y: pos.y
+                    }
+                });
+                this.isPaint = true;
                 break;
+            }
         }
     };
     //this function checks if we are currently drawing. if we are, then get out cursor position and use that to redefine the width of the box we are drawing
@@ -146,7 +188,7 @@ export default class Renderer extends React.Component {
         if (!this.isPaint) return;
 
         switch (this.state.drawingState) {
-            case "drawWall":
+            case "drawWall": {
                 let walls = this.state.walls;
                 let wall = walls[walls.length - 1];
                 let stage = e.target.getStage();
@@ -166,8 +208,31 @@ export default class Renderer extends React.Component {
                     walls: walls
                 });
                 break;
-            case "drawParkingSpots":
+            }
+            case "drawParkingSpots": {
+                let stage = e.target.getStage();
+                let pos = this.getRelativePointerPosition(stage);
+
+                console.log(this.state.lotRect.x);
+                console.log(this.state.lotRect.y);
+
+                this.setState({
+                    lotRect: {
+                        x: this.state.lotRect.x,
+                        y: this.state.lotRect.y,
+                        width: this.snapGrid(
+                            this.state.snappingRatio,
+                            pos.x - this.state.lotRect.x
+                        ),
+                        height: this.snapGrid(
+                            this.state.snappingRatio,
+                            pos.y - this.state.lotRect.y
+                        ),
+                        visible: true
+                    }
+                });
                 break;
+            }
         }
     };
 
@@ -309,7 +374,7 @@ export default class Renderer extends React.Component {
                     onDragEnd={this.handleStageDrag}
                     onWheel={this.stageZoom}
                 >
-                    <Layer>
+                    <Layer id="grid">
                         {[...Array(200)].map((_, i) => (
                             <Line
                                 points={[
@@ -344,7 +409,7 @@ export default class Renderer extends React.Component {
                         ))}
                     </Layer>
 
-                    <Layer>
+                    <Layer id="walls">
                         {this.state.walls.map((wall, i) => {
                             return (
                                 <Rect
@@ -358,6 +423,19 @@ export default class Renderer extends React.Component {
                             );
                         })}
                         {this.selectionBox ? <Rect /> : null}
+                    </Layer>
+
+                    <Layer id="lotRect">
+                        <Rect
+                            x={this.state.lotRect.x}
+                            y={this.state.lotRect.y}
+                            width={this.state.lotRect.width}
+                            height={this.state.lotRect.height}
+                            stroke={"#fda766"}
+                            strokeWidth={2}
+                            shadowForStrokeEnabled={true}
+                            visible={this.state.lotRect.visible}
+                        />
                     </Layer>
                 </Stage>
             </div>
