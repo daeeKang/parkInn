@@ -1,20 +1,24 @@
+// readibility lols
 const hexToRgb = input => {
     input = input + "";
     input = input.replace("#", "");
     let hexRegex = /[0-9A-Fa-f]/g;
-    if (!hexRegex.test(input) || (input.length !== 3 && input.length !== 6)) {
+
+    if(!hexRegex.test(input) || (input.length !== 3 && input.length !== 6))
       throw new Error("input is not a valid hex color.");
-    }
-    if (input.length === 3) {
+
+    if(input.length === 3) {
       let first = input[0];
       let second = input[1];
       let last = input[2];
       input = first + first + second + second + last + last;
     }
+
     input = input.toUpperCase(input);
     let first = input[0] + input[1];
     let second = input[2] + input[3];
     let last = input[4] + input[5];
+
     return (
       parseInt(first, 16) +
       ", " +
@@ -24,14 +28,12 @@ const hexToRgb = input => {
     );
 };
 
-// CARD HEADER COLOR OPTIONS
+// const for blank canvas
 const whiteColor = "#fff";
 const blackColor = "000";
 const lightGrey = "#90a4ae";
 
-const blueColor = ["#b3e5fc", "#81d4fa", "#4fc3f7", "#039be5", "#01579b"];
-
-// DOES SHADOW FOR CARD HEADER
+// box shadows for cards
 const BoxShadow = {
     boxShadow:
       "0 4px 20px 0 rgba(" +
@@ -41,10 +43,35 @@ const BoxShadow = {
       ",.4)"
 };
 
-// SETS BACKGROUND FOR CARD HEADER
-const mainCardHeader = {
-    background: blueColor[0],
+// set background color for card headers
+const darkBlueCardHeader = {
+    background: "#1B262C",
     ...BoxShadow
+};
+
+const greenCardHeader = {
+  background: "#81C784",
+  ...BoxShadow
+};
+
+const redCardHeader = {
+  background: "#E57373",
+  ...BoxShadow
+};
+
+const yellowCardHeader = {
+  background: "#FFB74D",
+  ...BoxShadow
+};
+
+const lightBlueCardHeader = {
+  background: "#90CAF9",
+  ...BoxShadow
+};
+
+const tealCardHeader = {
+  background: "#14BACE",
+  ...BoxShadow
 };
 
 // styling
@@ -55,7 +82,7 @@ const cardHeaderStyle = {
       borderBottom: "none",
       background: "transparent",
       zIndex: "3 !important",
-      "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$mainCardHeader": {
+      "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$darkBlueCardHeader,&$greenCardHeader,&$redCardHeader,&$yellowCardHeader,&$lightBlueCardHeader,&$tealCardHeader": {
         margin: "0 15px",
         padding: "0",
         position: "relative",
@@ -66,7 +93,7 @@ const cardHeaderStyle = {
         borderRadius: "calc(.25rem - 1px) calc(.25rem - 1px) 0 0"
       },
 
-      "&$mainCardHeader": {
+      "&$darkBlueCardHeader,&$greenCardHeader,&$redCardHeader,&$yellowCardHeader,&$lightBlueCardHeader,&$tealCardHeader": {
         "&:not($cardHeaderIcon)": {
           borderRadius: "3px",
           marginTop: "-30px",
@@ -77,6 +104,8 @@ const cardHeaderStyle = {
       },
 
       "&$cardHeaderStats svg": {
+        fontFamily: "'Helvetica', 'Muli'",
+        fontWeight: "100", 
         fontSize: "36px",
         lineHeight: "56px",
         textAlign: "center",
@@ -115,7 +144,7 @@ const cardHeaderStyle = {
     },
 
     cardHeaderIcon: {
-      "&$mainCardHeader": {
+      "&$darkBlueCardHeader,&$greenCardHeader,&$redCardHeader,&$yellowCardHeader,&$lightBlueCardHeader,&$tealCardHeader": {
         background: "transparent",
         boxShadow: "none"
       },
@@ -134,15 +163,56 @@ const cardHeaderStyle = {
       }
     },
     
-    mainCardHeader: {
+    darkBlueCardHeader: {
       color: whiteColor,
       "&:not($cardHeaderIcon)": {
-        ...mainCardHeader
+        ...darkBlueCardHeader
       }
-    }
+    },
+
+    greenCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...greenCardHeader
+      }
+    },
+
+    redCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...redCardHeader
+      }
+    },
+
+    yellowCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...yellowCardHeader
+      }
+    },
+
+    lightBlueCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...lightBlueCardHeader
+      }
+    },
+
+    tealCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...tealCardHeader
+      }
+    },
+
   };
   
   export {
     cardHeaderStyle,
-    mainCardHeader,
+    darkBlueCardHeader,
+    greenCardHeader,
+    redCardHeader,
+    yellowCardHeader,
+    lightBlueCardHeader,
+    tealCardHeader,
   };

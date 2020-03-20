@@ -1,17 +1,29 @@
-import { mainCardHeader } from './cardHeaderStyle'; 
+import {  darkBlueCardHeader, 
+          greenCardHeader, 
+          redCardHeader, 
+          yellowCardHeader, 
+          lightBlueCardHeader, 
+          tealCardHeader } 
+from './cardHeaderStyle'; 
 
 const cardIconStyle = {
     cardIcon: {
-      "&$mainCardHeader": {
+      "&$darkBlueCardHeader,&$greenCardHeader,&$redCardHeader,&$yellowCardHeader,&$lightBlueCardHeader,&$tealCardHeader": {
         borderRadius: "3px",
-        backgroundColor: "#b3e5fc",
+        backgroundColor: "fff",
         padding: "15px",
-        marginTop: "-40px",
+        marginTop: "-30px",
         marginRight: "15px",
         float: "left"
       }
     },
-    mainCardHeader,
+
+    darkBlueCardHeader,
+    greenCardHeader,
+    redCardHeader,
+    yellowCardHeader,
+    lightBlueCardHeader,
+    tealCardHeader,
   };
   
   export default cardIconStyle;

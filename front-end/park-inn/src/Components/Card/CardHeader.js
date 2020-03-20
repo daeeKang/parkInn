@@ -1,20 +1,16 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
+import classNames from "classnames";                      // concatenate classes
+import PropTypes from "prop-types";                       // set properties for components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
 
-// core components
-import { cardHeaderStyle } from "./cardHeaderStyle";
+import { cardHeaderStyle } from "./cardHeaderStyle";      // core components - get header colors
 
 const useStyles = makeStyles(cardHeaderStyle);
 
 export default function CardHeader(props) {
   const classes = useStyles();
   const { className, children, color, plain, stats, icon, ...rest } = props;
+
   const cardHeaderClasses = classNames({
     [classes.cardHeader]: true,
     [classes[color + "CardHeader"]]: color,
@@ -23,6 +19,7 @@ export default function CardHeader(props) {
     [classes.cardHeaderIcon]: icon,
     [className]: className !== undefined
   });
+  
   return (
     <div className={cardHeaderClasses} {...rest}>
       {children}
@@ -33,7 +30,12 @@ export default function CardHeader(props) {
 CardHeader.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf([
-    "main",
+    "darkBlue",
+    "green",
+    "red",
+    "yellow",
+    "lightBlue",
+    "teal",
   ]),
   plain: PropTypes.bool,
   stats: PropTypes.bool,
