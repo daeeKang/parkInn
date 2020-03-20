@@ -1,59 +1,109 @@
 import React from 'react';
 import './Home.css'
-import { Grid, Divider } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 // import Login from '../LoginPage/Login' //just place holder for now maybe lol
+
+import GridContainer from './../Grid/GridContainer';
 import GridItem from './../Grid/GridItem';
 import Card from './../Card/Card';
 import CardBody from './../Card/CardBody';
 import CardHeader from './../Card/CardHeader';
 import CardIcon from './../Card/CardIcon';
-import AssessmentIcon from '@material-ui/icons/Assessment';
+import { Divider } from '@material-ui/core';
 
-const lightBlue = "#b3e5fc";
+// icons used
+import AssessmentIcon from '@material-ui/icons/Assessment';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
+import EventIcon from '@material-ui/icons/Event';
+import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+import CallMadeIcon from '@material-ui/icons/CallMade';
 
 export default props => {
     return (
         <div>
-            {/* <Grid container> */}
-                <GridItem xs={12} sm={12}>
+            <GridContainer>
+                <GridItem xs={12} sm={6} md={3}>
+                    <Card>
+                        <CardHeader color="green" icon>
+                            <CardIcon color="green">
+                                <AttachMoneyIcon />
+                            </CardIcon>
+                            <p id="card-subtitle">Revenue</p>
+                            <p id="card-subtitle">$xxx earned</p>
+                            <Divider />
+                            <Link to='/statistics'>
+                                <p id="link">See Daily Revenue</p>
+                            </Link>
+                        </CardHeader>
+                    </Card>
+                </GridItem>
+
+                <GridItem xs={12} sm={6} md={3}>
+                    <Card>
+                        <CardHeader color="red" icon> 
+                            <CardIcon color="red">
+                                <NotificationImportantIcon />
+                            </CardIcon>
+                            <p id = "card-subtitle">Incidents</p>
+                            <p id="card-subtitle">xxx incident(s) waiting to be resolved</p>
+                            <Divider />
+                            <Link to='/'>
+                                <p id="link">Manage Incidents</p>
+                            </Link>
+                        </CardHeader>
+                    </Card>
+                </GridItem>
+
+                <GridItem xs={12} sm={6} md={3}>
+                    <Card>
+                        <CardHeader color="yellow" icon>
+                            <CardIcon color="yellow">
+                                <EventIcon />
+                            </CardIcon>
+                            <p id = "card-subtitle">Upcoming Events</p>
+                            <p id="card-subtitle">xxx events(s) coming up</p>
+                            <Divider />
+                            <Link to='/'>
+                                <p id="link">See Event Calendar</p>
+                            </Link>
+                        </CardHeader>
+                    </Card>
+                </GridItem>
+
+                <GridItem xs={12} sm={6} md={3}>
+                    <Card>
+                        <CardHeader color="teal" icon>
+                            <CardIcon color="teal">
+                                <DirectionsCarIcon />
+                            </CardIcon>
+                            <p id = "card-subtitle">Manage Spaces</p>
+                            <p id="card-subtitle">xxx lot(s) to view</p>
+                            <Divider />
+                            <Link to='/statistics'>
+                                <p id="link">Manage Parking Lots</p>
+                            </Link>
+                        </CardHeader>
+                    </Card>
+                </GridItem>
+
+                {/* <GridItem xs={12} sm={12} md={4}>
                     <Card style={{ width: "20rem" }}>
                         <CardBody>
-                            {/* change cardHeader color inside CardHeader.js && cardHeaderStyle.js */}
-                            <CardHeader color="main">
-                                {/* change id = card-header inside Home.css */}
+                            <CardHeader color="yellow">
                                 <h1 id="card-header">Card Type 1</h1>
                             </CardHeader>
-                            {/* change id = card-title inside Home.css */}
                             <h2 id="card-title">Card Title</h2>
                             <Divider />
-                            {/* change id = card-subtitle inside Home.css */}
                             <p id ="card-subtitle">
                                 This is the first card type. <br />
                                 I hope that this looks right!
                             </p>
                         </CardBody>
                     </Card>
-                </GridItem>
+                </GridItem> */}
 
-                <GridItem xs={12} sm={12}>
-                    <Card style={{ width: "20rem" }}>
-                        <CardBody>
-                            <CardHeader>
-                                <CardIcon color="main">
-                                    <AssessmentIcon />
-                                </CardIcon>
-                            </CardHeader>
-                            <h2 id="card-title">Card Title</h2>
-                            <Divider />
-                            <p id ="card-subtitle">
-                                This is the second card type. <br />
-                                I hope that this looks right!
-                            </p>
-                        </CardBody>
-                    </Card>
-                </GridItem>
-
-                <GridItem xs={12} sm={12}>
+                {/* <GridItem xs={12} sm={12} md={4}>
                     <Card style={{ width: "20rem" }}>
                         <img
                         // className={classes.cardImgTop}
@@ -70,8 +120,8 @@ export default props => {
                             </p>
                         </CardBody>
                     </Card>
-                </GridItem>
-            {/* </Grid> */}
+                </GridItem> */}
+            </GridContainer>
 
             {/* <Login/> */}
         </div>
