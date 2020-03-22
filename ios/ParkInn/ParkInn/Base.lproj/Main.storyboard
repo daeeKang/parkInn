@@ -186,22 +186,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skI-3W-sBF">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8pK-P7-M6e">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.86657208200000002" green="0.86672115329999999" blue="0.86656266449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="skI-3W-sBF" secondAttribute="trailing" id="Lw0-dD-3xx"/>
-                                            <constraint firstItem="skI-3W-sBF" firstAttribute="top" secondItem="W6k-ni-y75" secondAttribute="top" id="mFq-xV-djc"/>
-                                            <constraint firstItem="skI-3W-sBF" firstAttribute="leading" secondItem="W6k-ni-y75" secondAttribute="leading" id="nc0-ev-e6L"/>
-                                            <constraint firstAttribute="bottom" secondItem="skI-3W-sBF" secondAttribute="bottom" id="ufA-NN-bwn"/>
+                                            <constraint firstAttribute="trailing" secondItem="8pK-P7-M6e" secondAttribute="trailing" id="6uK-st-5po"/>
+                                            <constraint firstItem="8pK-P7-M6e" firstAttribute="leading" secondItem="W6k-ni-y75" secondAttribute="leading" id="GXM-Wk-5Zw"/>
+                                            <constraint firstAttribute="bottom" secondItem="8pK-P7-M6e" secondAttribute="bottom" id="NIc-Ib-A9I"/>
+                                            <constraint firstItem="8pK-P7-M6e" firstAttribute="top" secondItem="W6k-ni-y75" secondAttribute="top" id="t6n-oL-XsY"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="testLabel" destination="skI-3W-sBF" id="c3E-3u-fmd"/>
+                                            <outlet property="DisplayLot" destination="8pK-P7-M6e" id="5ZC-kF-GJI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

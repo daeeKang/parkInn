@@ -14,7 +14,7 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     @IBOutlet private weak var collectionView: UICollectionView!
     
      //test data
-     let lotNumber = ["Lot 1", "Lot 2", "Lot 3", "Lot 4", "Lot 5", "Lot 6", "Lot 7", "Lot 8", "Lot 9"]
+     let lotNumber = ["Lot1", "Lot2", "Lot3", "Lot5", "Lot7"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +40,10 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManagementCVCell
         
         //center text in the center
-        cell.testLabel.textAlignment = NSTextAlignment.center
+        //cell.testLabel.textAlignment = NSTextAlignment.center
    
         //change label text for testing
-        cell.testLabel.text = lotNumber[indexPath.item]
+       // cell.testLabel.text = lotNumber[indexPath.item]
         //round out border 
         cell.contentView.layer.cornerRadius = 40
         cell.contentView.layer.borderWidth = 2
