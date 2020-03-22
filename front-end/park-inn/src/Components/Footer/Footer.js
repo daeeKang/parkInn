@@ -35,12 +35,12 @@ export default function Footer(props) {
           </List>
         </div>
 
-        <p className={classes.right}>
+        {/* <p className={classes.right}>
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             ParkInn
           </span>
-        </p>
+        </p> */}
         
       </div>
     </footer>

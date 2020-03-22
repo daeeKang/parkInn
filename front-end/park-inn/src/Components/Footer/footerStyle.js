@@ -7,7 +7,8 @@ const footerStyle = {
       textDecoration: "none",
       position: "relative",
       display: "block",
-      fontFamily: "Muli",
+      // fontFamily: "Muli",
+      fontFamily: "Helvetica",
       fontWeight: "500",
       fontSize: "12px"
     },

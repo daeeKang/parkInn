@@ -12,12 +12,10 @@ import CardIcon from './../Card/CardIcon';
 import { Divider } from '@material-ui/core';
 
 // icons used
-import AssessmentIcon from '@material-ui/icons/Assessment';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import EventIcon from '@material-ui/icons/Event';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
-import CallMadeIcon from '@material-ui/icons/CallMade';
 
 export default props => {
     return (
