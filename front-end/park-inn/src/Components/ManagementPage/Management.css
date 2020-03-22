@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.change-password {
+  width: 15%;
+  height: 10%;
+}

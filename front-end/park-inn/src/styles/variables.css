@@ -8,9 +8,18 @@
   --textColor: #ffffff;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
 .button {
   display: flex;
-  color: var(--primaryColor);
+  background-color: var(--primaryColor);
   color: white;
   font-size: 15px;
   cursor: pointer;
@@ -21,4 +30,23 @@
   border-radius: 15px;
   text-align: center;
   justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  background: var(--primaryColorDark);
+  color: var(--textColor);
+  height: 20%;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  border-bottom: double;
 }
