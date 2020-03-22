@@ -46,7 +46,7 @@ export default props => {
                             <p id = "card-subtitle">Incidents</p>
                             <p id="card-subtitle">xxx incident(s) waiting to be resolved</p>
                             <Divider />
-                            <Link to='/'>
+                            <Link to='/incidents'>
                                 <p id="link">Manage Incidents</p>
                             </Link>
                         </CardHeader>
@@ -62,7 +62,7 @@ export default props => {
                             <p id = "card-subtitle">Upcoming Events</p>
                             <p id="card-subtitle">xxx events(s) coming up</p>
                             <Divider />
-                            <Link to='/'>
+                            <Link to='/events'>
                                 <p id="link">See Event Calendar</p>
                             </Link>
                         </CardHeader>
@@ -78,7 +78,7 @@ export default props => {
                             <p id = "card-subtitle">Manage Spaces</p>
                             <p id="card-subtitle">xxx lot(s) to view</p>
                             <Divider />
-                            <Link to='/statistics'>
+                            <Link to='/'>
                                 <p id="link">Manage Parking Lots</p>
                             </Link>
                         </CardHeader>
