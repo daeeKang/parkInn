@@ -232,7 +232,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.12850642200000001" green="0.1520202756" blue="0.20184746379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ht3-zE-4Ez" firstAttribute="trailing" secondItem="qdW-Sl-9LL" secondAttribute="trailing" id="0Tg-gw-4fd"/>
                             <constraint firstItem="ht3-zE-4Ez" firstAttribute="top" secondItem="qdW-Sl-9LL" secondAttribute="top" id="7of-em-DLf"/>

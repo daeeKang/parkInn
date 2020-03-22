@@ -18,6 +18,8 @@ class DisplayVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        showImage.image = image
+        
     }
     
 
