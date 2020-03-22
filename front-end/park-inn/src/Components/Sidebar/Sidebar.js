@@ -26,7 +26,11 @@ class Sidebar extends React.Component {
                 onStateChange={state => this.handleStateChange(state)}
             >
                 <li><Link onClick={this.closeMenu} to='/'>Home</Link></li>
+                <li><Link onClick={this.closeMenu} to='/'>Manage Parking</Link></li>
                 <li><Link onClick={this.closeMenu} to='/statistics'>Statistics</Link></li>
+                <li><Link onClick={this.closeMenu} to='/events'>Event Calendar</Link></li>
+                <li><Link onClick={this.closeMenu} to='/incidents'>Manage Incidents</Link></li>
+                <li><Link onClick={this.closeMenu} to='/management'>Management Settings</Link></li>
             </Menu>
         )
     }
