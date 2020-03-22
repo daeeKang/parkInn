@@ -1,0 +1,12 @@
+@import "../../styles/variables.css";
+
+.add-page {
+  display: flex;
+  position: relative;
+  border-style: solid;
+  border-color: var(--secondaryColorDark);
+  background-color: var(--backgroundColor);
+}
+
+.add-container {
+}
