@@ -41,12 +41,20 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManagementCVCell
         
-        //cell.contentView.layer.cornerRadius = 40
-       // cell.contentView.layer.borderWidth = 2
+        
         cell.DisplayLot.layer.cornerRadius = 30
         cell.DisplayLot.image = UIImage(named: lotNumber[indexPath.row] + ".png")
         
         return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desVC = mainStoryboard.instantiateViewController(identifier: "DisplayVC") as! DisplayVC
+        desVC.image =  UIImage(named: lotNumber[indexPath.row] + ".png")!
+        self.navigationController?.pushViewController(desVC, animated: true)
+        
         
     }
 
