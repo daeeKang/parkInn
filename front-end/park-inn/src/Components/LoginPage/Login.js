@@ -1,13 +1,13 @@
-import React from "react";
-import "./Login.css";
-import background from './signinBackground.jpg'
+import React from 'react';
+import './Login.css';
+// import background from './signinBackground.jpg';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: '',
     };
   }
 
@@ -24,7 +24,7 @@ class Login extends React.Component {
         <div id="wrap">
           <div id="form-container">
             <p id="sign-in">Sign in</p>
-            <form onSubmit={() => console.log("sup")}>
+            <form onSubmit={() => console.log('sup')}>
               <input
                 type="email"
                 className="input"
@@ -47,9 +47,7 @@ class Login extends React.Component {
               </div>
               <div className="text-align-left-container">
                 <input type="submit" value="Sign in" id="submit-button" />
-                <p id="forgot-password">
-                    forgot password?
-                </p>
+                <p id="forgot-password">forgot password?</p>
               </div>
             </form>
           </div>

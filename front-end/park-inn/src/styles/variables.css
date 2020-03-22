@@ -1,0 +1,24 @@
+:root {
+  --primaryColor: #0077d8;
+  --primaryColorLight: #5fa5ff;
+  --primaryColorDark: #004ca6;
+  --secondaryColor: #42536d;
+  --secondaryColorLight: #6e7f9b;
+  --secondaryColorDark: #182b42;
+  --textColor: #ffffff;
+}
+
+.button {
+  display: flex;
+  color: var(--primaryColor);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border-radius: 15px;
+  text-align: center;
+  justify-content: center;
+}
