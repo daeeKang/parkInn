@@ -29,7 +29,10 @@ export default props => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <MenuItem onClick={handleClose}>Account Settings</MenuItem>
+                    <Link to='/management'>
+                        <MenuItem onClick={handleClose}>Account Settings</MenuItem>
+                    </Link>
+                    
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </Menu>
             </div>
