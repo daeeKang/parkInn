@@ -27,7 +27,7 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         //size of each cell
         layout.itemSize = CGSize(width: width, height: width)
         //space for all corners of the cell
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
         
         
     }
@@ -41,9 +41,9 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManagementCVCell
         
-       // cell.contentView.layer.cornerRadius = 40
+        //cell.contentView.layer.cornerRadius = 40
        // cell.contentView.layer.borderWidth = 2
-       
+        cell.DisplayLot.layer.cornerRadius = 30
         cell.DisplayLot.image = UIImage(named: lotNumber[indexPath.row] + ".png")
         
         return cell
