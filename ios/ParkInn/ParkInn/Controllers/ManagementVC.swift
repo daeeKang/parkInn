@@ -14,7 +14,7 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     @IBOutlet private weak var collectionView: UICollectionView!
     
      //test data
-     let lotNumber = ["Lot1", "Lot2", "Lot3", "Lot5", "Lot7"]
+     let lotNumber = ["Lot1", "Lot2", "Lot3", "Lot5", "Lot7","Lot1", "Lot2", "Lot3", "Lot5", "Lot7"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,12 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let width = (view.frame.size.width - 20) / 2
         //variable layout to access properties of collectionView
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        
         //size of each cell
         layout.itemSize = CGSize(width: width, height: width)
         //space for all corners of the cell
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        
         
     }
     
