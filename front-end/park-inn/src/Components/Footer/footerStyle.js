@@ -30,6 +30,7 @@ const footerStyle = {
       borderTop: "1px solid",
       padding: "15px 0",
       fontFamily: 'Muli',
+      color: "#999",
     },
 
     a: {
