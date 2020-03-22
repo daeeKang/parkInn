@@ -39,16 +39,11 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManagementCVCell
         
-        //center text in the center
-        //cell.testLabel.textAlignment = NSTextAlignment.center
-   
-        //change label text for testing
-       // cell.testLabel.text = lotNumber[indexPath.item]
-        //round out border 
-        cell.contentView.layer.cornerRadius = 40
-        cell.contentView.layer.borderWidth = 2
+       // cell.contentView.layer.cornerRadius = 40
+       // cell.contentView.layer.borderWidth = 2
        
-
+        cell.DisplayLot.image = UIImage(named: lotNumber[indexPath.row] + ".png")
+        
         return cell
         
     }
