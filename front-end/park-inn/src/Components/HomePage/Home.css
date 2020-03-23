@@ -28,6 +28,13 @@ body {
     font-size: '12px';
 }
 
+#card-body {
+    text-align: left;
+    font-family: 'Helvetica';
+    font-size: '12px';
+    color: #999;
+}
+
 #icon-subtitle {
     text-align: right;
     font-family: 'Helvetica';

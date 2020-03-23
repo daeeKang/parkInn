@@ -6,9 +6,9 @@ import { NavLink, Link } from 'react-router-dom';
 import GridContainer from './../Grid/GridContainer';
 import GridItem from './../Grid/GridItem';
 import Card from './../Card/Card';
-import CardBody from './../Card/CardBody';
 import CardHeader from './../Card/CardHeader';
 import CardIcon from './../Card/CardIcon';
+import CardBody from './../Card/CardBody';
 import { Divider } from '@material-ui/core';
 
 // icons used
@@ -16,6 +16,9 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import EventIcon from '@material-ui/icons/Event';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+
+import ChartistGraph from "react-chartist";
+import { completedTasksChart } from "./../ChartData/Charts";
 
 export default props => {
     return (
@@ -85,6 +88,25 @@ export default props => {
                                 <p id="link">Manage Parking Lots</p>
                             </NavLink>
                         </CardHeader>
+                    </Card>
+                </GridItem>
+
+                {/* testing graph card */}
+                <GridItem xs={12} sm={12} md={6}>
+                    <Card chart>
+                        <CardHeader color="darkBlue">
+                            <ChartistGraph
+                            className="ct-chart"
+                            data={completedTasksChart.data}
+                            type="Line"
+                            options={completedTasksChart.options}
+                            listener={completedTasksChart.animation}
+                            />
+                        </CardHeader>
+                        <Divider />
+                        <CardBody>
+                            <p id="card-body">See Statistics</p>
+                        </CardBody>
                     </Card>
                 </GridItem>
 
