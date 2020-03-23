@@ -55,3 +55,9 @@
   justify-content: center;
   border-bottom: double;
 }
+
+.add-icon {
+  height: 50px;
+  width: 50px;
+  fill: var(--secondaryColor);
+}
