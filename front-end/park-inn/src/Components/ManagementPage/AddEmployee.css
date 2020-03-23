@@ -5,7 +5,17 @@
   flex-direction: column;
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.input-fields {
+  display: flex;
+  border-bottom: 1px solid;
+}
+
+.add-button {
+  border: 0;
 }
 
 /* .add-container {

@@ -1,6 +1,6 @@
 @import "../../styles/variables.css";
 
-.container {
+.management-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -17,6 +17,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 50%;
+  width: 70%;
   height: 80%;
 }

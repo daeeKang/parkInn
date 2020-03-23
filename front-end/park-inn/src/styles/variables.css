@@ -87,5 +87,5 @@
 .add-icon {
   height: 50px;
   width: 50px;
-  fill: var(--secondaryColor);
+  fill: var(--primaryColor);
 }

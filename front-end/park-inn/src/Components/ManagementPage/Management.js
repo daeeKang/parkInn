@@ -7,7 +7,7 @@ class Management extends Component {
     return (
       <div class="page">
         <div class="page-header">Account Management</div>
-        <div class="container">
+        <div class="management-container">
           <button class="button change-password">Change Password</button>
           <div class="add-employee-container">
             <AddEmployee></AddEmployee>
