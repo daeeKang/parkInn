@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default props => {
     return (
         <div>
-            See Statistics
+            See Incidents
         </div>
     )
 }
