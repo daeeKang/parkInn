@@ -1,5 +1,7 @@
 import React from "react";
 import Konva from "konva";
+import Modal from "react-modal";
+import GenerateParkingLotForm from "./GenerateParkingLotForm";
 import "./Renderer.css";
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 
@@ -16,6 +18,8 @@ export default class Renderer extends React.Component {
             y: 0
         },
         walls: [],
+        parkingLines: [],
+        parkingLabel: [],
         lotRect: {
             x: 0,
             y: 0,
@@ -24,11 +28,15 @@ export default class Renderer extends React.Component {
             visible: false
         },
 
+        //UI
+        showModal: false,
+
         //dev
         cursorLocation: {
             x: 0,
             y: 0
-        }
+        },
+        parkingCount: 123
     };
 
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
@@ -147,16 +155,8 @@ export default class Renderer extends React.Component {
             case "drawParkingSpots": {
                 if (this.isPaint) {
                     //set parking lot shit here
-                    this.setState({
-                        lotRect: {
-                            x: this.state.lotRect.x,
-                            y: this.state.lotRect.y,
-                            width: 0,
-                            height: 0,
-                            visible: false
-                        }
-                    });
                     this.isPaint = false;
+                    this.openParkingLotForm();
                     return;
                 }
                 let stage = e.target.getStage();
@@ -244,6 +244,87 @@ export default class Renderer extends React.Component {
         }
     };
 
+    openModalHandler = () => {
+        this.setState({
+            showModal: true
+        });
+    };
+
+    closeModalHandler = () => {
+        this.setState({
+            showModal: false
+        });
+    };
+
+    openParkingLotForm = coords => {
+        this.openModalHandler();
+    };
+
+    //call back function for generate parking lot form
+    callbackParkingLotForm = childData => {
+        this.closeModalHandler();
+        this.drawParkingSpots(childData);
+    };
+
+    drawParkingSpots = num => {
+        let dimensions = {
+            width: this.state.lotRect.width,
+            height: this.state.lotRect.height
+        };
+
+        //TO-DO: boundary check or somethin lol
+        let origx = this.state.lotRect.x;
+        let origy = this.state.lotRect.y;
+
+        //draw parking lines
+        let parkingLines = [];
+        for (let i = 0; i < num; i++) {
+            parkingLines.push({
+                x1: origx + (dimensions.width / num) * i,
+                y1: origy,
+                x2: origx + (dimensions.width / num) * i,
+                y2: origy + dimensions.height
+            });
+        }
+        //for end line
+        parkingLines.push({
+            x1: origx + dimensions.width,
+            y1: origy,
+            x2: origx + dimensions.width,
+            y2: origy + dimensions.height
+        });
+        this.setState({
+            parkingLines: this.state.parkingLines.concat(parkingLines)
+        });
+
+        //draw labels
+        let labels = [];
+        let inText = this.state.parkingCount; //change this
+        for (let i = 0; i < num; i++) {
+            labels.push({
+                x: origx + (dimensions.width / num) * i,
+                y: origy + dimensions.height - dimensions.width / num,
+                width: dimensions.width / num,
+                text: ++inText
+            });
+        }
+        this.setState({
+            parkingLabel: this.state.parkingLabel.concat(labels),
+            parkingCount: inText
+        });
+
+        //hide drawing box
+        this.setState({
+            lotRect: {
+                x: this.state.lotRect.x,
+                y: this.state.lotRect.y,
+                width: 0,
+                height: 0,
+                visible: false
+            }
+        });
+    };
+
     //---------------------------BUTTON TYPA TINGZ--------------------------------//
     resetOrigin = e => {
         this.setState({
@@ -293,9 +374,20 @@ export default class Renderer extends React.Component {
         }
     };
 
-    //-----------------------------STATE BASED STYLING------------------------------------------------//
+    //-----------------------------REACT TYPE STYLING------------------------------------------------//
     buttonSelected = {
         background: "#b3e1ff"
+    };
+
+    modalStyle = {
+        content: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)"
+        }
     };
 
     //-----------------------------RENDER---:-)-------------------------kill me-----------------------//
@@ -314,6 +406,12 @@ export default class Renderer extends React.Component {
                         {this.state.cursorLocation.y}
                     </p>
                 </div>
+
+                <Modal style={this.modalStyle} isOpen={this.state.showModal}>
+                    <GenerateParkingLotForm
+                        parentCallback={this.callbackParkingLotForm}
+                    />
+                </Modal>
 
                 <div className="controls">
                     <button onClick={this.resetOrigin}>reset</button>
@@ -409,6 +507,38 @@ export default class Renderer extends React.Component {
                         ))}
                     </Layer>
 
+                    <Layer id="parkingSpots">
+                        {this.state.parkingLines.map((line, i) => {
+                            return (
+                                <Line
+                                    points={[
+                                        line.x1,
+                                        line.y1,
+                                        line.x2,
+                                        line.y2
+                                    ]}
+                                    strokeWidth={5}
+                                    stroke={"#3D4849"}
+                                    perfectDrawEnabled={false}
+                                    listening={false}
+                                />
+                            );
+                        })}
+
+                        {this.state.parkingLabel.map((lab, i) => {
+                            return (
+                                <Text
+                                    x={lab.x}
+                                    y={lab.y}
+                                    width={lab.width}
+                                    text={lab.text}
+                                    padding={5}
+                                    align={"center"}
+                                />
+                            );
+                        })}
+                    </Layer>
+
                     <Layer id="walls">
                         {this.state.walls.map((wall, i) => {
                             return (
@@ -433,7 +563,6 @@ export default class Renderer extends React.Component {
                             height={this.state.lotRect.height}
                             stroke={"#fda766"}
                             strokeWidth={2}
-                            shadowForStrokeEnabled={true}
                             visible={this.state.lotRect.visible}
                         />
                     </Layer>
