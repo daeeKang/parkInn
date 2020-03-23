@@ -303,8 +303,9 @@ export default class Renderer extends React.Component {
         for (let i = 0; i < num; i++) {
             labels.push({
                 x: origx + (dimensions.width / num) * i,
-                y: origy + dimensions.height - dimensions.width / num,
+                y: origy + dimensions.height,
                 width: dimensions.width / num,
+                height: dimensions.width / num / 2,
                 text: ++inText
             });
         }
@@ -532,8 +533,9 @@ export default class Renderer extends React.Component {
                                     y={lab.y}
                                     width={lab.width}
                                     text={lab.text}
-                                    padding={5}
                                     align={"center"}
+                                    fontStyle={"bold"}
+                                    fontSize={20}
                                 />
                             );
                         })}
