@@ -11,15 +11,17 @@ import UIKit
 class DisplayVC: UIViewController {
 
     @IBOutlet weak var showImage: UIImageView!
+    @IBOutlet weak var showText: UILabel!
     
     var image = UIImage()
+    var name = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         showImage.image = image
-        
+        showText.text = name
     }
     
 

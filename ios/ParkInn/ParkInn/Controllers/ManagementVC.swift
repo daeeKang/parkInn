@@ -56,6 +56,7 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let desVC = mainStoryboard.instantiateViewController(identifier: "DisplayVC") as! DisplayVC
         desVC.image =  UIImage(named: lotNumber[indexPath.row] + ".png")!
+        desVC.name = lotNumber[indexPath.row]
         self.navigationController?.pushViewController(desVC, animated: true)
         
         
