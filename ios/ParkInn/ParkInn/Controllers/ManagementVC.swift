@@ -44,6 +44,9 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         cell.DisplayLot.layer.cornerRadius = 30
         cell.DisplayLot.image = UIImage(named: lotNumber[indexPath.row] + ".png")
+        cell.LabelLot.textColor = UIColor.black
+        cell.LabelLot.text = lotNumber[indexPath.row]
+    
         
         return cell
         

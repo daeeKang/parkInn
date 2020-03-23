@@ -13,4 +13,5 @@ class ManagementCVCell: UICollectionViewCell {
     //Item within the cell
     @IBOutlet weak var DisplayLot: UIImageView!
     
+    @IBOutlet weak var LabelLot: UILabel!
 }
