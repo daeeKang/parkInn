@@ -8,15 +8,15 @@ let UserSchema = new Schema({
     role: {type: String, required: true},
     first: {type: String, required: true},
     last: {type: String, required: true},
-    companyid: String,
+    companyid: {type: String, default: null},
 });
 
 UserSchema.methods.GenerateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
 
 UserSchema.methods.ValidPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
+    return bcrypt.compareSync(password, this.password);
 };
 
-module.exports = mongoose.model('User', UserSchema); 
+module.exports = mongoose.model('User', UserSchema, 'users'); 

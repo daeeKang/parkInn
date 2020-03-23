@@ -23,4 +23,27 @@ router.post('/AddCustomer', (req, res) => {
     });
 });
 
+router.get('/GetCustomers', async (req, res) => {
+    
+    const customers = await model.Customer.find({});
+    console.log(customers);
+    try{
+        res.send(customers);
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
+});
+
+router.get('/GetCustomer/:username', async (req, res) => {
+    
+    const customer = await model.Customer.find({username: req.params.username});
+    try{
+        res.send(customer);
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
+});
+
 module.exports = router;
