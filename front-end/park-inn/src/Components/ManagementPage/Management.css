@@ -14,9 +14,9 @@
 }
 
 .add-employee-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  border: 5px black;
   width: 50%;
   height: 80%;
 }

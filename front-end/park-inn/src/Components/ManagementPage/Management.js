@@ -6,7 +6,7 @@ class Management extends Component {
   render() {
     return (
       <div class="page">
-        <div class="header">Account Management</div>
+        <div class="page-header">Account Management</div>
         <div class="container">
           <button class="button change-password">Change Password</button>
           <div class="add-employee-container">

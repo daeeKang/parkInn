@@ -2,13 +2,27 @@
 
 .add-page {
   display: flex;
+  flex-direction: column;
   position: relative;
-  border-style: solid;
-  border-color: var(--secondaryColorDark);
-  background-color: var(--backgroundColor);
-}
-
-.add-container {
   height: 100%;
   width: 100%;
 }
+
+/* .add-container {
+  display: flex;
+  background: white;
+  color: var(--textColor);
+  height: 5%;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-weight: 100;
+  font-size: 14px;
+  letter-spacing: 2px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: double;
+  margin-top: 10px;
+  padding-bottom: 10px;
+} */

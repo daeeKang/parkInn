@@ -1,116 +1,133 @@
-import React from 'react';
-import './Home.css'
-import { NavLink, Link } from 'react-router-dom';
+import React from "react";
+import "./Home.css";
+import { NavLink, Link } from "react-router-dom";
 // import Login from '../LoginPage/Login' //just place holder for now maybe lol
 
-import GridContainer from './../Grid/GridContainer';
-import GridItem from './../Grid/GridItem';
-import Card from './../Card/Card';
-import CardHeader from './../Card/CardHeader';
-import CardIcon from './../Card/CardIcon';
-import CardBody from './../Card/CardBody';
-import { Divider } from '@material-ui/core';
+import GridContainer from "./../Grid/GridContainer";
+import GridItem from "./../Grid/GridItem";
+import Card from "./../Card/Card";
+import CardHeader from "./../Card/CardHeader";
+import CardIcon from "./../Card/CardIcon";
+import CardBody from "./../Card/CardBody";
+import { Divider } from "@material-ui/core";
 
 // icons used
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
-import EventIcon from '@material-ui/icons/Event';
-import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import NotificationImportantIcon from "@material-ui/icons/NotificationImportant";
+import EventIcon from "@material-ui/icons/Event";
+import DirectionsCarIcon from "@material-ui/icons/DirectionsCar";
 
 import ChartistGraph from "react-chartist";
 import { completedTasksChart } from "./../ChartData/Charts";
 
 export default props => {
-    return (
-        <div>
-            <GridContainer>
-                <GridItem xs={12} sm={6} md={3}>
-                    <Card>
-                        <CardHeader color="green" icon>
-                            <CardIcon color="green">
-                                <AttachMoneyIcon />
-                            </CardIcon>
-                            <p id="icon-subtitle">Today's Revenue</p>
-                            <p id="icon-text">
-                                <font color="#81C784"><b>$xxx</b></font> earned
-                            </p>
-                            <Divider />
-                            <NavLink className="link" to='/statistics'>
-                                <p id="link">See Daily Revenue</p>
-                            </NavLink>
-                        </CardHeader>
-                    </Card>
-                </GridItem>
+  return (
+    <div class="page">
+      <GridContainer>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="green" icon>
+              <CardIcon color="green">
+                <AttachMoneyIcon />
+              </CardIcon>
+              <p id="icon-subtitle">Today's Revenue</p>
+              <p id="icon-text">
+                <font color="#81C784">
+                  <b>$xxx</b>
+                </font>{" "}
+                earned
+              </p>
+              <Divider />
+              <NavLink className="link" to="/statistics">
+                <p id="link">See Daily Revenue</p>
+              </NavLink>
+            </CardHeader>
+          </Card>
+        </GridItem>
 
-                <GridItem xs={12} sm={6} md={3}>
-                    <Card>
-                        <CardHeader color="red" icon> 
-                            <CardIcon color="red">
-                                <NotificationImportantIcon />
-                            </CardIcon>
-                            <p id = "icon-subtitle">Incidents</p>
-                            <p id="icon-text">
-                                <font color="#E57373"><b>xxx incident(s)</b></font> to be resolved</p>
-                            <Divider />
-                            <NavLink className="link" to='/incidents'>
-                                <p id="link">Manage Incidents</p>
-                            </NavLink>
-                        </CardHeader>
-                    </Card>
-                </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="red" icon>
+              <CardIcon color="red">
+                <NotificationImportantIcon />
+              </CardIcon>
+              <p id="icon-subtitle">Incidents</p>
+              <p id="icon-text">
+                <font color="#E57373">
+                  <b>xxx incident(s)</b>
+                </font>{" "}
+                to be resolved
+              </p>
+              <Divider />
+              <NavLink className="link" to="/incidents">
+                <p id="link">Manage Incidents</p>
+              </NavLink>
+            </CardHeader>
+          </Card>
+        </GridItem>
 
-                <GridItem xs={12} sm={6} md={3}>
-                    <Card>
-                        <CardHeader color="yellow" icon>
-                            <CardIcon color="yellow">
-                                <EventIcon />
-                            </CardIcon>
-                            <p id = "icon-subtitle">Upcoming Events</p>
-                            <p id="icon-text"><font color="#FFB74D"><b>xxx events(s)</b></font> coming up</p>
-                            <Divider />
-                            <NavLink className="link" to='/events'>
-                                <p id="link">See Event Calendar</p>
-                            </NavLink>
-                        </CardHeader>
-                    </Card>
-                </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="yellow" icon>
+              <CardIcon color="yellow">
+                <EventIcon />
+              </CardIcon>
+              <p id="icon-subtitle">Upcoming Events</p>
+              <p id="icon-text">
+                <font color="#FFB74D">
+                  <b>xxx events(s)</b>
+                </font>{" "}
+                coming up
+              </p>
+              <Divider />
+              <NavLink className="link" to="/events">
+                <p id="link">See Event Calendar</p>
+              </NavLink>
+            </CardHeader>
+          </Card>
+        </GridItem>
 
-                <GridItem xs={12} sm={6} md={3}>
-                    <Card>
-                        <CardHeader color="teal" icon>
-                            <CardIcon color="teal">
-                                <DirectionsCarIcon />
-                            </CardIcon>
-                            <p id = "icon-subtitle">Manage Spaces</p>
-                            <p id="icon-text"><font color="#14BACE"><b>xxx lot(s)</b></font> to view</p>
-                            <Divider />
-                            <NavLink className='link' to='/'>
-                                <p id="link">Manage Parking Lots</p>
-                            </NavLink>
-                        </CardHeader>
-                    </Card>
-                </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="teal" icon>
+              <CardIcon color="teal">
+                <DirectionsCarIcon />
+              </CardIcon>
+              <p id="icon-subtitle">Manage Spaces</p>
+              <p id="icon-text">
+                <font color="#14BACE">
+                  <b>xxx lot(s)</b>
+                </font>{" "}
+                to view
+              </p>
+              <Divider />
+              <NavLink className="link" to="/">
+                <p id="link">Manage Parking Lots</p>
+              </NavLink>
+            </CardHeader>
+          </Card>
+        </GridItem>
 
-                {/* testing graph card */}
-                <GridItem xs={12} sm={12} md={6}>
-                    <Card chart>
-                        <CardHeader color="darkBlue">
-                            <ChartistGraph
-                            className="ct-chart"
-                            data={completedTasksChart.data}
-                            type="Line"
-                            options={completedTasksChart.options}
-                            listener={completedTasksChart.animation}
-                            />
-                        </CardHeader>
-                        <Divider />
-                        <CardBody>
-                            <p id="card-body">See Statistics</p>
-                        </CardBody>
-                    </Card>
-                </GridItem>
+        {/* testing graph card */}
+        <GridItem xs={12} sm={12} md={6}>
+          <Card chart>
+            <CardHeader color="darkBlue">
+              <ChartistGraph
+                className="ct-chart"
+                data={completedTasksChart.data}
+                type="Line"
+                options={completedTasksChart.options}
+                listener={completedTasksChart.animation}
+              />
+            </CardHeader>
+            <Divider />
+            <CardBody>
+              <p id="card-body">See Statistics</p>
+            </CardBody>
+          </Card>
+        </GridItem>
 
-                {/* <GridItem xs={12} sm={12} md={4}>
+        {/* <GridItem xs={12} sm={12} md={4}>
                     <Card style={{ width: "20rem" }}>
                         <CardBody>
                             <CardHeader color="yellow">
@@ -126,7 +143,7 @@ export default props => {
                     </Card>
                 </GridItem> */}
 
-                {/* <GridItem xs={12} sm={12} md={4}>
+        {/* <GridItem xs={12} sm={12} md={4}>
                     <Card style={{ width: "20rem" }}>
                         <img
                         // className={classes.cardImgTop}
@@ -144,9 +161,9 @@ export default props => {
                         </CardBody>
                     </Card>
                 </GridItem> */}
-            </GridContainer>
+      </GridContainer>
 
-            {/* <Login/> */}
-        </div>
-    )
-}
+      {/* <Login/> */}
+    </div>
+  );
+};
