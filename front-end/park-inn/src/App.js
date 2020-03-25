@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Sidebar />
+        {/* <Sidebar /> */}
         <Main id='page-wrap' />
         <Footer />
       </div>

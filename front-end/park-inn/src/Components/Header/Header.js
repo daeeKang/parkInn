@@ -1,8 +1,9 @@
 import React from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Menu, MenuItem, Button } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Sidebar from '../Sidebar/Sidebar';
 
 export default props => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,8 +18,9 @@ export default props => {
 
     return (
         <div class="header">
+            <Sidebar />
             <div class="header-right">
-                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                <Button aria-controls="simple-menu" aria-haspopup="true" disableRipple="true" className="account-button" onClick={handleClick}>
                     <AccountCircleIcon style={{ padding: 10 }} fontSize="large" />
                 </Button>
 
@@ -29,11 +31,13 @@ export default props => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <Link to='/management'>
+                    <NavLink className="link" to='/management'>
                         <MenuItem onClick={handleClose}>Account Settings</MenuItem>
-                    </Link>
+                    </NavLink>
                     
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <NavLink className="link" to="/">
+                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    </NavLink>
                 </Menu>
             </div>
         </div>
