@@ -1,6 +1,7 @@
 import React from 'react';
 import { stack as Menu } from 'react-burger-menu';
 import './Sidebar.css';
+import AccountButton from './AccountButton';
 import { NavLink } from 'react-router-dom';
 
 class Sidebar extends React.Component {
@@ -25,6 +26,8 @@ class Sidebar extends React.Component {
                 isOpen={this.state.menuOpen}
                 onStateChange={state => this.handleStateChange(state)}
             >
+                <AccountButton />
+                <br />
                 <ul>
                     <li><NavLink className="link" onClick={this.closeMenu} to='/'>Home</NavLink></li>
                     <li><NavLink className="link" onClick={this.closeMenu} to='/parking'>Manage Parking</NavLink></li>

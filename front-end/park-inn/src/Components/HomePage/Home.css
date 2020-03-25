@@ -11,6 +11,10 @@ body {
     color: #999;
 }
 
+#link:hover {
+    color: rgb(190, 190, 190); 
+}
+
 #card-header {
     text-align: center;
     text-transform: uppercase;

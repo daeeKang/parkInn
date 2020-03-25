@@ -73,3 +73,7 @@ ul li {
 .link:hover {
   color: #14BACE;
 }
+
+.account {
+  float: center; 
+}
