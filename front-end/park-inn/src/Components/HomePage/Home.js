@@ -98,21 +98,23 @@ export default props => {
                             <ChartistGraph
                             className="ct-chart"
                             data={monthlySalesChart.data}
-                            type="Bar"
+                            type="Line"
                             options={monthlySalesChart.options}
                             listener={monthlySalesChart.animation}
                             />
                         </CardHeader>
-                        <Divider />
                         <CardBody>
-                            <p id="card-body">See Statistics</p>
+                            <Divider />
+                            <NavLink className="link" to='/statistics'>
+                                <p id="link"><br></br>View Monthly Sales</p>
+                            </NavLink>
                         </CardBody>
                     </Card>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={6}>
                     <Card chart>
-                        <CardHeader color="teal">
+                        <CardHeader color="lightBlue">
                             <ChartistGraph
                             className="ct-chart"
                             data={peakHoursChart.data}
@@ -121,9 +123,11 @@ export default props => {
                             listener={peakHoursChart.animation}
                             />
                         </CardHeader>
-                        <Divider />
                         <CardBody>
-                            <p id="card-body">See Statistics</p>
+                            <Divider />
+                            <NavLink className="link" to='/statistics'>
+                                <p id="link"><br></br>View Peak Hours</p>
+                            </NavLink>
                         </CardBody>
                     </Card>
                 </GridItem>

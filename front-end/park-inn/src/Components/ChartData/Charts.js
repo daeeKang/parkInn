@@ -86,7 +86,7 @@ const monthlySalesChart = {
       top: 10,
       right: 15,
       bottom: 10,
-      left: 10
+      left: 10,
     }
   },
   responsiveOptions: [
