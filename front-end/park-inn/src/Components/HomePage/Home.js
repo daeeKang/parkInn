@@ -16,6 +16,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import EventIcon from '@material-ui/icons/Event';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+import CallMadeIcon from './call_made.svg';
 
 import ChartistGraph from "react-chartist";
 import { dailySalesChart, monthlySalesChart, peakHoursChart } from "./../ChartData/Charts";
@@ -36,7 +37,9 @@ export default props => {
                             </p>
                             <Divider />
                             <NavLink className="link" to='/statistics'>
-                                <p id="link">See Daily Revenue</p>
+                                <p id="link">
+                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> See Daily Revenue
+                                </p>
                             </NavLink>
                         </CardHeader>
                     </Card>
@@ -53,7 +56,9 @@ export default props => {
                                 <font color="#E57373"><b>xxx incident(s)</b></font> to be resolved</p>
                             <Divider />
                             <NavLink className="link" to='/incidents'>
-                                <p id="link">Manage Incidents</p>
+                                <p id="link">
+                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" />  Manage Incidents
+                                </p>
                             </NavLink>
                         </CardHeader>
                     </Card>
@@ -69,7 +74,9 @@ export default props => {
                             <p id="icon-text"><font color="#FFB74D"><b>xxx events(s)</b></font> coming up</p>
                             <Divider />
                             <NavLink className="link" to='/events'>
-                                <p id="link">See Event Calendar</p>
+                                <p id="link">
+                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> See Event Calendar
+                                </p>
                             </NavLink>
                         </CardHeader>
                     </Card>
@@ -85,7 +92,9 @@ export default props => {
                             <p id="icon-text"><font color="#14BACE"><b>xxx lot(s)</b></font> to view</p>
                             <Divider />
                             <NavLink className='link' to='/parking'>
-                                <p id="link">Manage Parking Lots</p>
+                                <p id="link">
+                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> Manage Parking Lots
+                                </p>
                             </NavLink>
                         </CardHeader>
                     </Card>
@@ -106,7 +115,10 @@ export default props => {
                         <CardBody>
                             <Divider />
                             <NavLink className="link" to='/statistics'>
-                                <p id="link"><br></br>View Monthly Sales</p>
+                                <p id="link">
+                                    <br></br>
+                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> View Monthly Sales
+                                </p>
                             </NavLink>
                         </CardBody>
                     </Card>
@@ -126,7 +138,10 @@ export default props => {
                         <CardBody>
                             <Divider />
                             <NavLink className="link" to='/statistics'>
-                                <p id="link"><br></br>View Peak Hours</p>
+                                <p id="link">
+                                    <br></br>
+                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> View Peak Hours
+                                </p>
                             </NavLink>
                         </CardBody>
                     </Card>
