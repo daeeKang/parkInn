@@ -39,37 +39,37 @@ class Sidebar extends React.Component {
                 <ul>
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/'>
-                            <img src={DashboardIcon} height="11px" width="11px" alt="press-link" />     Home
+                            <img src={DashboardIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Home</span>
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/parking'>
-                            <img src={ParkingIcon} height="11px" width="11px" alt="press-link" />       Manage Parking
+                            <img src={ParkingIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Manage Parking</span>
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/statistics'>
-                            <img src={StatsIcon} height="11px" width="11px" alt="press-link" />         Statistics
+                            <img src={StatsIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Statistics</span>
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/events'>
-                            <img src={EventIcon} height="11px" width="11px" alt="press-link" />         Event Calendar
+                            <img src={EventIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Event Calendar</span>
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/incidents'>
-                            <img src={IncidentIcon} height="11px" width="11px" alt="press-link" />      Manage Incidents
+                            <img src={IncidentIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Incident Reporting</span>
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/management'>
-                            <img src={SettingsIcon} height="11px" width="11px" alt="press-link" />      Management Settings
+                            <img src={SettingsIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Account Settings</span>
                         </NavLink>
                     </li>
                 </ul>

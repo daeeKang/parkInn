@@ -19,10 +19,10 @@ export default props => {
         <div>
             <div>
                 <div class="center">
-                    <p>Welcome, User!</p>
-                    <Button aria-controls="simple-menu" aria-haspopup="true" disableRipple="true" className="account-button" onClick={handleClick}>
+                    <p id="account-text">Welcome, User!</p>
+                    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                         {/* <AccountCircleIcon style={{ padding: 10 }} fontSize="large" /> */}
-                        <img src={Pub} height="80px" width="80px" alt="account-button" />
+                        <img src={Pub} height="80px" width="80px" padding="10px" alt="account-button" />
                     </Button>
                 </div>
 

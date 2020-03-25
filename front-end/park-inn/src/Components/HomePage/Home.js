@@ -57,7 +57,7 @@ export default props => {
                             <Divider />
                             <NavLink className="link" to='/incidents'>
                                 <p id="link">
-                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" />  Manage Incidents
+                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" />  Resolve Incidents
                                 </p>
                             </NavLink>
                         </CardHeader>

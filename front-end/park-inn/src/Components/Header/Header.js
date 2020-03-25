@@ -20,7 +20,7 @@ export default props => {
         <div class="header">
             <Sidebar />
             <div class="header-right">
-                <Button aria-controls="simple-menu" aria-haspopup="true" disableRipple="true" className="account-button" onClick={handleClick}>
+                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                     <AccountCircleIcon style={{ padding: 10 }} fontSize="large" />
                 </Button>
 

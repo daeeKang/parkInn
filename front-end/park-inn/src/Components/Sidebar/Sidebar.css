@@ -74,6 +74,7 @@ ul li {
   color: #14BACE;
 }
 
-.account {
-  float: center; 
+.tab { 
+  display: inline-block; 
+  margin-left: 20px; 
 }
