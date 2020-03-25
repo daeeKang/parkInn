@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css'
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import Login from '../LoginPage/Login' //just place holder for now maybe lol
 
 import GridContainer from './../Grid/GridContainer';
@@ -16,7 +16,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 import EventIcon from '@material-ui/icons/Event';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
-import CallMadeIcon from './call_made.svg';
+import ArrowIcon from '../Icons/arrow.svg';
 
 import ChartistGraph from "react-chartist";
 import { dailySalesChart, monthlySalesChart, peakHoursChart } from "./../ChartData/Charts";
@@ -38,7 +38,7 @@ export default props => {
                             <Divider />
                             <NavLink className="link" to='/statistics'>
                                 <p id="link">
-                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> See Daily Revenue
+                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" /> See Daily Revenue
                                 </p>
                             </NavLink>
                         </CardHeader>
@@ -57,7 +57,7 @@ export default props => {
                             <Divider />
                             <NavLink className="link" to='/incidents'>
                                 <p id="link">
-                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" />  Manage Incidents
+                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" />  Manage Incidents
                                 </p>
                             </NavLink>
                         </CardHeader>
@@ -75,7 +75,7 @@ export default props => {
                             <Divider />
                             <NavLink className="link" to='/events'>
                                 <p id="link">
-                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> See Event Calendar
+                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" /> See Event Calendar
                                 </p>
                             </NavLink>
                         </CardHeader>
@@ -93,7 +93,7 @@ export default props => {
                             <Divider />
                             <NavLink className='link' to='/parking'>
                                 <p id="link">
-                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> Manage Parking Lots
+                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" /> Manage Parking Lots
                                 </p>
                             </NavLink>
                         </CardHeader>
@@ -117,7 +117,7 @@ export default props => {
                             <NavLink className="link" to='/statistics'>
                                 <p id="link">
                                     <br></br>
-                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> View Monthly Sales
+                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" /> View Monthly Sales
                                 </p>
                             </NavLink>
                         </CardBody>
@@ -140,7 +140,7 @@ export default props => {
                             <NavLink className="link" to='/statistics'>
                                 <p id="link">
                                     <br></br>
-                                    <img src={CallMadeIcon} height="12px" width="12 px" alt="press-link" /> View Peak Hours
+                                    <img src={ArrowIcon} height="12px" width="12 px" alt="press-link" /> View Peak Hours
                                 </p>
                             </NavLink>
                         </CardBody>

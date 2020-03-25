@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, MenuItem, Button } from '@material-ui/core';
-import Pub from './pub.jpg';
+import Pub from '../Icons/pub.jpg';
 import './AccountButton.css';
 
 export default props => {

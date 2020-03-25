@@ -5,12 +5,12 @@ import AccountButton from './AccountButton';
 import { NavLink } from 'react-router-dom';
 
 // icons
-import DashboardIcon from './dashboard.svg';
-import ParkingIcon from './parking.svg';
-import StatsIcon from './statistics.svg';
-import EventIcon from './event.svg';
-import IncidentIcon from './incidents.svg';
-import SettingsIcon from './settings.svg';
+import DashboardIcon from '../Icons/dashboard.svg';
+import ParkingIcon from '../Icons/parking.svg';
+import StatsIcon from '../Icons/statistics.svg';
+import EventIcon from '../Icons/event.svg';
+import IncidentIcon from '../Icons/incidents.svg';
+import SettingsIcon from '../Icons/settings.svg';
 
 class Sidebar extends React.Component {
     constructor(props){
