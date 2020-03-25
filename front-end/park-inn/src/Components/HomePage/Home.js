@@ -12,10 +12,10 @@ import CardBody from './../Card/CardBody';
 import { Divider } from '@material-ui/core';
 
 // icons used
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
-import EventIcon from '@material-ui/icons/Event';
-import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+import MoneyIcon from '../Icons/money_white.svg';
+import IncidentIcon from '../Icons/incident_white.svg';
+import EventIcon from '../Icons/event_white.svg';
+import ParkingIcon from '../Icons/parking_white.svg';
 import ArrowIcon from '../Icons/arrow.svg';
 
 import ChartistGraph from "react-chartist";
@@ -29,7 +29,7 @@ export default props => {
                     <Card>
                         <CardHeader color="green" icon>
                             <CardIcon color="green">
-                                <AttachMoneyIcon />
+                                <img src={MoneyIcon} height="30px" width="30px" alt="money" />
                             </CardIcon>
                             <p id="icon-subtitle">Today's Revenue</p>
                             <p id="icon-text">
@@ -49,7 +49,7 @@ export default props => {
                     <Card>
                         <CardHeader color="red" icon> 
                             <CardIcon color="red">
-                                <NotificationImportantIcon />
+                                <img src={IncidentIcon} height="30px" width="30px" alt="incident" />
                             </CardIcon>
                             <p id = "icon-subtitle">Incidents</p>
                             <p id="icon-text">
@@ -68,7 +68,7 @@ export default props => {
                     <Card>
                         <CardHeader color="yellow" icon>
                             <CardIcon color="yellow">
-                                <EventIcon />
+                                <img src={EventIcon} height="30px" width="30px" alt="event" />
                             </CardIcon>
                             <p id = "icon-subtitle">Upcoming Events</p>
                             <p id="icon-text"><font color="#FFB74D"><b>xxx events(s)</b></font> coming up</p>
@@ -86,7 +86,7 @@ export default props => {
                     <Card>
                         <CardHeader color="teal" icon>
                             <CardIcon color="teal">
-                                <DirectionsCarIcon />
+                                <img src={ParkingIcon} height="30px" width="30px" alt="parking" />
                             </CardIcon>
                             <p id = "icon-subtitle">Manage Spaces</p>
                             <p id="icon-text"><font color="#14BACE"><b>xxx lot(s)</b></font> to view</p>
