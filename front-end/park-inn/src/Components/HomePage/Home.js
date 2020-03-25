@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css'
+import '../ChartData/Charts.css';
 import { NavLink } from 'react-router-dom';
 // import Login from '../LoginPage/Login' //just place holder for now maybe lol
 
@@ -105,9 +106,9 @@ export default props => {
                     <Card chart>
                         <CardHeader color="darkBlue">
                             <ChartistGraph
-                            className="ct-chart"
+                            className="ct-chart-line"
                             data={monthlySalesChart.data}
-                            type="Line"
+                            type={'Line'}
                             options={monthlySalesChart.options}
                             listener={monthlySalesChart.animation}
                             />
@@ -128,9 +129,9 @@ export default props => {
                     <Card chart>
                         <CardHeader color="lightBlue">
                             <ChartistGraph
-                            className="ct-chart"
+                            className="ct-chart-bar"
                             data={peakHoursChart.data}
-                            type="Line"
+                            type={'Bar'}
                             options={peakHoursChart.options}
                             listener={peakHoursChart.animation}
                             />
