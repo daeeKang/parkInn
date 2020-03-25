@@ -1,20 +1,12 @@
-// ##############################
-// // // javascript library for creating charts
-// #############################
 var Chartist = require("chartist");
 
-// ##############################
-// // // variables used to create animation on charts
-// #############################
+// animation vars
 var delays = 80,
   durations = 500;
 var delays2 = 80,
   durations2 = 500;
 
-// ##############################
-// // // Daily Sales
-// #############################
-
+// Daily Revenue
 const dailySalesChart = {
   data: {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
@@ -25,15 +17,15 @@ const dailySalesChart = {
       tension: 0
     }),
     low: 0,
-    high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 50,
     chartPadding: {
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
+      top: 10,
+      right: 10,
+      bottom: 10,
+      left: 10
     }
   },
-  // for animation
+
   animation: {
     draw: function(data) {
       if (data.type === "line" || data.type === "area") {
@@ -65,18 +57,15 @@ const dailySalesChart = {
   }
 };
 
-// ##############################
-// // // Email Subscriptions
-// #############################
-
-const emailsSubscriptionChart = {
+// Monthly Revenue
+const monthlySalesChart = {
   data: {
     labels: [
       "Jan",
       "Feb",
       "Mar",
       "Apr",
-      "Mai",
+      "May",
       "Jun",
       "Jul",
       "Aug",
@@ -94,10 +83,10 @@ const emailsSubscriptionChart = {
     low: 0,
     high: 1000,
     chartPadding: {
-      top: 0,
-      right: 5,
-      bottom: 0,
-      left: 0
+      top: 10,
+      right: 15,
+      bottom: 10,
+      left: 10,
     }
   },
   responsiveOptions: [
@@ -130,11 +119,8 @@ const emailsSubscriptionChart = {
   }
 };
 
-// ##############################
-// // // Completed Tasks
-// #############################
-
-const completedTasksChart = {
+// Peak Times
+const peakHoursChart = {
   data: {
     labels: ["12am", "3pm", "6pm", "9pm", "12pm", "3am", "6am", "9am"],
     series: [[230, 750, 450, 300, 280, 240, 200, 190]]
@@ -144,7 +130,7 @@ const completedTasksChart = {
       tension: 0
     }),
     low: 0,
-    high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 1000,
     chartPadding: {
       top: 0,
       right: 0,
@@ -185,6 +171,6 @@ const completedTasksChart = {
 
 module.exports = {
   dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
+  monthlySalesChart,
+  peakHoursChart
 };

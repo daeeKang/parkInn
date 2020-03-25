@@ -18,7 +18,7 @@ import EventIcon from '@material-ui/icons/Event';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 
 import ChartistGraph from "react-chartist";
-import { completedTasksChart } from "./../ChartData/Charts";
+import { dailySalesChart, monthlySalesChart, peakHoursChart } from "./../ChartData/Charts";
 
 export default props => {
     return (
@@ -97,15 +97,37 @@ export default props => {
                         <CardHeader color="darkBlue">
                             <ChartistGraph
                             className="ct-chart"
-                            data={completedTasksChart.data}
+                            data={monthlySalesChart.data}
                             type="Line"
-                            options={completedTasksChart.options}
-                            listener={completedTasksChart.animation}
+                            options={monthlySalesChart.options}
+                            listener={monthlySalesChart.animation}
                             />
                         </CardHeader>
-                        <Divider />
                         <CardBody>
-                            <p id="card-body">See Statistics</p>
+                            <Divider />
+                            <NavLink className="link" to='/statistics'>
+                                <p id="link"><br></br>View Monthly Sales</p>
+                            </NavLink>
+                        </CardBody>
+                    </Card>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={6}>
+                    <Card chart>
+                        <CardHeader color="lightBlue">
+                            <ChartistGraph
+                            className="ct-chart"
+                            data={peakHoursChart.data}
+                            type="Line"
+                            options={peakHoursChart.options}
+                            listener={peakHoursChart.animation}
+                            />
+                        </CardHeader>
+                        <CardBody>
+                            <Divider />
+                            <NavLink className="link" to='/statistics'>
+                                <p id="link"><br></br>View Peak Hours</p>
+                            </NavLink>
                         </CardBody>
                     </Card>
                 </GridItem>
