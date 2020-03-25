@@ -84,7 +84,7 @@ export default props => {
                             <p id = "icon-subtitle">Manage Spaces</p>
                             <p id="icon-text"><font color="#14BACE"><b>xxx lot(s)</b></font> to view</p>
                             <Divider />
-                            <NavLink className='link' to='/'>
+                            <NavLink className='link' to='/parking'>
                                 <p id="link">Manage Parking Lots</p>
                             </NavLink>
                         </CardHeader>

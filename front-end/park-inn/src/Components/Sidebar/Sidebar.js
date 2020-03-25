@@ -27,7 +27,7 @@ class Sidebar extends React.Component {
             >
                 <ul>
                     <li><NavLink className="link" onClick={this.closeMenu} to='/'>Home</NavLink></li>
-                    <li><NavLink className="link" onClick={this.closeMenu} to='/'>Manage Parking</NavLink></li>
+                    <li><NavLink className="link" onClick={this.closeMenu} to='/parking'>Manage Parking</NavLink></li>
                     <li><NavLink className="link" onClick={this.closeMenu} to='/statistics'>Statistics</NavLink></li>
                     <li><NavLink className="link" onClick={this.closeMenu} to='/events'>Event Calendar</NavLink></li>
                     <li><NavLink className="link" onClick={this.closeMenu} to='/incidents'>Manage Incidents</NavLink></li>
