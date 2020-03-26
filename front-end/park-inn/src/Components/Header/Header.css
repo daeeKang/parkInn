@@ -14,7 +14,7 @@
   text-align: center;
   padding: 12px;
   text-decoration: uppercase;
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
@@ -25,6 +25,20 @@
 .header a:hover {
   background-color: #ddd;
   color: black;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 0px 10px;
+  margin-bottom: 50px;
+}
+
+.link {
+  color: #999;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.link:hover {
+  color: #14bace;
 }
 
 /* Float the link section to the right */

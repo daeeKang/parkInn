@@ -27,12 +27,19 @@ export default function CardIcon(props) {
 CardIcon.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf([
-    "darkBlue",
-    "green",
-    "red",
-    "yellow",
     "lightBlue",
+    "blue",
+    "darkBlue",
+    "lightGreen",
+    "green",
+    "mediumGreen",
+    "darkGreen",
+    "red",
+    "lightYellow",
+    "yellow",
+    "lightTeal",
     "teal",
+    "darkTeal",
   ]),
   children: PropTypes.node
 };

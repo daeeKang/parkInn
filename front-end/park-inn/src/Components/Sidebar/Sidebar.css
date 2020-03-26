@@ -73,3 +73,8 @@ ul li {
 .link:hover {
   color: #14BACE;
 }
+
+.tab { 
+  display: inline-block; 
+  margin-left: 20px; 
+}

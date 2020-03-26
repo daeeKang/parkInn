@@ -44,13 +44,38 @@ const BoxShadow = {
 };
 
 // set background color for card headers
+const lightBlueCardHeader = {
+  background: "#90CAF9",
+  ...BoxShadow
+};
+
+const blueCardHeader = {
+  background: "#4ea3cc",
+  ...BoxShadow
+};
+
 const darkBlueCardHeader = {
     background: "#1B262C",
     ...BoxShadow
 };
 
+const lightGreenCardHeader = {
+  background: "#80cbc4",
+  ...BoxShadow
+};
+
 const greenCardHeader = {
   background: "#81C784",
+  ...BoxShadow
+};
+
+const mediumGreenCardHeader = {
+  background: "#009688",
+  ...BoxShadow
+};
+
+const darkGreenCardHeader = {
+  background: "#004d40",
   ...BoxShadow
 };
 
@@ -59,13 +84,18 @@ const redCardHeader = {
   ...BoxShadow
 };
 
+const lightYellowCardHeader = {
+  background: "#fdefb2",
+  ...BoxShadow
+};
+
 const yellowCardHeader = {
   background: "#FFB74D",
   ...BoxShadow
 };
 
-const lightBlueCardHeader = {
-  background: "#90CAF9",
+const lightTealCardHeader = {
+  background: "#74c9d4",
   ...BoxShadow
 };
 
@@ -73,6 +103,12 @@ const tealCardHeader = {
   background: "#14BACE",
   ...BoxShadow
 };
+
+const darkTealCardHeader = {
+  background: "#006064",
+  ...BoxShadow
+};
+
 
 // styling
 const cardHeaderStyle = {
@@ -82,7 +118,7 @@ const cardHeaderStyle = {
       borderBottom: "none",
       background: "transparent",
       zIndex: "3 !important",
-      "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$darkBlueCardHeader,&$greenCardHeader,&$redCardHeader,&$yellowCardHeader,&$lightBlueCardHeader,&$tealCardHeader": {
+      "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$lightBlueCardHeader,&$darkBlueCardHeader,&$lightGreenCardHeader,&$greenCardHeader,&$mediumGreenCardHeader,&$darkGreenCardHeader,&$redCardHeader,&$lightYellowCardHeader,&$yellowCardHeader,&$lightTealCardHeader,&$tealCardHeader,&$darkTealCardHeader": {
         margin: "0 15px",
         padding: "0",
         position: "relative",
@@ -93,7 +129,7 @@ const cardHeaderStyle = {
         borderRadius: "calc(.25rem - 1px) calc(.25rem - 1px) 0 0"
       },
 
-      "&$darkBlueCardHeader,&$greenCardHeader,&$redCardHeader,&$yellowCardHeader,&$lightBlueCardHeader,&$tealCardHeader": {
+      "&$lightBlueCardHeader,&$blueCardHeader,&$darkBlueCardHeader,&$lightGreenCardHeader,&$greenCardHeader,&$mediumGreenCardHeader,&$darkGreenCardHeader,&$redCardHeader,&$lightYellowCardHeader,&$yellowCardHeader,&$lightTealCardHeader,&$tealCardHeader,&$darkTealCardHeader": {
         "&:not($cardHeaderIcon)": {
           borderRadius: "3px",
           marginTop: "-30px",
@@ -139,12 +175,12 @@ const cardHeaderStyle = {
         textAlign: "right"
       },
       "& h1,& h2,& h3,& h4,& h5,& h6": {
-        margin: "0 !important"
+        margin: "0 !important",
       }
     },
 
     cardHeaderIcon: {
-      "&$darkBlueCardHeader,&$greenCardHeader,&$redCardHeader,&$yellowCardHeader,&$lightBlueCardHeader,&$tealCardHeader": {
+      "&$lightBlueCardHeader,&$blueCardHeader,&$darkBlueCardHeader,&$lightGreenCardHeader,&$greenCardHeader,&$mediumGreenCardHeader,&$darkGreenCardHeader,&$redCardHeader,&$lightYellowCardHeader,&$yellowCardHeader,&$lightTealCardHeader,&$tealCardHeader,&$darkTealCardHeader": {
         background: "transparent",
         boxShadow: "none"
       },
@@ -162,11 +198,32 @@ const cardHeaderStyle = {
         margin: "5px 4px 0px"
       }
     },
-    
+
+    lightBlueCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...lightBlueCardHeader
+      }
+    },
+
+    blueCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...blueCardHeader
+      }
+    },
+
     darkBlueCardHeader: {
       color: whiteColor,
       "&:not($cardHeaderIcon)": {
         ...darkBlueCardHeader
+      }
+    },
+
+    lightGreenCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...lightGreenCardHeader
       }
     },
 
@@ -177,10 +234,31 @@ const cardHeaderStyle = {
       }
     },
 
+    mediumGreenCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...mediumGreenCardHeader
+      }
+    },
+
+    darkGreenCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...darkGreenCardHeader
+      }
+    },
+
     redCardHeader: {
       color: whiteColor,
       "&:not($cardHeaderIcon)": {
         ...redCardHeader
+      }
+    },
+
+    lightYellowCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...lightYellowCardHeader
       }
     },
 
@@ -191,10 +269,10 @@ const cardHeaderStyle = {
       }
     },
 
-    lightBlueCardHeader: {
+    lightTealCardHeader: {
       color: whiteColor,
       "&:not($cardHeaderIcon)": {
-        ...lightBlueCardHeader
+        ...lightTealCardHeader
       }
     },
 
@@ -205,14 +283,28 @@ const cardHeaderStyle = {
       }
     },
 
+    darkTealCardHeader: {
+      color: whiteColor,
+      "&:not($cardHeaderIcon)": {
+        ...darkTealCardHeader
+      }
+    },
+
   };
   
   export {
     cardHeaderStyle,
-    darkBlueCardHeader,
-    greenCardHeader,
-    redCardHeader,
-    yellowCardHeader,
     lightBlueCardHeader,
+    blueCardHeader,
+    darkBlueCardHeader,
+    lightGreenCardHeader,
+    greenCardHeader,
+    mediumGreenCardHeader,
+    darkGreenCardHeader,
+    redCardHeader,
+    lightYellowCardHeader,
+    yellowCardHeader,
+    lightTealCardHeader,
     tealCardHeader,
+    darkTealCardHeader,
   };
