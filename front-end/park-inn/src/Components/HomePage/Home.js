@@ -34,7 +34,7 @@ export default props => {
                             </CardIcon>
                             <p id="icon-subtitle">Today's Revenue</p>
                             <p id="icon-text">
-                                <font color="#81C784"><b>$xxx</b></font> earned
+                                <font color="#81C784"><b>$1,000</b></font> earned
                             </p>
                             <Divider />
                             <NavLink className="link" to='/statistics'>
@@ -54,7 +54,7 @@ export default props => {
                             </CardIcon>
                             <p id = "icon-subtitle">Incidents</p>
                             <p id="icon-text">
-                                <font color="#E57373"><b>xxx incident(s)</b></font> to be resolved</p>
+                                <font color="#E57373"><b>2 incident(s)</b></font> to be resolved</p>
                             <Divider />
                             <NavLink className="link" to='/incidents'>
                                 <p id="link">
@@ -72,7 +72,7 @@ export default props => {
                                 <img src={EventIcon} height="30px" width="30px" alt="event" />
                             </CardIcon>
                             <p id = "icon-subtitle">Upcoming Events</p>
-                            <p id="icon-text"><font color="#FFB74D"><b>xxx events(s)</b></font> coming up</p>
+                            <p id="icon-text"><font color="#FFB74D"><b>1 events(s)</b></font> upcoming</p>
                             <Divider />
                             <NavLink className="link" to='/events'>
                                 <p id="link">
@@ -90,7 +90,7 @@ export default props => {
                                 <img src={ParkingIcon} height="30px" width="30px" alt="parking" />
                             </CardIcon>
                             <p id = "icon-subtitle">Manage Spaces</p>
-                            <p id="icon-text"><font color="#14BACE"><b>xxx lot(s)</b></font> to view</p>
+                            <p id="icon-text"><font color="#14BACE"><b>1 lot(s)</b></font> to view</p>
                             <Divider />
                             <NavLink className='link' to='/parking'>
                                 <p id="link">
