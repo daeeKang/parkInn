@@ -27,9 +27,13 @@ export default class Renderer extends React.Component {
             height: 0,
             visible: false
         },
+        stagingParkingLines: [],
+        stagingParkingLabel: [],
 
         //UI
-        showModal: false,
+        showParkingLotForm: false,
+        numOfSpaces: 0,
+        orient: "down",
 
         //dev
         cursorLocation: {
@@ -156,6 +160,14 @@ export default class Renderer extends React.Component {
                 if (this.isPaint) {
                     //set parking lot shit here
                     this.isPaint = false;
+                    console.log(this.state.lotRect);
+                    //TODO get this working
+                    // this.frameObjectOnStage(
+                    //     this.state.lotRect.x,
+                    //     this.state.lotRect.y,
+                    //     this.state.lotRect.width,
+                    //     this.state.lotRect.height
+                    // );
                     this.openParkingLotForm();
                     return;
                 }
@@ -179,6 +191,9 @@ export default class Renderer extends React.Component {
                     }
                 });
                 this.isPaint = true;
+                break;
+            }
+            default: {
                 break;
             }
         }
@@ -213,9 +228,6 @@ export default class Renderer extends React.Component {
                 let stage = e.target.getStage();
                 let pos = this.getRelativePointerPosition(stage);
 
-                console.log(this.state.lotRect.x);
-                console.log(this.state.lotRect.y);
-
                 this.setState({
                     lotRect: {
                         x: this.state.lotRect.x,
@@ -233,6 +245,9 @@ export default class Renderer extends React.Component {
                 });
                 break;
             }
+            default: {
+                break;
+            }
         }
     };
 
@@ -241,29 +256,68 @@ export default class Renderer extends React.Component {
             case "erase":
                 console.log(e);
                 break;
+            default: {
+                break;
+            }
         }
     };
 
-    openModalHandler = () => {
-        this.setState({
-            showModal: true
-        });
-    };
-
-    closeModalHandler = () => {
-        this.setState({
-            showModal: false
-        });
-    };
-
     openParkingLotForm = coords => {
-        this.openModalHandler();
+        this.setState({
+            showParkingLotForm: true
+        });
     };
 
-    //call back function for generate parking lot form
-    callbackParkingLotForm = childData => {
-        this.closeModalHandler();
-        this.drawParkingSpots(childData);
+    // frameObjectOnStage = (x, y, width, height) => {
+    //     const stage =
+
+    //     this.setState({
+    //         stage: {
+    //             x: pos.x,
+    //             y: pos.y
+    //         }
+    //     });
+    // };
+
+    parkingFormChange = e => {
+        switch (e.target.id) {
+            case "numOfSpaces": {
+                this.setState({
+                    numOfSpaces: e.target.value
+                });
+                this.drawParkingSpots(e.target.value);
+                break;
+            }
+            case "accept": {
+                this.setState({
+                    parkingLines: this.state.parkingLines.concat(
+                        this.state.stagingParkingLines
+                    ),
+                    parkingLabel: this.state.parkingLabel.concat(
+                        this.state.stagingParkingLabel
+                    ),
+                    stagingParkingLines: [],
+                    stagingParkingLabel: [],
+                    numOfSpaces: 0,
+                    orient: "down",
+                    showParkingLotForm: false,
+                    lotRect: {
+                        x: 0,
+                        y: 0,
+                        width: 0,
+                        height: 0,
+                        visible: false
+                    }
+                });
+
+                break;
+            }
+            case "cancel": {
+                break;
+            }
+            default:
+                return;
+        }
     };
 
     drawParkingSpots = num => {
@@ -294,7 +348,7 @@ export default class Renderer extends React.Component {
             y2: origy + dimensions.height
         });
         this.setState({
-            parkingLines: this.state.parkingLines.concat(parkingLines)
+            stagingParkingLines: parkingLines
         });
 
         //draw labels
@@ -310,19 +364,8 @@ export default class Renderer extends React.Component {
             });
         }
         this.setState({
-            parkingLabel: this.state.parkingLabel.concat(labels),
+            stagingParkingLabel: labels,
             parkingCount: inText
-        });
-
-        //hide drawing box
-        this.setState({
-            lotRect: {
-                x: this.state.lotRect.x,
-                y: this.state.lotRect.y,
-                width: 0,
-                height: 0,
-                visible: false
-            }
         });
     };
 
@@ -377,7 +420,7 @@ export default class Renderer extends React.Component {
 
     //-----------------------------REACT TYPE STYLING------------------------------------------------//
     buttonSelected = {
-        background: "#b3e1ff"
+        backgroundColor: "#ffd8b9"
     };
 
     modalStyle = {
@@ -391,11 +434,131 @@ export default class Renderer extends React.Component {
         }
     };
 
+    parkingLotFormOpen = {
+        right: "0vw"
+    };
+
     //-----------------------------RENDER---:-)-------------------------kill me-----------------------//
     render() {
         return (
             <div>
-                <div className="devBox">
+                <div
+                    className="parkingLotForm"
+                    style={
+                        this.state.showParkingLotForm
+                            ? this.parkingLotFormOpen
+                            : null
+                    }
+                >
+                    <div className="formContainer">
+                        Orientation:
+                        <div>
+                            <div>
+                                <button
+                                    className="orientButton"
+                                    style={
+                                        this.state.orient === "down"
+                                            ? this.buttonSelected
+                                            : null
+                                    }
+                                >
+                                    <svg
+                                        id="orientDown"
+                                        className="parkingOrientSvg"
+                                        data-name="Layer 1"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 270.37 464.81"
+                                    >
+                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
+                                    </svg>
+                                </button>
+                                <button
+                                    className="orientButton"
+                                    style={
+                                        this.state.orient === "up"
+                                            ? this.buttonSelected
+                                            : null
+                                    }
+                                >
+                                    <svg
+                                        id="orientUp"
+                                        className="parkingOrientSvg"
+                                        data-name="Layer 1"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 270.37 464.81"
+                                    >
+                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div>
+                                <button
+                                    className="orientButton"
+                                    style={
+                                        this.state.orient === "right"
+                                            ? this.buttonSelected
+                                            : null
+                                    }
+                                >
+                                    <svg
+                                        id="orientRight"
+                                        className="parkingOrientSvg"
+                                        data-name="Layer 1"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 270.37 464.81"
+                                    >
+                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
+                                    </svg>
+                                </button>
+                                <button
+                                    className="orientButton"
+                                    style={
+                                        this.state.orient === "left"
+                                            ? this.buttonSelected
+                                            : null
+                                    }
+                                >
+                                    <svg
+                                        id="orientLeft"
+                                        className="parkingOrientSvg"
+                                        data-name="Layer 1"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 270.37 464.81"
+                                    >
+                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        num of spaces:
+                        <input
+                            type="text"
+                            id="numOfSpaces"
+                            className="formInput"
+                            value={this.state.numOfSpaces}
+                            onChange={this.parkingFormChange}
+                        />
+                        <br />
+                        <br />
+                        <button
+                            className="formButtons greenButton"
+                            id="accept"
+                            onClick={this.parkingFormChange}
+                        >
+                            Okay
+                        </button>
+                        <button
+                            className="formButtons redButton"
+                            id="cancel"
+                            onClick={this.parkingFormChange}
+                        >
+                            nah
+                        </button>
+                    </div>
+                </div>
+
+                {/*
+    <div className="devBox">
                     <p>dev console</p>
                     <p>
                         stage pos:
@@ -407,12 +570,7 @@ export default class Renderer extends React.Component {
                         {this.state.cursorLocation.y}
                     </p>
                 </div>
-
-                <Modal style={this.modalStyle} isOpen={this.state.showModal}>
-                    <GenerateParkingLotForm
-                        parentCallback={this.callbackParkingLotForm}
-                    />
-                </Modal>
+    */}
 
                 <div className="controls">
                     <button onClick={this.resetOrigin}>reset</button>
@@ -509,6 +667,38 @@ export default class Renderer extends React.Component {
                     </Layer>
 
                     <Layer id="parkingSpots">
+                        {/* for staging */}
+                        {this.state.stagingParkingLines.map((line, i) => {
+                            return (
+                                <Line
+                                    points={[
+                                        line.x1,
+                                        line.y1,
+                                        line.x2,
+                                        line.y2
+                                    ]}
+                                    strokeWidth={5}
+                                    stroke={"#3D4849"}
+                                    perfectDrawEnabled={false}
+                                    listening={false}
+                                />
+                            );
+                        })}
+
+                        {this.state.stagingParkingLabel.map((lab, i) => {
+                            return (
+                                <Text
+                                    x={lab.x}
+                                    y={lab.y}
+                                    width={lab.width}
+                                    text={lab.text}
+                                    align={"center"}
+                                    fontStyle={"bold"}
+                                    fontSize={20}
+                                />
+                            );
+                        })}
+                        {/* normal plot */}
                         {this.state.parkingLines.map((line, i) => {
                             return (
                                 <Line

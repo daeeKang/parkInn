@@ -1,16 +1,16 @@
 *:focus {
     outline: 0; /* hax to remove border when selecting tingz */
-  }
+}
 
-.controls{
+.controls {
     position: fixed;
     display: inline;
     z-index: 69;
-    top: 1vh;
-    right: 1vw;
+    top: 10vh;
+    left: 1vw;
     padding: 20px;
     opacity: 100%;
-    transition: opacity .2s ease-out;
+    transition: opacity 0.2s ease-out;
 }
 
 .devBox {
@@ -26,24 +26,110 @@
     background-color: lightgray;
 }
 
+.parkingLotForm {
+    background-color: white;
+    position: fixed;
+    right: -34vw;
+    display: block;
+    width: 30vw;
+    height: 100vh;
+    z-index: 1;
+    transition: all 500ms ease;
+    -webkit-box-shadow: 2px 7px 30px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 7px 30px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 30px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+}
 
+.formContainer {
+    padding: 40px;
+}
 
 .buttonSelected {
     background: #b3e1ff;
 }
 
+.formButtons {
+    border-radius: 10px;
+    border: none;
+    color: black;
+    width: 8vw;
+    height: 6vh;
+    display: inline-block;
+}
+
+.redButton {
+    background-color: rgb(255, 184, 184);
+}
+.redButton:hover {
+    background-color: rgb(255, 122, 122);
+}
+
+.greenButton {
+    background-color: rgb(191, 252, 191);
+}
+.greenButton:hover {
+    background-color: rgb(145, 252, 145);
+}
+
+.formInput {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 13px;
+    background-color: #ffffff;
+    border-color: black;
+    border-width: 2px;
+    width: 100px;
+    margin-left: 50px;
+}
+.formInput:focus {
+    outline: none;
+}
+
+.parkingOrientSvg {
+    fill: transparent;
+    stroke: #231f20;
+    stroke-miterlimit: 10;
+    stroke-width: 20px;
+    height: 5vw;
+}
+
+.orientButton {
+    width: 8vw;
+    height: 8vw;
+    border-radius: 10px;
+    border: solid 4px #fd7f2c;
+    display: inline-block;
+}
+
+.orientButton:hover {
+    background-color: #ffdcc5;
+}
+
+#orientUp {
+    transform: scaleY(-1);
+}
+
+#orientRight {
+    transform: rotate(90deg);
+}
+
+#orientLeft {
+    transform: rotate(270deg);
+}
+
 button {
     display: block;
     text-decoration: none;
-    color: #668ad8;
+    color: gray;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: solid 2px #668ad8;
+    border: solid 2px #fd7f2c;
     text-align: center;
     overflow: hidden;
     font-weight: bold;
-    transition: .4s;
+    transition: 0.4s;
     margin: 10px;
 }
-
