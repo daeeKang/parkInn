@@ -1,16 +1,17 @@
 import React from 'react';
 import { stack as Menu } from 'react-burger-menu';
 import './Sidebar.css';
-import AccountButton from './AccountButton';
 import { NavLink } from 'react-router-dom';
 
 // icons
+import Pub from '../Icons/pub.jpg';
 import DashboardIcon from '../Icons/dashboard.svg';
 import ParkingIcon from '../Icons/parking.svg';
 import StatsIcon from '../Icons/statistics.svg';
 import EventIcon from '../Icons/event.svg';
 import IncidentIcon from '../Icons/incidents.svg';
 import SettingsIcon from '../Icons/settings.svg';
+import LogoutIcon from '../Icons/logout.svg';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -34,7 +35,13 @@ class Sidebar extends React.Component {
                 isOpen={this.state.menuOpen}
                 onStateChange={state => this.handleStateChange(state)}
             >
-                <AccountButton />
+                <div className="center">
+                    <p className="account-title">Welcome, Püber!</p>
+                    <NavLink className="account-title" onClick={this.closeMenu} to='/management'>
+                        <img src={Pub} height="80px" width="80px" padding="10px" alt="account-button" />
+                    </NavLink>
+                </div>
+
                 <br />
                 <ul>
                     <li>
@@ -70,6 +77,12 @@ class Sidebar extends React.Component {
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/management'>
                             <img src={SettingsIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Account Settings</span>
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink className="link" onClick={this.closeMenu} to='/'>
+                            <img src={LogoutIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Logout</span>
                         </NavLink>
                     </li>
                 </ul>
