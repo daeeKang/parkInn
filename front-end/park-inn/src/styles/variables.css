@@ -21,7 +21,7 @@
   width: 90vw;
   background-color: var(--backgroundColor);
   margin: auto;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   margin-bottom: 20px;
 }
 
