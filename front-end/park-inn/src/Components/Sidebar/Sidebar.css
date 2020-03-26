@@ -71,7 +71,7 @@ ul li {
 }
 
 .link:hover {
-  color: #14BACE;
+  color: #90CAF9;
 }
 
 .tab { 
@@ -96,4 +96,8 @@ ul li {
 
 .account-title:hover {
   color:rgb(190, 190, 190);
+}
+
+div:focus {
+  outline: 0px;
 }
