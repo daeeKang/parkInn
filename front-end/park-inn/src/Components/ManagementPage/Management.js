@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { Component } from "react";
+import "./Management.css";
+import { AddEmployee } from "./AddEmployee";
 
-export default props => {
+class Management extends Component {
+  render() {
     return (
-        <div>
-            Management Page
+      <div class="page">
+        <div class="page-header">Account Management</div>
+        <div class="management-container">
+          <button class="button change-password">Change Password</button>
+          <div class="add-employee-container">
+            <AddEmployee></AddEmployee>
+          </div>
         </div>
-    )
+      </div>
+    );
+  }
 }
+
+export default Management;

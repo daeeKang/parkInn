@@ -13,20 +13,20 @@ import IncidentIcon from '../Icons/incidents.svg';
 import SettingsIcon from '../Icons/settings.svg';
 
 class Sidebar extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            menuOpen: false
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOpen: false,
+    };
+  }
 
-    handleStateChange = state => {
-        this.setState({menuOpen: state.isOpen});
-    }
+  handleStateChange = state => {
+    this.setState({ menuOpen: state.isOpen });
+  };
 
-    closeMenu = () => {
-        this.setState({menuOpen: false});
-    }
+  closeMenu = () => {
+    this.setState({ menuOpen: false });
+  };
 
     render() {
         return (
