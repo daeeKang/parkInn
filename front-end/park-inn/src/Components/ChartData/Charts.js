@@ -6,6 +6,21 @@ var delays = 80,
 var delays2 = 80,
   durations2 = 500;
 
+// Lot Utilization
+const lotUtilizationChart = {
+  data: {
+    series: [[20, 10, 30, 40]]
+  },
+
+  options: {
+      donut: true,
+      donutWidth: 60,
+      startAngle: 270,
+      total: 200,
+      showLabel: false
+  }
+}
+
 // Daily Revenue
 const dailySalesChart = {
   data: {
@@ -115,6 +130,22 @@ const monthlySalesChart = {
           }
         });
       }
+
+      else if (data.type === "line" || data.type === "area") {
+          data.element.animate({
+            d: {
+              begin: 600,
+              dur: 700,
+              from: data.path
+                .clone()
+                .scale(1, 0)
+                .translate(0, data.chartRect.height())
+                .stringify(),
+              to: data.path.clone().stringify(),
+              easing: Chartist.Svg.Easing.easeOutQuint
+            }
+          });
+      }
     }
   }
 };
@@ -165,11 +196,24 @@ const peakHoursChart = {
           }
         });
       }
+
+      else if (data.type === "bar") {
+        data.element.animate({
+          opacity: {
+            begin: (data.index + 1) * delays2,
+            dur: durations2,
+            from: 0,
+            to: 1,
+            easing: "ease"
+          }
+        });
+      }
     }
   }
 };
 
 module.exports = {
+  lotUtilizationChart,
   dailySalesChart,
   monthlySalesChart,
   peakHoursChart
