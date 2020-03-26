@@ -1,9 +1,8 @@
 import React from 'react';
-import './Header.css';
 import { NavLink } from 'react-router-dom';
 import { Menu, MenuItem, Button } from '@material-ui/core';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Sidebar from '../Sidebar/Sidebar';
+import Pub from '../Icons/pub.jpg';
+import './AccountButton.css';
 
 export default props => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,12 +16,15 @@ export default props => {
     };
 
     return (
-        <div class="header">
-            <Sidebar />
-            <div class="header-right">
-                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                    <AccountCircleIcon style={{ padding: 10 }} fontSize="large" />
-                </Button>
+        <div>
+            <div>
+                <div class="center">
+                    <p id="account-text">Welcome, User!</p>
+                    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                        {/* <AccountCircleIcon style={{ padding: 10 }} fontSize="large" /> */}
+                        <img src={Pub} height="80px" width="80px" padding="10px" alt="account-button" />
+                    </Button>
+                </div>
 
                 <Menu
                     id="simple-menu"
