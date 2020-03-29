@@ -14,6 +14,16 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Auth0
+            .webAuth()
+            .clearSession(federated:false) { [weak self] in
+                switch $0 {
+                    case true:
+                        print("logged out")
+                    case false:
+                        print("logged out failed")
+                }
+        }
     }
 
     @IBAction func loginPressed(_ sender: Any) {
