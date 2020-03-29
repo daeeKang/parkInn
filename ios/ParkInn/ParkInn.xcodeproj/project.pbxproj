@@ -29,6 +29,7 @@
 		8E54C621243EE20000F15E8F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C620243EE20000F15E8F /* APIService.swift */; };
 		8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C622243F1D0400F15E8F /* LotDesign.swift */; };
 		8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C624243F223D00F15E8F /* CompanyStats.swift */; };
+		8E37459B243153D6009C2A33 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E37459A243153D6009C2A33 /* Auth0.plist */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -85,6 +86,7 @@
 		8E54C620243EE20000F15E8F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8E54C622243F1D0400F15E8F /* LotDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotDesign.swift; sourceTree = "<group>"; };
 		8E54C624243F223D00F15E8F /* CompanyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStats.swift; sourceTree = "<group>"; };
+		8E37459A243153D6009C2A33 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
