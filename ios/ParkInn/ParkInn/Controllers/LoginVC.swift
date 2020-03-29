@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Auth0
 
 class LoginVC: UIViewController {
 
@@ -16,7 +17,49 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func loginPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toMainVC", sender: nil)
+//        performSegue(withIdentifier: "toMainVC", sender: nil)
+       Auth0
+            .webAuth()
+            .scope("openid profile")
+            .audience("https://parkinn.auth0.com/userinfo")
+            .start {
+                switch $0 {
+                case .failure(let error):
+                    // Handle the error
+                    print("Error: \(error)")
+                case .success(let credentials):
+                    // Do something with credentials e.g.: save them.
+                    // Auth0 will automatically dismiss the login page
+                    guard let accessToken = credentials.accessToken else {
+                        // Handle Error
+                        return
+                    }
+
+                    Auth0
+                        .authentication()
+                        .userInfo(withAccessToken: accessToken)
+                        .start { [weak self] result in
+                            switch(result) {
+                            case .success(let profile):
+                                // You've got the user's profile, good time to store it locally.
+                                // e.g. self.profile = profile
+                                print("Profile: \(profile.nickname)")
+                                if (profile.nickname == "admin" || profile.nickname == "staff") {
+                                    DispatchQueue.main.async {
+                                        self?.performSegue(withIdentifier: "toMainVC", sender: nil)
+                                    }
+                                } else if (profile.nickname == "user") {
+                                    // Segue to the user side
+                                }
+                            case .failure(let error):
+                                // Handle the error
+                                print("Error: \(error)")
+                            }
+                        }
+
+                    
+                }
+        }
     }
 }
 

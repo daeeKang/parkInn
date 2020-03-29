@@ -1,19 +1,10 @@
-<!-- Auth0.plist -->
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   Auth0.plist
-   ParkInn
-
-   Created by Kyle Aquino on 3/29/20.
-   Copyright (c) 2020 ParkInn. All rights reserved.
--->
 <plist version="1.0">
 <dict>
-  <key>ClientId</key>
-  <string>YOUR_CLIENT_ID</string>
-  <key>Domain</key>
-  <string>YOUR_DOMAIN</string>
+	<key>Domain</key>
+	<string>parkinn.auth0.com</string>
+	<key>ClientId</key>
+	<string>uy3RWm4Sb1ZwReUVKpGLwJX6hdTG7cpX</string>
 </dict>
 </plist>
