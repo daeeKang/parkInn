@@ -14,6 +14,7 @@
 		8E02805A23F5653800057727 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805923F5653800057727 /* StatsVC.swift */; };
 		8E02805C23F5654600057727 /* ManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805B23F5654600057727 /* ManagementVC.swift */; };
 		8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E02806323F5E8F400057727 /* SWRevealViewController.m */; };
+		8E37459B243153D6009C2A33 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E37459A243153D6009C2A33 /* Auth0.plist */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -54,6 +55,7 @@
 		8E02806223F5E8F300057727 /* ParkInn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParkInn-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E02806323F5E8F400057727 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8E02806423F5E8F400057727 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		8E37459A243153D6009C2A33 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				8E98C93323F38024008F612A /* LaunchScreen.storyboard */,
 				8E98C93623F38024008F612A /* Info.plist */,
 				8E02806223F5E8F300057727 /* ParkInn-Bridging-Header.h */,
+				8E37459A243153D6009C2A33 /* Auth0.plist */,
 			);
 			path = ParkInn;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				8E98C93523F38024008F612A /* LaunchScreen.storyboard in Resources */,
 				8E98C93223F38024008F612A /* Assets.xcassets in Resources */,
 				8E98C93023F38022008F612A /* Main.storyboard in Resources */,
+				8E37459B243153D6009C2A33 /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
