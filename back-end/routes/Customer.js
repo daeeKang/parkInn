@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const model = require('../model/Model')
+const model = require('../model/Model');
+const secured = require('../middleware/secured');
 
 router.post('/AddCustomer', (req, res) => {
     const customer = new model.Customer({
