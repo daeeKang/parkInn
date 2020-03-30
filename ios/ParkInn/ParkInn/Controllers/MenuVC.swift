@@ -44,8 +44,10 @@ class MenuVC: UIViewController {
             switch $0 {
                 case true:
                     print("logged out")
-                    DispatchQueue.main.async {
-                        self?.navControl?.dismiss(animated: true, completion: nil)
+                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] (_) in
+                        DispatchQueue.main.async {
+                            self?.navControl?.dismiss(animated: true, completion: nil)
+                        }
                     }
                 case false:
                     print("logged out failed")
