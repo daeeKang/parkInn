@@ -227,14 +227,29 @@
                     <view key="view" contentMode="scaleToFill" id="3Fa-K2-UgC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZD-fl-VF6" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C8V-Jp-nXC" firstAttribute="trailing" secondItem="RZD-fl-VF6" secondAttribute="trailing" id="JBt-qc-BpW"/>
+                            <constraint firstItem="C8V-Jp-nXC" firstAttribute="bottom" secondItem="RZD-fl-VF6" secondAttribute="bottom" id="Ol6-Au-PpQ"/>
+                            <constraint firstItem="RZD-fl-VF6" firstAttribute="top" secondItem="C8V-Jp-nXC" secondAttribute="top" id="XTa-xk-E6i"/>
+                            <constraint firstItem="RZD-fl-VF6" firstAttribute="leading" secondItem="C8V-Jp-nXC" secondAttribute="leading" id="dka-Fk-M91"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="C8V-Jp-nXC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Statistics" id="aBB-AP-75X"/>
+                    <connections>
+                        <outlet property="barChartView" destination="RZD-fl-VF6" id="Ecx-1e-8WG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xe6-rr-bqE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="-595"/>
+            <point key="canvasLocation" x="1895.6521739130437" y="-595.3125"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="pt6-k7-w5T">
