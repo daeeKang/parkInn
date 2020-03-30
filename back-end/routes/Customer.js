@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const model = require('../model/Model');
-const secured = require('../middleware/secured');
+const checkJwt = require('../middleware/checkJwt');
 
-router.post('/AddCustomer', (req, res) => {
+router.post('/AddCustomer', checkJwt, (req, res) => {
     const customer = new model.Customer({
         username: req.body.username,
-        first:  req.body.first,
-        last: req.body.last,
+        name: {
+            givenName: req.body.first,
+            familyName: req.body.last,
+        },
         status: req.body.status,
         reservation: new Date(req.body.reservation),
         car: req.body.car
@@ -24,7 +26,7 @@ router.post('/AddCustomer', (req, res) => {
     });
 });
 
-router.get('/GetCustomers', async (req, res) => {
+router.get('/GetCustomers', checkJwt, async (req, res) => {
     
     const customers = await model.Customer.find({});
     console.log(customers);
@@ -36,7 +38,7 @@ router.get('/GetCustomers', async (req, res) => {
     }
 });
 
-router.get('/GetCustomer/:username', async (req, res) => {
+router.get('/GetCustomer/:username', checkJwt, async (req, res) => {
     
     const customer = await model.Customer.find({username: req.params.username});
     try{
