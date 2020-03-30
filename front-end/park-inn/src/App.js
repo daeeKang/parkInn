@@ -8,7 +8,7 @@ import { useAuth0 } from './react-auth0-spa'
 
 const App = () => {
   const { loading } = useAuth0();
-
+  //This can definitely be changed to something else later lol
   if (loading) {
     return <div>Loading...</div>;
   }
