@@ -15,16 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ParkInn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAq-GD-L94">
-                                <rect key="frame" x="94.666666666666686" y="144" width="225" height="86"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ParkInn_BlackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LEh-II-ecS">
+                                <rect key="frame" x="16" y="60" width="382" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="225" id="WmO-ry-5aq"/>
-                                    <constraint firstAttribute="height" constant="86" id="oka-sS-O2c"/>
+                                    <constraint firstAttribute="height" constant="250" id="Zju-66-deS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-ZD-oob">
                                 <rect key="frame" x="64" y="374" width="286" height="84"/>
                                 <subviews>
@@ -53,16 +49,17 @@
                         <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="width" secondItem="V04-0R-2gA" secondAttribute="width" id="0d3-sD-sR6"/>
-                            <constraint firstItem="wAq-GD-L94" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1GT-d4-Akq"/>
+                            <constraint firstItem="LEh-II-ecS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7fa-Gb-phL"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9My-lj-b82"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LEh-II-ecS" secondAttribute="trailing" constant="16" id="Svv-1x-Tte"/>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="centerX" secondItem="V04-0R-2gA" secondAttribute="centerX" id="TeV-ku-oW8"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YQM-8H-4kG"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-32" id="fdc-i6-kbG"/>
-                            <constraint firstItem="wAq-GD-L94" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="gU1-uj-a7Y"/>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="top" secondItem="YZA-ZD-oob" secondAttribute="bottom" constant="32" id="gu5-QT-gOS"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hSk-X5-dUI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YZA-ZD-oob" secondAttribute="trailing" constant="64" id="jN0-ke-8rg"/>
                             <constraint firstItem="YZA-ZD-oob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="tcE-aI-X2Z"/>
+                            <constraint firstItem="LEh-II-ecS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="xIn-ju-BE4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -72,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-671" y="-595"/>
+            <point key="canvasLocation" x="-671.01449275362324" y="-595.3125"/>
         </scene>
         <!--Settings-->
         <scene sceneID="tKU-YF-MAY">
@@ -372,6 +369,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ParkInn_BlackLogo" width="100" height="100"/>
         <image name="arrow.left.circle" catalog="system" width="64" height="60"/>
         <image name="car" catalog="system" width="64" height="46"/>
         <image name="chart.pie" catalog="system" width="64" height="60"/>
