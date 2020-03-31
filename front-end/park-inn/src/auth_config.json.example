@@ -1,5 +1,5 @@
 {
   "domain": "{DOMAIN}",
-  "clientId": "{CLIENT_ID}"
-    "audience": "{AUDIENCE}"
+  "clientId": "{CLIENT_ID}",
+  "audience": "{AUDIENCE}"
 }
