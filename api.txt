@@ -199,3 +199,17 @@ Output:
     last: String
     companyid: String
 }
+
+RESERVATION 
+---------------------------------------
+./Reservation/AddReservation (POST)
+Input:
+{
+    companyid: String
+    lotid: String
+    spotid: String
+    starttime: Date (javascript date format I guess)
+    endtime: Date (javascript date format I guess)
+    username: String
+    expired: Boolean (optional, auto set to false)
+}
