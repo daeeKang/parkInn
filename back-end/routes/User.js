@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const model = require('../model/Model')
+const model = require('../model/Model');
 const {check, validationResult } = require('express-validator');
 
 router.post('/AddUser', [

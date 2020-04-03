@@ -10,6 +10,7 @@ let LotSchema = new Schema({
         active: Boolean,
         unavailable: {type: Date, default: null},
         category: {type: String, default: 'general'},
+        username: {type: String, default: null},
     }],
     totalSpots: Number,
     availableSpots: Number,
