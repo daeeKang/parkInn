@@ -7,8 +7,8 @@ let ReservationSchema = new Schema({
     spotid: {type: String, required: true},
     starttime: {type: Date, required: true},
     endtime: {type: Date, required: true},
-    username: {type: String, required: true}
-
+    username: {type: String, required: true},
+    expired: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('Reservation', ReservationSchema, 'reservations');
