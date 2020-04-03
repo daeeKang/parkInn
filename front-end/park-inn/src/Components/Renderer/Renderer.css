@@ -2,6 +2,15 @@
     outline: 0; /* hax to remove border when selecting tingz */
 }
 
+/*TODO hide this*/
+.header {
+}
+
+.makeStyles-footer-49 {
+    display: none;
+}
+/**/
+
 .controls {
     position: fixed;
     display: inline;

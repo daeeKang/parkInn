@@ -3,7 +3,6 @@ import "./Home.css";
 import "../ChartData/Charts.css";
 import { NavLink } from "react-router-dom";
 // import Login from '../LoginPage/Login' //just place holder for now maybe lol
-
 import GridContainer from "./../Grid/GridContainer";
 import GridItem from "./../Grid/GridItem";
 import Card from "./../Card/Card";
@@ -151,7 +150,7 @@ export default props => {
                                 to view
                             </p>
                             <Divider />
-                            <NavLink className="link" to="/parking">
+                            <NavLink className="link" to="/renderer">
                                 <p id="link">
                                     <img
                                         src={ArrowIcon}
