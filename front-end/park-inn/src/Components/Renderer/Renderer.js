@@ -1,6 +1,7 @@
 import React from "react";
 import Konva from "konva";
 import Modal from "react-modal";
+import axios from "axios";
 import "./Renderer.css";
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 
@@ -42,6 +43,8 @@ export default class Renderer extends React.Component {
         parkingCount: 123
     };
 
+    componentDidMount() {}
+
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
     snapGrid(roundTo, num) {
         let rem = num % roundTo;
@@ -58,6 +61,27 @@ export default class Renderer extends React.Component {
             x: pos.x / this.state.scale - this.state.stage.x / this.state.scale,
             y: pos.y / this.state.scale - this.state.stage.y / this.state.scale
         };
+    };
+
+    serializeData = () => {
+        let out = {
+            walls: this.state.walls,
+            parkingLines: this.state.parkingLines,
+            parkingLabel: this.state.parkingLabel
+        };
+
+        console.log(JSON.stringify(out));
+    };
+
+    loadData = () => {
+        let data = `{"walls":[{"x":390,"y":240,"width":270,"height":-50},{"x":730,"y":400,"width":-170,"height":320},{"x":160,"y":330,"width":210,"height":30},{"x":300,"y":500,"width":-10,"height":140},{"x":350,"y":470,"width":130,"height":60},{"x":490,"y":720,"width":-140,"height":30},{"x":790,"y":180,"width":50,"height":-110}],"parkingLines":[{"x1":190,"y1":310,"x2":190,"y2":260},{"x1":222,"y1":310,"x2":222,"y2":260},{"x1":254,"y1":310,"x2":254,"y2":260},{"x1":286,"y1":310,"x2":286,"y2":260},{"x1":318,"y1":310,"x2":318,"y2":260},{"x1":350,"y1":310,"x2":350,"y2":260},{"x1":382,"y1":310,"x2":382,"y2":260},{"x1":414,"y1":310,"x2":414,"y2":260},{"x1":446,"y1":310,"x2":446,"y2":260},{"x1":478,"y1":310,"x2":478,"y2":260},{"x1":510,"y1":310,"x2":510,"y2":260},{"x1":542,"y1":310,"x2":542,"y2":260},{"x1":574,"y1":310,"x2":574,"y2":260},{"x1":606,"y1":310,"x2":606,"y2":260},{"x1":638,"y1":310,"x2":638,"y2":260},{"x1":670,"y1":310,"x2":670,"y2":260},{"x1":160,"y1":450,"x2":160,"y2":700},{"x1":220,"y1":450,"x2":220,"y2":700}],"parkingLabel":[{"x":190,"y":260,"width":32,"height":16,"text":125},{"x":222,"y":260,"width":32,"height":16,"text":126},{"x":254,"y":260,"width":32,"height":16,"text":127},{"x":286,"y":260,"width":32,"height":16,"text":128},{"x":318,"y":260,"width":32,"height":16,"text":129},{"x":350,"y":260,"width":32,"height":16,"text":130},{"x":382,"y":260,"width":32,"height":16,"text":131},{"x":414,"y":260,"width":32,"height":16,"text":132},{"x":446,"y":260,"width":32,"height":16,"text":133},{"x":478,"y":260,"width":32,"height":16,"text":134},{"x":510,"y":260,"width":32,"height":16,"text":135},{"x":542,"y":260,"width":32,"height":16,"text":136},{"x":574,"y":260,"width":32,"height":16,"text":137},{"x":606,"y":260,"width":32,"height":16,"text":138},{"x":638,"y":260,"width":32,"height":16,"text":139},{"x":160,"y":700,"width":60,"height":30,"text":140}]}`;
+        let parsed = JSON.parse(data);
+
+        this.setState({
+            walls: parsed.walls,
+            parkingLines: parsed.parkingLines,
+            parkingLabel: parsed.parkingLabel
+        });
     };
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
@@ -613,6 +637,8 @@ export default class Renderer extends React.Component {
                     >
                         erase
                     </button>
+                    <button onClick={this.serializeData}>save</button>
+                    <button onClick={this.loadData}>load</button>
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}
