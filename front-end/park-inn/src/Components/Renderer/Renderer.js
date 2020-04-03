@@ -1,7 +1,6 @@
 import React from "react";
 import Konva from "konva";
 import Modal from "react-modal";
-import GenerateParkingLotForm from "./GenerateParkingLotForm";
 import "./Renderer.css";
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 
