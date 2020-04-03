@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const model = require('../model/Model');
-const secured = require('../middleware/secured');
 
 router.post('/AddLot', async (req, res) => {
     const lot = new model.Lot({
