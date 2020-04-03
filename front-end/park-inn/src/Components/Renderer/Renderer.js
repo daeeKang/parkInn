@@ -1,6 +1,7 @@
 import React from "react";
 import Konva from "konva";
 import Modal from "react-modal";
+import axios from "axios";
 import "./Renderer.css";
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 
@@ -42,6 +43,8 @@ export default class Renderer extends React.Component {
         parkingCount: 123
     };
 
+    componentDidMount() {}
+
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
     snapGrid(roundTo, num) {
         let rem = num % roundTo;
@@ -58,6 +61,49 @@ export default class Renderer extends React.Component {
             x: pos.x / this.state.scale - this.state.stage.x / this.state.scale,
             y: pos.y / this.state.scale - this.state.stage.y / this.state.scale
         };
+    };
+
+    serializeData = () => {
+        let out = {
+            walls: this.state.walls,
+            parkingLines: this.state.parkingLines,
+            parkingLabel: this.state.parkingLabel
+        };
+
+        out = JSON.stringify(out);
+        axios
+            .post("http://localhost:8000/Lot/UpdateLotDesign", {
+                companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
+                lotid: 1,
+                design: out
+            })
+            .then(function(res) {
+                console.log(res);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    };
+
+    loadData = () => {
+        axios
+            .get("http://localhost:8000/Lot/GetLotDesign", {
+                params: {
+                    companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
+                    lotid: 1
+                }
+            })
+            .then(res => {
+                let parsed = res.data;
+                this.setState({
+                    walls: parsed.walls,
+                    parkingLines: parsed.parkingLines,
+                    parkingLabel: parsed.parkingLabel
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
     };
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
@@ -613,6 +659,8 @@ export default class Renderer extends React.Component {
                     >
                         erase
                     </button>
+                    <button onClick={this.serializeData}>save</button>
+                    <button onClick={this.loadData}>load</button>
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}
