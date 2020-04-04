@@ -693,6 +693,24 @@ export default class Renderer extends React.Component {
                             value={this.state.numOfSpaces}
                             onChange={this.parkingFormChange}
                         />
+                        <div>
+                            Naming:
+                            <div>
+                                prefix: 
+                                <input 
+                                    type="text"
+                                    className="formInput"
+                                />
+                            </div>
+                            <div>
+                                Start:
+                                <input 
+                                    className="formInput"
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+                       
                         <br />
                         <br />
                         <button
