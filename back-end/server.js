@@ -36,7 +36,7 @@ app.use("/Reservation", reservationRoute);
 Mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
 });
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {

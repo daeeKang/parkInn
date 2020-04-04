@@ -1,47 +1,51 @@
-const router = require('express').Router();
-const model = require('../model/Model');
+const router = require("express").Router();
+const model = require("../model/Model");
+const checkJwt = require("../middleware/checkJwt");
 
-router.post('/AddCustomer', (req, res) => {
+router.post("/AddCustomer", checkJwt, (req, res) => {
     const customer = new model.Customer({
         username: req.body.username,
-        first:  req.body.first,
-        last: req.body.last,
+        name: {
+            givenName: req.body.first,
+            familyName: req.body.last,
+        },
         status: req.body.status,
         reservation: new Date(req.body.reservation),
-        car: req.body.car
+        car: req.body.car,
     });
 
-    customer.save().then(res => {
-        console.log(res, 'customer ${username} saved')
-    }).catch(err => {
-        console.log(err);
-    });
+    customer
+        .save()
+        .then((res) => {
+            console.log(res, "customer ${username} saved");
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
     res.status(201).json({
-        mesage: 'post request',
-        createdProduct: customer
+        mesage: "post request",
+        createdProduct: customer,
     });
 });
 
-router.get('/GetCustomers', async (req, res) => {
-    
+router.get("/GetCustomers", checkJwt, async (req, res) => {
     const customers = await model.Customer.find({});
     console.log(customers);
-    try{
+    try {
         res.send(customers);
-    }
-    catch(err){
+    } catch (err) {
         res.status(500).send(err);
     }
 });
 
-router.get('/GetCustomer/:username', async (req, res) => {
-    
-    const customer = await model.Customer.find({username: req.params.username});
-    try{
+router.get("/GetCustomer/:username", checkJwt, async (req, res) => {
+    const customer = await model.Customer.find({
+        username: req.params.username,
+    });
+    try {
         res.send(customer);
-    }
-    catch(err){
+    } catch (err) {
         res.status(500).send(err);
     }
 });

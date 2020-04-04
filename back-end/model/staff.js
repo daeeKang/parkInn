@@ -3,8 +3,10 @@ const Schema = mongoose.Schema;
 
 let StaffSchema = new Schema({
     username: {type: String, required: true, unique: true},
-    first: {type: String, required: true},
-    last: {type: String, requred: true},
+    name: {
+        givenName: {type: String, required: true},
+        familyName: {type: String, requred: true},
+    },
     employeeid: String,
     companyid: {type: String, required: true},
     admin: {type: Boolean, required: true},

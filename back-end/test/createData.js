@@ -11,6 +11,16 @@ const chance = new Chance();
 dotenv.config();
 let documentCount = 0; 
 const lotName = ['Cottage Cheese', 'Swenson', 'Green Lot', 'Blue Lot', 'Thomas and Cheese', 'Jefferson and Mac', 'The Library', 'University Gateway'];
+const imageURL = [
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922439436173435/image1.png', 
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922441755492372/image2.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922443051663410/image3.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922448902455296/image5.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922449032478770/image4.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922449959550986/image6.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922455907074108/image7.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922456506859580/image8.png',
+];
 
 function createCompanies() {
     const company1 = new model.Company({
@@ -70,6 +80,7 @@ function createLot(lotid, companyid, name){
         totalSpots: parkingSpots.length,
         availableSpots: parkingSpots.length,
         location: generateLocation(),
+        imgURL: imageURL[lotid-1],
     });
     lot.CreateTimeSlots();
     lot.save().then(res => {
@@ -152,23 +163,27 @@ function generateLocation(){
 
 function createCustomers(){
     for(let i = 1; i <= 10; i++){
-        const username = `customer${i}`;
+        const username = `customer${i}@email.com`;
         const firstName = chance.first();
         const lastName = chance.last();
         const user = new model.User({
             username: username, 
             role: 'customer',
-            first: firstName,
-            last: lastName,
+            name: {
+                givenName: firstName,
+                familyName: lastName,
+            }
         });
         user.password = user.GenerateHash('password');
         user.save().then(res => {
-            console.log(`customer ${user.first} ${user.last} saved to users`);
+            console.log(`customer ${user.name.givenName} ${user.name.familyName} saved to users`);
             documentCount++;
             const customer = new model.Customer({
                 username: username,
-                first: firstName,
-                last: lastName,
+                name: {
+                    givenName: firstName,
+                    familyName: lastName,
+                },
                 car: [{
                     color: chance.pickone(['blue', 'green', 'purple', 'black', 'gray']),
                     license: chance.word(),
@@ -177,7 +192,7 @@ function createCustomers(){
                 }],  
             });
             customer.save().then(res => {
-                console.log(`customer ${customer.first} ${customer.last} saved to customers`);
+                console.log(`customer ${customer.name.givenName} ${customer.name.familyName} saved to customers`);
                 documentCount++;
               }).catch(err => {
                 console.log(err);
@@ -193,26 +208,30 @@ function createStaff(companyid, companyName, admin){
     const firstName = chance.first();
     const lastName = chance.last();
     const user = new model.User({
-        username: `${role}${companyName}`, 
+        username: `${role}${companyName}@email.com`, 
         role: role,
-        first: firstName,
-        last: lastName,
+        name: {
+            givenName: firstName,
+            familyName: lastName,
+        },
         companyid: companyid,
     });
     user.password = user.GenerateHash('password');
     user.save().then(res => {
-        console.log(`${role} ${user.first} ${user.last} saved to users`);
+        console.log(`${role} ${user.name.givenName} ${user.name.familyName} saved to users`);
         documentCount++;
         const staff = new model.Staff({
-            username: `${role}${companyName}`,
-            first: firstName,
-            last: lastName,
+            username: `${role}${companyName}@email.com`,
+            name: {
+                givenName: firstName,
+                familyName: lastName,
+            },
             employeeid: chance.string({ length: 5, casing: 'upper', alpha: true, numeric: true }),
             companyid: companyid,
             admin: admin,
         });
         staff.save().then(res => {
-            console.log(`${role} ${staff.first} ${staff.last} for company: ${companyName} saved to staffs`);
+            console.log(`${role} ${staff.name.givenName} ${staff.name.familyName} for company: ${companyName} saved to staffs`);
             documentCount++;
           }).catch(err => {
             console.log(err);

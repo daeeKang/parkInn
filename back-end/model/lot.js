@@ -27,7 +27,7 @@ let LotSchema = new Schema({
         longitude: Number
     },
     lotDesign: String,
-    img: { type: String, default: null }
+    imgURL: { type: String, default: null }
 });
 
 LotSchema.methods.CreateTimeSlots = function(hours = 24) {
