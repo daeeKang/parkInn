@@ -342,20 +342,9 @@ export default class Renderer extends React.Component {
                     ),
                     parkingLabel: this.state.parkingLabel.concat(
                         this.state.stagingParkingLabel
-                    ),
-                    stagingParkingLines: [],
-                    stagingParkingLabel: [],
-                    numOfSpaces: 0,
-                    orient: "down",
-                    showParkingLotForm: false,
-                    lotRect: {
-                        x: 0,
-                        y: 0,
-                        width: 0,
-                        height: 0,
-                        visible: false,
-                    },
+                    )
                 });
+                this.exitParkingForm();
 
                 break;
             }
@@ -383,6 +372,16 @@ export default class Renderer extends React.Component {
         //TO-DO: boundary check or somethin lol
         let origx = this.state.lotRect.x;
         let origy = this.state.lotRect.y;
+
+        //check to see if they made rectangle bottom up, if so , switch origin
+        if(dimensions.height < 0){
+            origy = origy + dimensions.height;
+            dimensions.height = -dimensions.height;
+        }
+        if(dimensions.width < 0){
+            origx = origx + dimensions.width;
+            dimensions.width = -dimensions.width;
+        }
         
         let parkingLines = [];
         //draw parking lines
@@ -512,12 +511,14 @@ export default class Renderer extends React.Component {
     };
     toggleDrawingMode = (e) => {
         this.changeDrawingState("drawWall");
+        this.exitParkingForm();
     };
     toggleDrawParkingSpots = (e) => {
         this.changeDrawingState("drawParkingSpots");
     };
     toggleErase = (e) => {
         this.changeDrawingState("erase");
+        this.exitParkingForm();
     };
     changeOrient = async (orient) => {
         console.log(orient);
@@ -525,6 +526,22 @@ export default class Renderer extends React.Component {
             orient: orient
         });
         this.drawParkingSpots(this.state.numOfSpaces);
+    }
+    exitParkingForm = () => {
+        this.setState({
+            stagingParkingLines: [],
+            stagingParkingLabel: [],
+            numOfSpaces: 0,
+            orient: "down",
+            showParkingLotForm: false,
+            lotRect: {
+                x: 0,
+                y: 0,
+                width: 0,
+                height: 0,
+                visible: false,
+            }
+        })
     }
 
     //-----------------------------STATE CHANGE HANDLING----------------------------------------------//
@@ -688,7 +705,7 @@ export default class Renderer extends React.Component {
                         <button
                             className="formButtons redButton"
                             id="cancel"
-                            onClick={this.parkingFormChange}
+                            onClick={this.exitParkingForm}
                         >
                             nah
                         </button>
@@ -867,6 +884,7 @@ export default class Renderer extends React.Component {
                                     align={"center"}
                                     fontStyle={"bold"}
                                     fontSize={20}
+                                    rotation={lab.rotation}
                                 />
                             );
                         })}
