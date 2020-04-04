@@ -34,6 +34,7 @@ export default class Renderer extends React.Component {
         showParkingLotForm: false,
         numOfSpaces: 0,
         orient: "down",
+        labelSize: 50,
 
         //dev
         cursorLocation: {
@@ -451,7 +452,7 @@ export default class Renderer extends React.Component {
                         y: origy,
                         height: dimensions.width / num,
                         width: dimensions.height,
-                        size: 50,
+                        size: this.state.labelSize,
                         fill: "#81C784",
                         text: ++inText,
                         rotation: 90
@@ -479,7 +480,7 @@ export default class Renderer extends React.Component {
                         x: origx,
                         width: dimensions.width,
                         height: dimensions.height / num,
-                        size: 50,
+                        size: this.state.labelSize,
                         fill: "#81C784",
                         text: ++inText,
                         rotation: 0
@@ -526,6 +527,12 @@ export default class Renderer extends React.Component {
         await this.setState({
             orient: orient
         });
+        this.drawParkingSpots(this.state.numOfSpaces);
+    }
+    changeLabelSize = async (e) => {
+        await this.setState({
+            labelSize: e.target.value
+        })
         this.drawParkingSpots(this.state.numOfSpaces);
     }
     exitParkingForm = () => {
@@ -609,80 +616,32 @@ export default class Renderer extends React.Component {
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("down")}
-                                    style={
-                                        this.state.orient === "down"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    style={this.state.orient === "down"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientDown"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                left to right
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("up")}
-                                    style={
-                                        this.state.orient === "up"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    style={this.state.orient === "up"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientUp"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                right to left
                                 </button>
                             </div>
                             <div>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("right")}
-                                    style={
-                                        this.state.orient === "right"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    style={this.state.orient === "right"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientRight"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                up to down
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("left")}
-                                    style={
-                                        this.state.orient === "left"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    style={this.state.orient === "left"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientLeft"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                down to up
                                 </button>
                             </div>
                         </div>
@@ -696,6 +655,9 @@ export default class Renderer extends React.Component {
                         />
                         <div>
                             Naming:
+                            <div class="slidecontainer">
+                                size<input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
+                            </div>
                             <div>
                                 prefix: 
                                 <input 
@@ -870,6 +832,7 @@ export default class Renderer extends React.Component {
                                     height={lab.height}
                                     text={lab.text}
                                     align={"center"}
+                                    verticalAlign={"middle"}
                                     fontStyle={"bold"}
                                     fill={"#81C784"}
                                     fontSize={lab.size}
@@ -904,10 +867,14 @@ export default class Renderer extends React.Component {
                                     height={lab.height}
                                     text={lab.text}
                                     align={"center"}
+                                    verticalAlign={"middle"}
                                     fontStyle={"bold"}
                                     fill={"#81C784"}
                                     fontSize={lab.size}
                                     rotation={lab.rotation}
+                                    onClick={
+                                        () => console.log(lab.text)
+                                    }
                                 />
                             );
                         })}
