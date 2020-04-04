@@ -121,11 +121,11 @@
 }
 
 #orientRight {
-    transform: rotate(90deg);
+    transform: rotate(270deg);
 }
 
 #orientLeft {
-    transform: rotate(270deg);
+    transform: rotate(90deg);
 }
 
 button {

@@ -372,6 +372,7 @@ export default class Renderer extends React.Component {
             this.setState({
                 numOfSpaces: 100,
             });
+            num = 100;
         }
 
         let dimensions = {
@@ -382,24 +383,51 @@ export default class Renderer extends React.Component {
         //TO-DO: boundary check or somethin lol
         let origx = this.state.lotRect.x;
         let origy = this.state.lotRect.y;
-
-        //draw parking lines
+        
         let parkingLines = [];
-        for (let i = 0; i < num; i++) {
-            parkingLines.push({
-                x1: origx + (dimensions.width / num) * i,
-                y1: origy,
-                x2: origx + (dimensions.width / num) * i,
-                y2: origy + dimensions.height,
-            });
+        //draw parking lines
+        switch(this.state.orient){
+            default:
+            case "up":
+            case "down": {
+                for (let i = 0; i < num; i++) {
+                    parkingLines.push({
+                        x1: origx + (dimensions.width / num) * i,
+                        y1: origy,
+                        x2: origx + (dimensions.width / num) * i,
+                        y2: origy + dimensions.height,
+                    });
+                }
+                //for end line
+                parkingLines.push({
+                    x1: origx + dimensions.width,
+                    y1: origy,
+                    x2: origx + dimensions.width,
+                    y2: origy + dimensions.height,
+                });
+                break;
+            }
+            case "right":
+            case "left": {
+                for (let i = 0; i < num; i++) {
+                    parkingLines.push({
+                        y1: origy + (dimensions.height / num) * i,
+                        x1: origx,
+                        y2: origy + (dimensions.height / num) * i,
+                        x2: origx + dimensions.width,
+                    });
+                }
+                //for end line
+                parkingLines.push({
+                    y1: origy + dimensions.height,
+                    x1: origx,
+                    y2: origy + dimensions.height,
+                    x2: origx + dimensions.width,
+                });
+                break;
+            }
         }
-        //for end line
-        parkingLines.push({
-            x1: origx + dimensions.width,
-            y1: origy,
-            x2: origx + dimensions.width,
-            y2: origy + dimensions.height,
-        });
+
         this.setState({
             stagingParkingLines: parkingLines,
         });
@@ -407,15 +435,61 @@ export default class Renderer extends React.Component {
         //draw labels
         let labels = [];
         let inText = this.state.parkingCount; //change this
-        for (let i = 0; i < num; i++) {
-            labels.push({
-                x: origx + (dimensions.width / num) * i,
-                y: origy + dimensions.height,
-                width: dimensions.width / num,
-                height: dimensions.width / num / 2,
-                text: ++inText,
-            });
+        switch(this.state.orient){
+            default:
+            case "down": {
+                for (let i = 0; i < num; i++) {
+                    labels.push({
+                        x: origx + (dimensions.width / num) * i,
+                        y: origy + dimensions.height - 20,
+                        width: dimensions.width / num,
+                        height: dimensions.width / num / 2,
+                        text: ++inText,
+                        rotation: 0
+                    });
+                }
+                break;
+            }
+            case "up":{
+                for (let i = 0; i < num; i++) {
+                    labels.push({
+                        x: origx + (dimensions.width / num) * i,
+                        y: origy,
+                        width: dimensions.width / num,
+                        height: dimensions.width / num / 2,
+                        text: ++inText,
+                        rotation: 0
+                    });
+                }
+            }
+            case "right": {
+                for (let i = 0; i < num; i++) {
+                    labels.push({
+                        y: origy + (dimensions.height / num) * (i + 1),
+                        x: origx + dimensions.width - 20,
+                        width: dimensions.height / num,
+                        height: dimensions.height / num / 2,
+                        text: ++inText,
+                        rotation: 270
+                    });
+                }  
+                break;
+            }
+            case "left": {
+                for (let i = 0; i < num; i++) {
+                    labels.push({
+                        y: origy + (dimensions.height / num) * i,
+                        x: origx + 20,
+                        width: dimensions.height / num,
+                        height: dimensions.height / num / 2,
+                        text: ++inText,
+                        rotation: 90
+                    });
+                }  
+                break;
+            }
         }
+
         this.setState({
             stagingParkingLabel: labels,
             parkingCount: inText,
@@ -445,6 +519,13 @@ export default class Renderer extends React.Component {
     toggleErase = (e) => {
         this.changeDrawingState("erase");
     };
+    changeOrient = async (orient) => {
+        console.log(orient);
+        await this.setState({
+            orient: orient
+        });
+        this.drawParkingSpots(this.state.numOfSpaces);
+    }
 
     //-----------------------------STATE CHANGE HANDLING----------------------------------------------//
 
@@ -509,6 +590,7 @@ export default class Renderer extends React.Component {
                             <div>
                                 <button
                                     className="orientButton"
+                                    onClick={() => this.changeOrient("down")}
                                     style={
                                         this.state.orient === "down"
                                             ? this.buttonSelected
@@ -527,6 +609,7 @@ export default class Renderer extends React.Component {
                                 </button>
                                 <button
                                     className="orientButton"
+                                    onClick={() => this.changeOrient("up")}
                                     style={
                                         this.state.orient === "up"
                                             ? this.buttonSelected
@@ -547,6 +630,7 @@ export default class Renderer extends React.Component {
                             <div>
                                 <button
                                     className="orientButton"
+                                    onClick={() => this.changeOrient("right")}
                                     style={
                                         this.state.orient === "right"
                                             ? this.buttonSelected
@@ -565,6 +649,7 @@ export default class Renderer extends React.Component {
                                 </button>
                                 <button
                                     className="orientButton"
+                                    onClick={() => this.changeOrient("left")}
                                     style={
                                         this.state.orient === "left"
                                             ? this.buttonSelected
@@ -750,6 +835,7 @@ export default class Renderer extends React.Component {
                                     align={"center"}
                                     fontStyle={"bold"}
                                     fontSize={20}
+                                    rotation={lab.rotation}
                                 />
                             );
                         })}
