@@ -1,5 +1,5 @@
 import React from 'react';
-import { stack as Menu } from 'react-burger-menu';
+import { slide as Menu } from 'react-burger-menu';
 import './Sidebar.css';
 import AccountButton from './AccountButton';
 import { NavLink } from 'react-router-dom';
@@ -38,7 +38,7 @@ class Sidebar extends React.Component {
                 <br />
                 <ul>
                     <li>
-                        <NavLink className="link" onClick={this.closeMenu} to='/'>
+                        <NavLink className="link" onClick={this.closeMenu} to='/dash'>
                             <img src={DashboardIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Home</span>
                         </NavLink>
                     </li>
