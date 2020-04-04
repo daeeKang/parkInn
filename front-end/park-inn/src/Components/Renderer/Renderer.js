@@ -309,7 +309,14 @@ export default class Renderer extends React.Component {
         }
     };
 
-    openParkingLotForm = (coords) => {
+    openParkingLotForm = async (coords) => {
+        //check to see which orient it should default to
+        if(Math.abs(this.state.lotRect.width) < Math.abs(this.state.lotRect.height)){
+            await this.setState({
+                orient: "right"
+            });
+        }
+        
         this.setState({
             showParkingLotForm: true,
         });
@@ -436,57 +443,51 @@ export default class Renderer extends React.Component {
         let inText = this.state.parkingCount; //change this
         switch(this.state.orient){
             default:
+            case "up":
             case "down": {
                 for (let i = 0; i < num; i++) {
                     labels.push({
-                        x: origx + (dimensions.width / num) * i,
-                        y: origy + dimensions.height - 20,
-                        width: dimensions.width / num,
-                        height: dimensions.width / num / 2,
-                        text: ++inText,
-                        rotation: 0
-                    });
-                }
-                break;
-            }
-            case "up":{
-                for (let i = 0; i < num; i++) {
-                    labels.push({
-                        x: origx + (dimensions.width / num) * i,
+                        x: origx + (dimensions.width / num) * (i + 1),
                         y: origy,
-                        width: dimensions.width / num,
-                        height: dimensions.width / num / 2,
-                        text: ++inText,
-                        rotation: 0
-                    });
-                }
-            }
-            case "right": {
-                for (let i = 0; i < num; i++) {
-                    labels.push({
-                        y: origy + (dimensions.height / num) * (i + 1),
-                        x: origx + dimensions.width - 20,
-                        width: dimensions.height / num,
-                        height: dimensions.height / num / 2,
-                        text: ++inText,
-                        rotation: 270
-                    });
-                }  
-                break;
-            }
-            case "left": {
-                for (let i = 0; i < num; i++) {
-                    labels.push({
-                        y: origy + (dimensions.height / num) * i,
-                        x: origx + 20,
-                        width: dimensions.height / num,
-                        height: dimensions.height / num / 2,
+                        height: dimensions.width / num,
+                        width: dimensions.height,
+                        size: 50,
+                        fill: "#81C784",
                         text: ++inText,
                         rotation: 90
                     });
+                }
+                break;
+            }
+            // case "up":{
+            //     for (let i = 0; i < num; i++) {
+            //         labels.push({
+            //             x: origx + (dimensions.width / num) * i,
+            //             y: origy,
+            //             width: dimensions.width / num,
+            //             height: dimensions.width / num / 2,
+            //             text: ++inText,
+            //             rotation: 0
+            //         });
+            //     }
+            // }
+            case "left":
+            case "right": {
+                for (let i = 0; i < num; i++) {
+                    labels.push({
+                        y: origy + (dimensions.height / num) * i,
+                        x: origx,
+                        width: dimensions.width,
+                        height: dimensions.height / num,
+                        size: 50,
+                        fill: "#81C784",
+                        text: ++inText,
+                        rotation: 0
+                    });
                 }  
                 break;
             }
+
         }
 
         this.setState({
@@ -866,10 +867,12 @@ export default class Renderer extends React.Component {
                                     x={lab.x}
                                     y={lab.y}
                                     width={lab.width}
+                                    height={lab.height}
                                     text={lab.text}
                                     align={"center"}
                                     fontStyle={"bold"}
-                                    fontSize={20}
+                                    fill={"#81C784"}
+                                    fontSize={lab.size}
                                     rotation={lab.rotation}
                                 />
                             );
@@ -898,10 +901,12 @@ export default class Renderer extends React.Component {
                                     x={lab.x}
                                     y={lab.y}
                                     width={lab.width}
+                                    height={lab.height}
                                     text={lab.text}
                                     align={"center"}
                                     fontStyle={"bold"}
-                                    fontSize={20}
+                                    fill={"#81C784"}
+                                    fontSize={lab.size}
                                     rotation={lab.rotation}
                                 />
                             );
