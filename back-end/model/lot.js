@@ -11,6 +11,10 @@ let LotSchema = new Schema({
         unavailable: {type: Date, default: null},
         category: {type: String, default: 'general'},
         username: {type: String, default: null},
+        reserveddates: [{
+            starttime: {type: Date},
+            endtime: {type: Date}
+        }]
     }],
     totalSpots: Number,
     availableSpots: Number,

@@ -12,8 +12,6 @@ router.post('/AddReservation', async (req, res) => {
         expired: req.body.expired
     });
     let err = "";
-    console.log(reservation.starttime.getTime());
-    console.log(reservation.endtime.getTime());
     if(reservation.starttime.getTime() - reservation.endtime.getTime() >= 0){
         err = "Invalid reservation time ";
     }
@@ -25,40 +23,68 @@ router.post('/AddReservation', async (req, res) => {
     if(Lot.length == 0){
         err += "Lot not found ";
     }
-    let spots = Lot[0]["spots"];
+    const spots = Lot[0]["spots"];
 
-    let found = false; 
-    spots.map(spot => {
-      if(req.body.spotid == spot.spotid){
-        spot["active"] = req.body.updateValue;
-        found = true;
-      }
-      return spot;
-    });
+    console.log("spot id is " + req.body.spotid);
 
-    if(found === false){
-        err += "spotid not found";
-    }
+    let found = false;
 
-    await model.Lot.findByIdAndUpdate(
-        Lot[0]["_id"], 
-        {spots: spots},
-        (err) => {
-          if(err) {
-            return res.send(err);
-          }
-    });
+    await model.Lot.findOneAndUpdate(
+        {
+            companyid: req.body.companyid,
+            lotid: req.body.lotid,
+            'spots.spotid': req.body.spotid
+        },
+        {
+            $push:{
+                'spots.$.reserveddates' : {
+                    starttime: req.body.starttime,
+                    endtime : req.body.endtime
+                }
+            }
+        },
+        null,
+        (err) =>{
+            if(err){
+                console.log(err);
+            }
+            else{
+                console.log("updated spot availability");
+            }
+        }
+    )
 
     if(err.length > 0){
         res.send(err);
     }
     else{
         await reservation.save().then(res =>{
-            console.log("success???");
         }).catch(err =>{
             console.log(err);
         });
     }
+
+    res.send("success");
+
 });
+
+router.get('/GetReservations/:username', async (req, res) => {
+    let customerReservations = await model.Reservation.find({username: req.params.username});
+    if(customerReservations.length == 0){
+        console.log("1");
+        return res.send("No reservations found for customer");
+    }
+    else{
+       try{
+           console.log("2");
+           res.send(customerReservations);
+       } 
+       catch(err){
+           console.log("asedfsdf");
+           res.status(500).send(err);
+       }
+    }
+});
+
 
 module.exports = router;
