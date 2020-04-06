@@ -25,46 +25,57 @@ router.post('/AddReservation', async (req, res) => {
     }
     const spots = Lot[0]["spots"];
 
-    console.log("spot id is " + req.body.spotid);
+    var spot = spots.find(element => element.spotid == reservation.spotid);
 
-    let found = false;
+    var conflict = false;
 
-    await model.Lot.findOneAndUpdate(
-        {
-            companyid: req.body.companyid,
-            lotid: req.body.lotid,
-            'spots.spotid': req.body.spotid
-        },
-        {
-            $push:{
-                'spots.$.reserveddates' : {
-                    starttime: req.body.starttime,
-                    endtime : req.body.endtime
-                }
+    spot.reserveddates.forEach(element => {
+        if((reservation.starttime >= element.starttime && reservation.starttime <= element.endtime) 
+            || (reservation.endtime >= element.starttime && reservation.endtime <= element.endtime)){
+                conflict = true;
             }
-        },
-        null,
-        (err) =>{
-            if(err){
-                console.log(err);
-            }
-            else{
-                console.log("updated spot availability");
-            }
-        }
-    )
+    });
+
+    if(conflict){
+        err += "Selected time conflicts with already scheduled reservations";
+    }
 
     if(err.length > 0){
         res.send(err);
     }
     else{
+
+        await model.Lot.findOneAndUpdate(
+            {
+                companyid: req.body.companyid,
+                lotid: req.body.lotid,
+                'spots.spotid': req.body.spotid
+            },
+            {
+                $push:{
+                    'spots.$.reserveddates' : {
+                        starttime: req.body.starttime,
+                        endtime : req.body.endtime
+                    }
+                }
+            },
+            null,
+            (err) =>{
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log("updated spot availability");
+                }
+            }
+        )
+
         await reservation.save().then(res =>{
         }).catch(err =>{
             console.log(err);
         });
+        res.send("success");
     }
-
-    res.send("success");
 
 });
 
