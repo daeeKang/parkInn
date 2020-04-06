@@ -22,6 +22,7 @@ const customerRoute = require("./routes/Customer");
 const userRoute = require("./routes/User");
 const staffRoute = require("./routes/Staff");
 const reservationRoute = require("./routes/Reservation");
+const statisticRoute = require('./routes/Statistic');
 
 //tell app to use brought in routes
 app.use("/Staff", staffRoute);
@@ -30,6 +31,7 @@ app.use("/Lot", lotRoute);
 app.use("/Customer", customerRoute);
 app.use("/User", userRoute);
 app.use("/Reservation", reservationRoute);
+app.use("/Statistic", statisticRoute);
 
 //connect to mongodb
 //if this isn't working, you don't have a .env file saved in this directory

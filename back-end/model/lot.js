@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const geolib = require('geolib');
 
 let LotSchema = new Schema({
     companyid: { type: String, required: true },
@@ -16,6 +17,10 @@ let LotSchema = new Schema({
     ],
     totalSpots: Number,
     availableSpots: Number,
+    averageTimeParked: {
+        currentAverage: { type: Number, default: 0 },
+        totalCount: { type: Number, default: 0 },
+    },
     peakTimes: [
         {
             hour: Number,
@@ -35,5 +40,14 @@ LotSchema.methods.CreateTimeSlots = function(hours = 24) {
         this.peakTimes.push({ hour: i, count: 0 });
     }
 };
+
+LotSchema.statics.findByLocation = async function(location, radius){  
+    const lots = await this.find({}, 
+        function(err, result) {
+        if (err) throw err;
+        return result;
+    });
+    return lots.filter(lot => geolib.isPointWithinRadius(lot.location, location, radius*1609.34));
+}
 
 module.exports = mongoose.model("Lot", LotSchema, "lots");

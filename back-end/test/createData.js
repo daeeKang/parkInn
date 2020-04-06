@@ -5,8 +5,8 @@ const { v4: uuidv4 } = require('uuid');
 const db = Mongoose.connection;
 const randomLocation = require('random-location');
 const randomDate = require('random-date-generator');
+const addHours = require('date-fns/addHours')
 const Chance = require('chance');
-const fs = require('fs');
 const chance = new Chance();
 dotenv.config();
 let documentCount = 0; 
@@ -21,6 +21,41 @@ const imageURL = [
     'https://cdn.discordapp.com/attachments/693888277165375512/693922455907074108/image7.png',
     'https://cdn.discordapp.com/attachments/693888277165375512/693922456506859580/image8.png',
 ];
+
+function createReservation() {
+    const newDate = new Date('June 1 2020 14:00');
+    const oldDate = new Date('June 4 1776 12:00');
+    const reservation1 = new model.Reservation({
+        companyid: '8e9fe90e-bd10-48d2-8084-8f259157c832',
+        lotid: 1,
+        spotid: 0,
+        starttime: newDate,
+        endtime: addHours(newDate, 2),
+        username: 'customer1@email.com',
+        expired: false
+    });
+    reservation1.save().then(res => {
+        documentCount++;
+        console.log(`reservation for ${reservation1.username} saved`);
+      }).catch(err => {
+        console.log(err);
+      });
+      const reservation2 = new model.Reservation({
+        companyid: '8e9fe90e-bd10-48d2-8084-8f259157c832',
+        lotid: 2,
+        spotid: 0,
+        starttime: oldDate,
+        endtime: addHours(oldDate, 3),
+        username: 'customer1@email.com',
+        expired: true
+    });
+    reservation2.save().then(res => {
+        documentCount++;
+        console.log(`reservation for ${reservation1.username} saved`);
+      }).catch(err => {
+        console.log(err);
+      });
+}
 
 function createCompanies() {
     const company1 = new model.Company({
@@ -79,6 +114,10 @@ function createLot(lotid, companyid, name){
         spots: parkingSpots,
         totalSpots: parkingSpots.length,
         availableSpots: parkingSpots.length,
+        averageTimeParked: {
+            currentAverage: 60,
+            totalCount: 10,
+        },
         location: generateLocation(),
         imgURL: imageURL[lotid-1],
     });
@@ -249,11 +288,12 @@ db.once('open', () => {
     console.log('dab on em we connected to mongoDB');
     createCompanies();
     createCustomers();
+    createReservation();
     wait();
 });
 
 function wait(){
-    if (documentCount != 1083){
+    if (documentCount != 1085){
         setTimeout(wait,100);
     } else {
       console.log('dab on em we inserted data into mongoDB');

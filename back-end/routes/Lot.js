@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const model = require("../model/Model");
 const checkJwt = require("../middleware/checkJwt");
+//TO DO: Protect Route After Login is Setup for all applications
 
 router.post("/AddLot", checkJwt, async (req, res) => {
     const lot = new model.Lot({
@@ -231,6 +232,15 @@ router.get("/GetPeakTimes/:companyid/:lotid", async (req, res) => {
         return res.send("no lot found, btw change these error messages lmao");
 
     res.send(lot[0].peakTimes);
+});
+
+router.get("/GetLotsWithinArea/:latitude/:longitude/:radius", async (req, res) => {
+    const location = {
+        latitude: req.params.latitude,
+        longitude: req.params.longitude,
+    }
+    const lots = await model.Lot.findByLocation(location, req.params.radius);
+    res.send(lots);
 });
 
 module.exports = router;

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const model = require('../model/Model');
+const checkJwt = require("../middleware/checkJwt");
+//TO DO: Protect Route After Login is Setup for all applications
 
 router.post('/AddReservation', async (req, res) => {
     const reservation = new model.Reservation({
