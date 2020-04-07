@@ -37,6 +37,7 @@ router.post('/AddReservation', async (req, res) => {
     });
 
     if(conflict){
+        console.log("there was a time conflict");
         err += "Selected time conflicts with already scheduled reservations";
     }
 
@@ -45,15 +46,16 @@ router.post('/AddReservation', async (req, res) => {
     }
     else{
 
-        await model.Lot.findOneAndUpdate(
+        await model.Lot.update(
             {
                 companyid: req.body.companyid,
                 lotid: req.body.lotid,
                 'spots.spotid': req.body.spotid
             },
             {
-                $push:{
+                $addToSet:{
                     'spots.$.reserveddates' : {
+                        _id: reservation.id,
                         starttime: req.body.starttime,
                         endtime : req.body.endtime
                     }
@@ -70,6 +72,7 @@ router.post('/AddReservation', async (req, res) => {
             }
         )
 
+        console.log(reservation);
         await reservation.save().then(res =>{
         }).catch(err =>{
             console.log(err);
@@ -97,5 +100,44 @@ router.get('/GetReservations/:username', async (req, res) => {
     }
 });
 
+router.delete('/CancelReservation', async (req, res) => {
+    try{
+
+        let res = await model.Reservation.findById(req.body.reservationid);
+
+        await model.Lot.update(
+            {
+                companyid: res.companyid,
+                lotid: res.lotid,
+                'spots.spotid': res.spotid
+            },
+            {
+                'spots.$.reserveddates': {
+                     $pull: {
+                        starttime: req.body.starttime,
+                        endtime : req.body.endtime
+                    }
+                }
+            },
+            null,
+            (err) =>{
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log("updated spot availability");
+                }
+            }
+        )
+
+        await model.Reservation.findByIdAndDelete(req.body.reservationid);
+        res.status(200).send("reservation successfully cancelled");
+    } catch(err){
+        res.status(500).send("Error cancelling reservation");
+    }
+
+    
+
+});
 
 module.exports = router;

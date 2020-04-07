@@ -227,3 +227,14 @@ Output: // an array of reservations with these fields
     expired: {type: Boolean, default: false}
     }]
 }
+
+./Reservation/CancelReservation
+Input:
+{
+    username: String
+    reservationid: String
+}
+Output:
+{
+    Nothing --> successfully cancelled message or cancellation error message
+}
