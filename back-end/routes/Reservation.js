@@ -37,7 +37,6 @@ router.post('/AddReservation', async (req, res) => {
     });
 
     if(conflict){
-        console.log("there was a time conflict");
         err += "Selected time conflicts with already scheduled reservations";
     }
 
@@ -70,9 +69,8 @@ router.post('/AddReservation', async (req, res) => {
                     console.log("updated spot availability");
                 }
             }
-        )
+        );
 
-        console.log(reservation);
         await reservation.save().then(res =>{
         }).catch(err =>{
             console.log(err);
@@ -102,7 +100,6 @@ router.get('/GetReservations/:username', async (req, res) => {
 
 router.delete('/CancelReservation', async (req, res) => {
     try{
-
         let res = await model.Reservation.findById(req.body.reservationid);
 
         await model.Lot.update(
@@ -129,12 +126,14 @@ router.delete('/CancelReservation', async (req, res) => {
                 }
             }
         )
-
+        
+        console.log("before delete");
         await model.Reservation.findByIdAndDelete(req.body.reservationid);
-        res.status(200).send("reservation successfully cancelled");
     } catch(err){
-        res.status(500).send("Error cancelling reservation");
+        res.send("Error cancelling reservation");
     }
+
+    res.send("reservation successfully cancelled");
 
     
 
