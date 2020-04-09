@@ -50,17 +50,15 @@ class MapVC: UIViewController {
     }
 
     private func fetchLots(with companyID: String) {
-        let url = URL(string: "http://vtcolo.dyndns.org:8000/Lot/GetLots/\(companyID)/")!
-        AF.request(url).response { response in
-            do {
-                guard response.data != nil else { return }
-                let lots = try JSONDecoder().decode([Lot].self, from: response.data!)
-                for lot in lots {
-                    self.lotAnnotations.append(LotAnnotation(lot: lot))
-                }
-                self.mapView.addAnnotations(self.lotAnnotations)
-            } catch {
-                return
+        APIService.getLots(companyID: companyID) { [unowned self] result in
+            switch result {
+                case .success(let lots):
+                    for lot in lots {
+                        self.lotAnnotations.append(LotAnnotation(lot: lot))
+                    }
+                    self.mapView.addAnnotations(self.lotAnnotations)
+                case .failure(_):
+                    fatalError()
             }
         }
     }
