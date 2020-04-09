@@ -11,6 +11,7 @@ import Alamofire
 
 class APIService {
     typealias LotsCompletion = (Result<[Lot], AFError>) -> ()
+    typealias LotDesignCompletion = (Result<[LotDesign], AFError>) -> ()
 
     @discardableResult
     private static func performRequest<T:Decodable>(route:APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (Result<T, AFError>)->Void) -> DataRequest {
@@ -21,6 +22,10 @@ class APIService {
     }
 
     static func getLots(companyID: String, completion: @escaping LotsCompletion) {
+        performRequest(route: APIRouter.companyLots(companyID: companyID), completion: completion)
+    }
+
+    static func getLotDesign(companyID: String, lotID: String, completion: @escaping LotDesignCompletion) {
         performRequest(route: APIRouter.companyLots(companyID: companyID), completion: completion)
     }
 }

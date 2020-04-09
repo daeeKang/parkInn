@@ -11,39 +11,43 @@ import Alamofire
 
 enum APIRouter: URLRequestConvertible {
 
-    case lot(companyID: Int, lotID: Int)
+    case lot(companyID: Int, lotID: String)
     case companyLots(companyID: String)
     case lots(latitude: Double, longitude: Double, radius: Int)
+    case lotDesign(companyID: String, lotID: String)
+    case peakTimes(companyID: String, lotID: String)
 
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
-        case .lot:
-            return .get
-            case .lots, .companyLots:
-            return .get
+            case .lot, .lots, .companyLots, .lotDesign, .peakTimes:
+                return .get
         }
     }
 
     // MARK: - Path
     private var path: String {
         switch self {
-        case .lot(let companyID, let lotID):
-            return "/Lots/GetLot/\(companyID)/\(lotID)/"
+            case .lot(let companyID, let lotID):
+                return "/Lots/GetLot/\(companyID)/\(lotID)/"
             case .lots(let latitude, let longitude, let radius):
                 return "/Lots/GetLotsWithinArea/\(latitude)/\(longitude)/\(radius)/"
             case .companyLots(let companyID):
                 return "/Lot/GetLots/\(companyID)/"
+            case .lotDesign(let companyID, let lotID):
+                return "/Lot/GetLotDesign?companyid=\(companyID)&lotid=\(lotID)"
+            case .peakTimes(let companyID, let lotID):
+                return "/Lot/GetPeakTimes/\(companyID)/\(lotID)"
         }
     }
 
     // MARK: - Parameters
     private var parameters: Parameters? {
-//        switch self {
-//            case .lot: break
-//            case .lots(latitude: let latitude, longitude: let longitude, radius: let radius):
-//            break
-//        }
+        //        switch self {
+        //            case .lot: break
+        //            case .lots(latitude: let latitude, longitude: let longitude, radius: let radius):
+        //            break
+        //        }
         return nil
     }
 
