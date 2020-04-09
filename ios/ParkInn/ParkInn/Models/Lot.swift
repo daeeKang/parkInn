@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Lot: Decodable {
+struct Lot: Decodable {
     let companyID: String
     let lotID: Int
     let name: String?
@@ -18,6 +18,9 @@ class Lot: Decodable {
     let peakTimes: [PeakTime]
     let location: Coordinate
     let imageURL: String?
+    let averageTimeParked: TimeParked
+    let _id: String?
+
 
     enum CodingKeys: String, CodingKey {
         case companyID = "companyid"
@@ -29,6 +32,8 @@ class Lot: Decodable {
         case peakTimes
         case location
         case imageURL = "imgURL"
+        case averageTimeParked
+        case _id
     }
 }
 
