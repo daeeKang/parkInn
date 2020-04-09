@@ -12,7 +12,7 @@ import Alamofire
 enum APIRouter: URLRequestConvertible {
 
     case lot(companyID: Int, lotID: Int)
-    case companyLots(companyID: Int)
+    case companyLots(companyID: String)
     case lots(latitude: Double, longitude: Double, radius: Int)
 
     // MARK: - HTTPMethod
