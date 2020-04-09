@@ -33,9 +33,9 @@ enum APIRouter: URLRequestConvertible {
     private var path: String {
         switch self {
             case .lot(let companyID, let lotID):
-                return "/Lots/GetLot/\(companyID)/\(lotID)/"
+                return "/Lot/GetLot/\(companyID)/\(lotID)/"
             case .lots(let latitude, let longitude, let radius):
-                return "/Lots/GetLotsWithinArea/\(latitude)/\(longitude)/\(radius)/"
+                return "/Lot/GetLotsWithinArea/\(latitude)/\(longitude)/\(radius)/"
             case .companyLots(let companyID):
                 return "/Lot/GetLots/\(companyID)/"
             case .lotDesign(let companyID, let lotID):
@@ -81,6 +81,7 @@ enum APIRouter: URLRequestConvertible {
             }
         }
 
+        print(urlRequest.url)
         return urlRequest
     }
 }
