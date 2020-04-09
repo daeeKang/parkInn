@@ -28,7 +28,7 @@ class Lot: Decodable {
         case availableSpots
         case peakTimes
         case location
-        case imageURL = "img"
+        case imageURL = "imgURL"
     }
 }
 
