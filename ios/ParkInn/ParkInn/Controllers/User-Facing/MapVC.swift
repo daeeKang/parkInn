@@ -57,8 +57,8 @@ class MapVC: UIViewController {
                         self.lotAnnotations.append(LotAnnotation(lot: lot))
                     }
                     self.mapView.addAnnotations(self.lotAnnotations)
-                case .failure(_):
-                    fatalError()
+                case .failure(let error):
+                    print(error.localizedDescription)
             }
         }
     }
