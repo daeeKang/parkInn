@@ -16,11 +16,15 @@ enum APIRouter: URLRequestConvertible {
     case lots(latitude: Double, longitude: Double, radius: Int)
     case lotDesign(companyID: String, lotID: String)
     case peakTimes(companyID: String, lotID: String)
+    #warning("These statistics might switch to companyID instead of companyName")
+    case companyStats(companyName: String)
+    case lotStats(companyName: String, lotID: String)
 
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
-            case .lot, .lots, .companyLots, .lotDesign, .peakTimes:
+            case .lot, .lots, .companyLots, .lotDesign,
+                 .peakTimes, .companyStats, .lotStats:
                 return .get
         }
     }
@@ -38,6 +42,10 @@ enum APIRouter: URLRequestConvertible {
                 return "/Lot/GetLotDesign?companyid=\(companyID)&lotid=\(lotID)"
             case .peakTimes(let companyID, let lotID):
                 return "/Lot/GetPeakTimes/\(companyID)/\(lotID)"
+            case .companyStats(let companyName):
+                return "/Statistic/\(companyName)/"
+            case .lotStats(let companyName, let lotID):
+                return "/Statistic/\(companyName)/\(lotID)"
         }
     }
 
