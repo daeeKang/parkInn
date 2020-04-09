@@ -24,6 +24,7 @@
 		8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C61C243ECD7400F15E8F /* APIRouter.swift */; };
 		8E54C61F243EDDFA00F15E8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C61E243EDDFA00F15E8F /* Constants.swift */; };
 		8E54C621243EE20000F15E8F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C620243EE20000F15E8F /* APIService.swift */; };
+		8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C622243F1D0400F15E8F /* LotDesign.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -75,6 +76,7 @@
 		8E54C61C243ECD7400F15E8F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		8E54C61E243EDDFA00F15E8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E54C620243EE20000F15E8F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		8E54C622243F1D0400F15E8F /* LotDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotDesign.swift; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			children = (
 				8EA91951240C5A7A00DE7EB3 /* Lot.swift */,
 				8E33BFB4240A516300A29F55 /* LotAnnotation.swift */,
+				8E54C622243F1D0400F15E8F /* LotDesign.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				8EA91952240C5A7A00DE7EB3 /* Lot.swift in Sources */,
 				8E02805A23F5653800057727 /* StatsVC.swift in Sources */,
 				8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */,
+				8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */,
 				8E4E0426240C56CE00016031 /* LotVC.swift in Sources */,
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
