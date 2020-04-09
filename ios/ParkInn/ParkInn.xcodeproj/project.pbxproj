@@ -21,6 +21,8 @@
 		8E33BFB7240A633C00A29F55 /* LotMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */; };
 		8E4CC297240F9DD500C73960 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */; };
 		8E4E0426240C56CE00016031 /* LotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E0425240C56CE00016031 /* LotVC.swift */; };
+		8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C61C243ECD7400F15E8F /* APIRouter.swift */; };
+		8E54C61F243EDDFA00F15E8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C61E243EDDFA00F15E8F /* Constants.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -69,6 +71,8 @@
 		8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotMarkerView.swift; sourceTree = "<group>"; };
 		8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extensions.swift"; sourceTree = "<group>"; };
 		8E4E0425240C56CE00016031 /* LotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotVC.swift; sourceTree = "<group>"; };
+		8E54C61C243ECD7400F15E8F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		8E54C61E243EDDFA00F15E8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				8E02806423F5E8F400057727 /* SWRevealViewController.h */,
 				8E02806323F5E8F400057727 /* SWRevealViewController.m */,
 				8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */,
+				8E54C61C243ECD7400F15E8F /* APIRouter.swift */,
+				8E54C61E243EDDFA00F15E8F /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -504,6 +510,7 @@
 				8E4E0426240C56CE00016031 /* LotVC.swift in Sources */,
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
+				8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */,
 				8E33BFB5240A516300A29F55 /* LotAnnotation.swift in Sources */,
 				8E98C92923F38022008F612A /* AppDelegate.swift in Sources */,
 				8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */,
@@ -511,6 +518,7 @@
 				8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */,
 				35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */,
 				8E4CC297240F9DD500C73960 /* UIImage+extensions.swift in Sources */,
+				8E54C61F243EDDFA00F15E8F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
