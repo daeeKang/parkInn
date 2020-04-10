@@ -14,14 +14,10 @@
 		8E02805A23F5653800057727 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805923F5653800057727 /* StatsVC.swift */; };
 		8E02805C23F5654600057727 /* ManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805B23F5654600057727 /* ManagementVC.swift */; };
 		8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E02806323F5E8F400057727 /* SWRevealViewController.m */; };
-		8E37459B243153D6009C2A33 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E37459A243153D6009C2A33 /* Auth0.plist */; };
-		8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE150243FC4940041E943 /* SessionManager.swift */; };
-		8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */; };
 		8E33BFAB240A26E000A29F55 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E33BFAA240A26E000A29F55 /* User.storyboard */; };
-		8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFAC240A27A800A29F55 /* MapVC.swift */; };
-		8E33BFB3240A338000A29F55 /* UserMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB2240A338000A29F55 /* UserMenuVC.swift */; };
 		8E33BFB5240A516300A29F55 /* LotAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB4240A516300A29F55 /* LotAnnotation.swift */; };
 		8E33BFB7240A633C00A29F55 /* LotMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */; };
+		8E37459B243153D6009C2A33 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E37459A243153D6009C2A33 /* Auth0.plist */; };
 		8E4CC297240F9DD500C73960 /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */; };
 		8E4E0426240C56CE00016031 /* LotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E0425240C56CE00016031 /* LotVC.swift */; };
 		8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C61C243ECD7400F15E8F /* APIRouter.swift */; };
@@ -29,9 +25,10 @@
 		8E54C621243EE20000F15E8F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C620243EE20000F15E8F /* APIService.swift */; };
 		8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C622243F1D0400F15E8F /* LotDesign.swift */; };
 		8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C624243F223D00F15E8F /* CompanyStats.swift */; };
-		8E37459B243153D6009C2A33 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E37459A243153D6009C2A33 /* Auth0.plist */; };
 		8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE150243FC4940041E943 /* SessionManager.swift */; };
 		8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */; };
+		8E7CE1562440156A0041E943 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE1542440156A0041E943 /* MapVC.swift */; };
+		8E7CE1572440156A0041E943 /* UserMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE1552440156A0041E943 /* UserMenuVC.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -73,14 +70,10 @@
 		8E02806223F5E8F300057727 /* ParkInn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParkInn-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E02806323F5E8F400057727 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8E02806423F5E8F400057727 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		8E37459A243153D6009C2A33 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
-		8E7CE150243FC4940041E943 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertController+Convenience.swift"; sourceTree = "<group>"; };
 		8E33BFAA240A26E000A29F55 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
-		8E33BFAC240A27A800A29F55 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
-		8E33BFB2240A338000A29F55 /* UserMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuVC.swift; sourceTree = "<group>"; };
 		8E33BFB4240A516300A29F55 /* LotAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotAnnotation.swift; sourceTree = "<group>"; };
 		8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotMarkerView.swift; sourceTree = "<group>"; };
+		8E37459A243153D6009C2A33 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extensions.swift"; sourceTree = "<group>"; };
 		8E4E0425240C56CE00016031 /* LotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotVC.swift; sourceTree = "<group>"; };
 		8E54C61C243ECD7400F15E8F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -88,9 +81,10 @@
 		8E54C620243EE20000F15E8F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8E54C622243F1D0400F15E8F /* LotDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotDesign.swift; sourceTree = "<group>"; };
 		8E54C624243F223D00F15E8F /* CompanyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStats.swift; sourceTree = "<group>"; };
-		8E37459A243153D6009C2A33 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		8E7CE150243FC4940041E943 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertController+Convenience.swift"; sourceTree = "<group>"; };
+		8E7CE1542440156A0041E943 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		8E7CE1552440156A0041E943 /* UserMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuVC.swift; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,8 +165,6 @@
 			children = (
 				8E02806423F5E8F400057727 /* SWRevealViewController.h */,
 				8E02806323F5E8F400057727 /* SWRevealViewController.m */,
-				8E7CE150243FC4940041E943 /* SessionManager.swift */,
-				8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */,
 				8E4CC296240F9DD500C73960 /* UIImage+extensions.swift */,
 				8E54C61C243ECD7400F15E8F /* APIRouter.swift */,
 				8E54C620243EE20000F15E8F /* APIService.swift */,
@@ -186,9 +178,9 @@
 		8E4E0427240C56DC00016031 /* User-Facing */ = {
 			isa = PBXGroup;
 			children = (
-				8E33BFAC240A27A800A29F55 /* MapVC.swift */,
-				8E33BFB2240A338000A29F55 /* UserMenuVC.swift */,
 				8E4E0425240C56CE00016031 /* LotVC.swift */,
+				8E7CE1542440156A0041E943 /* MapVC.swift */,
+				8E7CE1552440156A0041E943 /* UserMenuVC.swift */,
 			);
 			path = "User-Facing";
 			sourceTree = "<group>";
@@ -262,8 +254,6 @@
 				8E02805923F5653800057727 /* StatsVC.swift */,
 				038B185023FCC2A300410A1A /* MenuVC.swift */,
 				8E02805B23F5654600057727 /* ManagementVC.swift */,
-				8E33BFAC240A27A800A29F55 /* MapVC.swift */,
-				8E33BFB2240A338000A29F55 /* UserMenuVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -530,13 +520,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E33BFB3240A338000A29F55 /* UserMenuVC.swift in Sources */,
 				8E54C621243EE20000F15E8F /* APIService.swift in Sources */,
 				8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */,
 				8E98C92D23F38022008F612A /* LoginVC.swift in Sources */,
 				8EA91952240C5A7A00DE7EB3 /* Lot.swift in Sources */,
 				8E02805A23F5653800057727 /* StatsVC.swift in Sources */,
+				8E7CE1562440156A0041E943 /* MapVC.swift in Sources */,
 				8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */,
+				8E7CE1572440156A0041E943 /* UserMenuVC.swift in Sources */,
 				8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */,
 				8E4E0426240C56CE00016031 /* LotVC.swift in Sources */,
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
@@ -545,7 +536,6 @@
 				8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */,
 				8E33BFB5240A516300A29F55 /* LotAnnotation.swift in Sources */,
 				8E98C92923F38022008F612A /* AppDelegate.swift in Sources */,
-				8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */,
 				8E33BFB7240A633C00A29F55 /* LotMarkerView.swift in Sources */,
 				8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */,
 				8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */,
