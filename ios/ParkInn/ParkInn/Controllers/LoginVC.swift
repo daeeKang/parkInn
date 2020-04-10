@@ -16,7 +16,9 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func loginPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toMainVC", sender: nil)
+        // Temporarily changing the segue to users. Needs to be worked out later.
+        //performSegue(withIdentifier: "toMainVC", sender: nil)
+        performSegue(withIdentifier: "toUserSB", sender: nil)
     }
 }
 
