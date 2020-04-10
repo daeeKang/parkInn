@@ -14,17 +14,6 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        Auth0
-            .webAuth()
-            .clearSession(federated:false) { [weak self] in
-                switch $0 {
-                    case true:
-                        print("logged out")
-                    case false:
-                        print("logged out failed")
-                }
-        }
     }
 
     @IBAction func loginPressed(_ sender: Any) {
@@ -85,8 +74,7 @@ class LoginVC: UIViewController {
             case .admin, .staff:
                 self.performSegue(withIdentifier: "toMainVC", sender: nil)
             case .customer:
-                // Segue to user side
-                print("Should have gone to user side")
+                self.performSegue(withIdentifier: "toUserSB", sender: nil)
         }
     }
 
