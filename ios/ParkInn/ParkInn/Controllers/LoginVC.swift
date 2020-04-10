@@ -23,8 +23,8 @@ class LoginVC: UIViewController {
     func showLock() {
         Auth0
             .webAuth()
-            .scope("openid profile")
-            .audience("https://parkinn.auth0.com/userinfo")
+            .scope(Auth0Info.openIDScope)
+            .audience(Auth0Info.audience)
             .start {
                 switch $0 {
                     case .failure(let error):

@@ -72,6 +72,14 @@ enum APIRouter: URLRequestConvertible {
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
 
+        // Add JWT auth
+        if SessionManager.shared.profile != nil {
+            if let jwt = SessionManager.shared.keychain.string(forKey: "access_token") {
+                urlRequest.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+            }
+        }
+
+
         // Parameters
         if let parameters = parameters {
             do {
