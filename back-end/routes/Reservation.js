@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const model = require('../model/Model');
+const checkJwt = require("../middleware/checkJwt");
+//TO DO: Protect Route After Login is Setup for all applications
 
 
 // welcome to mom's spaghetti all over the code already
-router.post('/AddReservation', async (req, res) => {
+router.post('/AddReservation', checkJwt, async (req, res) => {
     // i think there's a cleaner way to make this from the req.body but idc
     const reservation = new model.Reservation({
         companyid: req.body.companyid,
@@ -98,7 +100,7 @@ router.post('/AddReservation', async (req, res) => {
 
 });
 
-router.get('/GetReservations/:username', async (req, res) => {
+router.get('/GetReservations/:username', checkJwt, async (req, res) => {
     // get reservations by customer's username
     let customerReservations = await model.Reservation.find({username: req.params.username});
     // if it comes back empty, then they got no reservations
@@ -116,7 +118,7 @@ router.get('/GetReservations/:username', async (req, res) => {
     }
 });
 
-router.delete('/CancelReservation', async (req, res) => {
+router.delete('/CancelReservation', checkJwt, async (req, res) => {
     try{
         //find the reservation
         let res = await model.Reservation.findById(req.body.reservationid);

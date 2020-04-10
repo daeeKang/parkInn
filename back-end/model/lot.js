@@ -36,3 +36,4 @@ LotSchema.methods.CreateTimeSlots = function(hours = 24){
 };
 
 module.exports = mongoose.model('Lot', LotSchema, 'lots');
+//No newline at end of file

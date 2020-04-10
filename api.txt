@@ -172,6 +172,49 @@ Output:
     }]
 }
 
+./Lot/GetLotsWithinArea (GET)
+Input:
+{
+    latitude: Number,
+    longitude: Number,
+    radius: Number (in Miles)
+}
+Output:
+{
+    [{
+    companyid: { type: String, required: true },
+    lotid: { type: Number, required: true },
+    lotName: { type: String, default: null },
+    spots: [
+        {
+            spotid: String,
+            active: Boolean,
+            unavailable: { type: Date, default: null },
+            category: { type: String, default: "general" },
+            username: { type: String, default: null }
+        }
+    ],
+    totalSpots: Number,
+    availableSpots: Number,
+    averageTimeParked: {
+        currentAverage: { type: Number, default: 0 },
+        totalCount: { type: Number, default: 0 },
+    },
+    peakTimes: [
+        {
+            hour: Number,
+            count: Number
+        }
+    ],
+    location: {
+        latitude: Number,
+        longitude: Number
+    },
+    lotDesign: String,
+    imgURL: { type: String, default: null }
+    }]
+}
+
 USER 
 ---------------------------------------
 ./User/AddUser (POST)
@@ -237,4 +280,76 @@ Input:
 Output:
 {
     Nothing --> successfully cancelled message or cancellation error message
+STATISTICS
+---------------------------------------
+./Statistic (GET)
+Input:
+{   
+    companyName: String
+}
+Output:
+{
+    statistics: {
+        lotStatistics:[{
+            lotid: String,
+            availableSpots: Number,
+            totalSpots: Number,
+            peakTimes: {
+                times: {
+                    hour: Number,
+                    count: Number,                    
+                }
+                date: Date, (Peak Times are from the day before)
+            }, 
+            averageTimeParked: {
+                currentAverage: Number, (in Minutes),
+                totalCount: Number
+            },
+            revenue: Number (in Pennies)
+        }],
+
+        (Company statistics will have the sum of all the lots)
+        companyStatistics:{
+            availableSpots: Number,
+            totalSpots: Number,
+            peakTimes: [{
+                hour: Number,
+                count: Number,
+            }],
+            averageTimeParked: {
+                currentAverage: Number, (in Minutes)
+                totalCount: Number,  
+            },
+            revenue: Number, (in Pennies)
+        }
+    }
+}
+
+./Statistic (GET)
+Input:
+{   
+    companyName: String,
+    lotid: String,
+}
+Output:
+{
+    statistics: {
+        lotStatistics:{
+            lotid: String,
+            availableSpots: Number,
+            totalSpots: Number,
+            peakTimes: {
+                times: {
+                    hour: Number,
+                    count: Number,                    
+                }
+                date: Date, (Peak Times are from the day before)
+            }, 
+            averageTimeParked: {
+                currentAverage: Number, (in Minutes),
+                totalCount: Number
+            },
+            revenue: Number (in Pennies)
+        },
+    }
 }

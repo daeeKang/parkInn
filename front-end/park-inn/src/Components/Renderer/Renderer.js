@@ -1,6 +1,7 @@
 import React from "react";
 import Konva from "konva";
 import Modal from "react-modal";
+import axios from "axios";
 import "./Renderer.css";
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 
@@ -14,7 +15,7 @@ export default class Renderer extends React.Component {
         snappingRatio: 10,
         stage: {
             x: 0,
-            y: 0
+            y: 0,
         },
         walls: [],
         parkingLines: [],
@@ -24,7 +25,7 @@ export default class Renderer extends React.Component {
             y: 0,
             width: 0,
             height: 0,
-            visible: false
+            visible: false,
         },
         stagingParkingLines: [],
         stagingParkingLabel: [],
@@ -33,14 +34,19 @@ export default class Renderer extends React.Component {
         showParkingLotForm: false,
         numOfSpaces: 0,
         orient: "down",
+        labelSize: 50,
 
         //dev
         cursorLocation: {
             x: 0,
-            y: 0
+            y: 0,
         },
-        parkingCount: 123
+        parkingCount: 123,
     };
+
+    componentDidMount() {
+        this.loadData();
+    }
 
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
     snapGrid(roundTo, num) {
@@ -52,23 +58,66 @@ export default class Renderer extends React.Component {
         }
     }
 
-    getRelativePointerPosition = s => {
+    getRelativePointerPosition = (s) => {
         let pos = s.getPointerPosition();
         return {
             x: pos.x / this.state.scale - this.state.stage.x / this.state.scale,
-            y: pos.y / this.state.scale - this.state.stage.y / this.state.scale
+            y: pos.y / this.state.scale - this.state.stage.y / this.state.scale,
         };
+    };
+
+    serializeData = () => {
+        let out = {
+            walls: this.state.walls,
+            parkingLines: this.state.parkingLines,
+            parkingLabel: this.state.parkingLabel,
+        };
+
+        out = JSON.stringify(out);
+        axios
+            .post("http://localhost:8000/Lot/UpdateLotDesign", {
+                companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
+                lotid: 1,
+                design: out,
+            })
+            .then(function (res) {
+                console.log(res);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    };
+
+    loadData = () => {
+        axios
+            .get("http://localhost:8000/Lot/GetLotDesign", {
+                params: {
+                    companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
+                    lotid: 1,
+                },
+            })
+            .then((res) => {
+                let parsed = res.data;
+                this.setState({
+                    walls: parsed.walls,
+                    parkingLines: parsed.parkingLines,
+                    parkingLabel: parsed.parkingLabel,
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
     //stage handeling
-    handleStageDrag = e => {
+    handleStageDrag = (e) => {
         if (this.state.drawingState === "pan") {
             this.setState({
                 stage: {
                     x: e.target.attrs.x,
-                    y: e.target.attrs.y
-                }
+                    y: e.target.attrs.y,
+                },
             });
         }
     };
@@ -76,7 +125,7 @@ export default class Renderer extends React.Component {
     //disable this for now sh1t is w0nky
 
     //used for zooming in and out of the map duh lmfao xd
-    stageZoom = e => {
+    stageZoom = (e) => {
         //this is code copied from stack overflow dont ask me how it works lol
         e.evt.preventDefault();
 
@@ -85,7 +134,7 @@ export default class Renderer extends React.Component {
         const oldScale = stage.scaleX();
         const mousePointTo = {
             x: stage.getPointerPosition().x / oldScale - stage.x() / oldScale,
-            y: stage.getPointerPosition().y / oldScale - stage.y() / oldScale
+            y: stage.getPointerPosition().y / oldScale - stage.y() / oldScale,
         };
 
         const newScale =
@@ -104,8 +153,8 @@ export default class Renderer extends React.Component {
                     -(
                         mousePointTo.y -
                         stage.getPointerPosition().y / newScale
-                    ) * newScale
-            }
+                    ) * newScale,
+            },
         });
     };
 
@@ -114,7 +163,7 @@ export default class Renderer extends React.Component {
     selectionBox = null;
 
     //this function is used for drawing rectangles, whatever we need
-    startDrawing = e => {
+    startDrawing = (e) => {
         //create rectangle
         switch (this.state.drawingState) {
             case "drawWall": {
@@ -128,7 +177,7 @@ export default class Renderer extends React.Component {
                         walls.pop();
                     }
                     this.setState({
-                        walls: walls
+                        walls: walls,
                     });
                     return;
                 }
@@ -139,17 +188,17 @@ export default class Renderer extends React.Component {
                 this.setState({
                     cursorLocation: {
                         x: pos.x,
-                        y: pos.y
-                    }
+                        y: pos.y,
+                    },
                 });
                 walls.push({
                     x: this.snapGrid(this.state.snappingRatio, pos.x),
                     y: this.snapGrid(this.state.snappingRatio, pos.y),
                     width: 0,
-                    height: 0
+                    height: 0,
                 });
                 this.setState({
-                    walls: walls
+                    walls: walls,
                 });
                 console.log(walls);
                 this.isPaint = true;
@@ -179,15 +228,15 @@ export default class Renderer extends React.Component {
                         y: this.snapGrid(this.state.snappingRatio, pos.y),
                         width: 0,
                         height: 0,
-                        visible: true
-                    }
+                        visible: true,
+                    },
                 });
 
                 this.setState({
                     cursorLocation: {
                         x: pos.x,
-                        y: pos.y
-                    }
+                        y: pos.y,
+                    },
                 });
                 this.isPaint = true;
                 break;
@@ -198,7 +247,7 @@ export default class Renderer extends React.Component {
         }
     };
     //this function checks if we are currently drawing. if we are, then get out cursor position and use that to redefine the width of the box we are drawing
-    sizeDrawing = e => {
+    sizeDrawing = (e) => {
         if (!this.isPaint) return;
 
         switch (this.state.drawingState) {
@@ -219,7 +268,7 @@ export default class Renderer extends React.Component {
                 );
 
                 this.setState({
-                    walls: walls
+                    walls: walls,
                 });
                 break;
             }
@@ -239,8 +288,8 @@ export default class Renderer extends React.Component {
                             this.state.snappingRatio,
                             pos.y - this.state.lotRect.y
                         ),
-                        visible: true
-                    }
+                        visible: true,
+                    },
                 });
                 break;
             }
@@ -250,7 +299,7 @@ export default class Renderer extends React.Component {
         }
     };
 
-    objectClick = e => {
+    objectClick = (e) => {
         switch (this.state.drawingState) {
             case "erase":
                 console.log(e);
@@ -261,9 +310,16 @@ export default class Renderer extends React.Component {
         }
     };
 
-    openParkingLotForm = coords => {
+    openParkingLotForm = async (coords) => {
+        //check to see which orient it should default to
+        if(Math.abs(this.state.lotRect.width) < Math.abs(this.state.lotRect.height)){
+            await this.setState({
+                orient: "right"
+            });
+        }
+        
         this.setState({
-            showParkingLotForm: true
+            showParkingLotForm: true,
         });
     };
 
@@ -278,11 +334,11 @@ export default class Renderer extends React.Component {
     //     });
     // };
 
-    parkingFormChange = e => {
+    parkingFormChange = (e) => {
         switch (e.target.id) {
             case "numOfSpaces": {
                 this.setState({
-                    numOfSpaces: e.target.value
+                    numOfSpaces: e.target.value,
                 });
                 this.drawParkingSpots(e.target.value);
                 break;
@@ -294,20 +350,9 @@ export default class Renderer extends React.Component {
                     ),
                     parkingLabel: this.state.parkingLabel.concat(
                         this.state.stagingParkingLabel
-                    ),
-                    stagingParkingLines: [],
-                    stagingParkingLabel: [],
-                    numOfSpaces: 0,
-                    orient: "down",
-                    showParkingLotForm: false,
-                    lotRect: {
-                        x: 0,
-                        y: 0,
-                        width: 0,
-                        height: 0,
-                        visible: false
-                    }
+                    )
                 });
+                this.exitParkingForm();
 
                 break;
             }
@@ -319,86 +364,201 @@ export default class Renderer extends React.Component {
         }
     };
 
-    drawParkingSpots = num => {
+    drawParkingSpots = (num) => {
+        if (num > 100) {
+            this.setState({
+                numOfSpaces: 100,
+            });
+            num = 100;
+        }
+
         let dimensions = {
             width: this.state.lotRect.width,
-            height: this.state.lotRect.height
+            height: this.state.lotRect.height,
         };
 
         //TO-DO: boundary check or somethin lol
         let origx = this.state.lotRect.x;
         let origy = this.state.lotRect.y;
 
-        //draw parking lines
-        let parkingLines = [];
-        for (let i = 0; i < num; i++) {
-            parkingLines.push({
-                x1: origx + (dimensions.width / num) * i,
-                y1: origy,
-                x2: origx + (dimensions.width / num) * i,
-                y2: origy + dimensions.height
-            });
+        //check to see if they made rectangle bottom up, if so , switch origin
+        if(dimensions.height < 0){
+            origy = origy + dimensions.height;
+            dimensions.height = -dimensions.height;
         }
-        //for end line
-        parkingLines.push({
-            x1: origx + dimensions.width,
-            y1: origy,
-            x2: origx + dimensions.width,
-            y2: origy + dimensions.height
-        });
+        if(dimensions.width < 0){
+            origx = origx + dimensions.width;
+            dimensions.width = -dimensions.width;
+        }
+        
+        let parkingLines = [];
+        //draw parking lines
+        switch(this.state.orient){
+            default:
+            case "up":
+            case "down": {
+                for (let i = 0; i < num; i++) {
+                    parkingLines.push({
+                        x1: origx + (dimensions.width / num) * i,
+                        y1: origy,
+                        x2: origx + (dimensions.width / num) * i,
+                        y2: origy + dimensions.height,
+                    });
+                }
+                //for end line
+                parkingLines.push({
+                    x1: origx + dimensions.width,
+                    y1: origy,
+                    x2: origx + dimensions.width,
+                    y2: origy + dimensions.height,
+                });
+                break;
+            }
+            case "right":
+            case "left": {
+                for (let i = 0; i < num; i++) {
+                    parkingLines.push({
+                        y1: origy + (dimensions.height / num) * i,
+                        x1: origx,
+                        y2: origy + (dimensions.height / num) * i,
+                        x2: origx + dimensions.width,
+                    });
+                }
+                //for end line
+                parkingLines.push({
+                    y1: origy + dimensions.height,
+                    x1: origx,
+                    y2: origy + dimensions.height,
+                    x2: origx + dimensions.width,
+                });
+                break;
+            }
+        }
+
         this.setState({
-            stagingParkingLines: parkingLines
+            stagingParkingLines: parkingLines,
         });
 
         //draw labels
         let labels = [];
         let inText = this.state.parkingCount; //change this
-        for (let i = 0; i < num; i++) {
-            labels.push({
-                x: origx + (dimensions.width / num) * i,
-                y: origy + dimensions.height,
-                width: dimensions.width / num,
-                height: dimensions.width / num / 2,
-                text: ++inText
-            });
+        switch(this.state.orient){
+            default:
+            case "up":
+            case "down": {
+                for (let i = 0; i < num; i++) {
+                    labels.push({
+                        x: origx + (dimensions.width / num) * (i + 1),
+                        y: origy,
+                        height: dimensions.width / num,
+                        width: dimensions.height,
+                        size: this.state.labelSize,
+                        fill: "#81C784",
+                        text: ++inText,
+                        rotation: 90
+                    });
+                }
+                break;
+            }
+            // case "up":{
+            //     for (let i = 0; i < num; i++) {
+            //         labels.push({
+            //             x: origx + (dimensions.width / num) * i,
+            //             y: origy,
+            //             width: dimensions.width / num,
+            //             height: dimensions.width / num / 2,
+            //             text: ++inText,
+            //             rotation: 0
+            //         });
+            //     }
+            // }
+            case "left":
+            case "right": {
+                for (let i = 0; i < num; i++) {
+                    labels.push({
+                        y: origy + (dimensions.height / num) * i,
+                        x: origx,
+                        width: dimensions.width,
+                        height: dimensions.height / num,
+                        size: this.state.labelSize,
+                        fill: "#81C784",
+                        text: ++inText,
+                        rotation: 0
+                    });
+                }  
+                break;
+            }
+
         }
+
         this.setState({
             stagingParkingLabel: labels,
-            parkingCount: inText
+            parkingCount: inText,
         });
     };
 
     //---------------------------BUTTON TYPA TINGZ--------------------------------//
-    resetOrigin = e => {
+    resetOrigin = (e) => {
         this.setState({
             stage: {
                 draggable: true,
                 x: 0,
-                y: 0
+                y: 0,
             },
-            scale: 1
+            scale: 1,
         });
     };
-    toggleMoveStage = e => {
+    toggleMoveStage = (e) => {
         this.changeDrawingState("pan");
     };
-    toggleDrawingMode = e => {
+    toggleDrawingMode = (e) => {
         this.changeDrawingState("drawWall");
+        this.exitParkingForm();
     };
-    toggleDrawParkingSpots = e => {
+    toggleDrawParkingSpots = (e) => {
         this.changeDrawingState("drawParkingSpots");
     };
-    toggleErase = e => {
+    toggleErase = (e) => {
         this.changeDrawingState("erase");
+        this.exitParkingForm();
     };
+    changeOrient = async (orient) => {
+        console.log(orient);
+        await this.setState({
+            orient: orient
+        });
+        this.drawParkingSpots(this.state.numOfSpaces);
+    }
+    changeLabelSize = async (e) => {
+        await this.setState({
+            labelSize: e.target.value
+        })
+        this.drawParkingSpots(this.state.numOfSpaces);
+    }
+    exitParkingForm = () => {
+        this.setState({
+            stagingParkingLines: [],
+            stagingParkingLabel: [],
+            numOfSpaces: 0,
+            orient: "down",
+            showParkingLotForm: false,
+            lotRect: {
+                x: 0,
+                y: 0,
+                width: 0,
+                height: 0,
+                visible: false,
+            }
+        })
+    }
 
     //-----------------------------STATE CHANGE HANDLING----------------------------------------------//
 
-    changeDrawingState = inState => {
+    changeDrawingState = (inState) => {
         switch (inState) {
             case "pan":
                 this.setState({
-                    drawingState: inState
+                    drawingState: inState,
                 });
                 break;
             case "erase":
@@ -406,7 +566,7 @@ export default class Renderer extends React.Component {
             case "drawWall":
                 this.isPaint = false;
                 this.setState({
-                    drawingState: inState
+                    drawingState: inState,
                 });
                 break;
             default:
@@ -419,7 +579,7 @@ export default class Renderer extends React.Component {
 
     //-----------------------------REACT TYPE STYLING------------------------------------------------//
     buttonSelected = {
-        backgroundColor: "#ffd8b9"
+        backgroundColor: "#ffd8b9",
     };
 
     modalStyle = {
@@ -429,12 +589,12 @@ export default class Renderer extends React.Component {
             right: "auto",
             bottom: "auto",
             marginRight: "-50%",
-            transform: "translate(-50%, -50%)"
-        }
+            transform: "translate(-50%, -50%)",
+        },
     };
 
     parkingLotFormOpen = {
-        right: "0vw"
+        right: "0vw",
     };
 
     //-----------------------------RENDER---:-)-------------------------kill me-----------------------//
@@ -455,77 +615,33 @@ export default class Renderer extends React.Component {
                             <div>
                                 <button
                                     className="orientButton"
-                                    style={
-                                        this.state.orient === "down"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    onClick={() => this.changeOrient("down")}
+                                    style={this.state.orient === "down"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientDown"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                left to right
                                 </button>
                                 <button
                                     className="orientButton"
-                                    style={
-                                        this.state.orient === "up"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    onClick={() => this.changeOrient("up")}
+                                    style={this.state.orient === "up"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientUp"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                right to left
                                 </button>
                             </div>
                             <div>
                                 <button
                                     className="orientButton"
-                                    style={
-                                        this.state.orient === "right"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    onClick={() => this.changeOrient("right")}
+                                    style={this.state.orient === "right"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientRight"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                up to down
                                 </button>
                                 <button
                                     className="orientButton"
-                                    style={
-                                        this.state.orient === "left"
-                                            ? this.buttonSelected
-                                            : null
-                                    }
+                                    onClick={() => this.changeOrient("left")}
+                                    style={this.state.orient === "left"? this.buttonSelected : null}
                                 >
-                                    <svg
-                                        id="orientLeft"
-                                        className="parkingOrientSvg"
-                                        data-name="Layer 1"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 270.37 464.81"
-                                    >
-                                        <polyline points="10 464.81 10 10 260.37 10 260.37 464.81" />
-                                    </svg>
+                                down to up
                                 </button>
                             </div>
                         </div>
@@ -537,6 +653,27 @@ export default class Renderer extends React.Component {
                             value={this.state.numOfSpaces}
                             onChange={this.parkingFormChange}
                         />
+                        <div>
+                            Naming:
+                            <div class="slidecontainer">
+                                size<input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
+                            </div>
+                            <div>
+                                prefix: 
+                                <input 
+                                    type="text"
+                                    className="formInput"
+                                />
+                            </div>
+                            <div>
+                                Start:
+                                <input 
+                                    className="formInput"
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+                       
                         <br />
                         <br />
                         <button
@@ -549,7 +686,7 @@ export default class Renderer extends React.Component {
                         <button
                             className="formButtons redButton"
                             id="cancel"
-                            onClick={this.parkingFormChange}
+                            onClick={this.exitParkingForm}
                         >
                             nah
                         </button>
@@ -613,6 +750,8 @@ export default class Renderer extends React.Component {
                     >
                         erase
                     </button>
+                    <button onClick={this.serializeData}>save</button>
+                    <button onClick={this.loadData}>load</button>
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}
@@ -637,7 +776,7 @@ export default class Renderer extends React.Component {
                                     -5000,
                                     i * 50 - 5000,
                                     5000,
-                                    i * 50 - 5000
+                                    i * 50 - 5000,
                                 ]}
                                 strokeWidth={0.3}
                                 closed
@@ -653,7 +792,7 @@ export default class Renderer extends React.Component {
                                     i * 50 - 5000,
                                     -5000,
                                     i * 50 - 5000,
-                                    5000
+                                    5000,
                                 ]}
                                 strokeWidth={0.3}
                                 closed
@@ -674,7 +813,7 @@ export default class Renderer extends React.Component {
                                         line.x1,
                                         line.y1,
                                         line.x2,
-                                        line.y2
+                                        line.y2,
                                     ]}
                                     strokeWidth={5}
                                     stroke={"#3D4849"}
@@ -690,10 +829,14 @@ export default class Renderer extends React.Component {
                                     x={lab.x}
                                     y={lab.y}
                                     width={lab.width}
+                                    height={lab.height}
                                     text={lab.text}
                                     align={"center"}
+                                    verticalAlign={"middle"}
                                     fontStyle={"bold"}
-                                    fontSize={20}
+                                    fill={"#81C784"}
+                                    fontSize={lab.size}
+                                    rotation={lab.rotation}
                                 />
                             );
                         })}
@@ -705,7 +848,7 @@ export default class Renderer extends React.Component {
                                         line.x1,
                                         line.y1,
                                         line.x2,
-                                        line.y2
+                                        line.y2,
                                     ]}
                                     strokeWidth={5}
                                     stroke={"#3D4849"}
@@ -721,10 +864,17 @@ export default class Renderer extends React.Component {
                                     x={lab.x}
                                     y={lab.y}
                                     width={lab.width}
+                                    height={lab.height}
                                     text={lab.text}
                                     align={"center"}
+                                    verticalAlign={"middle"}
                                     fontStyle={"bold"}
-                                    fontSize={20}
+                                    fill={"#81C784"}
+                                    fontSize={lab.size}
+                                    rotation={lab.rotation}
+                                    onClick={
+                                        () => console.log(lab.text)
+                                    }
                                 />
                             );
                         })}

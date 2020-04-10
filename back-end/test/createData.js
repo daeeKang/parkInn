@@ -5,12 +5,57 @@ const { v4: uuidv4 } = require('uuid');
 const db = Mongoose.connection;
 const randomLocation = require('random-location');
 const randomDate = require('random-date-generator');
+const addHours = require('date-fns/addHours')
 const Chance = require('chance');
-const fs = require('fs');
 const chance = new Chance();
 dotenv.config();
 let documentCount = 0; 
 const lotName = ['Cottage Cheese', 'Swenson', 'Green Lot', 'Blue Lot', 'Thomas and Cheese', 'Jefferson and Mac', 'The Library', 'University Gateway'];
+const imageURL = [
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922439436173435/image1.png', 
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922441755492372/image2.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922443051663410/image3.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922448902455296/image5.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922449032478770/image4.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922449959550986/image6.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922455907074108/image7.png',
+    'https://cdn.discordapp.com/attachments/693888277165375512/693922456506859580/image8.png',
+];
+
+function createReservation() {
+    const newDate = new Date('June 1 2020 14:00');
+    const oldDate = new Date('June 4 1776 12:00');
+    const reservation1 = new model.Reservation({
+        companyid: '8e9fe90e-bd10-48d2-8084-8f259157c832',
+        lotid: 1,
+        spotid: 0,
+        starttime: newDate,
+        endtime: addHours(newDate, 2),
+        username: 'customer1@email.com',
+        expired: false
+    });
+    reservation1.save().then(res => {
+        documentCount++;
+        console.log(`reservation for ${reservation1.username} saved`);
+      }).catch(err => {
+        console.log(err);
+      });
+      const reservation2 = new model.Reservation({
+        companyid: '8e9fe90e-bd10-48d2-8084-8f259157c832',
+        lotid: 2,
+        spotid: 0,
+        starttime: oldDate,
+        endtime: addHours(oldDate, 3),
+        username: 'customer1@email.com',
+        expired: true
+    });
+    reservation2.save().then(res => {
+        documentCount++;
+        console.log(`reservation for ${reservation1.username} saved`);
+      }).catch(err => {
+        console.log(err);
+      });
+}
 
 function createCompanies() {
     const company1 = new model.Company({
@@ -69,7 +114,12 @@ function createLot(lotid, companyid, name){
         spots: parkingSpots,
         totalSpots: parkingSpots.length,
         availableSpots: parkingSpots.length,
+        averageTimeParked: {
+            currentAverage: 60,
+            totalCount: 10,
+        },
         location: generateLocation(),
+        imgURL: imageURL[lotid-1],
     });
     lot.CreateTimeSlots();
     lot.save().then(res => {
@@ -152,23 +202,27 @@ function generateLocation(){
 
 function createCustomers(){
     for(let i = 1; i <= 10; i++){
-        const username = `customer${i}`;
+        const username = `customer${i}@email.com`;
         const firstName = chance.first();
         const lastName = chance.last();
         const user = new model.User({
             username: username, 
             role: 'customer',
-            first: firstName,
-            last: lastName,
+            name: {
+                givenName: firstName,
+                familyName: lastName,
+            }
         });
         user.password = user.GenerateHash('password');
         user.save().then(res => {
-            console.log(`customer ${user.first} ${user.last} saved to users`);
+            console.log(`customer ${user.name.givenName} ${user.name.familyName} saved to users`);
             documentCount++;
             const customer = new model.Customer({
                 username: username,
-                first: firstName,
-                last: lastName,
+                name: {
+                    givenName: firstName,
+                    familyName: lastName,
+                },
                 car: [{
                     color: chance.pickone(['blue', 'green', 'purple', 'black', 'gray']),
                     license: chance.word(),
@@ -177,7 +231,7 @@ function createCustomers(){
                 }],  
             });
             customer.save().then(res => {
-                console.log(`customer ${customer.first} ${customer.last} saved to customers`);
+                console.log(`customer ${customer.name.givenName} ${customer.name.familyName} saved to customers`);
                 documentCount++;
               }).catch(err => {
                 console.log(err);
@@ -193,26 +247,30 @@ function createStaff(companyid, companyName, admin){
     const firstName = chance.first();
     const lastName = chance.last();
     const user = new model.User({
-        username: `${role}${companyName}`, 
+        username: `${role}${companyName}@email.com`, 
         role: role,
-        first: firstName,
-        last: lastName,
+        name: {
+            givenName: firstName,
+            familyName: lastName,
+        },
         companyid: companyid,
     });
     user.password = user.GenerateHash('password');
     user.save().then(res => {
-        console.log(`${role} ${user.first} ${user.last} saved to users`);
+        console.log(`${role} ${user.name.givenName} ${user.name.familyName} saved to users`);
         documentCount++;
         const staff = new model.Staff({
-            username: `${role}${companyName}`,
-            first: firstName,
-            last: lastName,
+            username: `${role}${companyName}@email.com`,
+            name: {
+                givenName: firstName,
+                familyName: lastName,
+            },
             employeeid: chance.string({ length: 5, casing: 'upper', alpha: true, numeric: true }),
             companyid: companyid,
             admin: admin,
         });
         staff.save().then(res => {
-            console.log(`${role} ${staff.first} ${staff.last} for company: ${companyName} saved to staffs`);
+            console.log(`${role} ${staff.name.givenName} ${staff.name.familyName} for company: ${companyName} saved to staffs`);
             documentCount++;
           }).catch(err => {
             console.log(err);
@@ -230,11 +288,12 @@ db.once('open', () => {
     console.log('dab on em we connected to mongoDB');
     createCompanies();
     createCustomers();
+    createReservation();
     wait();
 });
 
 function wait(){
-    if (documentCount != 1083){
+    if (documentCount != 1085){
         setTimeout(wait,100);
     } else {
       console.log('dab on em we inserted data into mongoDB');
