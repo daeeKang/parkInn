@@ -215,6 +215,43 @@ Output:
     }]
 }
 
+./Lot/SearchForLot (GET)
+Input:
+{
+    lotname: String (if it is more than one word then spaces must be replaced with '-', name has to be spelled correctly but search is case insensitive)
+}
+Output:
+{
+    [{
+        companyid: String,
+        lotid: String,
+        lotName: String,
+        spots: [{
+            spotid: String,
+            active: Boolean,
+            unavailable: Date,
+            category: String,
+            username: String,
+        }]
+        totalSpots: Number,
+        availableSpots: Number,
+        averageTimeParked: {
+            currentAverage: Number,
+            totalCount: Number,
+        },
+        peakTimes: [{
+            hour: Number,
+            count: Number,
+        }],
+        location: {
+            latitude: Number, 
+            longitude: Number,
+        }
+        lotDesign: String,
+        imgURL: String,
+    }]
+}
+
 USER 
 ---------------------------------------
 ./User/AddUser (POST)

@@ -243,4 +243,13 @@ router.get("/GetLotsWithinArea/:latitude/:longitude/:radius", async (req, res) =
     res.send(lots);
 });
 
+router.get("/SearchForLot/:lotname", async (req, res) => {
+    const lots = await model.Lot.find({
+        lotName: { $regex : new RegExp(req.params.lotname.replace(/\-/g, ' '), "i") },
+    });
+
+    res.send(lots);
+});
+
+
 module.exports = router;
