@@ -15,6 +15,8 @@
 		8E02805C23F5654600057727 /* ManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805B23F5654600057727 /* ManagementVC.swift */; };
 		8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E02806323F5E8F400057727 /* SWRevealViewController.m */; };
 		8E37459B243153D6009C2A33 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E37459A243153D6009C2A33 /* Auth0.plist */; };
+		8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE150243FC4940041E943 /* SessionManager.swift */; };
+		8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -56,6 +58,8 @@
 		8E02806323F5E8F400057727 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8E02806423F5E8F400057727 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8E37459A243153D6009C2A33 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		8E7CE150243FC4940041E943 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertController+Convenience.swift"; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 			children = (
 				8E02806423F5E8F400057727 /* SWRevealViewController.h */,
 				8E02806323F5E8F400057727 /* SWRevealViewController.m */,
+				8E7CE150243FC4940041E943 /* SessionManager.swift */,
+				8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -474,6 +480,8 @@
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
 				8E98C92923F38022008F612A /* AppDelegate.swift in Sources */,
 				8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */,
+				8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */,
+				8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */,
 				35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

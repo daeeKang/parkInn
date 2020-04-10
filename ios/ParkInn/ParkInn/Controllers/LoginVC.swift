@@ -8,6 +8,7 @@
 
 import UIKit
 import Auth0
+import SimpleKeychain
 
 class LoginVC: UIViewController {
 
@@ -27,49 +28,67 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func loginPressed(_ sender: Any) {
-//        performSegue(withIdentifier: "toMainVC", sender: nil)
-       Auth0
+        checkAccessToken()
+    }
+
+    func showLock() {
+        Auth0
             .webAuth()
             .scope("openid profile")
             .audience("https://parkinn.auth0.com/userinfo")
             .start {
                 switch $0 {
-                case .failure(let error):
-                    // Handle the error
-                    print("Error: \(error)")
-                case .success(let credentials):
-                    // Do something with credentials e.g.: save them.
-                    // Auth0 will automatically dismiss the login page
-                    guard let accessToken = credentials.accessToken else {
-                        // Handle Error
-                        return
-                    }
-
-                    Auth0
-                        .authentication()
-                        .userInfo(withAccessToken: accessToken)
-                        .start { [weak self] result in
-                            switch(result) {
-                            case .success(let profile):
-                                // You've got the user's profile, good time to store it locally.
-                                // e.g. self.profile = profile
-                                print("Profile: \(profile.nickname)")
-                                if (profile.nickname == "admin" || profile.nickname == "staff") {
-                                    DispatchQueue.main.async {
-                                        self?.performSegue(withIdentifier: "toMainVC", sender: nil)
-                                    }
-                                } else if (profile.nickname == "user") {
-                                    // Segue to the user side
-                                }
-                            case .failure(let error):
-                                // Handle the error
-                                print("Error: \(error)")
-                            }
+                    case .failure(let error):
+                        // Handle the error
+                        print("Error: \(error)")
+                    case .success(let credentials):
+                        guard let accessToken = credentials.accessToken,
+                            let idToken = credentials.idToken else {
+                                // Handle Error
+                                return
                         }
-
-                    
+                        // Save the tokens in SessionManager
+                        SessionManager.shared.storeTokens(accessToken, idToken: idToken)
+                        SessionManager.shared.retrieveProfile { error in
+                            guard error == nil else {
+                                return self.showLock()
+                            }
+                            DispatchQueue.main.async {
+                                 guard let roleString = SessionManager.shared.profile!.nickname,
+                                                       let role = UserRole(rawValue: roleString) else { return }
+                                self.goToNextPage(using: role)
+                            }
+                    }
                 }
         }
     }
+
+    fileprivate func checkAccessToken() {
+        let loadingAlert = UIAlertController.loadingAlert()
+        loadingAlert.presentInViewController(viewController: self)
+        SessionManager.shared.retrieveProfile { error in
+            DispatchQueue.main.async {
+                loadingAlert.dismiss(animated: true) {
+                    guard error == nil else {
+                        return self.showLock()
+                    }
+                    guard let roleString = SessionManager.shared.profile!.nickname,
+                        let role = UserRole(rawValue: roleString) else { return }
+                    self.goToNextPage(using: role)
+                }
+            }
+        }
+    }
+
+    fileprivate func goToNextPage(using role: UserRole) {
+        switch role {
+            case .admin, .staff:
+                self.performSegue(withIdentifier: "toMainVC", sender: nil)
+            case .customer:
+                // Segue to user side
+                print("Should have gone to user side")
+        }
+    }
+
 }
 

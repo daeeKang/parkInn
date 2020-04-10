@@ -46,7 +46,8 @@ class MenuVC: UIViewController {
                     print("logged out")
                     Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] (_) in
                         DispatchQueue.main.async {
-                            self?.navControl?.dismiss(animated: true, completion: nil)
+                            _ = SessionManager.shared.logout()
+                            self?.presentingViewController?.dismiss(animated: true, completion: nil)
                         }
                     }
                 case false:
