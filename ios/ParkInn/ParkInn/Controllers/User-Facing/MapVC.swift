@@ -30,8 +30,9 @@ class MapVC: UIViewController {
 
         // FOR DEBUGGING ONLY
         #if DEBUG
-        // Get Lots with Company ID: "8e9fe90e-bd10-48d2-8084-8f259157c832"
-        fetchLots(with: "8e9fe90e-bd10-48d2-8084-8f259157c832")
+        if let location = locationManager.location?.coordinate {
+            fetchLots(near: location)
+        }
         #endif
     }
 
@@ -47,6 +48,26 @@ class MapVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         self.revealViewController()?.delegate = self
+    }
+
+    private func fetchLots(near location: CLLocationCoordinate2D, radius: Int = 5) {
+        APIService.getLots(latitude: location.latitude, longitude: location.longitude, radius: radius) { [unowned self] result in
+            switch result {
+                case .success(let lots):
+                    // Clear all current annotations
+                    self.lotAnnotations.removeAll()
+
+                    // Insert lots
+                    for lot in lots {
+                        self.lotAnnotations.append(LotAnnotation(lot: lot))
+                    }
+
+                    // Add the annotations to the map
+                    self.mapView.addAnnotations(self.lotAnnotations)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
 
     private func fetchLots(with companyID: String) {
