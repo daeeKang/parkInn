@@ -12,20 +12,29 @@ import Charts
 class StatsVC: UIViewController {
     @IBOutlet weak var barChartView: BarChartView!
     var lots: [String]!
+    var statsObject: CompanyStats!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        APIService.getCompanyStats(companyName:"Flamingo") { Result in
+                switch Result {
+                    case .success (let result):
+                        self.statsObject = result
+                        self.setChart()
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                }
+            }
 
         lots = ["Freemont St", "Las Vegas Strip", "Home 3 Space", "Lake Mead Front"]
                 
-        setChart()
     }
     
     func setChart() {
+        print(self.statsObject)
         barChartView.noDataText = "You need to provide data for the chart."
-
+            
             let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
             
             let test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
