@@ -31,6 +31,10 @@ class APIService {
         performRequest(route: .lots(latitude: latitude, longitude: longitude, radius: radius), completion: completion)
     }
 
+    static func getLots(named lotName: String, completion: @escaping LotsCompletion) {
+        performRequest(route: .lotsNamed(name: lotName), completion: completion)
+    }
+
     static func getLotDesign(companyID: String, lotID: String, completion: @escaping LotDesignCompletion) {
         performRequest(route: .lotDesign(companyID: companyID, lotID: lotID), completion: completion)
     }
