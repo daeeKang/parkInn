@@ -88,8 +88,8 @@ export default class Renderer extends React.Component {
             });
     };
 
-    loadData = () => {
-        axios
+    loadData = async () => {
+        await axios
             .get("http://localhost:8000/Lot/GetLotDesign", {
                 params: {
                     companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
@@ -98,6 +98,7 @@ export default class Renderer extends React.Component {
             })
             .then((res) => {
                 let parsed = res.data;
+                if(parsed.parkingLines == undefined) return;
                 this.setState({
                     walls: parsed.walls,
                     parkingLines: parsed.parkingLines,
