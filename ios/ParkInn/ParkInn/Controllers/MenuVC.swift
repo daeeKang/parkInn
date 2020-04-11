@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Auth0
 
 class MenuVC: UIViewController {
 
@@ -37,6 +38,21 @@ class MenuVC: UIViewController {
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
-        navControl?.dismiss(animated: true, completion: nil)
+        Auth0
+        .webAuth()
+        .clearSession(federated:false) { [weak self] in
+            switch $0 {
+                case true:
+                    print("logged out")
+                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] (_) in
+                        DispatchQueue.main.async {
+                            SessionManager.shared.logout()
+                            self?.presentingViewController?.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                case false:
+                    print("logged out failed")
+            }
+        }
     }
 }

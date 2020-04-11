@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Auth0
 
 class UserMenuVC: UIViewController {
 
@@ -18,4 +19,25 @@ class UserMenuVC: UIViewController {
 
     override var prefersStatusBarHidden: Bool { return true }
 
+    @IBAction func settingsPressed(_ sender: Any) {
+    }
+
+    @IBAction func logoutPressed(_ sender: Any) {
+        Auth0
+        .webAuth()
+        .clearSession(federated:false) { [weak self] in
+            switch $0 {
+                case true:
+                    print("logged out")
+                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] (_) in
+                        DispatchQueue.main.async {
+                            SessionManager.shared.logout()
+                            self?.presentingViewController?.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                case false:
+                    print("logged out failed")
+            }
+        }
+    }
 }

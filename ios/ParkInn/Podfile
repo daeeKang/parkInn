@@ -9,6 +9,7 @@ target 'ParkInn' do
   pod 'MaterialComponents'
   pod 'Alamofire', '~> 5.0.0-rc.3'
   pod 'Charts'
+  pod 'Auth0', '~> 1.19'
 
   target 'ParkInnTests' do
     inherit! :search_paths
