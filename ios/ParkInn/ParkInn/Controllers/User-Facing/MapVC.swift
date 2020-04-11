@@ -84,6 +84,17 @@ class MapVC: UIViewController {
         }
     }
 
+    private func fetchLots(named name: String) {
+        APIService.getLots(named: "Cottage Cheese") { [unowned self] result in
+            switch result {
+                case .success(let lots):
+                    print(lots.count)
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+
     @IBAction func menuButtonPressed(_ sender: Any) {
         self.revealViewController()?.revealToggle(animated: true)
     }
