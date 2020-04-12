@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyH-K0-QVt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="596"/>
                                 <connections>
                                     <outlet property="delegate" destination="ENg-mR-61y" id="HWt-4l-uKx"/>
                                 </connections>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvh-ip-em0" customClass="MDCFloatingButton">
-                                <rect key="frame" x="332" y="734" width="50" height="50"/>
+                                <rect key="frame" x="332" y="468" width="50" height="50"/>
                                 <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Y6P-oC-Jem"/>
@@ -72,8 +72,8 @@
                                     <action selector="pinButtonPressed:" destination="ENg-mR-61y" eventType="touchUpInside" id="YNg-sO-FtA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-Eb-GsS" customClass="MDCFloatingButton">
-                                <rect key="frame" x="332" y="796" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-Eb-GsS" userLabel="Location Button" customClass="MDCFloatingButton">
+                                <rect key="frame" x="332" y="530" width="50" height="50"/>
                                 <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Uqk-SF-gIf"/>
@@ -93,14 +93,14 @@
                         <constraints>
                             <constraint firstItem="Nzh-rG-3JG" firstAttribute="trailing" secondItem="YyH-K0-QVt" secondAttribute="trailing" id="1XZ-oh-012"/>
                             <constraint firstItem="zTL-5X-YtS" firstAttribute="top" secondItem="Nzh-rG-3JG" secondAttribute="top" constant="16" id="42q-FX-ZmO"/>
-                            <constraint firstItem="Nzh-rG-3JG" firstAttribute="bottom" secondItem="2Cm-Eb-GsS" secondAttribute="bottom" constant="16" id="4dr-Wj-7xm"/>
+                            <constraint firstItem="2Cm-Eb-GsS" firstAttribute="bottom" secondItem="YyH-K0-QVt" secondAttribute="bottom" constant="-16" id="86E-ey-WSU"/>
                             <constraint firstItem="Nzh-rG-3JG" firstAttribute="trailing" secondItem="2Cm-Eb-GsS" secondAttribute="trailing" constant="32" id="MdI-Wj-w9q"/>
                             <constraint firstItem="Wvh-ip-em0" firstAttribute="centerX" secondItem="2Cm-Eb-GsS" secondAttribute="centerX" id="OKE-oW-pfx"/>
                             <constraint firstItem="2Cm-Eb-GsS" firstAttribute="top" secondItem="Wvh-ip-em0" secondAttribute="bottom" constant="12" id="SxT-L5-VjS"/>
                             <constraint firstItem="zTL-5X-YtS" firstAttribute="leading" secondItem="Nzh-rG-3JG" secondAttribute="leading" constant="32" id="Uzm-VZ-DN6"/>
                             <constraint firstItem="YyH-K0-QVt" firstAttribute="top" secondItem="ovE-LD-5t2" secondAttribute="top" id="eR3-NB-dKx"/>
                             <constraint firstItem="YyH-K0-QVt" firstAttribute="leading" secondItem="Nzh-rG-3JG" secondAttribute="leading" id="hGW-8G-6d6"/>
-                            <constraint firstAttribute="bottom" secondItem="YyH-K0-QVt" secondAttribute="bottom" id="ulh-Jk-by7"/>
+                            <constraint firstAttribute="bottom" secondItem="YyH-K0-QVt" secondAttribute="bottom" constant="300" id="ulh-Jk-by7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nzh-rG-3JG"/>
                     </view>

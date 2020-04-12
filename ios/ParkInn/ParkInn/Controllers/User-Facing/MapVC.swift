@@ -21,6 +21,7 @@ class MapVC: UIViewController {
 
     private var isSettingPin = false
     private var searchPin: MKPointAnnotation?
+    private var shownPinTip = false
 
     // Controls the zoom of the mapview
     private let regionZoom: Double = 1000
@@ -123,10 +124,26 @@ class MapVC: UIViewController {
                 fetchLots(near: searchPin!.coordinate, radius: 3)
             }
         }
+
+        showPinTip()
+
+
+    }
+
+    private func showPinTip() {
+        if shownPinTip { return }
+        shownPinTip = true
+        let message = MDCSnackbarMessage()
+        message.text = "Tap anywhere on the map to search for parking lots available in that area"
+
+        let action = MDCSnackbarMessageAction()
+        action.title = "OK"
+        message.action = action
+
+        MDCSnackbarManager.show(message)
     }
 
     @objc func mapTapped(sender: UIGestureRecognizer){
-        print("tap")
         guard isSettingPin else { return }
         if sender.state == .ended {
             let locationInView = sender.location(in: mapView)
