@@ -10,7 +10,7 @@ import Foundation
 
 
 struct ProductionServer {
-    static let baseURL = "http://vtcolo.dyndns.org:8000"
+    static let baseURL = "http://park-inn.org:8000"
 }
 
 struct Auth0Info {
