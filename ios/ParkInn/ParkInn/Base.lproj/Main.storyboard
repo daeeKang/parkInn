@@ -217,22 +217,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZD-fl-VF6" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="374" width="414" height="433"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZD-fl-VF6" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="363.66666666666674" width="414" height="410.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ai0-7g-iD8" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ai0-7g-iD8" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="363.66666666666669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="RZD-fl-VF6" firstAttribute="top" secondItem="ai0-7g-iD8" secondAttribute="bottom" id="03N-qW-Bcn"/>
+                            <constraint firstItem="ai0-7g-iD8" firstAttribute="leading" secondItem="C8V-Jp-nXC" secondAttribute="leading" id="2A9-wl-iAK"/>
+                            <constraint firstItem="ai0-7g-iD8" firstAttribute="height" secondItem="3Fa-K2-UgC" secondAttribute="height" multiplier="0.45" id="8p5-B1-k7x"/>
+                            <constraint firstItem="ai0-7g-iD8" firstAttribute="trailing" secondItem="C8V-Jp-nXC" secondAttribute="trailing" id="DML-X0-vKx"/>
                             <constraint firstItem="C8V-Jp-nXC" firstAttribute="trailing" secondItem="RZD-fl-VF6" secondAttribute="trailing" id="JBt-qc-BpW"/>
                             <constraint firstItem="C8V-Jp-nXC" firstAttribute="bottom" secondItem="RZD-fl-VF6" secondAttribute="bottom" id="Ol6-Au-PpQ"/>
-                            <constraint firstItem="RZD-fl-VF6" firstAttribute="top" secondItem="C8V-Jp-nXC" secondAttribute="top" id="XTa-xk-E6i"/>
                             <constraint firstItem="RZD-fl-VF6" firstAttribute="leading" secondItem="C8V-Jp-nXC" secondAttribute="leading" id="dka-Fk-M91"/>
+                            <constraint firstItem="ai0-7g-iD8" firstAttribute="top" secondItem="C8V-Jp-nXC" secondAttribute="top" id="xUA-yE-TLI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C8V-Jp-nXC"/>
                     </view>

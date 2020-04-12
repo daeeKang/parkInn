@@ -13,6 +13,7 @@ class StatsVC: UIViewController {
     @IBOutlet weak var barChartView: BarChartView!
     @IBOutlet weak var pieChartView: PieChartView!
     var lots: [String]!
+    var peakTimeCount = [Int]()
     var statsObject: CompanyStats!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,11 @@ class StatsVC: UIViewController {
                 switch Result {
                     case .success (let result):
                         self.statsObject = result
-//                        self.setChart()
+                        for PeakTime in self.statsObject.peakTimes {
+                            self.peakTimeCount.append(PeakTime.count)
+                        }
                         self.setPieChart()
+                        self.setBarChart()
                     case .failure(let error):
                         print(error.localizedDescription)
                 }
@@ -33,33 +37,29 @@ class StatsVC: UIViewController {
                 
     }
     
-    func setChart() {
-        print(self.statsObject.totalSpots)
-        print(self.statsObject.availableSpots)
-        print("does it get here")
+    func setBarChart() {
         barChartView.noDataText = "You need to provide data for the chart."
             
-            let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
             
-            let test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+            let hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
             
             var dataEntries: [BarChartDataEntry] = []
             
-            for i in 0..<lots.count
+            for i in 0..<hours.count
            {
-                let dataEntry = BarChartDataEntry(x: Double(test[i]), y: Double(unitsSold[i]))
+            let dataEntry = BarChartDataEntry(x: Double(hours[i]), y: Double(self.peakTimeCount[i]))
                 
                 dataEntries.append(dataEntry)
             }
             
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Reservation count")
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Reservations Per Hour")
         let chartData = BarChartData(dataSet: chartDataSet)
             
-            barChartView.data = chartData
-        
+        barChartView.data = chartData
+        barChartView.drawValueAboveBarEnabled = true
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
-        chartDataSet.colors = [.white]
+//        chartDataSet.colors = [.white]
 
         barChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
         
@@ -69,7 +69,6 @@ class StatsVC: UIViewController {
         let usedSpots = self.statsObject.totalSpots - self.statsObject.availableSpots
         let availableSpots = self.statsObject.availableSpots
         let totalSpots = "Total Spots: \(self.statsObject.totalSpots)"
-        print(usedSpots)
         
         var dataEntries: [PieChartDataEntry] = []
         let reservedSpotsEntry = PieChartDataEntry(value: Double(usedSpots), label: "Reserved Spots")
@@ -78,13 +77,14 @@ class StatsVC: UIViewController {
         dataEntries.append(reservedSpotsEntry)
         dataEntries.append(availableSpotsEntry)
         
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: totalSpots)
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         pieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-
+        
         pieChartDataSet.colors = colorsOfCharts(numbersOfColor: 2)
         pieChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
 
-        
+        pieChartView.centerText = totalSpots
+        pieChartView.drawCenterTextEnabled = true
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         let format = NumberFormatter()
         format.numberStyle = .none
