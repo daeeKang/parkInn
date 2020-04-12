@@ -56,8 +56,24 @@
                                     <action selector="menuButtonPressed:" destination="ENg-mR-61y" eventType="touchUpInside" id="GKm-Mb-y3V"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvh-ip-em0" customClass="MDCFloatingButton">
+                                <rect key="frame" x="332" y="734" width="50" height="50"/>
+                                <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Y6P-oC-Jem"/>
+                                    <constraint firstAttribute="height" constant="50" id="mPJ-CV-Oz7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="mappin.and.ellipse" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="semibold"/>
+                                </state>
+                                <connections>
+                                    <action selector="pinButtonPressed:" destination="ENg-mR-61y" eventType="touchUpInside" id="YNg-sO-FtA"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-Eb-GsS" customClass="MDCFloatingButton">
-                                <rect key="frame" x="332" y="60" width="50" height="50"/>
+                                <rect key="frame" x="332" y="796" width="50" height="50"/>
                                 <color key="backgroundColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Uqk-SF-gIf"/>
@@ -77,9 +93,11 @@
                         <constraints>
                             <constraint firstItem="Nzh-rG-3JG" firstAttribute="trailing" secondItem="YyH-K0-QVt" secondAttribute="trailing" id="1XZ-oh-012"/>
                             <constraint firstItem="zTL-5X-YtS" firstAttribute="top" secondItem="Nzh-rG-3JG" secondAttribute="top" constant="16" id="42q-FX-ZmO"/>
+                            <constraint firstItem="Nzh-rG-3JG" firstAttribute="bottom" secondItem="2Cm-Eb-GsS" secondAttribute="bottom" constant="16" id="4dr-Wj-7xm"/>
                             <constraint firstItem="Nzh-rG-3JG" firstAttribute="trailing" secondItem="2Cm-Eb-GsS" secondAttribute="trailing" constant="32" id="MdI-Wj-w9q"/>
+                            <constraint firstItem="Wvh-ip-em0" firstAttribute="centerX" secondItem="2Cm-Eb-GsS" secondAttribute="centerX" id="OKE-oW-pfx"/>
+                            <constraint firstItem="2Cm-Eb-GsS" firstAttribute="top" secondItem="Wvh-ip-em0" secondAttribute="bottom" constant="12" id="SxT-L5-VjS"/>
                             <constraint firstItem="zTL-5X-YtS" firstAttribute="leading" secondItem="Nzh-rG-3JG" secondAttribute="leading" constant="32" id="Uzm-VZ-DN6"/>
-                            <constraint firstItem="2Cm-Eb-GsS" firstAttribute="top" secondItem="Nzh-rG-3JG" secondAttribute="top" constant="16" id="cOe-yu-KuZ"/>
                             <constraint firstItem="YyH-K0-QVt" firstAttribute="top" secondItem="ovE-LD-5t2" secondAttribute="top" id="eR3-NB-dKx"/>
                             <constraint firstItem="YyH-K0-QVt" firstAttribute="leading" secondItem="Nzh-rG-3JG" secondAttribute="leading" id="hGW-8G-6d6"/>
                             <constraint firstAttribute="bottom" secondItem="YyH-K0-QVt" secondAttribute="bottom" id="ulh-Jk-by7"/>
@@ -88,6 +106,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="YyH-K0-QVt" id="GLG-oz-h8o"/>
+                        <outlet property="pinButton" destination="Wvh-ip-em0" id="KaG-Ad-w5V"/>
                         <segue destination="XOA-2H-7b0" kind="show" identifier="toLotVC" id="7I3-1C-J12"/>
                     </connections>
                 </viewController>
@@ -223,5 +242,6 @@
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="location.north" catalog="system" width="108" height="128"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
     </resources>
 </document>
