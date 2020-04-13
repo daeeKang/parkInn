@@ -27,10 +27,26 @@ class SearchResultCell: UITableViewCell {
         lotNameLabel.text = lot.name
         availableSpotsLabel.text = "Available Spots: \(lot.availableSpots)"
 
-        if let urlString = lot.imageURL,
-            let imageURL = URL(string: urlString) {
-            lotImage.load(url: imageURL)
+        if lot.image == nil {
+            if let urlString = lot.imageURL,
+                let imageURL = URL(string: urlString) {
+                UIImageView.load(url: imageURL) { [unowned self] (image) in
+                    if image != nil {
+                        DispatchQueue.main.async {
+                            lot.image = image
+                            self.lotImage.image = image
+                        }
+                    }
+                }
+//                lot.image = lotImage.image
+            }
+        } else {
+            lotImage.image = lot.image!
         }
+    }
+
+    override func prepareForReuse() {
+        lotImage.image = nil
     }
 
 

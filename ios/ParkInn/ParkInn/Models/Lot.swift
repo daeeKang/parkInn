@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Lot: Decodable, Hashable {
+class Lot: Decodable, Hashable {
     static func == (lhs: Lot, rhs: Lot) -> Bool {
         return lhs.lotID == rhs.lotID && lhs.companyID == rhs.companyID
     }
@@ -29,6 +29,7 @@ struct Lot: Decodable, Hashable {
     let imageURL: String?
     let averageTimeParked: TimeParked
     let _id: String?
+    var image: UIImage?
 
 
     enum CodingKeys: String, CodingKey {

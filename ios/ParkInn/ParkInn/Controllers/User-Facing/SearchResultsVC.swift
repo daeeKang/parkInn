@@ -83,6 +83,12 @@ extension SearchResultsVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
 
+        if textField.text != "" && textField.text != nil {
+            // Make the search
+            mapVC.removeSearchPin()
+            mapVC.fetchLots(named: textField.text!)
+        }
+
         return true
     }
 

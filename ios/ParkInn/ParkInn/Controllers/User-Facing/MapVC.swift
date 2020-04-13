@@ -22,7 +22,7 @@ class MapVC: UIViewController {
     var lotAnnotations = [LotAnnotation]()
 
     private var isSettingPin = false
-    private var searchPin: MKPointAnnotation?
+    var searchPin: MKPointAnnotation?
     private var shownPinTip = false
 
     // Controls the zoom of the mapview
@@ -73,31 +73,18 @@ class MapVC: UIViewController {
         locationButton.bottomAnchor.constraint(equalTo: searchResultsVC.view.topAnchor, constant: -16).isActive = true
     }
 
-    private func fetchLots(near location: CLLocationCoordinate2D, radius: Int = 5) {
+    func fetchLots(near location: CLLocationCoordinate2D, radius: Int = 5) {
         APIService.getLots(latitude: location.latitude, longitude: location.longitude, radius: radius) { [unowned self] result in
             switch result {
                 case .success(let lots):
-                    // Clear all current annotations
-                    self.mapView.removeAnnotations(self.lotAnnotations)
-                    self.lotAnnotations.removeAll()
-
-                    // Insert lots
-                    for lot in lots {
-                        self.lotAnnotations.append(LotAnnotation(lot: lot))
-                    }
-
-                    // Add the annotations to the map
-                    self.mapView.addAnnotations(self.lotAnnotations)
-
-                    // Add the lots to the view controller
-                    self.searchResultsVC.lotsToDisplay = lots
+                    self.plotLots(lots)
                 case .failure(let error):
                     print(error.localizedDescription)
             }
         }
     }
 
-    private func fetchLots(with companyID: String) {
+    func fetchLots(with companyID: String) {
         APIService.getLots(companyID: companyID) { [unowned self] result in
             switch result {
                 case .success(let lots):
@@ -112,15 +99,38 @@ class MapVC: UIViewController {
         }
     }
 
-    private func fetchLots(named name: String) {
-        APIService.getLots(named: "Cottage Cheese") { [unowned self] result in
+    func fetchLots(named name: String) {
+        APIService.getLots(named: name) { [unowned self] result in
             switch result {
                 case .success(let lots):
-                    print(lots.count)
+                    self.plotLots(lots)
                 case .failure(let error):
                     print(error)
             }
         }
+    }
+
+    func removeSearchPin() {
+        if searchPin != nil {
+            mapView.removeAnnotation(searchPin!)
+        }
+    }
+
+    private func plotLots(_ lots: [Lot]) {
+        // Clear all current annotations
+        self.mapView.removeAnnotations(self.lotAnnotations)
+        self.lotAnnotations.removeAll()
+
+        // Insert lots
+        for lot in lots {
+            self.lotAnnotations.append(LotAnnotation(lot: lot))
+        }
+
+        // Add the annotations to the map
+        self.mapView.addAnnotations(self.lotAnnotations)
+
+        // Add the lots to the view controller
+        self.searchResultsVC.lotsToDisplay = lots
     }
 
     @IBAction func menuButtonPressed(_ sender: Any) {
