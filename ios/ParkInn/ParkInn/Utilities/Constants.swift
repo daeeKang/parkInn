@@ -10,8 +10,7 @@ import Foundation
 
 
 struct ProductionServer {
-//    static let baseURL = "http://park-inn.org:8000"
-    static let baseURL = "http://192.168.0.97:8000"
+    static let baseURL = "http://park-inn.org:8000"
 }
 
 struct Auth0Info {
