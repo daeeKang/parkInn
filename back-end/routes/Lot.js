@@ -125,22 +125,11 @@ router.patch("/UpdateSpot", checkJwt, async (req, res) => {
 router.get("/GetLots/:companyid", checkJwt, async (req, res) => {
     const lots = await model.Lot.find({ companyid: req.params.companyid });
     try {
-        return res.send(lots);
+        let lotsWithCompanyName = addCompanyNameToLots(lots);
+        return res.send(lotsWithCompanyName);
     } catch (err) {
         return res.status(500).send(err);
     }
-});
-
-router.get("/GetLot/:companyid/:lotid", checkJwt, async (req, res) => {
-    const lot = await model.Lot.find({
-        companyid: req.params.companyid,
-        lotid: req.params.lotid,
-    });
-
-    if (lot.length == 0)
-        return res.send("no lot found, btw change these error messages lmao");
-
-    return res.send(lot[0]);
 });
 
 router.get("/GetAllSpots/:companyid/:lotid", checkJwt, async (req, res) => {
@@ -184,7 +173,9 @@ router.get("/GetLot/:companyid/:lotid", async (req, res) => {
     if (lot.length == 0)
         return res.send("no lot found, btw change these error messages lmao");
 
-    return res.send(lot[0]);
+    let lotsWithCompanyName = addCompanyNameToLots(lot);
+
+    return res.send(lotsWithCompanyName[0]);
 });
 
 router.get("/GetAllSpots/:companyid/:lotid", async (req, res) => {
@@ -240,7 +231,10 @@ router.get("/GetLotsWithinArea/:latitude/:longitude/:radius", async (req, res) =
         longitude: req.params.longitude,
     }
     const lots = await model.Lot.findByLocation(location, req.params.radius);
-    res.send(lots);
+
+    let lotsWithCompanyName = addCompanyNameToLots(lots);
+
+    res.send(lotsWithCompanyName);
 });
 
 router.get("/SearchForLot/:lotname", async (req, res) => {
@@ -248,8 +242,26 @@ router.get("/SearchForLot/:lotname", async (req, res) => {
         lotName: { $regex : new RegExp(req.params.lotname.replace(/\-/g, ' '), "i") },
     });
 
-    res.send(lots);
+    let lotsWithCompanyName = addCompanyNameToLots(lots);
+
+    res.send(lotsWithCompanyName);
 });
 
+function getCompany(companyid){
+    return await model.Company.findById(companyid);
+}
+
+
+// takes in Lot schemas, turns them into plain javascript objects, adds company name to each lot
+function addCompanyNameToLots(lots){
+    lotsWithCompanyName = [];
+
+    for(let i = 0; i < lots.length; i++){
+        let temp = lots[i].toObject();
+        temp.companyname = getCompany(temp.companyid);
+        lotsWithCompanyName.push(temp);
+    }
+    return lotsWithCompanyName;
+}
 
 module.exports = router;
