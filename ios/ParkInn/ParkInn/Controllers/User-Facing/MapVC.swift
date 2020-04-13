@@ -15,6 +15,8 @@ class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var pinButton: MDCFloatingButton!
+    @IBOutlet weak var locationButton: MDCFloatingButton!
+    var searchResultsVC: SearchResultsVC!
 
     let locationManager = CLLocationManager()
     var lotAnnotations = [LotAnnotation]()
@@ -31,6 +33,7 @@ class MapVC: UIViewController {
 
         setupMenu()
         setupMapView()
+        setupBottomSheet()
         verifyLocationService()
 
         // FOR DEBUGGING ONLY
@@ -56,6 +59,20 @@ class MapVC: UIViewController {
         self.revealViewController()?.delegate = self
     }
 
+    private func setupBottomSheet() {
+        // SearchResultsVC
+        if #available(iOS 13.0, *) {
+            searchResultsVC = UIStoryboard(name: "User", bundle: nil).instantiateViewController(identifier: "SearchResultsVC") as SearchResultsVC
+        }
+        searchResultsVC.view.isUserInteractionEnabled = true
+        searchResultsVC.attach(to: self)
+        searchResultsVC.mapVC = self
+
+        // Set location button bottom to this view's top
+        mapView.bottomAnchor.constraint(equalTo: searchResultsVC.view.topAnchor).isActive = true
+        locationButton.bottomAnchor.constraint(equalTo: searchResultsVC.view.topAnchor, constant: -16).isActive = true
+    }
+
     private func fetchLots(near location: CLLocationCoordinate2D, radius: Int = 5) {
         APIService.getLots(latitude: location.latitude, longitude: location.longitude, radius: radius) { [unowned self] result in
             switch result {
@@ -71,6 +88,9 @@ class MapVC: UIViewController {
 
                     // Add the annotations to the map
                     self.mapView.addAnnotations(self.lotAnnotations)
+
+                    // Add the lots to the view controller
+                    self.searchResultsVC.lotsToDisplay = lots
                 case .failure(let error):
                     print(error.localizedDescription)
             }
@@ -84,6 +104,7 @@ class MapVC: UIViewController {
                     for lot in lots {
                         self.lotAnnotations.append(LotAnnotation(lot: lot))
                     }
+                    self.searchResultsVC.lotsToDisplay = lots
                     self.mapView.addAnnotations(self.lotAnnotations)
                 case .failure(let error):
                     print(error.localizedDescription)

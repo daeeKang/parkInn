@@ -8,7 +8,16 @@
 
 import Foundation
 
-struct Lot: Decodable {
+struct Lot: Decodable, Hashable {
+    static func == (lhs: Lot, rhs: Lot) -> Bool {
+        return lhs.lotID == rhs.lotID && lhs.companyID == rhs.companyID
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(lotID)
+        hasher.combine(companyID)
+    }
+
     let companyID: String
     let lotID: Int
     let name: String?
