@@ -122,7 +122,7 @@ router.patch("/UpdateSpot", checkJwt, async (req, res) => {
     );
 });
 
-router.get("/GetLots/:companyid", /*checkJwt,*/ async (req, res) => {
+router.get("/GetLots/:companyid", checkJwt, async (req, res) => {
     const lots = await model.Lot.find({ companyid: req.params.companyid });
     try {
         let lotsWithCompanyName = await addCompanyNameToLots(lots);
