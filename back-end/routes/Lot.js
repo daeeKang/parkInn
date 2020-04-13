@@ -247,7 +247,7 @@ router.get("/SearchForLot/:lotname", async (req, res) => {
     res.send(lotsWithCompanyName);
 });
 
-function getCompany(companyid){
+async function getCompany(companyid){
     return await model.Company.findById(companyid);
 }
 
