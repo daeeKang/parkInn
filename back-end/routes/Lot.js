@@ -122,10 +122,10 @@ router.patch("/UpdateSpot", checkJwt, async (req, res) => {
     );
 });
 
-router.get("/GetLots/:companyid", checkJwt, async (req, res) => {
+router.get("/GetLots/:companyid", /*checkJwt,*/ async (req, res) => {
     const lots = await model.Lot.find({ companyid: req.params.companyid });
     try {
-        let lotsWithCompanyName = addCompanyNameToLots(lots);
+        let lotsWithCompanyName = await addCompanyNameToLots(lots);
         return res.send(lotsWithCompanyName);
     } catch (err) {
         return res.status(500).send(err);
@@ -173,8 +173,7 @@ router.get("/GetLot/:companyid/:lotid", async (req, res) => {
     if (lot.length == 0)
         return res.send("no lot found, btw change these error messages lmao");
 
-    let lotsWithCompanyName = addCompanyNameToLots(lot);
-
+    let lotsWithCompanyName = await addCompanyNameToLots(lot);
     return res.send(lotsWithCompanyName[0]);
 });
 
@@ -232,7 +231,7 @@ router.get("/GetLotsWithinArea/:latitude/:longitude/:radius", async (req, res) =
     }
     const lots = await model.Lot.findByLocation(location, req.params.radius);
 
-    let lotsWithCompanyName = addCompanyNameToLots(lots);
+    let lotsWithCompanyName = await addCompanyNameToLots(lots);
 
     res.send(lotsWithCompanyName);
 });
@@ -242,23 +241,31 @@ router.get("/SearchForLot/:lotname", async (req, res) => {
         lotName: { $regex : new RegExp(req.params.lotname.replace(/\-/g, ' '), "i") },
     });
 
-    let lotsWithCompanyName = addCompanyNameToLots(lots);
+    let lotsWithCompanyName = await addCompanyNameToLots(lots);
 
     res.send(lotsWithCompanyName);
 });
 
-async function getCompany(companyid){
-    return await model.Company.findById(companyid);
+async function getCompany(cid){
+    try{
+        let c = await model.Company.find({companyid: cid});
+        return c;
+    }
+    catch{
+        console.log("error");
+    }
 }
 
 
 // takes in Lot schemas, turns them into plain javascript objects, adds company name to each lot
-function addCompanyNameToLots(lots){
+async function addCompanyNameToLots(lots){
     lotsWithCompanyName = [];
 
     for(let i = 0; i < lots.length; i++){
         let temp = lots[i].toObject();
-        temp.companyname = getCompany(temp.companyid);
+        let company = await getCompany(temp.companyid);
+        let companyObj = company[0].toObject();
+        temp.companyname = companyObj.companyName;
         lotsWithCompanyName.push(temp);
     }
     return lotsWithCompanyName;
