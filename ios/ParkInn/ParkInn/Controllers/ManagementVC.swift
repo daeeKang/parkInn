@@ -59,12 +59,16 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let currentLot = lots[indexPath.row]
         
         cell.DisplayLot.layer.cornerRadius = 30
-//        cell.DisplayLot.image = UIImage(named: lotNumber[indexPath.row] + ".png")
-        let url = URL(string: currentLot.imageURL!)!
-        cell.DisplayLot.load(url: url)
+
+        if currentLot.imageURL != nil {
+            let url = URL(string: currentLot.imageURL!)!
+            cell.DisplayLot.load(url: url)
+        } else {
+            // Display no image
+        }
+
         cell.LabelLot.textColor = UIColor.black
         cell.LabelLot.text = currentLot.name
-
         
         return cell
         
