@@ -13,11 +13,14 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     @IBOutlet private weak var collectionView: UICollectionView!
     
-     //test data
-     let lotNumber = ["Lot1", "Lot2", "Lot3", "Lot5", "Lot7","Lot1", "Lot2", "Lot3", "Lot5", "Lot7"]
+    //test data
+//    let lotNumber = ["Lot1", "Lot2", "Lot3", "Lot5", "Lot7","Lot1", "Lot2", "Lot3", "Lot5", "Lot7"]
+    var lots = [Lot]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        fetchLots(with: "8e9fe90e-bd10-48d2-8084-8f259157c832")
 
         //set up the amount of columns
         let width = (view.frame.size.width - 20) / 2
@@ -31,32 +34,49 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         
     }
+
+    private func fetchLots(with companyID: String) {
+        APIService.getLots(companyID: companyID) { [unowned self] result in
+            switch result {
+                case .success(let lots):
+                    self.lots = lots
+                    self.collectionView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
     
     //get number of items in the array
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           return lotNumber.count
+        return lots.count
     }
     
     //iterates the cells applying any modifications
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManagementCVCell
-        
+
+        let currentLot = lots[indexPath.row]
         
         cell.DisplayLot.layer.cornerRadius = 30
-        cell.DisplayLot.image = UIImage(named: lotNumber[indexPath.row] + ".png")
+//        cell.DisplayLot.image = UIImage(named: lotNumber[indexPath.row] + ".png")
+        let url = URL(string: currentLot.imageURL!)!
+        cell.DisplayLot.load(url: url)
         cell.LabelLot.textColor = UIColor.black
-        cell.LabelLot.text = lotNumber[indexPath.row]
-    
+        cell.LabelLot.text = currentLot.name
+
         
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentLot = lots[indexPath.row]
+
         let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let desVC = mainStoryboard.instantiateViewController(identifier: "DisplayVC") as! DisplayVC
-        desVC.image =  UIImage(named: lotNumber[indexPath.row] + ".png")!
-        desVC.name = lotNumber[indexPath.row]
+//        desVC.image
+        desVC.name = currentLot.name ?? "No name"
         self.navigationController?.pushViewController(desVC, animated: true)
         
         
