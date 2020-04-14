@@ -13,8 +13,7 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    //test data
-//    let lotNumber = ["Lot1", "Lot2", "Lot3", "Lot5", "Lot7","Lot1", "Lot2", "Lot3", "Lot5", "Lot7"]
+
     var lots = [Lot]()
     
     override func viewDidLoad() {
@@ -58,8 +57,10 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
 
         let currentLot = lots[indexPath.row]
         
-        cell.DisplayLot.layer.cornerRadius = 30
-
+        cell.DisplayLot.layer.cornerRadius = 26
+        cell.LabelLot.layer.cornerRadius = 10
+        cell.LabelLot.layer.masksToBounds = true
+        
         if currentLot.imageURL != nil {
             let url = URL(string: currentLot.imageURL!)!
             cell.DisplayLot.load(url: url)
@@ -67,8 +68,11 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             // Display no image
         }
 
+     
+        cell.LabelLot.backgroundColor = UIColor.white
         cell.LabelLot.textColor = UIColor.black
         cell.LabelLot.text = currentLot.name
+
         
         return cell
         
