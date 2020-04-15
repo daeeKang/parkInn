@@ -6,19 +6,23 @@ import Events from "./EventsPage/Events";
 import Incidents from "./IncidentsPage/Incidents";
 import Management from "./ManagementPage/Management";
 import Renderer from "./Renderer/Renderer";
+import Profile from "./Profile";
+import Login from "./LoginPage/Login"
+import PrivateRoute from "./PrivateRoute";
 
 export default () => {
     return (
         <main>
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={Login} />
                 {/* need to edit this route for the add/manage lot page */}
-                <Route exact path="/parking" component={Home} />
-                <Route exact path="/statistics" component={Statistics} />
-                <Route exact path="/events" component={Events} />
-                <Route exact path="/incidents" component={Incidents} />
-                <Route exact path="/management" component={Management} />
-                <Route exact path="/renderer" component={Renderer} />
+                <PrivateRoute exact path="/dash" component={Home} />
+                <PrivateRoute exact path="/statistics" component={Statistics} />
+                <PrivateRoute exact path="/events" component={Events} />
+                <PrivateRoute exact path="/incidents" component={Incidents} />
+                <PrivateRoute exact path="/management" component={Management} />
+                <PrivateRoute exact path="/renderer" component={Renderer} />
+                <PrivateRoute exact path="/profile" component={Profile}/>
             </Switch>
         </main>
     );
