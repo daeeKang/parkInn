@@ -17,8 +17,10 @@ class StatsVC: UIViewController {
     var statsObject: CompanyStats!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setGraphs()
+    }
 
-        // Do any additional setup after loading the view.
+    func setGraphs(){
         APIService.getCompanyStats(companyName:"Flamingo") { Result in
                 switch Result {
                     case .success (let result):
@@ -32,9 +34,6 @@ class StatsVC: UIViewController {
                         print(error.localizedDescription)
                 }
             }
-
-        lots = ["Freemont St", "Las Vegas Strip", "Home 3 Space", "Lake Mead Front"]
-                
     }
     
     func setBarChart() {
