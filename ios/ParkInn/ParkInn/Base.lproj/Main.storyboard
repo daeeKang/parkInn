@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -249,23 +249,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ht3-zE-4Ez">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ht3-zE-4Ez">
+                                <rect key="frame" x="0.0" y="164" width="414" height="638"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwR-lu-dvR">
                                 <rect key="frame" x="0.0" y="29" width="414" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12850642200000001" green="0.1520202756" blue="0.20184746379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ht3-zE-4Ez" firstAttribute="bottom" secondItem="qdW-Sl-9LL" secondAttribute="bottom" id="OAv-uE-UZB"/>
+                            <constraint firstItem="ht3-zE-4Ez" firstAttribute="bottom" secondItem="qdW-Sl-9LL" secondAttribute="bottom" constant="-60" id="OAv-uE-UZB"/>
                             <constraint firstItem="ht3-zE-4Ez" firstAttribute="trailing" secondItem="qdW-Sl-9LL" secondAttribute="trailing" id="QZ5-P3-3Wa"/>
                             <constraint firstItem="ht3-zE-4Ez" firstAttribute="leading" secondItem="qdW-Sl-9LL" secondAttribute="leading" id="fix-Yo-FKJ"/>
-                            <constraint firstItem="ht3-zE-4Ez" firstAttribute="top" secondItem="qdW-Sl-9LL" secondAttribute="top" id="qgT-jR-jAE"/>
+                            <constraint firstItem="ht3-zE-4Ez" firstAttribute="top" secondItem="qdW-Sl-9LL" secondAttribute="top" constant="120" id="qgT-jR-jAE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qdW-Sl-9LL"/>
                     </view>
@@ -426,14 +426,14 @@
             <point key="canvasLocation" x="613" y="127"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow.left.circle" catalog="system" width="64" height="60"/>
-        <image name="car" catalog="system" width="64" height="46"/>
-        <image name="chart.pie" catalog="system" width="64" height="60"/>
-        <image name="chart.pie.fill" catalog="system" width="64" height="62"/>
-        <image name="gear" catalog="system" width="64" height="58"/>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
-        <image name="rectangle.grid.2x2.fill" catalog="system" width="64" height="48"/>
-    </resources>
     <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
+        <image name="car" catalog="system" width="128" height="93"/>
+        <image name="chart.pie" catalog="system" width="128" height="121"/>
+        <image name="chart.pie.fill" catalog="system" width="128" height="124"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
+    </resources>
 </document>
