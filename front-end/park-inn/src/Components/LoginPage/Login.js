@@ -1,6 +1,8 @@
 import React from "react";
 import "./Login.css";
 import { useAuth0 } from '../../react-auth0-spa';
+import config from '../../auth_config.json';
+
 
 
 export default props => {
@@ -14,7 +16,7 @@ export default props => {
     return (
       <div className="login-page">
         {!isAuthenticated && ( <button onClick={() => loginWithRedirect({
-              redirect_uri: 'http://localhost:3000/dash'
+              redirect_uri: `${config.address}/dash`
         })}>Log in</button>)}
       </div>
     );
