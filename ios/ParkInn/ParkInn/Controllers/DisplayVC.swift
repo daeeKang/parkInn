@@ -13,15 +13,20 @@ class DisplayVC: UIViewController {
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showText: UILabel!
     
-    var image = UIImage()
-    var name = ""
-    
+    var lot: Lot!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         if lot.imageURL != nil {
+            let url = URL(string: lot.imageURL!)!
+            showImage.load(url: url)
+            }
+            else {
+                    // Display no image
+                }
+        showText.text = lot.name
 
-        // Do any additional setup after loading the view.
-        showImage.image = image
-        showText.text = name
     }
     
 
