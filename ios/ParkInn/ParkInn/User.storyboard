@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tex-fH-Frt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tex-fH-Frt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,13 +102,59 @@
                     <view key="view" contentMode="scaleToFill" id="zYR-eR-zsk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="T9K-1P-5h6">
+                                <rect key="frame" x="16" y="773" width="382" height="73"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wK-DQ-Unj" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Settings" image="gear" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="settingsPressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="qDD-5a-6kD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-Fk-v4v" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="49" width="382" height="24"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Logout" image="arrow.left.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutPressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="jCj-Ll-ABN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Mhb-Fk-v4v" secondAttribute="trailing" id="AU8-No-xO4"/>
+                                    <constraint firstAttribute="trailing" secondItem="9wK-DQ-Unj" secondAttribute="trailing" id="PnL-S5-ixR"/>
+                                    <constraint firstItem="Mhb-Fk-v4v" firstAttribute="leading" secondItem="T9K-1P-5h6" secondAttribute="leading" id="lfm-Pl-osH"/>
+                                    <constraint firstItem="9wK-DQ-Unj" firstAttribute="leading" secondItem="T9K-1P-5h6" secondAttribute="leading" id="uPm-a9-LE4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eee-EJ-Usx" firstAttribute="trailing" secondItem="T9K-1P-5h6" secondAttribute="trailing" constant="16" id="8eO-Jo-Gmk"/>
+                            <constraint firstItem="T9K-1P-5h6" firstAttribute="leading" secondItem="eee-EJ-Usx" secondAttribute="leading" constant="16" id="nKR-UW-Qhm"/>
+                            <constraint firstItem="eee-EJ-Usx" firstAttribute="bottom" secondItem="T9K-1P-5h6" secondAttribute="bottom" constant="16" id="o91-Aq-qLG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eee-EJ-Usx"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2N-qu-uL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161" y="650"/>
+            <point key="canvasLocation" x="-162.31884057971016" y="649.55357142857144"/>
         </scene>
         <!--LotVC-->
         <scene sceneID="x0l-Hh-GVI">
@@ -173,7 +219,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
-        <image name="location.north" catalog="system" width="54" height="64"/>
+        <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="location.north" catalog="system" width="108" height="128"/>
     </resources>
 </document>

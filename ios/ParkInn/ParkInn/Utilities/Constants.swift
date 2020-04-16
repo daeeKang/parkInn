@@ -10,7 +10,12 @@ import Foundation
 
 
 struct ProductionServer {
-    static let baseURL = "http://vtcolo.dyndns.org:8000"
+  static let baseURL = "https://park-inn.org:8000/"
+}
+
+struct Auth0Info {
+    static let openIDScope = "openid profile"
+    static let audience = "http://localhost:8000"
 }
 
 enum HTTPHeaderField: String {
