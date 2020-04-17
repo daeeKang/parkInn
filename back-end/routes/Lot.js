@@ -127,7 +127,9 @@ router.get("/GetLots/:companyid", checkJwt, async (req, res) => {
     try {
         let lotsWithCompanyName = await addCompanyNameToLots(lots);
         return res.send(lotsWithCompanyName);
-    } catch (err) {
+    } 
+
+    catch (err) {
         return res.status(500).send(err);
     }
 });
@@ -251,6 +253,7 @@ async function getCompany(cid){
         let c = await model.Company.find({companyid: cid});
         return c;
     }
+    
     catch{
         console.log("error");
     }
