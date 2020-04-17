@@ -267,6 +267,7 @@ function createStaff(companyid, companyName, admin){
             },
             employeeid: chance.string({ length: 5, casing: 'upper', alpha: true, numeric: true }),
             companyid: companyid,
+            companyName: companyName,
             admin: admin,
         });
         staff.save().then(res => {
