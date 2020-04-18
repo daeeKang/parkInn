@@ -40,7 +40,7 @@ router.get("/GetCustomers", checkJwt, async (req, res) => {
 });
 
 router.get("/GetCustomer/:username", checkJwt, async (req, res) => {
-    const customer = await model.Customer.find({
+    const customer = await model.Customer.findOne({
         username: req.params.username,
     });
     try {

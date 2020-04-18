@@ -9,6 +9,7 @@ let StaffSchema = new Schema({
     },
     employeeid: String,
     companyid: {type: String, required: true},
+    companyName: {type: String, required: true},
     admin: {type: Boolean, required: true},
 });
 

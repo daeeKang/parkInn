@@ -5,6 +5,7 @@ import { Menu, MenuItem, Button } from '@material-ui/core';
 import { useAuth0 } from '../../react-auth0-spa';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Sidebar from '../Sidebar/Sidebar';
+import config from '../../auth_config.json';
 
 
 export default props => {
@@ -17,6 +18,11 @@ export default props => {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const logoutWithRedirect = () =>
+    logout({
+      returnTo: config.address,
+    });
 
     //This is just to show how to make API requests with the token
     //TO DO: Remove Later
@@ -51,7 +57,7 @@ export default props => {
                     <NavLink className="link" to='/management'>
                         <MenuItem onClick={handleClose}>Account Settings</MenuItem>
                     </NavLink>
-                    {isAuthenticated && <MenuItem onClick={() => logout()}>Logout</MenuItem>}
+                    {isAuthenticated && <MenuItem onClick={() => logoutWithRedirect()}>Logout</MenuItem>}
                     <MenuItem onClick={apiRequest}>API Request</MenuItem>
 
                 </Menu>
