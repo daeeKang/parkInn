@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		038B185123FCC2A300410A1A /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B185023FCC2A300410A1A /* MenuVC.swift */; };
 		163BAD4B8C8401380C019B80 /* Pods_ParkInn_ParkInnUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C938CF4BFA13A309D615269C /* Pods_ParkInn_ParkInnUITests.framework */; };
+		351FE58F2428298900F7E00B /* DisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FE58E2428298900F7E00B /* DisplayVC.swift */; };
 		35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */; };
 		88AF660D91A0662B6D7F7972 /* Pods_ParkInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */; };
 		8E02805A23F5653800057727 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805923F5653800057727 /* StatsVC.swift */; };
@@ -34,6 +35,8 @@
 		8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C624243F223D00F15E8F /* CompanyStats.swift */; };
 		8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE150243FC4940041E943 /* SessionManager.swift */; };
 		8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */; };
+		8E7D6AAA244D159200B8B5A4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E7D6AA9244D159200B8B5A4 /* Colors.xcassets */; };
+		8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D6AAB244D177B00B8B5A4 /* UIColor+extensions.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -66,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		038B185023FCC2A300410A1A /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		351FE58E2428298900F7E00B /* DisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayVC.swift; sourceTree = "<group>"; };
 		35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCVCell.swift; sourceTree = "<group>"; };
 		47CCD8676814AB4A0B0E29DD /* Pods-ParkInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.debug.xcconfig"; sourceTree = "<group>"; };
 		59ED785E62F4300390FFA17C /* Pods-ParkInn-ParkInnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn-ParkInnUITests.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn-ParkInnUITests/Pods-ParkInn-ParkInnUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		8E54C624243F223D00F15E8F /* CompanyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStats.swift; sourceTree = "<group>"; };
 		8E7CE150243FC4940041E943 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertController+Convenience.swift"; sourceTree = "<group>"; };
+		8E7D6AA9244D159200B8B5A4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8E7D6AAB244D177B00B8B5A4 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */,
 				8E2E71C32443D10D00A69221 /* BottomSheetController.swift */,
 				8E2E71C52443D11500A69221 /* Pannable.swift */,
+				8E7D6AAB244D177B00B8B5A4 /* UIColor+extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 				8E98C93623F38024008F612A /* Info.plist */,
 				8E10B539244030B0001B6CC7 /* Auth0.plist */,
 				8E02806223F5E8F300057727 /* ParkInn-Bridging-Header.h */,
+				8E7D6AA9244D159200B8B5A4 /* Colors.xcassets */,
 			);
 			path = ParkInn;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 				8E02805923F5653800057727 /* StatsVC.swift */,
 				038B185023FCC2A300410A1A /* MenuVC.swift */,
 				8E02805B23F5654600057727 /* ManagementVC.swift */,
+				351FE58E2428298900F7E00B /* DisplayVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 				8E98C93223F38024008F612A /* Assets.xcassets in Resources */,
 				8E98C93023F38022008F612A /* Main.storyboard in Resources */,
 				8E37459B243153D6009C2A33 /* (null) in Resources */,
+				8E7D6AAA244D159200B8B5A4 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +547,7 @@
 				8E2E71C42443D10D00A69221 /* BottomSheetController.swift in Sources */,
 				8E54C621243EE20000F15E8F /* APIService.swift in Sources */,
 				8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */,
+				351FE58F2428298900F7E00B /* DisplayVC.swift in Sources */,
 				8E98C92D23F38022008F612A /* LoginVC.swift in Sources */,
 				8EA91952240C5A7A00DE7EB3 /* Lot.swift in Sources */,
 				8E2E71C82443D1CF00A69221 /* SearchResultsVC.swift in Sources */,
@@ -549,6 +560,7 @@
 				8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */,
 				8E4E0426240C56CE00016031 /* LotVC.swift in Sources */,
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
+				8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */,
 				8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
 				8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */,
@@ -736,7 +748,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4Y5F6D66K9;
+				DEVELOPMENT_TEAM = P6P3374F44;
 				INFOPLIST_FILE = ParkInn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -758,7 +770,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4Y5F6D66K9;
+				DEVELOPMENT_TEAM = P6P3374F44;
 				INFOPLIST_FILE = ParkInn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

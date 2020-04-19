@@ -11,6 +11,7 @@ import UIKit
 class ManagementCVCell: UICollectionViewCell {
     
     //Item within the cell
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var DisplayLot: UIImageView!
     
+    @IBOutlet weak var LabelLot: UILabel!
 }
