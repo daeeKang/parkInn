@@ -31,6 +31,8 @@
 		8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54C624243F223D00F15E8F /* CompanyStats.swift */; };
 		8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE150243FC4940041E943 /* SessionManager.swift */; };
 		8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */; };
+		8E7D6AAA244D159200B8B5A4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E7D6AA9244D159200B8B5A4 /* Colors.xcassets */; };
+		8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D6AAB244D177B00B8B5A4 /* UIColor+extensions.swift */; };
 		8E98C92923F38022008F612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92823F38022008F612A /* AppDelegate.swift */; };
 		8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92A23F38022008F612A /* SceneDelegate.swift */; };
 		8E98C92D23F38022008F612A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C92C23F38022008F612A /* LoginVC.swift */; };
@@ -88,6 +90,8 @@
 		8E54C624243F223D00F15E8F /* CompanyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStats.swift; sourceTree = "<group>"; };
 		8E7CE150243FC4940041E943 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertController+Convenience.swift"; sourceTree = "<group>"; };
+		8E7D6AA9244D159200B8B5A4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8E7D6AAB244D177B00B8B5A4 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
 		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				8E54C61E243EDDFA00F15E8F /* Constants.swift */,
 				8E7CE150243FC4940041E943 /* SessionManager.swift */,
 				8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */,
+				8E7D6AAB244D177B00B8B5A4 /* UIColor+extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				8E98C93623F38024008F612A /* Info.plist */,
 				8E10B539244030B0001B6CC7 /* Auth0.plist */,
 				8E02806223F5E8F300057727 /* ParkInn-Bridging-Header.h */,
+				8E7D6AA9244D159200B8B5A4 /* Colors.xcassets */,
 			);
 			path = ParkInn;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 				8E98C93223F38024008F612A /* Assets.xcassets in Resources */,
 				8E98C93023F38022008F612A /* Main.storyboard in Resources */,
 				8E37459B243153D6009C2A33 /* (null) in Resources */,
+				8E7D6AAA244D159200B8B5A4 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +544,7 @@
 				8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */,
 				8E4E0426240C56CE00016031 /* LotVC.swift in Sources */,
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
+				8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */,
 				8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
 				8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */,
