@@ -329,11 +329,14 @@
                                             <constraint firstAttribute="height" constant="130" id="vl3-er-MKF"/>
                                         </constraints>
                                     </view>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fXX-VN-bQn">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXX-VN-bQn">
                                         <rect key="frame" x="0.0" y="154" width="382" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="XY5-U6-aYd"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="XOA-2H-7b0" id="xev-LC-RbS"/>
+                                        </connections>
                                     </mapView>
                                 </subviews>
                             </stackView>
@@ -355,10 +358,20 @@
                                     <constraint firstAttribute="height" constant="1" id="zjJ-XQ-Cii"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-6m-7mO">
+                                <rect key="frame" x="16" y="560" width="382" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="gna-OZ-eLz"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="getDirectionsPressed:" destination="XOA-2H-7b0" eventType="touchUpInside" id="CIW-Ey-nka"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="ARK-QF-aeK" secondAttribute="trailing" constant="16" id="0Pu-xp-eUJ"/>
+                            <constraint firstItem="IKC-xZ-E0e" firstAttribute="bottom" secondItem="VMM-6m-7mO" secondAttribute="bottom" id="2rt-mJ-VAM"/>
                             <constraint firstItem="6o3-Xc-e3C" firstAttribute="top" secondItem="DPo-2Z-CHq" secondAttribute="bottom" constant="12" id="3NO-Xg-biQ"/>
                             <constraint firstItem="yuG-eA-Hno" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" id="6Qb-7g-srb"/>
                             <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="GLm-G9-eVP" secondAttribute="trailing" constant="16" id="7QE-Dq-cyw"/>
@@ -377,6 +390,8 @@
                             <constraint firstItem="IKC-xZ-E0e" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" constant="16" id="UwT-XE-hOU"/>
                             <constraint firstItem="7xy-1w-JeU" firstAttribute="bottom" secondItem="gZC-7d-iZx" secondAttribute="bottom" constant="16" id="WlL-Ar-e9F"/>
                             <constraint firstItem="ARK-QF-aeK" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" constant="16" id="Yrl-Dw-WGo"/>
+                            <constraint firstItem="7xy-1w-JeU" firstAttribute="trailing" secondItem="VMM-6m-7mO" secondAttribute="trailing" constant="16" id="a6M-Ri-Mjr"/>
+                            <constraint firstItem="VMM-6m-7mO" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" constant="16" id="jxv-kH-XcZ"/>
                             <constraint firstItem="6o3-Xc-e3C" firstAttribute="leading" secondItem="7xy-1w-JeU" secondAttribute="leading" id="x4k-Jb-wIj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7xy-1w-JeU"/>
