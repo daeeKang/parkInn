@@ -19,6 +19,7 @@ class Lot: Decodable, Hashable {
     }
 
     let companyID: String
+    let companyName: String
     let lotID: Int
     let name: String?
     let spots: [Spot]
@@ -30,10 +31,12 @@ class Lot: Decodable, Hashable {
     let averageTimeParked: TimeParked
     let _id: String?
     var image: UIImage?
+    var distanceToUser: Double?
 
 
     enum CodingKeys: String, CodingKey {
         case companyID = "companyid"
+        case companyName = "companyname"
         case lotID = "lotid"
         case name = "lotName"
         case spots

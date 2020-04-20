@@ -62,32 +62,41 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green Lot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOh-yy-eTD">
-                                                    <rect key="frame" x="148" y="19" width="89.5" height="24"/>
+                                                    <rect key="frame" x="148" y="8" width="89.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Spots: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cp-2h-a5f">
-                                                    <rect key="frame" x="148" y="51" width="162" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <rect key="frame" x="148" y="72.5" width="145.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.4 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6s4-ey-SbF">
+                                                    <rect key="frame" x="148" y="32" width="39.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="1cp-2h-a5f" firstAttribute="top" secondItem="NOh-yy-eTD" secondAttribute="bottom" constant="8" id="5hn-ZH-LUe"/>
+                                                <constraint firstItem="6s4-ey-SbF" firstAttribute="leading" secondItem="NOh-yy-eTD" secondAttribute="leading" id="0yy-I5-4Mw"/>
                                                 <constraint firstItem="6N9-yh-cLW" firstAttribute="top" secondItem="a20-ZP-Ovq" secondAttribute="top" constant="8" id="Akm-Ov-jpS"/>
                                                 <constraint firstItem="1cp-2h-a5f" firstAttribute="leading" secondItem="6N9-yh-cLW" secondAttribute="trailing" constant="32" id="JNI-pp-ig5"/>
-                                                <constraint firstItem="NOh-yy-eTD" firstAttribute="top" secondItem="a20-ZP-Ovq" secondAttribute="topMargin" constant="8" id="UPX-m4-zZ4"/>
+                                                <constraint firstItem="6s4-ey-SbF" firstAttribute="top" secondItem="NOh-yy-eTD" secondAttribute="bottom" id="Kw1-Kj-HyU"/>
+                                                <constraint firstItem="1cp-2h-a5f" firstAttribute="bottom" secondItem="6N9-yh-cLW" secondAttribute="bottom" id="MSA-wd-84T"/>
                                                 <constraint firstItem="6N9-yh-cLW" firstAttribute="leading" secondItem="a20-ZP-Ovq" secondAttribute="leading" constant="32" id="VDh-2w-8Za"/>
                                                 <constraint firstAttribute="bottom" secondItem="6N9-yh-cLW" secondAttribute="bottom" constant="8" id="Zd7-Dp-kUX"/>
+                                                <constraint firstItem="NOh-yy-eTD" firstAttribute="top" secondItem="6N9-yh-cLW" secondAttribute="top" id="nSr-KO-rTa"/>
                                                 <constraint firstItem="NOh-yy-eTD" firstAttribute="leading" secondItem="6N9-yh-cLW" secondAttribute="trailing" constant="32" id="vVA-F7-RTT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="availableSpotsLabel" destination="1cp-2h-a5f" id="4El-f0-wYA"/>
+                                            <outlet property="distanceLabel" destination="6s4-ey-SbF" id="vcQ-wd-RYy"/>
                                             <outlet property="lotImage" destination="6N9-yh-cLW" id="ysM-LK-UcS"/>
                                             <outlet property="lotNameLabel" destination="NOh-yy-eTD" id="NwI-eo-CwK"/>
                                         </connections>

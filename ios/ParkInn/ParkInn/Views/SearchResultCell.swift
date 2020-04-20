@@ -16,6 +16,7 @@ class SearchResultCell: UITableViewCell {
     @IBOutlet weak var lotImage: UIImageView!
     @IBOutlet weak var lotNameLabel: UILabel!
     @IBOutlet weak var availableSpotsLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -26,6 +27,11 @@ class SearchResultCell: UITableViewCell {
 
         lotNameLabel.text = lot.name
         availableSpotsLabel.text = "Available Spots: \(lot.availableSpots)"
+
+        if lot.distanceToUser != nil {
+            distanceLabel.text = String(format: "%.1f mi", lot.distanceToUser!)
+            distanceLabel.isHidden = false
+        }
 
         if lot.image == nil {
             if let urlString = lot.imageURL,

@@ -124,6 +124,12 @@ class MapVC: UIViewController {
         // Insert lots
         for lot in lots {
             self.lotAnnotations.append(LotAnnotation(lot: lot))
+
+            // Append location info
+            if let userLocation = locationManager.location {
+                let lotLocation = CLLocation(latitude: lot.location.latitude, longitude: lot.location.longitude)
+                lot.distanceToUser = userLocation.distance(from: lotLocation) * 0.00062137
+            }
         }
 
         // Add the annotations to the map
