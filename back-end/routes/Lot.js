@@ -254,8 +254,8 @@ async function getCompany(cid){
         return c;
     }
     
-    catch{
-        console.log("error");
+    catch(err){
+        console.log(err);
     }
 }
 
