@@ -14,7 +14,10 @@ class LotVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var lotImage: UIImageView!
-
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var peakTimesGraph: UIView!
+    
     var lot: Lot!
 
     override func viewDidLoad() {
@@ -26,12 +29,21 @@ class LotVC: UIViewController {
     private func populateView() {
         // Populate the labels with Lot information
         nameLabel.text = lot.name ?? "Lot \(lot.lotID)"
-        descriptionLabel.text = "\(lot.availableSpots)/\(lot.availableSpots) Spots Available"
+        descriptionLabel.text = lot.companyName
+
+        if lot.distanceToUser != nil {
+            distanceLabel.text = String(format: "%.1f mi", lot.distanceToUser!)
+            distanceLabel.isHidden = false
+        }
 
         // If an imageURL was retrieved, load it into lotImage
-        if let urlString = lot.imageURL,
-            let imageURL = URL(string: urlString) {
-            lotImage.load(url: imageURL)
+        if lot.image != nil {
+            lotImage.image = lot.image
+        } else {
+            if let urlString = lot.imageURL,
+                let imageURL = URL(string: urlString) {
+                lotImage.load(url: imageURL)
+            }
         }
     }
 
