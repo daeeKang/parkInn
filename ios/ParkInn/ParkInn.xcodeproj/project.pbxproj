@@ -41,6 +41,9 @@
 		8E98C93523F38024008F612A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98C93323F38024008F612A /* LaunchScreen.storyboard */; };
 		8E98C94023F38024008F612A /* ParkInnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C93F23F38024008F612A /* ParkInnTests.swift */; };
 		8E98C94B23F38024008F612A /* ParkInnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C94A23F38024008F612A /* ParkInnUITests.swift */; };
+		8E9FCBF6244E891200EB4A98 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9FCBF4244E891200EB4A98 /* CategoryCell.swift */; };
+		8E9FCBF7244E891200EB4A98 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9FCBF5244E891200EB4A98 /* CategoryCell.xib */; };
+		8E9FCBF9244E945D00EB4A98 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9FCBF8244E945D00EB4A98 /* Category.swift */; };
 		8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */; };
 		8EA91952240C5A7A00DE7EB3 /* Lot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91951240C5A7A00DE7EB3 /* Lot.swift */; };
 		FB17EA658A24E1B6861BA201 /* Pods_ParkInnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */; };
@@ -106,6 +109,9 @@
 		8E98C94623F38024008F612A /* ParkInnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkInnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C94A23F38024008F612A /* ParkInnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkInnUITests.swift; sourceTree = "<group>"; };
 		8E98C94C23F38024008F612A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E9FCBF4244E891200EB4A98 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		8E9FCBF5244E891200EB4A98 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		8E9FCBF8244E945D00EB4A98 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8EA91951240C5A7A00DE7EB3 /* Lot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lot.swift; sourceTree = "<group>"; };
 		8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +279,8 @@
 			children = (
 				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
 				8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */,
+				8E9FCBF4244E891200EB4A98 /* CategoryCell.swift */,
+				8E9FCBF5244E891200EB4A98 /* CategoryCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 				8E33BFB4240A516300A29F55 /* LotAnnotation.swift */,
 				8E54C622243F1D0400F15E8F /* LotDesign.swift */,
 				8E54C624243F223D00F15E8F /* CompanyStats.swift */,
+				8E9FCBF8244E945D00EB4A98 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +414,7 @@
 				8E98C93023F38022008F612A /* Main.storyboard in Resources */,
 				8E37459B243153D6009C2A33 /* (null) in Resources */,
 				8E7D6AAA244D159200B8B5A4 /* Colors.xcassets in Resources */,
+				8E9FCBF7244E891200EB4A98 /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +555,7 @@
 				8E4E0426240C56CE00016031 /* LotVC.swift in Sources */,
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
 				8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */,
+				8E9FCBF6244E891200EB4A98 /* CategoryCell.swift in Sources */,
 				8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
 				8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */,
@@ -554,6 +565,7 @@
 				8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */,
 				8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */,
 				8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */,
+				8E9FCBF9244E945D00EB4A98 /* Category.swift in Sources */,
 				35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */,
 				8E4CC297240F9DD500C73960 /* UIImage+extensions.swift in Sources */,
 				8E54C61F243EDDFA00F15E8F /* Constants.swift in Sources */,
