@@ -102,8 +102,8 @@
                                     <constraint firstAttribute="height" constant="200" id="l7v-jQ-pkI"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEA-Qm-3KJ" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="533" width="382" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEA-Qm-3KJ" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="541" width="382" height="200"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="abj-CD-ZHF"/>
@@ -113,13 +113,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SVa-M0-k4Y" firstAttribute="top" secondItem="5Kx-DI-N5x" secondAttribute="bottom" constant="16" id="Bo6-m5-PFd"/>
+                            <constraint firstItem="5Kx-DI-N5x" firstAttribute="height" secondItem="DRT-Gm-k0e" secondAttribute="height" multiplier="0.382426" id="DNC-qh-6IR"/>
                             <constraint firstItem="IEA-Qm-3KJ" firstAttribute="top" secondItem="SVa-M0-k4Y" secondAttribute="bottom" constant="16" id="DiI-VW-6i8"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" id="Hy2-Mn-kjy"/>
                             <constraint firstItem="Wni-3b-Cb9" firstAttribute="trailing" secondItem="SVa-M0-k4Y" secondAttribute="trailing" constant="16" id="MNg-O7-orI"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="trailing" secondItem="Wni-3b-Cb9" secondAttribute="trailing" id="MmX-No-FLl"/>
                             <constraint firstItem="Wni-3b-Cb9" firstAttribute="trailing" secondItem="IEA-Qm-3KJ" secondAttribute="trailing" constant="16" id="dlb-zs-988"/>
                             <constraint firstItem="SVa-M0-k4Y" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" constant="16" id="e8J-BD-CPw"/>
-                            <constraint firstItem="5Kx-DI-N5x" firstAttribute="bottom" secondItem="Wni-3b-Cb9" secondAttribute="bottom" constant="-465" id="hgU-ai-4DX"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="top" secondItem="Wni-3b-Cb9" secondAttribute="top" id="lB1-Z2-rjj"/>
                             <constraint firstItem="IEA-Qm-3KJ" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" constant="16" id="vZK-CG-EMi"/>
                         </constraints>
