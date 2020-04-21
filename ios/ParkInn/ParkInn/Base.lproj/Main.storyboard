@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Kx-DI-N5x">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="309"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mDh-El-ba7">
                                     <size key="itemSize" width="299" height="266"/>
@@ -95,25 +95,47 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVa-M0-k4Y" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="325" width="382" height="200"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="l7v-jQ-pkI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEA-Qm-3KJ" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="533" width="382" height="200"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="abj-CD-ZHF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="SVa-M0-k4Y" firstAttribute="top" secondItem="5Kx-DI-N5x" secondAttribute="bottom" constant="16" id="Bo6-m5-PFd"/>
+                            <constraint firstItem="IEA-Qm-3KJ" firstAttribute="top" secondItem="SVa-M0-k4Y" secondAttribute="bottom" constant="16" id="DiI-VW-6i8"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" id="Hy2-Mn-kjy"/>
+                            <constraint firstItem="Wni-3b-Cb9" firstAttribute="trailing" secondItem="SVa-M0-k4Y" secondAttribute="trailing" constant="16" id="MNg-O7-orI"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="trailing" secondItem="Wni-3b-Cb9" secondAttribute="trailing" id="MmX-No-FLl"/>
-                            <constraint firstItem="5Kx-DI-N5x" firstAttribute="bottom" secondItem="Wni-3b-Cb9" secondAttribute="bottom" id="hgU-ai-4DX"/>
+                            <constraint firstItem="Wni-3b-Cb9" firstAttribute="trailing" secondItem="IEA-Qm-3KJ" secondAttribute="trailing" constant="16" id="dlb-zs-988"/>
+                            <constraint firstItem="SVa-M0-k4Y" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" constant="16" id="e8J-BD-CPw"/>
+                            <constraint firstItem="5Kx-DI-N5x" firstAttribute="bottom" secondItem="Wni-3b-Cb9" secondAttribute="bottom" constant="-465" id="hgU-ai-4DX"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="top" secondItem="Wni-3b-Cb9" secondAttribute="top" id="lB1-Z2-rjj"/>
+                            <constraint firstItem="IEA-Qm-3KJ" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" constant="16" id="vZK-CG-EMi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wni-3b-Cb9"/>
                     </view>
                     <navigationItem key="navigationItem" title="ParkInn" id="8u9-da-EWz">
                         <barButtonItem key="backBarButtonItem" title="Back" id="igE-6p-g7f"/>
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="eH1-kG-gC5">
-                            <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barChartView" destination="IEA-Qm-3KJ" id="SL5-8u-Lii"/>
                         <outlet property="collectionView" destination="5Kx-DI-N5x" id="swj-by-Vim"/>
                         <outlet property="menuButton" destination="eH1-kG-gC5" id="ORz-xQ-ZPk"/>
+                        <outlet property="pieChartView" destination="SVa-M0-k4Y" id="yoh-Xu-rjB"/>
                         <segue destination="dHL-XQ-PPV" kind="show" identifier="toStatsVC" id="Zax-AT-yFi"/>
                         <segue destination="AhQ-yT-AZM" kind="show" identifier="toManagementVC" id="QaS-fQ-ir0"/>
                         <segue destination="7Bk-Sp-2pN" kind="show" identifier="toSettingsVC" id="nD8-Ow-16U"/>
@@ -385,11 +407,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8dd-NG-BnA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Mre-Cr-MGm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Mre-Cr-MGm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" cyan="0.86411166191101074" magenta="0.74310505390167236" yellow="0.47924783825874329" black="0.59554102453025615" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                        <color key="barTintColor" cyan="0.86411166189999999" magenta="0.74310505390000003" yellow="0.47924783830000001" black="0.59554102450000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         </textAttributes>
