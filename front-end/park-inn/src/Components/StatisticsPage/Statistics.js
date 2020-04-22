@@ -48,12 +48,13 @@ export default class Statistics extends Component {
           ]),
         ],
       },
+      averageTimeParked: await statsData.getAverageTimeParked(),
+      // user: await statsData.UserData(),
     });
   }
 
   async getLotUtil() {
     const data = await statsData.getLotStatistics();
-    console.log('data :', data[0]);
     let totalUsersParked = data[0].totalSpots - data[0].availableSpots;
     this.setState({
       parked: totalUsersParked.toString(),
@@ -70,6 +71,8 @@ export default class Statistics extends Component {
         series: [[]],
       },
       parked: '0',
+      averageTimeParked: 0,
+      user: '',
     };
   }
 
@@ -83,10 +86,10 @@ export default class Statistics extends Component {
                 <CardIcon color="lightTeal">
                   <img src={ClockIcon} height="30px" width="30px" alt="money" />
                 </CardIcon>
-                <p id="icon-subtitle">Average Wait Time</p>
+                <p id="icon-subtitle">Average Time Parked</p>
                 <p id="icon-text">
                   <font color="#74c9d4">
-                    <b>20 minute(s)</b>
+                    <b>{this.state.averageTimeParked} minute(s)</b>
                   </font>
                 </p>
                 <Divider />

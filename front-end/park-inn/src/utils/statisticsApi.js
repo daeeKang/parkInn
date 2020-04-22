@@ -33,3 +33,12 @@ export const getLotStatistics = async index => {
     console.log(err.message);
   }
 };
+
+export const getAverageTimeParked = async (index = 0) => {
+  try {
+    const { data } = await api.get(`Statistic/${companyName}`);
+    return data.lotStatistics[index].averageTimeParked.currentAverage;
+  } catch (err) {
+    console.log(err.message);
+  }
+};
