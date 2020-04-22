@@ -422,10 +422,27 @@
                     <view key="view" contentMode="scaleToFill" id="dcD-4y-E7o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsw-bU-hZq" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hsw-bU-hZq" secondAttribute="height" multiplier="1:1" id="hFu-en-uvZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hsw-bU-hZq" firstAttribute="leading" secondItem="11B-4U-83x" secondAttribute="leading" id="80O-xg-Y5I"/>
+                            <constraint firstItem="hsw-bU-hZq" firstAttribute="top" secondItem="11B-4U-83x" secondAttribute="top" id="b4x-3K-ccl"/>
+                            <constraint firstItem="11B-4U-83x" firstAttribute="trailing" secondItem="hsw-bU-hZq" secondAttribute="trailing" id="xBh-Sr-g9X"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="11B-4U-83x"/>
                     </view>
                     <navigationItem key="navigationItem" id="MWU-mm-MZq"/>
+                    <connections>
+                        <outlet property="spriteView" destination="hsw-bU-hZq" id="usQ-49-wDg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7th-Gc-ahR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
