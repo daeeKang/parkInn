@@ -350,6 +350,9 @@
                                 <state key="normal" title="Reserve Parking">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="reservePressed:" destination="XOA-2H-7b0" eventType="touchUpInside" id="hna-zf-7UN"/>
+                                </connections>
                             </button>
                             <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6o3-Xc-e3C">
                                 <rect key="frame" x="0.0" y="384" width="414" height="1"/>
@@ -405,11 +408,28 @@
                         <outlet property="nameLabel" destination="ARK-QF-aeK" id="JUi-06-0iz"/>
                         <outlet property="peakTimesGraph" destination="ZkV-aw-9AG" id="zYn-ti-fls"/>
                         <outlet property="reserveButton" destination="gZC-7d-iZx" id="Oac-aU-KJm"/>
+                        <segue destination="s56-Du-AiK" kind="show" identifier="toReservationVC" id="sXG-Ya-N3b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EE2-4g-HCe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="989.85507246376824" y="-100.44642857142857"/>
+        </scene>
+        <!--ReservationVC-->
+        <scene sceneID="9Om-5L-VBM">
+            <objects>
+                <viewController id="s56-Du-AiK" customClass="ReservationVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dcD-4y-E7o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="11B-4U-83x"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MWU-mm-MZq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7th-Gc-ahR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1817" y="-100"/>
         </scene>
     </scenes>
     <resources>

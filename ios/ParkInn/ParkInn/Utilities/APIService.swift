@@ -11,7 +11,7 @@ import Alamofire
 
 class APIService {
     typealias LotsCompletion = (Result<[Lot], AFError>) -> ()
-    typealias LotDesignCompletion = (Result<[LotDesign], AFError>) -> ()
+    typealias LotDesignCompletion = (Result<LotDesign, AFError>) -> ()
     typealias LotStatsCompletion = (Result<LotStats, AFError>) -> ()
     typealias CompanyStatsCompletion = (Result<CompanyStats, AFError>) -> ()
 

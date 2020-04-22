@@ -45,6 +45,7 @@
 		8E98C93523F38024008F612A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98C93323F38024008F612A /* LaunchScreen.storyboard */; };
 		8E98C94023F38024008F612A /* ParkInnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C93F23F38024008F612A /* ParkInnTests.swift */; };
 		8E98C94B23F38024008F612A /* ParkInnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C94A23F38024008F612A /* ParkInnUITests.swift */; };
+		8E9C41262450F25900C61E53 /* ReservationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C41252450F25900C61E53 /* ReservationVC.swift */; };
 		8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */; };
 		8EA91952240C5A7A00DE7EB3 /* Lot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91951240C5A7A00DE7EB3 /* Lot.swift */; };
 		FB17EA658A24E1B6861BA201 /* Pods_ParkInnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */; };
@@ -114,6 +115,7 @@
 		8E98C94623F38024008F612A /* ParkInnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkInnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C94A23F38024008F612A /* ParkInnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkInnUITests.swift; sourceTree = "<group>"; };
 		8E98C94C23F38024008F612A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E9C41252450F25900C61E53 /* ReservationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationVC.swift; sourceTree = "<group>"; };
 		8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8EA91951240C5A7A00DE7EB3 /* Lot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lot.swift; sourceTree = "<group>"; };
 		8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +202,7 @@
 				8E2E71C72443D1CF00A69221 /* SearchResultsVC.swift */,
 				8E33BFB2240A338000A29F55 /* UserMenuVC.swift */,
 				8E4E0425240C56CE00016031 /* LotVC.swift */,
+				8E9C41252450F25900C61E53 /* ReservationVC.swift */,
 			);
 			path = "User-Facing";
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */,
 				8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
+				8E9C41262450F25900C61E53 /* ReservationVC.swift in Sources */,
 				8E54C61D243ECD7400F15E8F /* APIRouter.swift in Sources */,
 				8E33BFB5240A516300A29F55 /* LotAnnotation.swift in Sources */,
 				8E98C92923F38022008F612A /* AppDelegate.swift in Sources */,

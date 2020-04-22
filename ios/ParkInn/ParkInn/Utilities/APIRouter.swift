@@ -42,7 +42,7 @@ enum APIRouter: URLRequestConvertible {
             case .lotsNamed(let name):
                 return "/Lot/SearchForLot/\(name)"
             case .lotDesign(let companyID, let lotID):
-                return "/Lot/GetLotDesign?companyid=\(companyID)&lotid=\(lotID)"
+                return "/Lot/GetLotDesign/\(companyID)/\(lotID)"
             case .peakTimes(let companyID, let lotID):
                 return "/Lot/GetPeakTimes/\(companyID)/\(lotID)"
             case .companyStats(let companyName):
@@ -53,12 +53,14 @@ enum APIRouter: URLRequestConvertible {
     }
 
     // MARK: - Parameters
-    private var parameters: Parameters? {
-        //        switch self {
-        //            case .lot: break
-        //            case .lots(latitude: let latitude, longitude: let longitude, radius: let radius):
-        //            break
-        //        }
+    private var parameters: String? {
+//                switch self {
+//                    case .lotDesign(let companyID, let lotID):
+//                        return "?companyid=\(companyID)&lotid=\(lotID)"
+//
+//                    default:
+//                        return nil
+//                }
         return nil
     }
 

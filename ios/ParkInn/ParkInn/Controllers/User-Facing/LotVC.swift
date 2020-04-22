@@ -167,6 +167,19 @@ class LotVC: UIViewController {
         mapItem.name = nameLabel.text!
         mapItem.openInMaps(launchOptions: options)
     }
+
+    @IBAction func reservePressed(_ sender: Any) {
+        performSegue(withIdentifier: "toReservationVC", sender: self.lot)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let reservationVC = segue.destination as? ReservationVC,
+            let lot = sender as? Lot {
+            reservationVC.lot = lot
+        }
+    }
+
+
 }
 
 // MARK: - CLLocationManagerDelegate
