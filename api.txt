@@ -282,7 +282,7 @@ Output:
 
 RESERVATION 
 ---------------------------------------
-./Reservation/AddReservation (POST)
+./Reservation/AddReservation/companyid/lotid/spotid/starttime/endtime/username (POST)
 Input:
 {
     companyid: String
