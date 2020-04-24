@@ -3,6 +3,7 @@ import Konva from "konva";
 import Modal from "react-modal";
 import axios from "axios";
 import "./Renderer.css";
+import Header from '../Header/Header';
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 
 export default class Renderer extends React.Component {
@@ -602,6 +603,7 @@ export default class Renderer extends React.Component {
     render() {
         return (
             <div>
+                <Header />
                 <div
                     className="parkingLotForm"
                     style={
