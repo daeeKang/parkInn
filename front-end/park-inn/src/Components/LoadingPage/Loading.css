@@ -1,0 +1,16 @@
+.loading-container{
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgb(31, 31, 31);
+    position: absolute;
+}
+
+.loading{
+    width: 6em;
+    fill: black;
+    position: absolute;
+    top: 45%;
+    left: 48%
+}
