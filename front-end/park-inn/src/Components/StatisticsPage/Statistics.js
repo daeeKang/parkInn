@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './Statistics.css';
 import '../ChartData/Charts.css';
 
@@ -76,6 +78,7 @@ export default class Statistics extends Component {
   render() {
     return (
       <div>
+        <Header />
         <GridContainer>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
@@ -231,6 +234,7 @@ export default class Statistics extends Component {
             </Card>
           </GridItem>
         </GridContainer>
+        <Footer />
       </div>
     );
   }
