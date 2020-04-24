@@ -70,8 +70,13 @@ class Grid: SKSpriteNode {
             let position = touch.location(in:self)
             let node = atPoint(position)
             if node != self {
-                let action = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: 1)
-                node.run(action)
+                if node.name != nil {
+
+                    #warning("TODO: Handle the spot selection here")
+
+                    let action = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: 1)
+                    node.run(action)
+                }
             }
             else {
                 let x = size.width / 2 + position.x

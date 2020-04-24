@@ -126,8 +126,9 @@ class GridScene: SKScene {
     public func addParkingLabel(_ parkingLabel: ParkingLabel) {
         guard grid != nil else { return }
 
-        let spotNode = SKSpriteNode(color: .blue, size: CGSize(width: grid.blockSize * CGFloat(parkingLabel.translatedWidth), height: grid.blockSize * CGFloat(parkingLabel.translatedHeight)))
-        spotNode.position = grid.gridPosition(row: Int(parkingLabel.translatedY), col: Int(parkingLabel.translatedX))
+        let spotNode = SKSpriteNode(color: .blue, size: CGSize(width: grid.blockSize * CGFloat(parkingLabel.translatedHeight), height: grid.blockSize * CGFloat(parkingLabel.translatedWidth)))
+        spotNode.name = "\(parkingLabel.text ?? 123)"
+        spotNode.position = grid.gridPosition(row: Int(parkingLabel.translatedY), col: Int(parkingLabel.translatedX - parkingLabel.translatedHeight))
 
         switch (parkingLabel.positiveWidth, parkingLabel.positiveHeight) {
             case (true, true): // Case 1 (+x, +y)

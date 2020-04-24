@@ -45,8 +45,8 @@ class ReservationVC: UIViewController {
 
     func plotNodes() {
         plotWalls()
-        plotParkingLines()
         plotParkingSpots()
+        plotParkingLines()
     }
 
     private func plotWalls() {
