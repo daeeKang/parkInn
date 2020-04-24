@@ -58,11 +58,11 @@ router.post("/UpdateLotDesign", async (req, res) => {
     );
 });
 
-router.get("/GetLotDesign", async (req, res) => {
-    console.log(req.query);
+router.get("/GetLotDesign/:companyid/:lotid", async (req, res) => {
+    console.log(req.params); 
     let found = await model.Lot.findOne({
-        companyid: req.query.companyid,
-        lotid: req.query.lotid,
+        companyid: req.params.companyid,
+        lotid: req.params.lotid,
     });
     console.log(found);
     res.send(found.lotDesign);
