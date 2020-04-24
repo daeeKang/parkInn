@@ -13,8 +13,8 @@ const Profile = () => {
     <Fragment>
       <img src={user.picture} alt="Profile" />
 
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
+      <h2>{user.name.givenName}</h2>
+      <p>{user.username}</p>
       <code>{JSON.stringify(user, null, 2)}</code>
     </Fragment>
   );
