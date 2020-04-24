@@ -29,4 +29,15 @@ router.post("/AddStaff", checkJwt, (req, res) => {
     });
 });
 
+router.get("/GetStaff/:username", checkJwt, async (req, res) => {
+    const staff = await model.Staff.findOne({
+        username: req.params.username,
+    });
+    try {
+        res.send(staff);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
 module.exports = router;

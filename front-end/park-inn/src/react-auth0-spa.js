@@ -36,7 +36,25 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser();
         const token = await auth0FromHook.getTokenSilently();
         api.defaults.headers.common.Authorization = `Bearer ${token}`;
-        setUser(user);
+        if(user.nickname === 'staff' || user.nickname === 'admin'){
+          api.get(`/Staff/GetStaff/${user.sub.split('|')[1]}`)
+          .then(function({data}) {
+            setUser(data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        }
+        else {
+          api.get(`/Customer/GetCustomer/${user.sub.split('|')[1]}`)
+          .then(function({data}) {
+            setUser(data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        }
+
       }
 
       setLoading(false);
