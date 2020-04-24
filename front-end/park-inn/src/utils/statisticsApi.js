@@ -1,84 +1,84 @@
 import api from './api';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import { useAuth0 } from '../react-auth0-spa';
 
 function UserData() {
   const { user } = useAuth0();
-  // const companyName = user.companyName; // temp
   return user;
 }
 
-export const getTotalRevenue = async Component => {
+export function SetData() {
+  const { user } = useAuth0();
+  const [totalRevenue, setTotalRevenue] = useState('0.00');
+  const [peakTimes, setPeakTimes] = useState({
+    labels: [],
+    series: [],
+  });
+  const [totalParked, setTotalParked] = useState(0);
+  const [averageTimeParked, setAverageTimeParked] = useState(0);
+
+  useEffect(() => {
+    fetchTotalRevenue(user, setTotalRevenue);
+    fetchPeakTimes(user, setPeakTimes);
+    fetchPeopleParked(user, setTotalParked);
+    fetchAverageTimeParked(user, setAverageTimeParked);
+  }, [user, totalRevenue, totalParked, averageTimeParked]);
+  return [totalRevenue, peakTimes, totalParked, averageTimeParked];
+}
+
+async function fetchTotalRevenue(user, setTotalRevenue) {
   try {
-    const user = UserData();
     const { data } = await api.get(`Statistic/${user.companyName}`);
-    console.log('user :>> ', user);
-    console.log('data :>> ', data);
     var rev = data.companyStatistics.revenue;
     rev = rev / 100;
-    return props => {
-      const totalRev = rev.toFixed(2);
-      return <Component {...props} totalRevenue={totalRev} />;
-    };
+    setTotalRevenue(rev.toFixed(2));
   } catch (err) {
     console.log(err);
   }
-};
+}
 
-// export const getTotalRevenue = async () => {
-//   try {
-//     const user = UserData();
-//     const { data } = await api.get(`Statistic/${user.companyName}`);
-//     var rev = data.companyStatistics.revenue;
-//     rev = rev / 100;
-//     const totalRevenue = rev.toFixed(2);
-//     return totalRevenue;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+async function fetchPeakTimes(user, setPeakTimes) {
+  let times = [12, 15, 18, 21, 0, 3, 6, 9];
+  let peakTimes = {
+    labels: ['12pm', '3pm', '6pm', '9pm', '12am', '3am', '6am', '9am'],
+    series: [],
+  };
+  let seriesArr = [];
+  try {
+    const { data } = await api.get(`Statistic/${user.companyName}`);
+    for (let i = 0; i < times.length; i++) {
+      let currPeakTime = data.companyStatistics.peakTimes[times[i]];
+      seriesArr.push(currPeakTime.count);
+    }
+    peakTimes.series.push(seriesArr);
+    setPeakTimes(peakTimes);
+    return peakTimes;
+  } catch (err) {
+    console.log(err.message);
+  }
+}
 
-// export const getTotalRevenue = async () => {
-//   try {
-//     const user = userData();
-//     const { data } = await api.get(`Statistic/${user.companyName}`);
-//     var rev = data.companyStatistics.revenue;
-//     rev = rev / 100;
-//     return rev.toFixed(2);
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// };
+async function fetchPeopleParked(user, setTotalParked, index = 0) {
+  try {
+    const { data } = await api.get(`Statistic/${user.companyName}`);
+    const amountParked =
+      data.lotStatistics[index].totalSpots -
+      data.lotStatistics[index].availableSpots;
+    setTotalParked(amountParked);
+  } catch (err) {
+    console.log(err.message);
+  }
+}
 
-// export const getPeakTimesCount = async index => {
-//   try {
-//     const user = userData();
-//     const { data } = await api.get(`Statistic/${user.companyName}`);
-//     return data.companyStatistics.peakTimes[index].count;
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// };
-
-// export const getLotStatistics = async index => {
-//   try {
-//     const user = userData();
-//     const { data } = await api.get(`Statistic/${user.companyName}`);
-//     return data.lotStatistics;
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// };
-
-// export const getAverageTimeParked = async (index = 0) => {
-//   try {
-//     const user = userData();
-//     const { data } = await api.get(`Statistic/${user.companyName}`);
-//     return data.lotStatistics[index].averageTimeParked.currentAverage;
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// };
+async function fetchAverageTimeParked(user, setAverageTimeParked, index = 0) {
+  try {
+    const { data } = await api.get(`Statistic/${user.companyName}`);
+    const avg = data.lotStatistics[index].averageTimeParked.currentAverage;
+    setAverageTimeParked(avg);
+  } catch (err) {
+    console.log(err.message);
+  }
+}

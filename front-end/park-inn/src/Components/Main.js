@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './HomePage/Home';
-import { Statistics } from './StatisticsPage/Statistics';
+import Statistics from './StatisticsPage/Statistics';
 import Events from './EventsPage/Events';
 import Incidents from './IncidentsPage/Incidents';
 import Management from './ManagementPage/Management';

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './Statistics.css';
 import '../ChartData/Charts.css';
 
@@ -11,6 +11,7 @@ import CardHeader from './../Card/CardHeader';
 import CardIcon from './../Card/CardIcon';
 import CardBody from './../Card/CardBody';
 import { Divider } from '@material-ui/core';
+import api from '../../utils/api';
 
 // charts
 import ChartistGraph from 'react-chartist';
@@ -21,7 +22,7 @@ import {
   peakHoursChart,
 } from './../ChartData/Charts';
 
-import { getTotalRevenue } from '../../utils/statisticsApi';
+import { SetData } from '../../utils/statisticsApi';
 
 // icons
 import MoneyIcon from '../Icons/money_white.svg';
@@ -29,56 +30,11 @@ import UserIcon from '../Icons/users_white.svg';
 import ClockIcon from '../Icons/clock_white.svg';
 import ArrowIcon from '../Icons/arrow.svg';
 
-export const Statistics = props => {
-  // async componentWillMount() {
-  //   await this.getLotUtil();
-  //   this.setState({
-  //     totalRev: await statsData.getTotalRevenue(),
-  //     peakHoursData: {
-  //       series: [
-  //         await Promise.all([
-  //           statsData.getPeakTimesCount(12),
-  //           statsData.getPeakTimesCount(15),
-  //           statsData.getPeakTimesCount(18),
-  //           statsData.getPeakTimesCount(21),
-  //           statsData.getPeakTimesCount(0),
-  //           statsData.getPeakTimesCount(3),
-  //           statsData.getPeakTimesCount(6),
-  //           statsData.getPeakTimesCount(9),
-  //         ]),
-  //       ],
-  //     },
-  //     averageTimeParked: await statsData.getAverageTimeParked(),
-  //     // user: await statsData.UserData(),
-  //   });
-  // }
+import { useAuth0 } from '../../react-auth0-spa';
 
-  // async getLotUtil() {
-  //   const data = await statsData.getLotStatistics();
-  //   let totalUsersParked = data[0].totalSpots - data[0].availableSpots;
-  //   this.setState({
-  //     parked: totalUsersParked.toString(),
-  //   });
-  // }
+export default function Statistics() {
+  const [totalRevenue, peakTimes, totalParked, averageTimeParked] = SetData();
 
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     totalRev: '$0.00',
-  //     peakHoursData: {
-  //       labels: ['12pm', '3pm', '6pm', '9pm', '12am', '3am', '6am', '9am'],
-  //       series: [[]],
-  //     },
-  //     parked: '0',
-  //     averageTimeParked: 0,
-  //     user: '',
-  //   };
-  // }
-
-  // render() {
-  const { totalRevenue } = getTotalRevenue();
-  console.log('totalRevenue :>> ', totalRevenue);
   return (
     <div>
       <GridContainer>
@@ -91,7 +47,7 @@ export const Statistics = props => {
               <p id="icon-subtitle">Average Time Parked</p>
               <p id="icon-text">
                 <font color="#74c9d4">
-                  {/* <b>averageTimeParked minute(s)</b> */}
+                  <b>{averageTimeParked} minute(s)</b>
                 </font>
               </p>
               <Divider />
@@ -107,7 +63,10 @@ export const Statistics = props => {
                 <img src={UserIcon} height="30px" width="30px" alt="money" />
               </CardIcon>
               <p id="icon-text">
-                <font color="#E57373">{/* <b>parked</b> */}</font> parked
+                <font color="#E57373">
+                  <b>{totalParked}</b>
+                </font>{' '}
+                parked
               </p>
               <Divider />
               <NavLink className="link" to="/parking">
@@ -163,7 +122,9 @@ export const Statistics = props => {
               </CardHeader>
               <br />
               <Divider />
-              <h2 id="card-text">{/* <center>totalRev</center> */}</h2>
+              <h2 id="card-text">
+                <center>{totalRevenue}</center>
+              </h2>
             </CardBody>
           </Card>
         </GridItem>
@@ -215,7 +176,7 @@ export const Statistics = props => {
             <CardHeader color="darkBlue">
               <ChartistGraph
                 className="ct-chart-bar"
-                // data=peakHoursData
+                data={peakTimes}
                 type={'Bar'}
                 options={peakHoursChart.options}
                 listener={peakHoursChart.animation}
@@ -233,7 +194,4 @@ export const Statistics = props => {
       </GridContainer>
     </div>
   );
-  // }
-};
-
-export default Statistics;
+}
