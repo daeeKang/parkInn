@@ -40,6 +40,19 @@ router.post("/AddLot", checkJwt, async (req, res) => {
 });
 
 router.post("/UpdateLotDesign", async (req, res) => {
+    let spots = [];
+
+    console.log(req.body.parkingLabel)
+    req.body.parkingLabel.map((label) => {
+        spots.push({
+            unavailable: null,
+            category: "general",
+            usernane: null,
+            spotid: label.text,
+            active: true
+        })
+    })
+
     await model.Lot.findOneAndUpdate(
         {
             companyid: req.body.companyid,
@@ -47,9 +60,13 @@ router.post("/UpdateLotDesign", async (req, res) => {
         },
         {
             lotDesign: req.body.design,
+            spots: spots
         }
     );
     console.log("dab");
+    
+
+
     res.send(
         await model.Lot.findOne({
             companyid: req.body.companyid,

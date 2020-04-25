@@ -47,7 +47,7 @@ export default class Renderer extends React.Component {
             x: 0,
             y: 0,
         },
-        parkingCount: 123,
+        parkingCount: 100,
         name: ""
     };
 
@@ -94,6 +94,7 @@ export default class Renderer extends React.Component {
                 companyid: this.props.user.companyid,
                 lotid: this.state.lotid,
                 design: out,
+                parkingLabel: this.state.parkingLabel
             })
             .then(function (res) {
                 console.log(res);
@@ -137,11 +138,25 @@ export default class Renderer extends React.Component {
                         parkingLines: parsed.parkingLines,
                         parkingLabel: parsed.parkingLabel,
                     });
+
+                    if(this.state.parkingLabel.length != 0){
+                        if(!isNaN(parseInt(this.state.parkingLabel[this.state.parkingLabel.length - 1].text))){
+                            this.setState({
+                                parkingCount: 100
+                            })
+                        } else 
+                        this.setState({
+                            parkingCount: parseInt(this.state.parkingLabel[this.state.parkingLabel.length - 1].text)
+                        })
+                    } else {
+                        this.setState({
+                            parkingCount: 100
+                        })
+                    }
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-
             })
             .catch((err) => {
                 console.log(err)
@@ -502,18 +517,6 @@ export default class Renderer extends React.Component {
                 }
                 break;
             }
-            // case "up":{
-            //     for (let i = 0; i < num; i++) {
-            //         labels.push({
-            //             x: origx + (dimensions.width / num) * i,
-            //             y: origy,
-            //             width: dimensions.width / num,
-            //             height: dimensions.width / num / 2,
-            //             text: ++inText,
-            //             rotation: 0
-            //         });
-            //     }
-            // }
             case "left":
             case "right": {
                 for (let i = 0; i < num; i++) {
