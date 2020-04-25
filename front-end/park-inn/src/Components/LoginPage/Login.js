@@ -4,6 +4,7 @@ import LoginHeader from './LoginHeader';
 import About from './About';
 import MainLanding from './MainLanding';
 import CoreFeatures from "./CoreFeatures";
+import Products from './Products';
 import Arrow from './arrow_up.svg';
 import ScrollUpButton from "react-scroll-up-button";
 import { useAuth0 } from '../../react-auth0-spa';
@@ -31,11 +32,14 @@ export default props => {
         <MainLanding />
         <About />
         <CoreFeatures />
-        <div className="login-page">
+        <Products />
+
+        {/* original login page */}
+        {/* <div className="login-page">
           {!isAuthenticated && ( <button onClick={() => loginWithRedirect({
                 redirect_uri: `${config.address}/dash`
           })}>Log in</button>)}
-        </div>
+        </div> */}
       </div>
     );
 }

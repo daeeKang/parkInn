@@ -5,6 +5,7 @@ import { Container, Grid } from '@material-ui/core';
 import GridContainer from '../Grid/GridContainer.js';
 import GridItem from '../Grid/GridItem.js';
 import Phones from './3fonez.png';
+import Test from './phone_transparent.png';
 import Arrow from './arrow_down.svg';
 
 import { useAuth0 } from '../../react-auth0-spa';
@@ -73,32 +74,31 @@ function MainLandingLayout(props) {
   };
 
   return (
-    // <section className={classes.root}>
-    //     <Container className={classes.container}>
-    //         <div className="landing">
-    //             <p>hi</p>
-    //         </div>
-    //         <p id="logo">Login | Signup</p>
-    //     </Container>
-
-    //     <Container className={classes.containerLeft}>
-    //         <p id="landing-text">use our app bitch</p>
-    //         <p id="landing-text">pls</p>
-    //     </Container>
-    // </section>
-
+    <a name="parkinn">
+    {/* <div className="landing"> */}
     <Container>
+      <br/><br/>
       <GridContainer spacing={3}>
         <GridItem xs={6}>
-          <img src={Phones} height="600px" width="900px" alt="phones" />
+          {/* this is transparent phone img */}
+          <div className="landing-product">
+            <img src={Test} height="500px" width="920px" alt="phones" />
+          </div>
+
+          {/* this was custom */}
+          {/* <img src={Phones} height="600px" width="900px" alt="phones" /> */}
         </GridItem>
+
         <GridItem xs={6}>
           <Container className={classes.containerLeft}>
+            {/* <div class="fade-in-title"> */}
             <h1 id="landing-title">Welcome to ParkInn!</h1>
+            {/* </div> */}
 
-            <div class="fade-in">
-              <p id="landing-subtitle">The parking management software that allows you to take care of your parking reservations with ease.</p>
+            <div class="fade-in-subtitle">
+              <p id="landing-subtitle">The parking management software that allows you to monetize, enforce, and take care of your parking reservations with ease.</p>
             </div>
+            <br/>
 
             <div>
               {!isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
@@ -109,25 +109,21 @@ function MainLandingLayout(props) {
                   redirect_uri: `${config.address}/dash`
               })}>Sign up ></button>)}
               <br /><br /><br /><br />
-
             </div>
-
-            {/* <div id="next">
-              <div id="bottom">
-                <img src={Arrow} height="80px" width="80px" fill="gray" alt="next" />
-              </div>
-            </div>           */}
             </Container>
+
             <div id="bottom">
-              <a href="#features">
+              <a href="#about">
                 <p id="landing-link">
                   <img src={Arrow} height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Learn More</span>
                 </p>
               </a>
             </div>
-        </GridItem>
+          </GridItem>
       </GridContainer>
     </Container>
+    {/* </div> */}
+    </a>
   );
 }
 

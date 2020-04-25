@@ -70,19 +70,20 @@ a:hover {
   background: #fff;
 }
 
-.tab { 
-  display: inline-block; 
-  margin-left: 20px; 
-}
-
-.landing {
-  /* display: ; */
+/* keep in case we want a landing background */
+/* .landing {
   align-items: right;
   background-color: #fff;
-  /* background-image: url(./3fonez.png); */
+  background-image: url(./test.png);
   background-size: cover;
   height: 100vh;
   width: 100vw;
+}
+*/
+
+.landing-product {
+  display: flex;
+  justify-content: space-around;
 }
 
 .landing-button {
@@ -134,7 +135,7 @@ a:hover {
   font-family: 'Muli';
   color: #999;
   font-weight: 100;
-  font-size: 26px;
+  font-size: 24px;
   letter-spacing: 1px;
   text-align: left;
   justify-items: right;
@@ -163,21 +164,72 @@ a:hover {
   bottom: 0;
 }
 
-.core-features {
-  align-items: right;
+.tab { 
+  display: inline-block; 
+  margin-left: 20px; 
+}
+
+.about-us {
+  align-items: center;
+  justify-content: center;
+  background-color: #57b4ff;
+  /* background-image: url(./test.jpg); */
+  opacity: 0.4;
+  background-size: cover;
+}
+
+.about-text-section {
   background-color: #fff;
-  background-image: url(./feature_background.png);
+  padding: 30px 30px 30px 30px;
+  opacity: 0.6;
+}
+
+#about-title {
+  font-family: 'Muli';
+  color: #0f2b42;
+  font-weight: 400;
+  font-size: 40px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#about-subtitle {
+  font-family: 'Helvetica';
+  color: #000;
+  font-weight: 100;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* keep in case we want a features background */
+/* .core-features {
+  align-items: right;
+  background-color: linear-gradient(#90CAF9, #999);
+  background-image: url(./test.jpg);
   background-size: cover;
   height: 100vh;
   width: 100vw;
+} */
+
+#features-title {
+  font-family: 'Muli';
+  font-weight: 400;
+  /* darker - color: #b5d9f7; */
+  /* lighter - color: #c1dff7; */
+  color: #adc9e0;
+  font-size: 26px;
+  letter-spacing: 0px;
+  text-align: center;
+  /* text-transform: uppercase; */
 }
 
-#core-features-text {
+#features-text {
   font-family: 'Helvetica';
   color: #999;
   font-weight: 100;
-  font-size: 26px;
-  letter-spacing: 4px;
+  font-size: 20px;
+  letter-spacing: 0px;
   text-align: center;
 }
 
@@ -187,7 +239,7 @@ a:hover {
   display: flex;
   align-items: center;
   background-color: #fff;
-  background-image: url(./signinBackground.jpg);
+  background-image: url(./test.jpg);
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -277,13 +329,22 @@ a:hover {
 }
 
 /* transitions for landing text lol */
-.fade-in {
-  animation: fadeIn ease 5s;
-  -webkit-animation: fadeIn ease 5s;
-  -moz-animation: fadeIn ease 5s;
-  -o-animation: fadeIn ease 5s;
-  -ms-animation: fadeIn ease 5s;
+/* .fade-in-title {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+} */
+
+.fade-in-subtitle {
+  animation: fadeIn ease 7s;
+  -webkit-animation: fadeIn ease 7s;
+  -moz-animation: fadeIn ease 7s;
+  -o-animation: fadeIn ease 7s;
+  -ms-animation: fadeIn ease 7s;
 }
+
 @keyframes fadeIn {
   0% {
     opacity:0;

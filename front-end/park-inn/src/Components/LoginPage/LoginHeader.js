@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import Logo from '../Icons/parkinn_black.png';
 import Link from '@material-ui/core/Link';
@@ -58,7 +57,9 @@ function AppAppBar(props) {
                 {'ParkInn'}
             </Link> */}
 
-            <p id="logo">ParkInn</p>
+            <a href="#parkinn">
+              <p id="logo">ParkInn</p>
+            </a>
 
             {/* sign up buttons -- will change to responsive drawer l8r */}
             <div className={classes.right}>
