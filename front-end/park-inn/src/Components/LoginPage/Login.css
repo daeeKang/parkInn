@@ -1,5 +1,19 @@
 @import '../../styles/variables.css';
 
+.scroll-styles {
+  position: fixed;
+  right: -100px;
+  bottom: 5px;
+  transition: right 0.5s;
+  background-color: none;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.scroll-transition {
+  right: 20px;
+}
+
 #logo {
   font-family: 'Helvetica';
   background: linear-gradient(#90CAF9, #999);

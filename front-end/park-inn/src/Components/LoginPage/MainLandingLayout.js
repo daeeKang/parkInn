@@ -97,7 +97,7 @@ function MainLandingLayout(props) {
             <h1 id="landing-title">Welcome to ParkInn!</h1>
 
             <div class="fade-in">
-              <p id="landing-subtitle">The parking management software that allows you to easily take care of your parking reservations.</p>
+              <p id="landing-subtitle">The parking management software that allows you to take care of your parking reservations with ease.</p>
             </div>
 
             <div>
