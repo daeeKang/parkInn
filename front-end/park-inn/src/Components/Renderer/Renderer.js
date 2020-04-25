@@ -1,12 +1,18 @@
 import React from "react";
 import Konva from "konva";
 import Modal from "react-modal";
-import axios from "axios";
+import api from "../../utils/api";
 import "./Renderer.css";
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
+import GetLot from "./GetLot";
+import Profile from "../Profile";
+import config from '../../auth_config.json';
+
 
 export default class Renderer extends React.Component {
     state = {
+        lotid: null,
+
         //state
         drawingState: "pan",
 
@@ -42,10 +48,19 @@ export default class Renderer extends React.Component {
             y: 0,
         },
         parkingCount: 123,
+        name: ""
     };
 
     componentDidMount() {
-        this.loadData();
+        if(this.props.user != undefined)
+            this.loadData(this.props.user)
+    }
+
+    updateName = (val) => {
+        this.setState({
+            name: val
+        })
+        console.log(val);
     }
 
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
@@ -74,10 +89,10 @@ export default class Renderer extends React.Component {
         };
 
         out = JSON.stringify(out);
-        axios
+        api
             .post("http://localhost:8000/Lot/UpdateLotDesign", {
-                companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
-                lotid: 1,
+                companyid: this.props.user.companyid,
+                lotid: this.state.lotid,
                 design: out,
             })
             .then(function (res) {
@@ -88,26 +103,52 @@ export default class Renderer extends React.Component {
             });
     };
 
-    loadData = async () => {
-        await axios
-            .get("http://localhost:8000/Lot/GetLotDesign", {
-                params: {
-                    companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
-                    lotid: 1,
-                },
+    loadData = async(a) => {
+        if(a.companyid == undefined) {
+            console.log("no companyid");
+            return;
+        }
+        let lotid;
+
+        await api
+            .get(`http://localhost:8000/Lot/GetLots/` + a.companyid, {
+                client_id: config.clientId,
+                email: a.username,
+                connection: config.connection,
             })
             .then((res) => {
-                let parsed = res.data;
-                if(parsed.parkingLines == undefined) return;
+                lotid = res.data[0].lotid
                 this.setState({
-                    walls: parsed.walls,
-                    parkingLines: parsed.parkingLines,
-                    parkingLabel: parsed.parkingLabel,
+                    lotid: lotid
+                })
+
+                api
+                .get("http://localhost:8000/Lot/GetLotDesign/"+a.companyid+"/"+lotid, {
+                    client_id: config.clientId,
+                    email: a.username,
+                    connection: config.connection,
+                })
+                .then((res) => {
+                    let parsed = res.data;
+                    console.log(parsed);
+                    if(parsed.parkingLines == undefined) return;
+                    this.setState({
+                        walls: parsed.walls,
+                        parkingLines: parsed.parkingLines,
+                        parkingLabel: parsed.parkingLabel,
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
                 });
+
             })
             .catch((err) => {
-                console.log(err);
-            });
+                console.log(err)
+            })
+
+        
+
     };
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
@@ -752,7 +793,6 @@ export default class Renderer extends React.Component {
                         erase
                     </button>
                     <button onClick={this.serializeData}>save</button>
-                    <button onClick={this.loadData}>load</button>
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}
