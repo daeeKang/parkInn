@@ -430,23 +430,108 @@
                                     <constraint firstAttribute="width" secondItem="hsw-bU-hZq" secondAttribute="height" multiplier="1:1" id="hFu-en-uvZ"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-vU-Fx9">
+                                <rect key="frame" x="0.0" y="414" width="414" height="302"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="xYf-0T-vOz">
+                                    <rect key="frame" x="0.0" y="222" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerTableViewCellIdentifier" rowHeight="95" id="kBL-OL-5ag" customClass="DatePickerTableViewCell" customModule="ParkInn" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kBL-OL-5ag" id="79r-XP-TYX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="69m-9X-vKJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="69m-9X-vKJ" secondAttribute="trailing" id="HMF-Tq-jsC"/>
+                                                <constraint firstItem="69m-9X-vKJ" firstAttribute="leading" secondItem="79r-XP-TYX" secondAttribute="leading" id="TRw-NF-sVm"/>
+                                                <constraint firstItem="69m-9X-vKJ" firstAttribute="top" secondItem="79r-XP-TYX" secondAttribute="top" id="agT-so-lsB"/>
+                                                <constraint firstAttribute="bottom" secondItem="69m-9X-vKJ" secondAttribute="bottom" id="aqc-aD-2dS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePicker" destination="69m-9X-vKJ" id="I2Y-la-J6E"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateTableViewCellIdentifier" rowHeight="71" id="ahu-21-lPR" customClass="DateTableViewCell" customModule="ParkInn" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="123" width="414" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahu-21-lPR" id="ZMG-Lu-a4E">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhL-m3-75S">
+                                                    <rect key="frame" x="342" y="24.666666666666664" width="44" height="21.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-oe-Vvp">
+                                                    <rect key="frame" x="28" y="24.666666666666664" width="45" height="21.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HhL-m3-75S" firstAttribute="centerY" secondItem="ZMG-Lu-a4E" secondAttribute="centerY" id="2vh-xI-ufk"/>
+                                                <constraint firstItem="DRU-oe-Vvp" firstAttribute="leading" secondItem="ZMG-Lu-a4E" secondAttribute="leadingMargin" constant="8" id="C6x-xz-2HD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HhL-m3-75S" secondAttribute="trailing" constant="8" id="SGx-kB-RSg"/>
+                                                <constraint firstItem="DRU-oe-Vvp" firstAttribute="centerY" secondItem="ZMG-Lu-a4E" secondAttribute="centerY" id="qM4-ZW-UbL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="HhL-m3-75S" id="4ZY-4U-Iy2"/>
+                                            <outlet property="label" destination="DRU-oe-Vvp" id="i5I-6x-6Rs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXA-Mu-wgc">
+                                <rect key="frame" x="16" y="732" width="382" height="60"/>
+                                <color key="backgroundColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="DLQ-De-Em0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hXA-Mu-wgc" firstAttribute="leading" secondItem="11B-4U-83x" secondAttribute="leading" constant="16" id="0bF-9u-A0M"/>
                             <constraint firstItem="hsw-bU-hZq" firstAttribute="leading" secondItem="11B-4U-83x" secondAttribute="leading" id="80O-xg-Y5I"/>
+                            <constraint firstItem="vPE-vU-Fx9" firstAttribute="top" secondItem="hsw-bU-hZq" secondAttribute="bottom" id="Ac3-qK-PH4"/>
+                            <constraint firstItem="hXA-Mu-wgc" firstAttribute="top" secondItem="vPE-vU-Fx9" secondAttribute="bottom" constant="16" id="RWo-0w-xiu"/>
                             <constraint firstItem="hsw-bU-hZq" firstAttribute="top" secondItem="11B-4U-83x" secondAttribute="top" id="b4x-3K-ccl"/>
+                            <constraint firstItem="11B-4U-83x" firstAttribute="bottom" secondItem="hXA-Mu-wgc" secondAttribute="bottom" constant="16" id="gIm-Ck-JAD"/>
+                            <constraint firstItem="vPE-vU-Fx9" firstAttribute="leading" secondItem="11B-4U-83x" secondAttribute="leading" id="jED-Qe-nlA"/>
+                            <constraint firstItem="11B-4U-83x" firstAttribute="trailing" secondItem="vPE-vU-Fx9" secondAttribute="trailing" id="kr4-kq-IAy"/>
+                            <constraint firstItem="11B-4U-83x" firstAttribute="trailing" secondItem="hXA-Mu-wgc" secondAttribute="trailing" constant="16" id="sWo-Dq-eCO"/>
                             <constraint firstItem="11B-4U-83x" firstAttribute="trailing" secondItem="hsw-bU-hZq" secondAttribute="trailing" id="xBh-Sr-g9X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="11B-4U-83x"/>
                     </view>
                     <navigationItem key="navigationItem" id="MWU-mm-MZq"/>
                     <connections>
+                        <outlet property="confirmButton" destination="hXA-Mu-wgc" id="Wet-dm-Sgx"/>
                         <outlet property="spriteView" destination="hsw-bU-hZq" id="usQ-49-wDg"/>
+                        <outlet property="tableView" destination="vPE-vU-Fx9" id="zaJ-tj-ZxA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7th-Gc-ahR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="-100"/>
+            <point key="canvasLocation" x="1815.9420289855075" y="-100.44642857142857"/>
         </scene>
     </scenes>
     <resources>
