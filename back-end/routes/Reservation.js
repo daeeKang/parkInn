@@ -4,15 +4,15 @@ const checkJwt = require("../middleware/checkJwt");
 //TO DO: Protect Route After Login is Setup for all applications
 
 // welcome to mom's spaghetti all over the code already
-router.post('/AddReservation/:companyid/:lotid/:spotid/:starttime/:endtime/:username/:expired', async (req, res) => {
+router.post('/AddReservation', async (req, res) => {
     const reservation = new model.Reservation({
-        companyid: req.params.companyid,
-        lotid: req.params.lotid,
-        spotid: req.params.spotid,
-        starttime: req.params.starttime,
-        endtime: req.params.endtime,
-        username: req.params.username,
-        expired: req.params.expired
+        companyid: req.body.companyid,
+        lotid: req.body.lotid,
+        spotid: req.body.spotid,
+        starttime: req.body.starttime,
+        endtime: req.body.endtime,
+        username: req.body.username,
+        expired: req.body.expired
     });
     // this will collect all the errors that will inevitably occur
     let err = "";
@@ -63,17 +63,17 @@ router.post('/AddReservation/:companyid/:lotid/:spotid/:starttime/:endtime/:user
         await model.Lot.update(
             {
                 // find a Lot with these properties 
-                companyid: req.params.companyid,
-                lotid: req.params.lotid,
-                'spots.spotid': req.params.spotid
+                companyid: req.body.companyid,
+                lotid: req.body.lotid,
+                'spots.spotid': req.body.spotid
             },
             {
                 // add to the array of the spot with the same spotid the reservation
                 $addToSet:{
                     'spots.$.reserveddates' : {
                         _id: reservation.id,
-                        starttime: req.params.starttime,
-                        endtime : req.params.endtime
+                        starttime: req.body.starttime,
+                        endtime : req.body.endtime
                     }
                 }
             },
