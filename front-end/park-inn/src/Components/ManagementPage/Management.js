@@ -59,7 +59,7 @@ const Management = () => {
     return (
       <div>
         <center>
-          <p id="settings-sub" style={{fontSize: "25px"}}>Manage Account Settings</p>
+          <p id="settings-sub" style={{fontSize: "25px", color: "#366387"}}>Manage Account Settings</p>
         </center>
         <br/><br/>
 
@@ -77,9 +77,9 @@ const Management = () => {
             </ExpansionPanelSummary>
 
             <ExpansionPanelDetails>
-              <Card style={{ height: `100%` }}>
+              <Card style={{ height: `100%`, width:`100%` }}>
                 <div class="sub-header">
-                  <button class="button change-password"  onClick={handlePasswordChange}>Click to Change Password</button>
+                  <button class="button change-password"  onClick={handlePasswordChange}>Click to Change Your Password</button>
                 </div>
               </Card>
             </ExpansionPanelDetails>
