@@ -21,19 +21,19 @@ export default props => {
 
             <GridContainer spacing={5}>
               <GridItem xs={12} md={4}>
-                <p id="features-title">Manage Parking</p>
+                <p id="about-heading">Manage Parking</p>
                 <img src={pls} height="300" width="400" alt="manage"/>
                 <p id="features-text" style={{fontSize: "19px"}}>Our <font color="#adc9e0"><b>parking lot designer</b></font> allows you to create the layout of your virtual parking lot,
                 change prices of individual spots, or mark certain spots as unavailable during special event parking.</p>
               </GridItem>
               <GridItem xs={12} md={4}>
-                <p id="features-title">Company Statistics</p>
+                <p id="about-heading">Company Statistics</p>
                 <img src={pls} height="300" width="400" alt="manage"/>
                 <p id="features-text" style={{fontSize: "20px"}}>View your <font color="#adc9e0"><b>company's analytics</b></font> such as revenue earned, weekly/monthly sales trends,
                 peak parking hours, average wait times, and live lot utilization.</p>
               </GridItem>
               <GridItem xs={12} md={4}>
-                <p id="features-title">Customer Features</p>
+                <p id="about-heading">Customer Features</p>
                 <img src={pls} height="300" width="400" alt="manage"/>
                 <p id="features-text" style={{fontSize: "20px"}}>Our <font color="#adc9e0"><b>mobile application</b></font> allows guests to search for different parking lots in your city,
                 view price comparisons between lots, reserve spots in advance, and pay online.</p>
