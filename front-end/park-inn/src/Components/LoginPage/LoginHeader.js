@@ -44,7 +44,9 @@ function AppAppBar(props) {
       <AppBar style={{ background: '#fff' }} position="fixed">
         <Toolbar className={classes.toolbar}>
             <div className={classes.left}>
-                <img src={Logo} height="80px" width="80px" padding="10px" alt="account-button" />
+                <a href="#parkinn">
+                  <img src={Logo} height="80px" width="80px" padding="10px" alt="account-button" />
+                </a>
             </div>
         
             {/* link back to home */}
@@ -57,9 +59,9 @@ function AppAppBar(props) {
                 {'ParkInn'}
             </Link> */}
 
-            <a href="#parkinn">
+            {/* <a href="#parkinn">
               <p id="logo">ParkInn</p>
-            </a>
+            </a> */}
 
             {/* sign up buttons -- will change to responsive drawer l8r */}
             <div className={classes.right}>

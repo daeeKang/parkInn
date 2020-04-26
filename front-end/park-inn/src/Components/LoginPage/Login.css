@@ -14,6 +14,26 @@
   right: 20px;
 }
 
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
 #logo {
   font-family: 'Helvetica';
   background: linear-gradient(#90CAF9, #999);
@@ -123,7 +143,7 @@ a:hover {
 
 #landing-title {
   font-family: 'Muli';
-  color: #999;
+  color: #666;
   font-weight: 100;
   font-size: 48px;
   letter-spacing: 1px;
@@ -143,7 +163,7 @@ a:hover {
 
 #landing-link {
   font-family: 'Muli';
-  color: #999;
+  color: #666;
   font-weight: 100;
   font-size: 24px;
   letter-spacing: 1px;
@@ -152,7 +172,7 @@ a:hover {
 }
 
 #landing-link:hover {
-  color: #90CAF9;
+  color: #366387;
 }
 
 /* #next {
@@ -172,7 +192,8 @@ a:hover {
 .about-us {
   align-items: center;
   justify-content: center;
-  background-color: #57b4ff;
+  background: linear-gradient(#d9ebfa, #fff, #d9ebfa, #e1effa);
+  background-color: linear-gradient(#90CAF9, #999);
   /* background-image: url(./test.jpg); */
   opacity: 0.4;
   background-size: cover;
@@ -180,13 +201,28 @@ a:hover {
 
 .about-text-section {
   background-color: #fff;
+  align-items: center;
+  justify-content: center;
   padding: 30px 30px 30px 30px;
-  opacity: 0.6;
+  opacity: 0.9;
+}
+
+.about-us-2 {
+  align-items: center;
+  justify-content: center;
+  padding: 30px 30px 30px 30px;
+}
+
+.about-img {
+  justify-content: center;
+  display: flex;
+  padding: 0px;
+  margin: 0;
 }
 
 #about-title {
   font-family: 'Muli';
-  color: #0f2b42;
+  color: #366387;
   font-weight: 400;
   font-size: 40px;
   letter-spacing: 1px;
@@ -195,11 +231,43 @@ a:hover {
 
 #about-subtitle {
   font-family: 'Helvetica';
-  color: #000;
+  color: #999;
   font-weight: 100;
   font-size: 20px;
   letter-spacing: 1px;
   text-align: center;
+}
+
+#about-heading {
+  font-family: 'Muli';
+  color: #366387;
+  font-weight: 400;
+  font-size: 23px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#about-text {
+  font-family: 'Helvetica';
+  color: #999;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#about-link {
+  font-family: 'Muli';
+  color: #999;
+  font-weight: 100;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: left;
+  justify-items: right;
+}
+
+#about-link:hover {
+  color: #adc9e0;
 }
 
 /* keep in case we want a features background */
@@ -214,10 +282,10 @@ a:hover {
 
 #features-title {
   font-family: 'Muli';
-  font-weight: 400;
+  font-weight: 300;
   /* darker - color: #b5d9f7; */
   /* lighter - color: #c1dff7; */
-  color: #adc9e0;
+  color: #366387;
   font-size: 26px;
   letter-spacing: 0px;
   text-align: center;
@@ -228,11 +296,54 @@ a:hover {
   font-family: 'Helvetica';
   color: #999;
   font-weight: 100;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 0px;
   text-align: center;
 }
 
+.product {
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#d9ebfa, #fff, #d9ebfa, #e1effa);
+  background-color: linear-gradient(#90CAF9, #999);
+  /* background-image: url(./test.jpg); */
+  background-size: cover;
+  opacity: 0.8;
+}
+
+.product-page {
+  display: flex;
+  justify-content: space-around;
+  opacity: 1;
+}
+
+.product-text-section {
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 30px 30px 30px;
+  opacity: 1;
+}
+
+.features-button {
+  font-family: "Helvetica";
+  background: #000;
+  color: #999;
+  font-size: medium;
+  font-weight: 100;
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  height: 30px;
+  width: 200px;
+  margin: auto;
+  padding: 15px;
+  border-style: solid;
+  border-radius: 2px;
+  /* border-color: gray;
+  outline: none;
+  transition: border-color 0.2s ease-out; */
+}
 
 .login-page {
   text-align: center;

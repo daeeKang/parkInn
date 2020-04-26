@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
 import GridContainer from '../Grid/GridContainer.js';
 import GridItem from '../Grid/GridItem.js';
-import Phones from './3fonez.png';
 import Test from './phone_transparent.png';
+import Desktop from './hello.png';
 import Arrow from './arrow_down.svg';
 
 import { useAuth0 } from '../../react-auth0-spa';
@@ -82,21 +82,21 @@ function MainLandingLayout(props) {
         <GridItem xs={6}>
           {/* this is transparent phone img */}
           <div className="landing-product">
-            <img src={Test} height="500px" width="920px" alt="phones" />
+            <img src={Desktop} height="450px" width="450px" alt="phones" />
           </div>
 
-          {/* this was custom */}
+          {/* this was custom for non-transparent images */}
           {/* <img src={Phones} height="600px" width="900px" alt="phones" /> */}
         </GridItem>
 
         <GridItem xs={6}>
           <Container className={classes.containerLeft}>
             {/* <div class="fade-in-title"> */}
-            <h1 id="landing-title">Welcome to ParkInn!</h1>
+            <h1 id="landing-title">Welcome to <font color="#366387">ParkInn</font></h1>
             {/* </div> */}
 
             <div class="fade-in-subtitle">
-              <p id="landing-subtitle">The parking management software that allows you to monetize, enforce, and take care of your parking reservations with ease.</p>
+              <p id="landing-subtitle">The parking management software that allows you to manage, monetize, and enforce parking reservations with ease.</p>
             </div>
             <br/>
 
