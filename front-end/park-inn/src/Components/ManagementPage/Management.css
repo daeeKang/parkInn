@@ -9,8 +9,24 @@
 }
 
 .change-password {
-  width: 11%;
-  height: 7%;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: right;
+  color: #366387;
+  background-color: #fff;
+  width: 84%;
+  height: 30%;
+  border-style: solid;
+  border-radius: 0px;
+  border-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.change-password:hover {
+  color: #fff;
 }
 
 .add-employee-container {
@@ -19,4 +35,18 @@
   position: relative;
   width: 70%;
   height: 80%;
+}
+
+#settings {
+  font-family: 'Helvetica';
+  font-size: 15px;
+  color: #444;
+  font-weight: 200;
+}
+
+#settings-sub {
+  font-family: 'Helvetica';
+  font-size: 15px;
+  color: #999;
+  font-weight: 100;
 }

@@ -14,6 +14,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Card from '../Card/Card';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,39 +58,48 @@ const Management = () => {
 
     return (
       <div>
-        <center>Account Settings</center>
+        <center>
+          <p id="settings-sub" style={{fontSize: "25px"}}>Manage Account Settings</p>
+        </center>
         <br/><br/>
-        <NotificationContainer />
-        <div className={classes.root}>
-        <ExpansionPanel>
-          <ExpansionPanelSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-          <Typography className={classes.heading}>General Settings</Typography>
-          <Typography className={classes.secondaryHeading}>Change your password</Typography>
-          </ExpansionPanelSummary>
 
-          <ExpansionPanelDetails>
-            <button class="button change-password"  onClick={handlePasswordChange}>Change Password</button>
-          </ExpansionPanelDetails>
-      </ExpansionPanel>
+        <NotificationContainer />
+
+        <div className={classes.root}>
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+            <Typography className={classes.heading}><p id="settings">General Settings</p></Typography>
+            <Typography className={classes.secondaryHeading}><p id="settings-sub">Change your password</p></Typography>
+            </ExpansionPanelSummary>
+
+            <ExpansionPanelDetails>
+              <Card style={{ height: `100%` }}>
+                <div class="sub-header">
+                  <button class="button change-password"  onClick={handlePasswordChange}>Click to Change Password</button>
+                </div>
+              </Card>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
       
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Employee Settings</Typography>
-          <Typography className={classes.secondaryHeading}>Add employees to manage parking</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <AddEmployee></AddEmployee>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-    </div>
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography className={classes.heading}><p id="settings">Employee Settings</p></Typography>
+              <Typography className={classes.secondaryHeading}><p id="settings-sub">Add employees to manage parking</p></Typography>
+            </ExpansionPanelSummary>
+
+            <ExpansionPanelDetails>
+              <AddEmployee></AddEmployee>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+       </div>
 
       {/* <div class="page">
         <NotificationContainer />
@@ -102,7 +112,6 @@ const Management = () => {
         </div>
       </div> */}
     </div>
-  
     );
 }
 

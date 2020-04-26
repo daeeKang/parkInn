@@ -9,7 +9,12 @@ export const AddEmployee = () => {
 
     return (
       <Card style={{ height: `100%` }}>
-        <div class="sub-header">Add Employee</div>
+        <div class="sub-header">
+          <p id="employee">
+            Add Employee
+          </p>
+        </div>
+
         <div id="add-page" class="add-page">
           <form>
             <AddEmployeeTextFields />
