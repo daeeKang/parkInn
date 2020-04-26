@@ -92,7 +92,7 @@ function MainLandingLayout(props) {
         <GridItem xs={6}>
           <Container className={classes.containerLeft}>
             {/* <div class="fade-in-title"> */}
-            <h1 id="landing-title">Welcome to <font color="#366387">ParkInn</font></h1>
+            <h1 id="landing-title">Welcome to <font color="#366387">ParkInn!</font></h1>
             {/* </div> */}
 
             <div class="fade-in-subtitle">

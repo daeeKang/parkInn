@@ -61,11 +61,13 @@ export default props => {
                     <p id="about-text">Create virtual parking lots, <font color="#adc9e0"><b>sell</b></font> parking reservations, and 
                     <font color="#adc9e0"><b> view</b></font> real-time analytics of your company earnings and parking lot visitors.</p>
                     <br/>
-                    <a href="#features">
-                      <p id="landing-link">
-                        <img src={Arrow} height="20px" width="20px" fill="gray" alt="next" /><span className="tab">See Our Features</span>
-                      </p>
-                    </a>
+                    <div id="right">
+                      <a href="#features">
+                        <p id="landing-link">
+                          <img src={Arrow} height="20px" width="20px" fill="gray" alt="next" /><span className="tab">See Our Features</span>
+                        </p>
+                      </a>
+                    </div>
                   </GridItem>
                 </GridContainer>
               {/* </div> */}

@@ -37,11 +37,13 @@ export default props => {
                 <img src={pls} height="300" width="400" alt="manage"/>
                 <p id="features-text" style={{fontSize: "20px"}}>Our <font color="#adc9e0"><b>mobile application</b></font> allows guests to search for different parking lots in your city,
                 view price comparisons between lots, reserve spots in advance, and pay online.</p>
-                <a href="#products">
+                <div id="right">
+                  <a href="#products">
                       <p id="landing-link">
                         <img src={Arrow} height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Get Started</span>
                       </p>
-                    </a>
+                  </a>
+                </div>
               </GridItem>
             </GridContainer>
           </Container>

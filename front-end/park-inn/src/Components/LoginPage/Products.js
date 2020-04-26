@@ -14,7 +14,7 @@ export default props => {
           <br/>
           <Container>
             <GridItem xs={12}>
-              <p id="about-title" style={{fontSize: "40px"}}>Try ParkInn today!</p>
+              <p id="about-title" style={{fontSize: "45px", color: "#adc9e0"}}>Try ParkInn today!</p>
               <p id="features-text" style={{fontSize: "27px"}}><font color="#999">Available through your web browser or mobile (iOS only) phone.</font></p>
             </GridItem>
             <GridContainer spacing={5}>
