@@ -111,7 +111,7 @@
     font-weight: '100';
     color: #555;
     font-size: 14px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     color: black;
     width: 8vw;
@@ -125,7 +125,7 @@
     background-color: rgb(255, 184, 184);
 }
 .redButton:hover {
-    color: #444;
+    color: #fff;
     background-color: rgb(255, 122, 122);
 }
 
@@ -135,7 +135,7 @@
     background-color: rgb(191, 252, 191);
 }
 .greenButton:hover {
-    color: #444;
+    color: #000;
     background-color: rgb(145, 252, 145);
 }
 
@@ -171,15 +171,16 @@
     font-weight: 350;
     font-size: 14px;
     width: 10vw;
-    border-radius: 30px;
+    border-radius: 35px;
     border: solid 2px #366387;
     display: inline-block;
     margin-bottom: 2px;
+    opacity: 0.8;
 }
 
 .orientButton:hover {
     background-color: #366387;
-    opacity: 0.8;
+    opacity: 0.7;
     color: #fff;
 }
 

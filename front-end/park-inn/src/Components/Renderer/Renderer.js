@@ -695,6 +695,7 @@ export default class Renderer extends React.Component {
                                 </button>
                             </div>
                         </div>
+                        <br/>
                         <GridContainer>
                             <GridItem xs={6}>
                                 <div className="left-2">
@@ -745,20 +746,26 @@ export default class Renderer extends React.Component {
                             </GridItem>
                         </GridContainer>
 
-                        <button
-                            className="formButtons greenButton"
-                            id="accept"
-                            onClick={this.parkingFormChange}
-                        >
-                            Okay
-                        </button>
-                        <button
-                            className="formButtons redButton"
-                            id="cancel"
-                            onClick={this.exitParkingForm}
-                        >
-                            Discard
-                        </button>
+                        <br/>
+                        
+                        {/* <div className="bottom"> */}
+                            {/* <center> */}
+                                <button
+                                className="formButtons greenButton"
+                                id="accept"
+                                onClick={this.parkingFormChange}
+                                >
+                                    Okay
+                                </button>
+                                <button
+                                    className="formButtons redButton"
+                                    id="cancel"
+                                    onClick={this.exitParkingForm}
+                                >
+                                    Discard
+                                </button>
+                            {/* </center> */}
+                        {/* </div> */}
                     </div>
                 </div>
 
