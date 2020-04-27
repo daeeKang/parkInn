@@ -114,6 +114,7 @@ a:hover {
 .landing-button {
   font-family: "Helvetica";
   color: #888;
+  background-color: #fff;
   font-size: medium;
   font-weight: 100;
   float: left;
