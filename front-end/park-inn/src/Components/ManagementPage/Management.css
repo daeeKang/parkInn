@@ -9,25 +9,30 @@
 }
 
 .change-password {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 15px;
+  font-weight: 200;
   /* text-align: right; */
-  color: #366387;
+  /* color: #366387; */
   opacity: 0.8;
-  background-color: #fff;
-  width: 100%;
+  /* background-color: #fff; */
+  width: 15%;
   height: 30%;
   border-style: solid;
-  border-radius: 0px;
-  border-color: #fff;
+  border-radius: 7px;
+  border-color: #a4c5e0;
+  border-width: 1px;
   padding-top: 10px;
   padding-bottom: 10px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  color: #fff;
+  background-color: #366387;
 }
 
 .change-password:hover {
-  color: #fff;
+  color: #366387;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .add-employee-container {
@@ -38,18 +43,23 @@
   height: 80%;
 }
 
+#management-title {
+  font-family: 'Helvetica';
+  font-weight: 300;
+}
+
 #settings {
   font-family: 'Helvetica';
   font-size: 15px;
   color: #366387;
-  opacity: 0.6;
-  font-weight: 350;
+  opacity: 0.8;
+  font-weight: 400;
 }
 
 #settings-sub {
   font-family: 'Helvetica';
   font-size: 15px;
   color: #366387;
-  opacity: 0.5;
-  font-weight: 100;
+  opacity: 0.8;
+  font-weight: 300;
 }
