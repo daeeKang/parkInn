@@ -99,6 +99,8 @@ const Management = () => {
               <AddEmployee></AddEmployee>
             </ExpansionPanelDetails>
           </ExpansionPanel>
+
+          <br/><br/><br/>
        </div>
 
       {/* <div class="page">
