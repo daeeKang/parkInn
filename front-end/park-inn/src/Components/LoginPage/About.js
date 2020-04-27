@@ -64,7 +64,7 @@ export default props => {
                     <div id="right">
                       <a href="#features">
                         <p id="landing-link">
-                          <img src={Arrow} height="20px" width="20px" fill="gray" alt="next" /><span className="tab">See Our Features</span>
+                          <img src={Arrow} className="next" height="20px" width="20px" fill="gray" alt="next" /><span className="tab">See Our Features</span>
                         </p>
                       </a>
                     </div>

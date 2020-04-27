@@ -27,12 +27,6 @@ export default props => {
                 change prices of individual spots, or mark certain spots as unavailable during special event parking.</p>
               </GridItem>
               <GridItem xs={12} md={4}>
-                <p id="about-heading">Company Statistics</p>
-                <img src={pls} height="300" width="400" alt="manage"/>
-                <p id="features-text" style={{fontSize: "20px"}}>View your <font color="#adc9e0"><b>company's analytics</b></font> such as revenue earned, weekly/monthly sales trends,
-                peak parking hours, average wait times, and live lot utilization.</p>
-              </GridItem>
-              <GridItem xs={12} md={4}>
                 <p id="about-heading">Customer Features</p>
                 <img src={pls} height="300" width="400" alt="manage"/>
                 <p id="features-text" style={{fontSize: "20px"}}>Our <font color="#adc9e0"><b>mobile application</b></font> allows guests to search for different parking lots in your city,
@@ -40,10 +34,16 @@ export default props => {
                 <div id="right">
                   <a href="#products">
                       <p id="landing-link">
-                        <img src={Arrow} height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Get Started</span>
+                        <img src={Arrow} className="next" height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Get Started</span>
                       </p>
                   </a>
                 </div>
+              </GridItem>
+              <GridItem xs={12} md={4}>
+                <p id="about-heading">Company Statistics</p>
+                <img src={pls} height="300" width="400" alt="manage"/>
+                <p id="features-text" style={{fontSize: "20px"}}>View your <font color="#adc9e0"><b>company's analytics</b></font> such as revenue earned, weekly/monthly sales trends,
+                peak parking hours, average wait times, and live lot utilization.</p>
               </GridItem>
             </GridContainer>
           </Container>

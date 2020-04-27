@@ -34,6 +34,10 @@
   }
 }
 
+.next {
+  opacity: 0.7;
+}
+
 #logo {
   font-family: 'Helvetica';
   background: linear-gradient(#90CAF9, #999);
@@ -108,7 +112,7 @@ a:hover {
 
 .landing-button {
   font-family: "Helvetica";
-  color: #999;
+  color: #888;
   font-size: medium;
   font-weight: 100;
   float: left;
@@ -153,7 +157,7 @@ a:hover {
 
 #landing-subtitle {
   font-family: 'Muli';
-  color: #999;
+  color: #888;
   font-weight: 100;
   font-size: 24px;
   letter-spacing: 1px;
@@ -224,6 +228,7 @@ a:hover {
   display: flex;
   padding: 0px;
   margin: 0;
+  opacity: 0.7;
 }
 
 #about-title {
@@ -237,7 +242,7 @@ a:hover {
 
 #about-subtitle {
   font-family: 'Helvetica';
-  color: #999;
+  color: #777;
   font-weight: 100;
   font-size: 20px;
   letter-spacing: 1px;
@@ -255,7 +260,7 @@ a:hover {
 
 #about-text {
   font-family: 'Helvetica';
-  color: #999;
+  color: #777;
   font-weight: 100;
   font-size: 18px;
   letter-spacing: 1px;
@@ -300,7 +305,7 @@ a:hover {
 
 #features-text {
   font-family: 'Helvetica';
-  color: #999;
+  color: #777;
   font-weight: 100;
   font-size: 22px;
   letter-spacing: 0px;
