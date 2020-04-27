@@ -8,6 +8,9 @@ import GetLot from "./GetLot";
 import Profile from "../Profile";
 import config from '../../auth_config.json';
 
+import GridContainer from '../Grid/GridContainer';
+import GridItem from '../Grid/GridItem';
+
 
 export default class Renderer extends React.Component {
     state = {
@@ -624,7 +627,9 @@ export default class Renderer extends React.Component {
 
     //-----------------------------REACT TYPE STYLING------------------------------------------------//
     buttonSelected = {
-        backgroundColor: "#ffd8b9",
+        color: "#fff",
+        backgroundColor: "#294b66",
+        opacity: "0.9",
     };
 
     modalStyle = {
@@ -655,7 +660,7 @@ export default class Renderer extends React.Component {
                     }
                 >
                     <div className="formContainer">
-                        Orientation:
+                        <p id="pls">Select an Orientation:</p>
                         <div>
                             <div>
                                 <button
@@ -663,14 +668,14 @@ export default class Renderer extends React.Component {
                                     onClick={() => this.changeOrient("down")}
                                     style={this.state.orient === "down"? this.buttonSelected : null}
                                 >
-                                left to right
+                                Left to Right
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("up")}
                                     style={this.state.orient === "up"? this.buttonSelected : null}
                                 >
-                                right to left
+                                Right to Left
                                 </button>
                             </div>
                             <div>
@@ -679,48 +684,67 @@ export default class Renderer extends React.Component {
                                     onClick={() => this.changeOrient("right")}
                                     style={this.state.orient === "right"? this.buttonSelected : null}
                                 >
-                                up to down
+                                Up to Down
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("left")}
                                     style={this.state.orient === "left"? this.buttonSelected : null}
                                 >
-                                down to up
+                                Down to Up
                                 </button>
                             </div>
                         </div>
-                        num of spaces:
-                        <input
-                            type="text"
-                            id="numOfSpaces"
-                            className="formInput"
-                            value={this.state.numOfSpaces}
-                            onChange={this.parkingFormChange}
-                        />
-                        <div>
-                            Naming:
-                            <div class="slidecontainer">
-                                size<input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
-                            </div>
-                            <div>
-                                prefix: 
-                                <input 
+                        <GridContainer>
+                            <GridItem xs={6}>
+                                <div className="left-2">
+                                    <p id="pls">Number of Spaces:</p>
+                                    <p id="pls">Naming:</p>
+                                </div>
+                                <div className="left">
+                                    {/* <br/> */}
+                                    <p id="pls">Prefix:</p>
+                                    {/* <br/> */}
+                                    <p id="pls">Start:</p>
+                                    {/* <br/> */}
+                                    <div class="hehe">
+                                        <p id="pls">Size:</p>
+                                    </div>
+                                    
+                                </div>
+                            </GridItem>
+                            <GridItem xs={6}>
+                                <div className="right">
+                                    <input
                                     type="text"
+                                    id="numOfSpaces"
                                     className="formInput"
-                                />
-                            </div>
-                            <div>
-                                Start:
-                                <input 
-                                    className="formInput"
-                                    type="text"
-                                />
-                            </div>
-                        </div>
-                       
-                        <br />
-                        <br />
+                                    value={this.state.numOfSpaces}
+                                    onChange={this.parkingFormChange}
+                                    />
+                                    {/* <br/> */}
+                                    <input 
+                                        type="text"
+                                        className="formInput"
+                                    />
+                                    {/* <br/><br/> */}
+                                    {/* <br/> */}
+                                    <input 
+                                        type="text"
+                                        className="formInput"
+                                    />
+                                    {/* <br/> */}
+                                    <input 
+                                        className="formInput"
+                                        type="text"
+                                    />
+                                    <div class="slidecontainer">
+                                        <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
+                                    </div>
+                                    </div>
+                            </GridItem>
+                        </GridContainer>
+
                         <button
                             className="formButtons greenButton"
                             id="accept"
@@ -733,7 +757,7 @@ export default class Renderer extends React.Component {
                             id="cancel"
                             onClick={this.exitParkingForm}
                         >
-                            nah
+                            Discard
                         </button>
                     </div>
                 </div>
