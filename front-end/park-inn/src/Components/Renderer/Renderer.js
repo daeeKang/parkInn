@@ -699,13 +699,13 @@ export default class Renderer extends React.Component {
                             <GridItem xs={6}>
                                 <div className="left-2">
                                     <p id="pls">Number of Spaces:</p>
-                                    <p id="pls">Naming:</p>
+                                    {/* <p id="pls">Naming:</p> */}
                                 </div>
                                 <div className="left">
                                     {/* <br/> */}
-                                    <p id="pls">Prefix:</p>
+                                    {/* <p id="pls">Prefix:</p> */}
                                     {/* <br/> */}
-                                    <p id="pls">Start:</p>
+                                    {/* <p id="pls">Start:</p> */}
                                     {/* <br/> */}
                                     <div class="hehe">
                                         <p id="pls">Size:</p>
@@ -723,21 +723,21 @@ export default class Renderer extends React.Component {
                                     onChange={this.parkingFormChange}
                                     />
                                     {/* <br/> */}
-                                    <input 
+                                    {/* <input 
                                         type="text"
                                         className="formInput"
-                                    />
+                                    /> */}
                                     {/* <br/><br/> */}
                                     {/* <br/> */}
-                                    <input 
+                                    {/* <input 
                                         type="text"
                                         className="formInput"
-                                    />
+                                    /> */}
                                     {/* <br/> */}
-                                    <input 
+                                    {/* <input 
                                         className="formInput"
                                         type="text"
-                                    />
+                                    /> */}
                                     <div class="slidecontainer">
                                         <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
                                     </div>
