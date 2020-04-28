@@ -11,15 +11,15 @@ export default props => {
   return(
     <a name="products">
       {/* <div className="about-us"> */}
-          <br/>
+          <br/><br/>
           <Container>
-            <GridItem xs={12}>
+            <GridItem xs={12} sm={12} md={12} lg={12}>
               <p id="about-title" style={{fontSize: "45px", color: "#366387"}}>Get started with ParkInn today!</p>
               <p id="features-text" style={{fontSize: "27px"}}><font color="#777">Available through your web browser or mobile (iOS only) phone.</font></p>
             </GridItem>
             <GridContainer spacing={5}>
               {/* <div className="about-text-section"> */}
-                  <GridItem xs={12} md={4}>
+                  <GridItem xs={12} sm={12} md={4} lg={4}>
                     <p id="about-heading" style={{fontSize: "25px"}}><font color="#adc9e0">Web</font></p>
                     <div className="about-img">
                       <img src={Laptop} height="50px" width="50px" />
@@ -27,7 +27,7 @@ export default props => {
                     <p id="features-text">Sign up<br/> <font color="#adc9e0">here</font></p>
                   </GridItem>
 
-                  <GridItem xs={12} md={4}>
+                  <GridItem xs={12} sm={12} md={4} lg={4}>
                     <p id="about-heading" style={{fontSize: "25px"}}><font color="#adc9e0">Mobile</font></p>
                     <div className="about-img">
                       <img src={Phone} height="50px" width="50px" />
@@ -35,7 +35,7 @@ export default props => {
                     <p id="features-text">Find us on the<br/> <font color="#adc9e0">App Store</font></p>
                   </GridItem>
 
-                  <GridItem xs={12} md={4}>
+                  <GridItem xs={12} sm={12} md={4} lg={4}>
                     <p id="about-heading" style={{fontSize: "25px"}}><font color="#adc9e0">Demo</font></p>
                     <div className="about-img">
                       <img src={Email} height="50px" width="50px" />

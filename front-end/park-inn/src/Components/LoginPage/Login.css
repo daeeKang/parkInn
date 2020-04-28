@@ -149,7 +149,7 @@ a:hover {
 
 #landing-title {
   font-family: 'Muli';
-  color: #666;
+  color: #777;
   font-weight: 100;
   font-size: 48px;
   letter-spacing: 1px;
@@ -233,6 +233,10 @@ a:hover {
   opacity: 0.7;
 }
 
+.about-img:hover {
+  color: #adc9e0;
+}
+
 #about-title {
   font-family: 'Muli';
   color: #366387;
@@ -247,7 +251,7 @@ a:hover {
   color: #777;
   font-weight: 100;
   font-size: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 0.7px;
   text-align: center;
 }
 
@@ -265,7 +269,7 @@ a:hover {
   color: #777;
   font-weight: 100;
   font-size: 18px;
-  letter-spacing: 1px;
+  letter-spacing: 0.7px;
   text-align: center;
 }
 
@@ -310,7 +314,7 @@ a:hover {
   color: #777;
   font-weight: 100;
   font-size: 22px;
-  letter-spacing: 0px;
+  letter-spacing: 0.7px;
   text-align: center;
 }
 

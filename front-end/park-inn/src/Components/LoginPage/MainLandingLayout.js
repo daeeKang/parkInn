@@ -79,7 +79,7 @@ function MainLandingLayout(props) {
     <Container>
       <br/><br/>
       <GridContainer spacing={3}>
-        <GridItem xs={6}>
+        <GridItem sm={12} xs={12} md={6} lg={6}>
           {/* this is transparent phone img */}
           <div className="landing-product">
             <img src={Desktop} height="450px" width="450px" alt="phones" />
@@ -89,10 +89,11 @@ function MainLandingLayout(props) {
           {/* <img src={Phones} height="600px" width="900px" alt="phones" /> */}
         </GridItem>
 
-        <GridItem xs={6}>
+        <GridItem sm={12} xs={12} md={6} lg={6}>
           <Container className={classes.containerLeft}>
             {/* <div class="fade-in-title"> */}
-            <h1 id="landing-title">Welcome to <font color="#366387">ParkInn!</font></h1>
+            {/* <h1 id="landing-title">Welcome to <font color="#366387">ParkInn</font></h1> */}
+            <h1 id="landing-title">Welcome to <font color="#adc9e0">ParkInn</font></h1>
             {/* </div> */}
 
             <div class="fade-in-subtitle">
@@ -110,15 +111,15 @@ function MainLandingLayout(props) {
               })}>Sign up ></button>)}
               <br /><br /><br /><br />
             </div>
-            </Container>
-
-            <div id="bottom">
+            <br/><br/><br/>
+            <div>
               <a href="#about">
                 <p id="landing-link">
                   <img src={Arrow} className="next" height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Learn More</span>
                 </p>
               </a>
             </div>
+            </Container>
           </GridItem>
       </GridContainer>
     </Container>
