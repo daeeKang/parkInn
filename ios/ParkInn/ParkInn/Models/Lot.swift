@@ -54,7 +54,7 @@ class Lot: Decodable, Hashable {
 
 struct Spot: Decodable {
     let spotid: String
-    let active: Bool
+    let active: Bool?
     let unavailable: Date?
     let category: String
 }
