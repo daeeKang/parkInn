@@ -65,17 +65,31 @@ class Grid: SKSpriteNode {
         return CGPoint(x:x, y:y)
     }
 
+    func resetAllChildren() {
+        for node in children {
+            if let parkingNode = node as? ParkingSpotNode {
+                parkingNode.isSelected = false
+                parkingNode.color = parkingNode.defaultColor
+            }
+        }
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let position = touch.location(in:self)
             let node = atPoint(position)
             if node != self {
-                if node.name != nil {
-
-                    #warning("TODO: Handle the spot selection here")
-
-                    let action = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: 1)
-                    node.run(action)
+                if let parkingSpotNode = node as? ParkingSpotNode {
+                    if parkingSpotNode.isSelected {
+                        parkingSpotNode.isSelected.toggle()
+                        parkingSpotNode.updateColor()
+                        parkingSpotNode.delegate?.parkingSpotDeselected()
+                    } else {
+                        self.resetAllChildren()
+                        parkingSpotNode.isSelected.toggle()
+                        parkingSpotNode.updateColor()
+                        parkingSpotNode.delegate?.parkingSpotSelected(parkingSpotNode.parkingSpot)
+                    }
                 }
             }
             else {

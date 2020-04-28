@@ -20,6 +20,7 @@ enum APIRouter: URLRequestConvertible {
     case companyStats(companyName: String)
     case lotStats(companyName: String, lotID: String)
     case lotsNamed(name: String)
+    case addReservation(reservation: Reservation)
 
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
@@ -27,6 +28,8 @@ enum APIRouter: URLRequestConvertible {
             case .lot, .lots, .companyLots, .lotsNamed, .lotDesign,
                  .peakTimes, .companyStats, .lotStats:
                 return .get
+            case .addReservation:
+                return .post
         }
     }
 
@@ -49,20 +52,28 @@ enum APIRouter: URLRequestConvertible {
                 return "/Statistic/\(companyName)/"
             case .lotStats(let companyName, let lotID):
                 return "/Statistic/\(companyName)/\(lotID)"
+            case .addReservation:
+                return "/Reservation/AddReservation"
         }
     }
 
     // MARK: - Parameters
-    private var parameters: String? {
-//                switch self {
-//                    case .lotDesign(let companyID, let lotID):
-//                        return "?companyid=\(companyID)&lotid=\(lotID)"
-//
-//                    default:
-//                        return nil
-//                }
-        return nil
+    private var parameters: Data? {
+        switch self {
+            case .addReservation(let reservation):
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = .prettyPrinted
+
+                let json = try! encoder.encode(reservation)
+                print(String(data: json, encoding: .utf8))
+
+
+                return json
+            default:
+                return nil
+        }
     }
+    
 
     // MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
@@ -87,11 +98,7 @@ enum APIRouter: URLRequestConvertible {
 
         // Parameters
         if let parameters = parameters {
-            do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-            } catch {
-                throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
-            }
+            urlRequest.httpBody = parameters
         }
 
         print(urlRequest.url)

@@ -19,6 +19,7 @@ class ReservationVC: UIViewController {
     var lot: Lot!
     var lotDesign: LotDesign!
     var gridScene: GridScene!
+    var selectedSpot: Spot?
 
     var datePickerIndexPath: IndexPath?
     var inputTexts: [String] = ["From:", "Until:"]
@@ -42,6 +43,7 @@ class ReservationVC: UIViewController {
 
     private func setupGrid() {
         gridScene = GridScene(size: spriteView.frame.size)
+        gridScene.parkingSpotDelegate = self
         spriteView.presentScene(gridScene)
     }
 
@@ -87,6 +89,19 @@ class ReservationVC: UIViewController {
         }
     }
 
+    @IBAction func confirmPressed(_ sender: Any) {
+        guard let spot = selectedSpot else { return }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let startTime = formatter.string(from: inputDates[0])
+        let endTime = formatter.string(from: inputDates[1])
+
+        let reservation = Reservation(companyID: lot.companyID, lotID: "\(lot.lotID)", spotID: spot.spotid, startTime: startTime, endTime: endTime, username: "Customer1", expired: false)
+        APIService.addReservation(reservation: reservation) {
+            print("Should not print")
+        }
+    }
 }
 
 extension ReservationVC: UITableViewDataSource {
@@ -114,7 +129,7 @@ extension ReservationVC: UITableViewDataSource {
             } else {
                 if indexPath.row == inputTexts.count {
                     dateCell.label.text = "Parking Spot:"
-                    dateCell.dateLabel.text = "---"
+                    dateCell.dateLabel.text = selectedSpot?.spotid ?? "---"
                 } else {
                     dateCell.label.text = "Price:"
                     dateCell.dateLabel.text = "---"
@@ -170,4 +185,18 @@ extension ReservationVC: DatePickerDelegate {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 
+}
+
+extension ReservationVC: ParkingSpotDelegate {
+    func parkingSpotSelected(_ parkingSpot: Spot) {
+        print("Selected \(parkingSpot.spotid)")
+        self.selectedSpot = parkingSpot
+        self.tableView.reloadData()
+    }
+
+    func parkingSpotDeselected() {
+        print("deselected")
+        self.selectedSpot = nil
+        self.tableView.reloadData()
+    }
 }

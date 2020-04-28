@@ -52,6 +52,8 @@
 		8E9C58822453B8FC000B3D94 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C58812453B8FC000B3D94 /* DatePickerTableViewCell.swift */; };
 		8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */; };
 		8EA91952240C5A7A00DE7EB3 /* Lot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91951240C5A7A00DE7EB3 /* Lot.swift */; };
+		8EDA3A252453CB3300B5993B /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA3A242453CB3300B5993B /* Reservation.swift */; };
+		8EDA3A272458E22E00B5993B /* ParkingSpotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA3A262458E22D00B5993B /* ParkingSpotNode.swift */; };
 		FB17EA658A24E1B6861BA201 /* Pods_ParkInnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +128,8 @@
 		8E9C58812453B8FC000B3D94 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8EA91951240C5A7A00DE7EB3 /* Lot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lot.swift; sourceTree = "<group>"; };
+		8EDA3A242453CB3300B5993B /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		8EDA3A262458E22D00B5993B /* ParkingSpotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpotNode.swift; sourceTree = "<group>"; };
 		8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE520EE589228C4C7C1C68DA /* Pods-ParkInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.release.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.release.xcconfig"; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				8E9C41292450FEA500C61E53 /* GridScene.swift */,
 				8E9C58812453B8FC000B3D94 /* DatePickerTableViewCell.swift */,
 				8E9C587F2453B8EF000B3D94 /* DateTableViewCell.swift */,
+				8EDA3A262458E22D00B5993B /* ParkingSpotNode.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				8E33BFB4240A516300A29F55 /* LotAnnotation.swift */,
 				8E54C622243F1D0400F15E8F /* LotDesign.swift */,
 				8E54C624243F223D00F15E8F /* CompanyStats.swift */,
+				8EDA3A242453CB3300B5993B /* Reservation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -571,9 +577,11 @@
 				8E9C58802453B8EF000B3D94 /* DateTableViewCell.swift in Sources */,
 				8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */,
 				8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */,
+				8EDA3A252453CB3300B5993B /* Reservation.swift in Sources */,
 				8E33BFB3240A338000A29F55 /* UserMenuVC.swift in Sources */,
 				8E2E71C62443D11500A69221 /* Pannable.swift in Sources */,
 				8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */,
+				8EDA3A272458E22E00B5993B /* ParkingSpotNode.swift in Sources */,
 				8E4E0426240C56CE00016031 /* LotVC.swift in Sources */,
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
 				8E9C41282450FE9E00C61E53 /* Grid.swift in Sources */,

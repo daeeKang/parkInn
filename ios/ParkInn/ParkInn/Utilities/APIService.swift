@@ -46,4 +46,11 @@ class APIService {
     static func getCompanyStats(companyName: String, completion: @escaping CompanyStatsCompletion) {
         performRequest(route: .companyStats(companyName: companyName), completion: completion)
     }
+
+    static func addReservation(reservation: Reservation, completion: @escaping () -> ()) {
+        AF.request(APIRouter.addReservation(reservation: reservation)).response { (data) in
+            print(data)
+            return
+        }
+    }
 }

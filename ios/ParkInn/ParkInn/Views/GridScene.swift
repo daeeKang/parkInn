@@ -12,12 +12,16 @@ import GameplayKit
 
 class GridScene: SKScene {
 
+    weak var parkingSpotDelegate: ParkingSpotDelegate!
+
     var grid: Grid!
     var previousCameraScale = CGFloat()
     var previousCameraPoint = CGPoint.zero
     let cameraNode = SKCameraNode()
     let maxScale: CGFloat = 1.0
     let minScale: CGFloat = 0.02
+    let defaultNodeColor: UIColor = .blue
+    let selectedNodeColor: UIColor = .red
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -126,9 +130,14 @@ class GridScene: SKScene {
     public func addParkingLabel(_ parkingLabel: ParkingLabel) {
         guard grid != nil else { return }
 
-        let spotNode = SKSpriteNode(color: .blue, size: CGSize(width: grid.blockSize * CGFloat(parkingLabel.translatedHeight), height: grid.blockSize * CGFloat(parkingLabel.translatedWidth)))
-        spotNode.name = "\(parkingLabel.text ?? 123)"
+        let spotNode = ParkingSpotNode(color: defaultNodeColor, size: CGSize(width: grid.blockSize * CGFloat(parkingLabel.translatedHeight), height: grid.blockSize * CGFloat(parkingLabel.translatedWidth)))
+        spotNode.delegate = self.parkingSpotDelegate
+
+        let spot = Spot(spotid: "\(parkingLabel.text ?? 0)", active: true, unavailable: nil, category: "general")
+        spotNode.parkingSpot = spot
         spotNode.position = grid.gridPosition(row: Int(parkingLabel.translatedY), col: Int(parkingLabel.translatedX - parkingLabel.translatedHeight))
+        spotNode.defaultColor = defaultNodeColor
+        spotNode.selectedColor = selectedNodeColor
 
         switch (parkingLabel.positiveWidth, parkingLabel.positiveHeight) {
             case (true, true): // Case 1 (+x, +y)
