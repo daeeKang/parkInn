@@ -19,6 +19,12 @@ class UserMenuVC: UIViewController {
 
     override var prefersStatusBarHidden: Bool { return true }
 
+    @IBAction func profilePressed(_ sender: Any) {
+    }
+
+    @IBAction func reservationsPressed(_ sender: Any) {
+    }
+
     @IBAction func settingsPressed(_ sender: Any) {
     }
 

@@ -222,51 +222,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="T9K-1P-5h6">
-                                <rect key="frame" x="16" y="773.33333333333337" width="382" height="72.666666666666629"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="T9K-1P-5h6">
+                                <rect key="frame" x="8" y="651.33333333333337" width="390" height="178.66666666666663"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wK-DQ-Unj" customClass="MDCButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="24.666666666666668"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-87-baC" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="29.666666666666668"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Profile" image="person.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="profilePressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="ibb-SO-Kep"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mA-Vb-8sT" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="49.666666666666622" width="390" height="29.666666666666664"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-2" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Reservations" image="book.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reservationsPressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="V0o-fd-VIL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wK-DQ-Unj" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="99.333333333333258" width="390" height="29.666666666666657"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Settings" image="gear" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                         </state>
                                         <connections>
                                             <action selector="settingsPressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="qDD-5a-6kD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-Fk-v4v" customClass="MDCButton">
-                                        <rect key="frame" x="0.0" y="48.666666666666629" width="382" height="24"/>
+                                        <rect key="frame" x="0.0" y="149" width="390" height="29.666666666666657"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Logout" image="arrow.left.circle" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                         </state>
                                         <connections>
                                             <action selector="logoutPressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="jCj-Ll-ABN"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Mhb-Fk-v4v" secondAttribute="trailing" id="AU8-No-xO4"/>
-                                    <constraint firstAttribute="trailing" secondItem="9wK-DQ-Unj" secondAttribute="trailing" id="PnL-S5-ixR"/>
-                                    <constraint firstItem="Mhb-Fk-v4v" firstAttribute="leading" secondItem="T9K-1P-5h6" secondAttribute="leading" id="lfm-Pl-osH"/>
-                                    <constraint firstItem="9wK-DQ-Unj" firstAttribute="leading" secondItem="T9K-1P-5h6" secondAttribute="leading" id="uPm-a9-LE4"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eee-EJ-Usx" firstAttribute="trailing" secondItem="T9K-1P-5h6" secondAttribute="trailing" constant="16" id="8eO-Jo-Gmk"/>
-                            <constraint firstItem="T9K-1P-5h6" firstAttribute="leading" secondItem="eee-EJ-Usx" secondAttribute="leading" constant="16" id="nKR-UW-Qhm"/>
-                            <constraint firstItem="eee-EJ-Usx" firstAttribute="bottom" secondItem="T9K-1P-5h6" secondAttribute="bottom" constant="16" id="o91-Aq-qLG"/>
+                            <constraint firstItem="T9K-1P-5h6" firstAttribute="leading" secondItem="eee-EJ-Usx" secondAttribute="leading" constant="8" id="nKR-UW-Qhm"/>
+                            <constraint firstItem="eee-EJ-Usx" firstAttribute="bottom" secondItem="T9K-1P-5h6" secondAttribute="bottom" constant="32" id="o91-Aq-qLG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eee-EJ-Usx"/>
                     </view>
@@ -551,9 +572,11 @@
     </scenes>
     <resources>
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
+        <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="location.north" catalog="system" width="108" height="128"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>
