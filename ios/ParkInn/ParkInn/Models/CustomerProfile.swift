@@ -14,6 +14,10 @@ struct CustomerProfile: Decodable {
     let lastName: String
     let cars: [Car]
 
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+
     enum CodingKeys: String, CodingKey {
         case username, name
         case cars = "car"
