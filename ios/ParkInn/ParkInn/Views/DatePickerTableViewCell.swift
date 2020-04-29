@@ -42,6 +42,7 @@ class DatePickerTableViewCell: UITableViewCell {
 
     func initView() {
         datePicker.addTarget(self, action: #selector(dateDidChange), for: .valueChanged)
+        datePicker.minimumDate = Date()
     }
 
     func updateCell(date: Date, indexPath: IndexPath) {
