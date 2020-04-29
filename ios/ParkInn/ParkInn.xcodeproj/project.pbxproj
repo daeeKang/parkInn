@@ -55,6 +55,8 @@
 		8EDA3A252453CB3300B5993B /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA3A242453CB3300B5993B /* Reservation.swift */; };
 		8EDA3A272458E22E00B5993B /* ParkingSpotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA3A262458E22D00B5993B /* ParkingSpotNode.swift */; };
 		8EDA3A292459F43100B5993B /* CustomerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA3A282459F43100B5993B /* CustomerProfile.swift */; };
+		8EE3D151245A16DE00545FF5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D150245A16DE00545FF5 /* ProfileVC.swift */; };
+		8EE3D153245A16EC00545FF5 /* MyReservationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D152245A16EC00545FF5 /* MyReservationsVC.swift */; };
 		FB17EA658A24E1B6861BA201 /* Pods_ParkInnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +134,8 @@
 		8EDA3A242453CB3300B5993B /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		8EDA3A262458E22D00B5993B /* ParkingSpotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpotNode.swift; sourceTree = "<group>"; };
 		8EDA3A282459F43100B5993B /* CustomerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerProfile.swift; sourceTree = "<group>"; };
+		8EE3D150245A16DE00545FF5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		8EE3D152245A16EC00545FF5 /* MyReservationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationsVC.swift; sourceTree = "<group>"; };
 		8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE520EE589228C4C7C1C68DA /* Pods-ParkInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.release.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				8E33BFB2240A338000A29F55 /* UserMenuVC.swift */,
 				8E4E0425240C56CE00016031 /* LotVC.swift */,
 				8E9C41252450F25900C61E53 /* ReservationVC.swift */,
+				8EE3D150245A16DE00545FF5 /* ProfileVC.swift */,
+				8EE3D152245A16EC00545FF5 /* MyReservationsVC.swift */,
 			);
 			path = "User-Facing";
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 				8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */,
 				8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */,
 				8EDA3A252453CB3300B5993B /* Reservation.swift in Sources */,
+				8EE3D153245A16EC00545FF5 /* MyReservationsVC.swift in Sources */,
 				8E33BFB3240A338000A29F55 /* UserMenuVC.swift in Sources */,
 				8E2E71C62443D11500A69221 /* Pannable.swift in Sources */,
 				8E54C623243F1D0400F15E8F /* LotDesign.swift in Sources */,
@@ -590,6 +597,7 @@
 				8E9C41282450FE9E00C61E53 /* Grid.swift in Sources */,
 				8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */,
 				8EDA3A292459F43100B5993B /* CustomerProfile.swift in Sources */,
+				8EE3D151245A16DE00545FF5 /* ProfileVC.swift in Sources */,
 				8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
 				8E9C58822453B8FC000B3D94 /* DatePickerTableViewCell.swift in Sources */,
