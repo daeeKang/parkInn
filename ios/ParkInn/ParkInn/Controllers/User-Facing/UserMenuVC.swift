@@ -20,9 +20,11 @@ class UserMenuVC: UIViewController {
     override var prefersStatusBarHidden: Bool { return true }
 
     @IBAction func profilePressed(_ sender: Any) {
+        performSegue(withIdentifier: "toProfileVC", sender: nil)
     }
 
     @IBAction func reservationsPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toMyReservationsVC", sender: nil)
     }
 
     @IBAction func settingsPressed(_ sender: Any) {

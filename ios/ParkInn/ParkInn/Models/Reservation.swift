@@ -9,6 +9,7 @@
 import Foundation
 
 struct Reservation: Codable {
+    let _id: String
     let companyID: String
     let lotID: String
     let spotID: String
@@ -26,5 +27,18 @@ struct Reservation: Codable {
         case endTime = "endtime"
         case username
         case expired
+        case _id
     }
+
+    init(companyID: String, lotID: String, spotID: String, startTime: String, endTime: String, username: String, expired: Bool, id: String = "") {
+        self.companyID = companyID
+        self.lotID = lotID
+        self.spotID = spotID
+        self.startTime = startTime
+        self.endTime = endTime
+        self.username = username
+        self.expired = expired
+        self._id = id
+    }
+
 }

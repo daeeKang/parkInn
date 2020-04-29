@@ -57,6 +57,7 @@
 		8EDA3A292459F43100B5993B /* CustomerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA3A282459F43100B5993B /* CustomerProfile.swift */; };
 		8EE3D151245A16DE00545FF5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D150245A16DE00545FF5 /* ProfileVC.swift */; };
 		8EE3D153245A16EC00545FF5 /* MyReservationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D152245A16EC00545FF5 /* MyReservationsVC.swift */; };
+		8EE3D155245A27F700545FF5 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D154245A27F700545FF5 /* ReservationCell.swift */; };
 		FB17EA658A24E1B6861BA201 /* Pods_ParkInnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		8EDA3A282459F43100B5993B /* CustomerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerProfile.swift; sourceTree = "<group>"; };
 		8EE3D150245A16DE00545FF5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		8EE3D152245A16EC00545FF5 /* MyReservationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationsVC.swift; sourceTree = "<group>"; };
+		8EE3D154245A27F700545FF5 /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
 		8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE520EE589228C4C7C1C68DA /* Pods-ParkInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.release.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.release.xcconfig"; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				8E9C58812453B8FC000B3D94 /* DatePickerTableViewCell.swift */,
 				8E9C587F2453B8EF000B3D94 /* DateTableViewCell.swift */,
 				8EDA3A262458E22D00B5993B /* ParkingSpotNode.swift */,
+				8EE3D154245A27F700545FF5 /* ReservationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 			files = (
 				8E2E71C42443D10D00A69221 /* BottomSheetController.swift in Sources */,
 				8E54C621243EE20000F15E8F /* APIService.swift in Sources */,
+				8EE3D155245A27F700545FF5 /* ReservationCell.swift in Sources */,
 				8E02806523F5E8F400057727 /* SWRevealViewController.m in Sources */,
 				351FE58F2428298900F7E00B /* DisplayVC.swift in Sources */,
 				8E98C92D23F38022008F612A /* LoginVC.swift in Sources */,
