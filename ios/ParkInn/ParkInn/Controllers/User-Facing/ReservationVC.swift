@@ -100,7 +100,9 @@ class ReservationVC: UIViewController {
         let startTime = formatter.string(from: inputDates[0])
         let endTime = formatter.string(from: inputDates[1])
 
-        let reservation = Reservation(companyID: lot.companyID, lotID: "\(lot.lotID)", spotID: spot.spotid, startTime: startTime, endTime: endTime, username: "Customer1", expired: false)
+        let username = SessionManager.shared.customerProfile!.username
+
+        let reservation = Reservation(companyID: lot.companyID, lotID: "\(lot.lotID)", spotID: spot.spotid, startTime: startTime, endTime: endTime, username: username, expired: false)
 
         APIService.addReservation(reservation: reservation) { [unowned self] result in
             switch result.result {
@@ -114,8 +116,6 @@ class ReservationVC: UIViewController {
                         alertController.addAction(action)
 
                         self.present(alertController, animated:true, completion: nil)
-
-
                     } else {
                         // if not, display the message to the user in an alert
                         let alertController = MDCAlertController(title: "Failed Reservation", message: successMessage)

@@ -300,7 +300,6 @@ extension MapVC: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // Make sure that we are dealing with a LotAnnotation object
-        print(view.annotation)
         guard let lotAnnotation = view.annotation as? LotAnnotation else { return }
         // Navigate to LotVC
         performSegue(withIdentifier: "toLotVC", sender: lotAnnotation.lot)
