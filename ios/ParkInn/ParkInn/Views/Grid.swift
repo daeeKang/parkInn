@@ -18,7 +18,7 @@ class Grid: SKSpriteNode {
         guard let texture = Grid.gridTexture(blockSize: blockSize,rows: rows, cols:cols) else {
             return nil
         }
-        self.init(texture: texture, color:SKColor.black, size: texture.size())
+        self.init(texture: texture, color:SKColor.clear, size: texture.size())
         self.isUserInteractionEnabled = true
         self.blockSize = blockSize
         self.rows = rows
@@ -49,7 +49,7 @@ class Grid: SKSpriteNode {
             bezierPath.addLine(to: CGPoint(x: size.width, y: y))
         }
         SKColor.clear.setStroke()
-        bezierPath.lineWidth = 0.1
+        bezierPath.lineWidth = 0
         bezierPath.stroke()
         context.addPath(bezierPath.cgPath)
         let image = UIGraphicsGetImageFromCurrentImageContext()

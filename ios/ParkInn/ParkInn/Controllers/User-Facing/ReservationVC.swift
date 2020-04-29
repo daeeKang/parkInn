@@ -43,6 +43,8 @@ class ReservationVC: UIViewController {
     }
 
     private func setupGrid() {
+        spriteView.layer.cornerRadius = 12.0
+        spriteView.clipsToBounds = true
         gridScene = GridScene(size: spriteView.frame.size)
         gridScene.parkingSpotDelegate = self
         spriteView.presentScene(gridScene)
@@ -99,9 +101,7 @@ class ReservationVC: UIViewController {
         let endTime = formatter.string(from: inputDates[1])
 
         let reservation = Reservation(companyID: lot.companyID, lotID: "\(lot.lotID)", spotID: spot.spotid, startTime: startTime, endTime: endTime, username: "Customer1", expired: false)
-//        APIService.addReservation(reservation: reservation) {
-//            print("Should not print")
-//        }
+
         APIService.addReservation(reservation: reservation) { [unowned self] result in
             switch result.result {
                 case .success(let successMessage):
@@ -125,9 +125,6 @@ class ReservationVC: UIViewController {
                         self.present(alertController, animated:true, completion: nil)
 
                     }
-
-
-
 
                 case .failure(let error):
                     fatalError(error.localizedDescription)

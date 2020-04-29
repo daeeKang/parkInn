@@ -30,7 +30,7 @@ class GridScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
 
-        self.backgroundColor = .clear
+        self.backgroundColor = .white
     }
 
     override func sceneDidLoad() {
