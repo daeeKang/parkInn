@@ -38,15 +38,21 @@ router.post('/AddReservation', async (req, res) => {
     // get the specific spot in the array by the id
     var spot = spots.find(element => element.spotid == reservation.spotid);
 
-
     var conflict = false;
-    // see if there are any other reservations already made that conflict with the one you're tryna save
-    spot.reserveddates.forEach(element => {
-        if((reservation.starttime >= element.starttime && reservation.starttime <= element.endtime) 
-            || (reservation.endtime >= element.starttime && reservation.endtime <= element.endtime)){
-                conflict = true;
-            }
-    });
+
+    if(spot == null){
+        err += "Spot not found. spotid not valid";
+    }
+    else{
+        // see if there are any other reservations already made that conflict with the one you're tryna save
+        spot.reserveddates.forEach(element => {
+            if((reservation.starttime >= element.starttime && reservation.starttime <= element.endtime) 
+                || (reservation.endtime >= element.starttime && reservation.endtime <= element.endtime)){
+                    conflict = true;
+                }
+        });
+    }
+
 
     if(conflict){
         err += "Selected time conflicts with already scheduled reservations";
