@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialDialogs
 import SpriteKit
 import GameplayKit
 
@@ -98,8 +99,39 @@ class ReservationVC: UIViewController {
         let endTime = formatter.string(from: inputDates[1])
 
         let reservation = Reservation(companyID: lot.companyID, lotID: "\(lot.lotID)", spotID: spot.spotid, startTime: startTime, endTime: endTime, username: "Customer1", expired: false)
-        APIService.addReservation(reservation: reservation) {
-            print("Should not print")
+//        APIService.addReservation(reservation: reservation) {
+//            print("Should not print")
+//        }
+        APIService.addReservation(reservation: reservation) { [unowned self] result in
+            switch result.result {
+                case .success(let successMessage):
+                    print(successMessage)
+                    // Check on the successMessage for 'success'
+                    if successMessage == "success" {
+                        // Show an alert for success
+                        let alertController = MDCAlertController(title: "Successful Reservation", message: "Your reservation has been successfully created!")
+                        let action = MDCAlertAction(title:"Okay") { [unowned self] action in self.dismiss(animated: true, completion: nil) }
+                        alertController.addAction(action)
+
+                        self.present(alertController, animated:true, completion: nil)
+
+
+                    } else {
+                        // if not, display the message to the user in an alert
+                        let alertController = MDCAlertController(title: "Failed Reservation", message: successMessage)
+                        let action = MDCAlertAction(title: "Okay", handler: nil)
+                        alertController.addAction(action)
+
+                        self.present(alertController, animated:true, completion: nil)
+
+                    }
+
+
+
+
+                case .failure(let error):
+                    fatalError(error.localizedDescription)
+            }
         }
     }
 }
