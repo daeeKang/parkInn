@@ -14,8 +14,9 @@ class APIService {
     typealias LotDesignCompletion = (Result<LotDesign, AFError>) -> ()
     typealias LotStatsCompletion = (Result<LotStats, AFError>) -> ()
     typealias CompanyStatsCompletion = (Result<CompanyStats, AFError>) -> ()
-    typealias AddReservationCompletion = (AFDataResponse<String>) -> ()
     typealias CustomerProfileCompletion = (Result<CustomerProfile, AFError>) -> ()
+    typealias AddReservationCompletion = (AFDataResponse<String>) -> ()
+    typealias ReservationsCompletion = (Result<[Reservation], AFError>) -> ()
 
     @discardableResult
     private static func performRequest<T:Decodable>(route:APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (Result<T, AFError>)->Void) -> DataRequest {
@@ -55,5 +56,9 @@ class APIService {
 
     static func addReservation(reservation: Reservation, completion: @escaping AddReservationCompletion) {
         AF.request(APIRouter.addReservation(reservation: reservation)).responseString(completionHandler: completion)
+    }
+
+    static func getReservations(email: String, completion: @escaping ReservationsCompletion) {
+        performRequest(route: .reservations(email: email), completion: completion)
     }
 }

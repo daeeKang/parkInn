@@ -21,12 +21,13 @@ enum APIRouter: URLRequestConvertible {
     case lotStats(companyName: String, lotID: String)
     case lotsNamed(name: String)
     case addReservation(reservation: Reservation)
+    case reservations(email: String)
 
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
             case .lot, .lots, .companyLots, .lotsNamed, .lotDesign,
-                 .peakTimes, .companyStats, .lotStats, .customerProfile:
+                 .peakTimes, .companyStats, .lotStats, .customerProfile, .reservations:
                 return .get
             case .addReservation:
                 return .post
@@ -54,6 +55,8 @@ enum APIRouter: URLRequestConvertible {
                 return "/Statistic/\(companyName)/\(lotID)"
             case .addReservation:
                 return "/Reservation/AddReservation"
+            case .reservations(let email):
+                return "Reservation/GetReservations/\(email)"
             case .customerProfile(let email):
                 return "/Customer/GetCustomer/\(email)"
         }
