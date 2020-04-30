@@ -79,6 +79,7 @@ class SessionManager {
                             }
                         } else if profile.nickname == "staff" || profile.nickname == "admin" {
                             // Get Staff Profile
+                            callback(nil)
                         }
                     case .failure(let error):
                         callback(error)
