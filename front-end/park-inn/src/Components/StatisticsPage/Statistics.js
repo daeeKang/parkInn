@@ -1,4 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './Statistics.css';
 import '../ChartData/Charts.css';
 

@@ -51,15 +51,13 @@ export default props => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <NavLink className="link" to='/Profile'>
-                        <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    </NavLink>
                     <NavLink className="link" to='/management'>
                         <MenuItem onClick={handleClose}>Account Settings</MenuItem>
                     </NavLink>
-                    {isAuthenticated && <MenuItem onClick={() => logoutWithRedirect()}>Logout</MenuItem>}
-                    <MenuItem onClick={apiRequest}>API Request</MenuItem>
-
+                    <NavLink className="link" to='/management'>
+                        {isAuthenticated && <MenuItem onClick={() => logoutWithRedirect()}>Logout</MenuItem>}
+                    </NavLink>
+                    {/* <MenuItem onClick={apiRequest}>API Request</MenuItem> */}
                 </Menu>
             </div>
         </div>

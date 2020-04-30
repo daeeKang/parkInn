@@ -16,10 +16,10 @@ const App = () => {
 
   return (
     <div class="app">
-    <Header />
+    {/* <Header /> */}
     {/* <Sidebar /> */}
     <Main id="page-wrap" />
-    <Footer />
+    {/* <Footer /> */}
   </div>
   );
 };
