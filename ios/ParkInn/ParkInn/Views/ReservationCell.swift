@@ -30,7 +30,7 @@ class ReservationCell: UICollectionViewCell {
         cardView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         cardView.layer.shadowRadius = 5.0
         cardView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
-        cardView.layer.shadowOpacity = 0.4
+        cardView.layer.shadowOpacity = 0.5
     }
 
     public func configureCell(with reservation: Reservation) {
