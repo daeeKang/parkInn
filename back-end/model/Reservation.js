@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 let ReservationSchema = new Schema({
     companyid: {type: String, required: true},
     lotid: {type: String, required: true},
+    lotname: {type: String, required: true},
     spotid: {type: String, required: true},
     starttime: {type: Date, required: true},
     endtime: {type: Date, required: true},
