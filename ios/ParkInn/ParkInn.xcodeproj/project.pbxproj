@@ -111,7 +111,7 @@
 		8E7CE152243FC81D0041E943 /* AlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertController+Convenience.swift"; sourceTree = "<group>"; };
 		8E7D6AA9244D159200B8B5A4 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E7D6AAB244D177B00B8B5A4 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
-		8E98C92523F38022008F612A /* ParkInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E98C92523F38022008F612A /* ParkInn Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkInn Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98C92823F38022008F612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98C92A23F38022008F612A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8E98C92C23F38022008F612A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		8E98C92623F38022008F612A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E98C92523F38022008F612A /* ParkInn.app */,
+				8E98C92523F38022008F612A /* ParkInn Mobile.app */,
 				8E98C93B23F38024008F612A /* ParkInnTests.xctest */,
 				8E98C94623F38024008F612A /* ParkInnUITests.xctest */,
 			);
@@ -352,7 +352,7 @@
 			);
 			name = ParkInn;
 			productName = ParkInn;
-			productReference = 8E98C92523F38022008F612A /* ParkInn.app */;
+			productReference = 8E98C92523F38022008F612A /* ParkInn Mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8E98C93A23F38024008F612A /* ParkInnTests */ = {
@@ -798,8 +798,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ParkInn.ParkInn;
-				PRODUCT_NAME = ParkInn;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.park-inn.mobile";
+				PRODUCT_NAME = "ParkInn Mobile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkInn/ParkInn-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -820,8 +820,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ParkInn.ParkInn;
-				PRODUCT_NAME = ParkInn;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.park-inn.mobile";
+				PRODUCT_NAME = "ParkInn Mobile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkInn/ParkInn-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
