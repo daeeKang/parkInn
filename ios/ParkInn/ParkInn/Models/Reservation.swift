@@ -12,6 +12,7 @@ struct Reservation: Codable, Hashable {
     let _id: String
     let companyID: String
     let lotID: String
+    let lotName: String?
     let spotID: String
     // Dates need to be ISO 8601
     let startTime: String
@@ -22,6 +23,7 @@ struct Reservation: Codable, Hashable {
     enum CodingKeys: String, CodingKey {
         case companyID = "companyid"
         case lotID = "lotid"
+        case lotName = "lotname"
         case spotID = "spotid"
         case startTime = "starttime"
         case endTime = "endtime"
@@ -30,9 +32,10 @@ struct Reservation: Codable, Hashable {
         case _id
     }
 
-    init(companyID: String, lotID: String, spotID: String, startTime: String, endTime: String, username: String, expired: Bool, id: String = "") {
+    init(companyID: String, lotName: String, lotID: String, spotID: String, startTime: String, endTime: String, username: String, expired: Bool, id: String = "") {
         self.companyID = companyID
         self.lotID = lotID
+        self.lotName = lotName
         self.spotID = spotID
         self.startTime = startTime
         self.endTime = endTime

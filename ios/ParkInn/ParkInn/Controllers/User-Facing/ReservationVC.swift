@@ -102,7 +102,7 @@ class ReservationVC: UIViewController {
 
         let username = SessionManager.shared.customerProfile!.username
 
-        let reservation = Reservation(companyID: lot.companyID, lotID: "\(lot.lotID)", spotID: spot.spotid, startTime: startTime, endTime: endTime, username: username, expired: false)
+        let reservation = Reservation(companyID: lot.companyID, lotName: lot.name!, lotID: "\(lot.lotID)", spotID: spot.spotid, startTime: startTime, endTime: endTime, username: username, expired: false)
 
         APIService.addReservation(reservation: reservation) { [unowned self] result in
             switch result.result {

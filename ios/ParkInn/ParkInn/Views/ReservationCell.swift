@@ -35,7 +35,7 @@ class ReservationCell: UICollectionViewCell {
 
     public func configureCell(with reservation: Reservation) {
         self.reservation = reservation
-        self.locationLabel.text = reservation.lotID
+        self.locationLabel.text = reservation.lotName ?? reservation.lotID
         self.parkingSpotLabel.text = reservation.spotID
         self.fromLabel.text = formatDate(from: reservation.startTime)
         self.untilLabel.text = formatDate(from: reservation.endTime)
