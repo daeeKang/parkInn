@@ -8,6 +8,7 @@ router.post('/AddReservation', async (req, res) => {
     const reservation = new model.Reservation({
         companyid: req.body.companyid,
         lotid: req.body.lotid,
+        lotname: req.body.lotname,
         spotid: req.body.spotid,
         starttime: req.body.starttime,
         endtime: req.body.endtime,
