@@ -34,7 +34,10 @@ class MyReservationsVC: UIViewController {
         APIService.getReservations(email: email) { [unowned self] (result) in
             switch result {
                 case .success(let reservations):
-                    self.reservations = reservations
+                    self.reservations = reservations.filter { $0.expired == false }
+                    self.reservations.sort { (lhs, rhs) -> Bool in
+                        return lhs.startTime < rhs.startTime
+                    }
                     self.createSnapshot()
                 case .failure(let error):
                     fatalError(error.localizedDescription)
