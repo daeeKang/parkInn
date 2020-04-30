@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Reservation: Codable {
+struct Reservation: Codable, Hashable {
     let _id: String
     let companyID: String
     let lotID: String

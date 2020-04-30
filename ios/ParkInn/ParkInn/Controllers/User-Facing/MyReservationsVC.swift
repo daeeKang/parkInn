@@ -10,6 +10,15 @@ import UIKit
 
 class MyReservationsVC: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    enum Section {
+        case main
+    }
+
+    var dataSource: UICollectionViewDiffableDataSource<Section, Reservation>! = nil
+
+
     var reservations = [Reservation]()
 
     override func viewDidLoad() {
@@ -17,6 +26,7 @@ class MyReservationsVC: UIViewController {
 
         // Do any additional setup after loading the view.
         fetchReservations()
+        configureCollectionView()
     }
 
     private func fetchReservations() {
@@ -25,21 +35,69 @@ class MyReservationsVC: UIViewController {
             switch result {
                 case .success(let reservations):
                     self.reservations = reservations
+                    self.createSnapshot()
                 case .failure(let error):
                     fatalError(error.localizedDescription)
             }
         }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureCollectionView() {
+        configureHierarchy()
+        configureDataSource()
     }
-    */
+
+}
+
+
+// MARK: - DiffableDatasource and Layout
+extension MyReservationsVC {
+
+    func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+                                               heightDimension: .fractionalHeight(0.8))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitem: item, count: 1)
+        let spacing = CGFloat(20)
+        group.interItemSpacing = .fixed(spacing)
+
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = spacing
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+
+    private func configureHierarchy() {
+        //           collectionView.delegate = self
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .clear
+        collectionView.collectionViewLayout = createLayout()
+    }
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Reservation>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, reservation) -> UICollectionViewCell? in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReservationCell", for: indexPath) as? ReservationCell else { fatalError("Could not create new cell") }
+
+            cell.configureCell(with: reservation)
+
+            return cell
+        })
+
+        createSnapshot()
+    }
+
+    func createSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Reservation>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(self.reservations)
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
 
 }
