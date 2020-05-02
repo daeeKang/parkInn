@@ -69,8 +69,8 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         }
 
      
-        cell.LabelLot.backgroundColor = UIColor.white
-        cell.LabelLot.textColor = UIColor.black
+        cell.LabelLot.backgroundColor = UIColor.PIColors.lightBlueCardHeader
+        cell.LabelLot.textColor = UIColor.white
         cell.LabelLot.text = currentLot.name
 
         
