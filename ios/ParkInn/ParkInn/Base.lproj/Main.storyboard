@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,29 +25,33 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I61-QB-JwZ" customClass="MDCButton">
                                 <rect key="frame" x="72.333333333333343" y="423" width="269.33333333333326" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NzH-89-uSP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8YQ-kT-0aQ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ParkInnLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-YS-CTa">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ParkInn_BlackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-YS-CTa">
                                 <rect key="frame" x="16" y="76" width="382" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="bm9-RT-KFh"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3yU-hp-Sxd"/>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.65" id="Gvc-cT-JCq"/>
-                            <constraint firstItem="pCm-YS-CTa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="KK4-R0-eEb"/>
+                            <constraint firstItem="pCm-YS-CTa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Mtg-k2-tFT"/>
                             <constraint firstItem="I61-QB-JwZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Su4-ed-GY3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pCm-YS-CTa" secondAttribute="trailing" constant="16" id="a5K-p5-0eY"/>
-                            <constraint firstItem="pCm-YS-CTa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hRT-sQ-jXl"/>
+                            <constraint firstItem="pCm-YS-CTa" firstAttribute="centerX" secondItem="I61-QB-JwZ" secondAttribute="centerX" id="T2l-sC-Qiz"/>
+                            <constraint firstItem="pCm-YS-CTa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="k1l-pe-2a1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -156,7 +160,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2jP-zo-O4H">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.12850642200000001" green="0.1520202756" blue="0.20184746379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YB5-p8-KkY">
                                     <size key="itemSize" width="144" height="125"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -427,7 +431,7 @@
     </scenes>
     <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="ParkInnLogo" width="200" height="200"/>
+        <image name="ParkInn_BlackLogo" width="100" height="100"/>
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="chart.pie.fill" catalog="system" width="128" height="124"/>
         <image name="gear" catalog="system" width="128" height="119"/>
