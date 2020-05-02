@@ -275,7 +275,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RZD-fl-VF6" firstAttribute="top" secondItem="ai0-7g-iD8" secondAttribute="bottom" id="03N-qW-Bcn"/>
                             <constraint firstItem="ai0-7g-iD8" firstAttribute="leading" secondItem="C8V-Jp-nXC" secondAttribute="leading" id="2A9-wl-iAK"/>
