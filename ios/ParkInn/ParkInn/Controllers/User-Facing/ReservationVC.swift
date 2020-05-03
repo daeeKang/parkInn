@@ -62,7 +62,8 @@ class ReservationVC: UIViewController {
                     print(lotDesign)
                     self.plotNodes()
                 case .failure(let error):
-                    fatalError(error.localizedDescription)
+                    print(error)
+//                    fatalError(error.localizedDescription)
             }
         }
     }
@@ -137,9 +138,9 @@ extension ReservationVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if datePickerIndexPath != nil {
-            return inputTexts.count + 2 + 1
+            return inputTexts.count + 1 + 1
         } else {
-            return inputTexts.count + 2
+            return inputTexts.count + 1
         }
     }
 
@@ -159,9 +160,6 @@ extension ReservationVC: UITableViewDataSource {
                 if indexPath.row == inputTexts.count {
                     dateCell.label.text = "Parking Spot:"
                     dateCell.dateLabel.text = selectedSpot?.spotid ?? "---"
-                } else {
-                    dateCell.label.text = "Price:"
-                    dateCell.dateLabel.text = "---"
                 }
             }
             return dateCell
