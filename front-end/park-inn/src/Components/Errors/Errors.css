@@ -3,10 +3,16 @@
   color: #fff;
   padding: 50px 0;
   width: 100%;
+  text-align: center;
+  height: 70vh;
 }
 
 .error-icon {
+  text-align: center;
   background-color: transparent;
+  width: 100px;
+  height: 100px;
+  margin: auto;
 }
 
 .error-logo {
@@ -17,18 +23,26 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: 100%;
-  border-radius: 49%;
-  background-image: url(https://cdn.discordapp.com/attachments/693888277165375512/693888673883619348/ParkInn_Black.png);
+  background-image: url('../Icons/ParkInn_WhiteLogo.png');
 }
-
 .error-body {
+  display: flex;
   background-color: #e3e5e7;
-  padding: 50px 0;
+  padding: 100px 0;
 }
-
 .error-message {
   position: static;
   -webkit-transform: none;
   transform: none;
   margin: 0 auto;
+}
+
+.font {
+  font-family: 'Helvetica';
+  color: #fff;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: large;
+  letter-spacing: 2px;
+  line-height: 1.6;
 }
