@@ -35,8 +35,13 @@ import ArrowIcon from '../Icons/arrow.svg';
 import { useAuth0 } from '../../react-auth0-spa';
 
 export default function Statistics() {
-  const [totalRevenue, peakTimes, totalParked, averageTimeParked] = SetData();
-
+  const [
+    totalRevenue,
+    peakTimes,
+    totalParked,
+    averageTimeParked,
+    monthlyRevenue,
+  ] = SetData();
   return (
     <div>
       <Header></Header>

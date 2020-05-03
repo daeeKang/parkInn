@@ -27,7 +27,11 @@ import {
   peakHoursChart,
 } from './../ChartData/Charts';
 
-export default (props) => {
+import { SetData } from '../../utils/homeApi';
+
+export default function Home() {
+  const [peakTimes, monthlyRevenue, amountOfLots] = SetData();
+  console.log('monthlyRevenue :>> ', monthlyRevenue);
   return (
     <div>
       <Header />
@@ -79,7 +83,7 @@ export default (props) => {
                   <p id="icon-subtitle">Manage Spaces</p>
                   <p id="icon-text">
                     <font color="#14BACE">
-                      <b>1 lot(s)</b>
+                      <b>{amountOfLots} lot(s)</b>
                     </font>{' '}
                     to view
                   </p>
@@ -137,7 +141,7 @@ export default (props) => {
               <CardHeader color="darkBlue">
                 <ChartistGraph
                   className="ct-chart-bar"
-                  data={peakHoursChart.data}
+                  data={peakTimes}
                   type={'Bar'}
                   options={peakHoursChart.options}
                   listener={peakHoursChart.animation}
@@ -202,4 +206,4 @@ export default (props) => {
       <Footer />
     </div>
   );
-};
+}

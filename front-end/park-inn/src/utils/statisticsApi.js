@@ -5,10 +5,10 @@ import ReactDOM from 'react-dom';
 
 import { useAuth0 } from '../react-auth0-spa';
 
-function UserData() {
-  const { user } = useAuth0();
-  return user;
-}
+// function UserData() {
+//   const { user } = useAuth0();
+//   return user;
+// }
 
 export function SetData() {
   const { user } = useAuth0();
@@ -19,18 +19,42 @@ export function SetData() {
   });
   const [totalParked, setTotalParked] = useState(0);
   const [averageTimeParked, setAverageTimeParked] = useState(0);
+  const [monthlyRevenue, setMonthlyRevenue] = useState(0);
 
   useEffect(() => {
     fetchTotalRevenue(user, setTotalRevenue);
     fetchPeakTimes(user, setPeakTimes);
     fetchPeopleParked(user, setTotalParked);
     fetchAverageTimeParked(user, setAverageTimeParked);
+    fetchMonthlyRevenue(user, setMonthlyRevenue);
   }, [user, totalRevenue, totalParked, averageTimeParked]);
-  return [totalRevenue, peakTimes, totalParked, averageTimeParked];
+  return [
+    totalRevenue,
+    peakTimes,
+    totalParked,
+    averageTimeParked,
+    monthlyRevenue,
+  ];
+}
+
+export function SetHomeData() {
+  const { user } = useAuth0();
+  const [peakTimes, setPeakTimes] = useState({
+    labels: [],
+    series: [],
+  });
+  const [monthlyRevenue, setMonthlyRevenue] = useState(0);
+
+  useEffect(() => {
+    fetchPeakTimes(user, setPeakTimes);
+    fetchMonthlyRevenue(user, setMonthlyRevenue);
+  }, [user]);
+  return [peakTimes, monthlyRevenue];
 }
 
 async function fetchTotalRevenue(user, setTotalRevenue) {
   try {
+    console.log('user.companyName :>> ', user.companyName);
     const { data } = await api.get(`Statistic/${user.companyName}`);
     var rev = data.companyStatistics.revenue;
     rev = rev / 100;
@@ -80,5 +104,15 @@ async function fetchAverageTimeParked(user, setAverageTimeParked, index = 0) {
     setAverageTimeParked(avg);
   } catch (err) {
     console.log(err.message);
+  }
+}
+
+async function fetchMonthlyRevenue(user, setMonthlyRevenue) {
+  try {
+    const { data } = await api.get(`Statistic/${user.companyName}`);
+    var rev = data;
+    setMonthlyRevenue('eep');
+  } catch (err) {
+    console.log(err);
   }
 }
