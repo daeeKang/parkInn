@@ -49,7 +49,7 @@ class MainVC: UIViewController {
     }
 
     private func setupCategories() {
-        let manage = Category(name: "View Lots", image: UIImage(systemName: "car.fill")!, color: UIColor.PIColors.tealCardHeader)
+        let manage = Category(name: "Parking Lots", image: UIImage(systemName: "car.fill")!, color: UIColor.PIColors.tealCardHeader)
 
         categories.append(contentsOf: [manage])
     }
@@ -156,11 +156,6 @@ class MainVC: UIViewController {
     }
 
     // MARK: - Segues
-
-    @IBAction func openStatsVC(_ sender: Any) {
-        performSegue(withIdentifier: "toStatsVC", sender: nil)
-    }
-
     @IBAction func openManagementVC(_ sender: Any) {
         performSegue(withIdentifier: "toManagementVC", sender: nil)
     }
