@@ -10,6 +10,7 @@
 		038B185123FCC2A300410A1A /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B185023FCC2A300410A1A /* MenuVC.swift */; };
 		163BAD4B8C8401380C019B80 /* Pods_ParkInn_ParkInnUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C938CF4BFA13A309D615269C /* Pods_ParkInn_ParkInnUITests.framework */; };
 		351FE58F2428298900F7E00B /* DisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FE58E2428298900F7E00B /* DisplayVC.swift */; };
+		35BEB0D3246017E3002BA659 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BEB0D2246017E3002BA659 /* CircularProgressView.swift */; };
 		35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */; };
 		88AF660D91A0662B6D7F7972 /* Pods_ParkInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */; };
 		8E02805A23F5653800057727 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805923F5653800057727 /* StatsVC.swift */; };
@@ -85,6 +86,7 @@
 /* Begin PBXFileReference section */
 		038B185023FCC2A300410A1A /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		351FE58E2428298900F7E00B /* DisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayVC.swift; sourceTree = "<group>"; };
+		35BEB0D2246017E3002BA659 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCVCell.swift; sourceTree = "<group>"; };
 		47CCD8676814AB4A0B0E29DD /* Pods-ParkInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.debug.xcconfig"; sourceTree = "<group>"; };
 		59ED785E62F4300390FFA17C /* Pods-ParkInn-ParkInnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn-ParkInnUITests.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn-ParkInnUITests/Pods-ParkInn-ParkInnUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
+				35BEB0D2246017E3002BA659 /* CircularProgressView.swift */,
 				8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */,
 				8E9FCBF4244E891200EB4A98 /* CardCell.swift */,
 				8E9FCBF5244E891200EB4A98 /* CardCell.xib */,
@@ -600,6 +603,7 @@
 				8E2E71C82443D1CF00A69221 /* SearchResultsVC.swift in Sources */,
 				8E02805A23F5653800057727 /* StatsVC.swift in Sources */,
 				8E2E71CA2443F90200A69221 /* SearchResultCell.swift in Sources */,
+				35BEB0D3246017E3002BA659 /* CircularProgressView.swift in Sources */,
 				8E9C58802453B8EF000B3D94 /* DateTableViewCell.swift in Sources */,
 				8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */,
 				8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */,

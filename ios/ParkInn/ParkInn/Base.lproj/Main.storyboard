@@ -2,7 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -189,6 +190,84 @@
             </objects>
             <point key="canvasLocation" x="2779.7101449275365" y="126.5625"/>
         </scene>
+        <!--DisplayVC-->
+        <scene sceneID="QXT-fx-5Oq">
+            <objects>
+                <viewController storyboardIdentifier="DisplayVC" id="zgJ-ac-oEq" customClass="DisplayVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KHZ-26-c4A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K8J-cm-vgs">
+                                <rect key="frame" x="10" y="355" width="394" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Tv-Dy-CR4" customClass="CircularProgressView" customModule="ParkInn" customModuleProvider="target">
+                                        <rect key="frame" x="300" y="20" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6N-FW-VSP">
+                                        <rect key="frame" x="14" y="20" width="199" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="lightBlueCardHeader"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-6Z-CkI">
+                                <rect key="frame" x="10" y="59" width="394" height="323"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="394" id="Apk-Cm-BLE"/>
+                                    <constraint firstAttribute="height" constant="323" id="Hfe-D3-LGg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="323" id="MWf-OM-UKW"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="394" id="eF3-GP-tl8"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Dh-hc-ryq">
+                                <rect key="frame" x="10" y="465" width="394" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfV-m7-fCF">
+                                        <rect key="frame" x="14" y="20" width="284" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXU-Ra-yeM" customClass="CircularProgressView" customModule="ParkInn" customModuleProvider="target">
+                                        <rect key="frame" x="300" y="20" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="lightBlueCardHeader"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Y5Z-6Z-CkI" firstAttribute="top" secondItem="xjQ-BI-n9l" secondAttribute="top" constant="15" id="Dri-Tw-r2d"/>
+                            <constraint firstItem="xjQ-BI-n9l" firstAttribute="trailing" secondItem="Y5Z-6Z-CkI" secondAttribute="trailing" constant="10" id="Hk9-Ru-SYl"/>
+                            <constraint firstItem="Y5Z-6Z-CkI" firstAttribute="leading" secondItem="xjQ-BI-n9l" secondAttribute="leading" constant="10" id="vvi-YZ-S7m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xjQ-BI-n9l"/>
+                    </view>
+                    <connections>
+                        <outlet property="amLabel" destination="G6N-FW-VSP" id="X03-fk-mfY"/>
+                        <outlet property="amLotView" destination="K8J-cm-vgs" id="DyD-Bo-PC8"/>
+                        <outlet property="amountProgress" destination="3Tv-Dy-CR4" id="Bpp-A1-fpj"/>
+                        <outlet property="avLotView" destination="8Dh-hc-ryq" id="U9w-gq-jgy"/>
+                        <outlet property="aveLabel" destination="NfV-m7-fCF" id="6ZZ-j7-ws8"/>
+                        <outlet property="averageProgress" destination="KXU-Ra-yeM" id="dWv-Rm-74N"/>
+                        <outlet property="showImage" destination="Y5Z-6Z-CkI" id="rHn-cR-2be"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPb-XY-CWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3550.7246376811595" y="125.89285714285714"/>
+        </scene>
         <!--Statistics-->
         <scene sceneID="pNC-ZV-8Wn">
             <objects>
@@ -313,5 +392,8 @@
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
+        <namedColor name="lightBlueCardHeader">
+            <color red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

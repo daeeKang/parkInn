@@ -41,14 +41,10 @@ class ManagementVC: UIViewController, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentLot = lots[indexPath.row]
-
-        print(currentLot.name)
-//        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let desVC = mainStoryboard.instantiateViewController(identifier: "DisplayVC") as! DisplayVC
-//
-//        desVC.lot = currentLot
-//
-//        self.navigationController?.pushViewController(desVC, animated: true)
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desVC = mainStoryboard.instantiateViewController(identifier: "DisplayVC") as! DisplayVC
+       desVC.lot = currentLot
+        self.navigationController?.pushViewController(desVC, animated: true)
     }
 
 }
