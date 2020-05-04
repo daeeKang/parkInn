@@ -21,22 +21,18 @@ struct Wall: Decodable {
     let height: Double
 
     var translatedX: Double {
-//        return (x + 5000) / 10
         return (x + 5000)
     }
 
     var translatedY: Double {
-//        return (y + 5000) / 10
         return (y + 5000)
     }
 
     var translatedWidth: Double {
-//        return abs(width / 10)
         return abs(width)
     }
 
     var translatedHeight: Double {
-//        return abs(height / 10)
         return abs(height)
     }
 
@@ -77,29 +73,25 @@ struct ParkingLabel: Decodable {
     let y: Double
     let width: Double
     let height: Double
-    let text: Double?
+    let text: Int?
     let size: Double?
     let fill: String?
     let rotation: Double?
 
 
     var translatedX: Double {
-    //        return (x + 5000) / 10
             return (x + 5000)
         }
 
         var translatedY: Double {
-    //        return (y + 5000) / 10
             return (y + 5000)
         }
 
         var translatedWidth: Double {
-    //        return abs(width / 10)
             return abs(width)
         }
 
         var translatedHeight: Double {
-    //        return abs(height / 10)
             return abs(height)
         }
 

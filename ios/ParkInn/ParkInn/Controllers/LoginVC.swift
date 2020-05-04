@@ -43,7 +43,7 @@ class LoginVC: UIViewController {
                                 return self.showLock()
                             }
                             DispatchQueue.main.async {
-                                 guard let roleString = SessionManager.shared.profile!.nickname,
+                                guard let roleString = SessionManager.shared.profile!.nickname,
                                                        let role = UserRole(rawValue: roleString) else { return }
                                 self.goToNextPage(using: role)
                             }

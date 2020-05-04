@@ -44,6 +44,7 @@ class SessionManager {
     let keychain = A0SimpleKeychain(service: "Auth0")
 
     var profile: UserInfo?
+    var customerProfile: CustomerProfile?
 
     private init () { }
 
@@ -60,11 +61,28 @@ class SessionManager {
             .userInfo(withAccessToken: accessToken)
             .start { result in
                 switch(result) {
-                case .success(let profile):
-                    self.profile = profile
-                    callback(nil)
-                case .failure(let error):
-                    callback(error)
+                    case .success(let profile):
+                        self.profile = profile
+
+                        let email = String(profile.sub.split(separator: "|")[1])
+
+                        if profile.nickname == "customer" {
+                            APIService.getCustomerProfile(email: email) { (result) in
+                                switch result {
+                                    case .success(let customerProfile):
+                                        print(customerProfile)
+                                        self.customerProfile = customerProfile
+                                        callback(nil)
+                                    case .failure(let error):
+                                        callback(error)
+                                }
+                            }
+                        } else if profile.nickname == "staff" || profile.nickname == "admin" {
+                            // Get Staff Profile
+                            callback(nil)
+                        }
+                    case .failure(let error):
+                        callback(error)
                 }
         }
     }
@@ -81,6 +99,7 @@ class SessionManager {
 
     func logout() {
         self.profile = nil
+        self.customerProfile = nil
         self.keychain.clearAll()
     }
 

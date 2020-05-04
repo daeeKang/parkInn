@@ -8,8 +8,18 @@
 
 import Foundation
 
-struct Lot: Decodable {
+class Lot: Decodable, Hashable {
+    static func == (lhs: Lot, rhs: Lot) -> Bool {
+        return lhs.lotID == rhs.lotID && lhs.companyID == rhs.companyID
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(lotID)
+        hasher.combine(companyID)
+    }
+
     let companyID: String
+    let companyName: String
     let lotID: Int
     let name: String?
     let spots: [Spot]
@@ -20,10 +30,13 @@ struct Lot: Decodable {
     let imageURL: String?
     let averageTimeParked: TimeParked
     let _id: String?
+    var image: UIImage?
+    var distanceToUser: Double?
 
 
     enum CodingKeys: String, CodingKey {
         case companyID = "companyid"
+        case companyName = "companyname"
         case lotID = "lotid"
         case name = "lotName"
         case spots
@@ -41,7 +54,7 @@ struct Lot: Decodable {
 
 struct Spot: Decodable {
     let spotid: String
-    let active: Bool
+    let active: Bool?
     let unavailable: Date?
     let category: String
 }
