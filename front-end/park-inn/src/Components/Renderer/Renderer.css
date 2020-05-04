@@ -37,7 +37,7 @@
 }
 
 .slidecontainer {
-    margin-top: 40px;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
@@ -67,39 +67,13 @@
     font-size: 15px;
 }
 
-.right {
-    float: right;
-    justify-content: center;
-    padding-top: 10px;
-}
-
-.left {
-    float: left;
-    justify-content: center;
-    margin-top: 8px;
-    /* margin-bottom: 5px; */
-}
-
-.left-2 {
-    float: left;
-    justify-content: center;
-    margin-top: 4px;
-    /* margin-top: 25px; */
-    /* margin-bottom: 5px; */
-}
-
-.hehe {
-    margin-top: 36px;
-    margin-bottom: 5px;
-}
-
 .formContainer {
     font-family: 'Helvetica';
     font-weight: '100';
     color: #555;
     font-size: 14px;
     padding: 20px;
-    justify-content: right;
+    justify-content: left;
 }
 
 .buttonSelected {
@@ -152,6 +126,7 @@
     border-width: 0.5px;
     width: 100px;
     margin-top: 5px;
+    margin-bottom: 5px;
     /* margin-left: 50px; */
 }
 

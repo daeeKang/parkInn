@@ -699,58 +699,23 @@ export default class Renderer extends React.Component {
                                 </button>
                             </div>
                         </div>
-                        <br/>
-                        <GridContainer>
-                            <GridItem xs={6}>
-                                <div className="left-2">
-                                    <p id="pls">Number of Spaces:</p>
-                                    {/* <p id="pls">Naming:</p> */}
-                                </div>
-                                <div className="left">
-                                    {/* <br/> */}
-                                    {/* <p id="pls">Prefix:</p> */}
-                                    {/* <br/> */}
-                                    {/* <p id="pls">Start:</p> */}
-                                    {/* <br/> */}
-                                    <div class="hehe">
-                                        <p id="pls">Size:</p>
-                                    </div>
-                                    
-                                </div>
-                            </GridItem>
-                            <GridItem xs={6}>
-                                <div className="right">
-                                    <input
-                                    type="text"
-                                    id="numOfSpaces"
-                                    className="formInput"
-                                    value={this.state.numOfSpaces}
-                                    onChange={this.parkingFormChange}
-                                    />
-                                    {/* <br/> */}
-                                    {/* <input 
-                                        type="text"
-                                        className="formInput"
-                                    /> */}
-                                    {/* <br/><br/> */}
-                                    {/* <br/> */}
-                                    {/* <input 
-                                        type="text"
-                                        className="formInput"
-                                    /> */}
-                                    {/* <br/> */}
-                                    {/* <input 
-                                        className="formInput"
-                                        type="text"
-                                    /> */}
-                                    <div class="slidecontainer">
-                                        <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
-                                    </div>
-                                    </div>
-                            </GridItem>
-                        </GridContainer>
-
-                        <br/>
+                        <div>
+                        <br/><br/>
+                        <p id="pls">Number of Spaces:</p>
+                        <input
+                            type="text"
+                            id="numOfSpaces"
+                            className="formInput"
+                            value={this.state.numOfSpaces}
+                            onChange={this.parkingFormChange}
+                        />
+                        <br/><br/>
+                        <p id="pls">Select Size:</p>
+                            {/* <div class="slidecontainer"> */}
+                                <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider" />
+                            {/* </div> */}
+                        <br/><br/>
+                        </div>
                         
                         {/* <div className="bottom"> */}
                             {/* <center> */}
