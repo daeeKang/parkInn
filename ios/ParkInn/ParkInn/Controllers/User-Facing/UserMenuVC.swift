@@ -19,7 +19,12 @@ class UserMenuVC: UIViewController {
 
     override var prefersStatusBarHidden: Bool { return true }
 
-    @IBAction func settingsPressed(_ sender: Any) {
+    @IBAction func profilePressed(_ sender: Any) {
+        performSegue(withIdentifier: "toProfileVC", sender: nil)
+    }
+
+    @IBAction func reservationsPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toMyReservationsVC", sender: nil)
     }
 
     @IBAction func logoutPressed(_ sender: Any) {
@@ -38,6 +43,12 @@ class UserMenuVC: UIViewController {
                 case false:
                     print("logged out failed")
             }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let profileVC = segue.destination as? ProfileVC {
+            profileVC.customerProfile = SessionManager.shared.customerProfile!
         }
     }
 }

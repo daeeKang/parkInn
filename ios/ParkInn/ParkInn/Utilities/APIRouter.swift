@@ -16,16 +16,21 @@ enum APIRouter: URLRequestConvertible {
     case lots(latitude: Double, longitude: Double, radius: Int)
     case lotDesign(companyID: String, lotID: String)
     case peakTimes(companyID: String, lotID: String)
-    #warning("These statistics might switch to companyID instead of companyName")
     case companyStats(companyName: String)
+    case customerProfile(email: String)
     case lotStats(companyName: String, lotID: String)
+    case lotsNamed(name: String)
+    case addReservation(reservation: Reservation)
+    case reservations(email: String)
 
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
-            case .lot, .lots, .companyLots, .lotDesign,
-                 .peakTimes, .companyStats, .lotStats:
+            case .lot, .lots, .companyLots, .lotsNamed, .lotDesign,
+                 .peakTimes, .companyStats, .lotStats, .customerProfile, .reservations:
                 return .get
+            case .addReservation:
+                return .post
         }
     }
 
@@ -38,26 +43,42 @@ enum APIRouter: URLRequestConvertible {
                 return "/Lot/GetLotsWithinArea/\(latitude)/\(longitude)/\(radius)/"
             case .companyLots(let companyID):
                 return "/Lot/GetLots/\(companyID)/"
+            case .lotsNamed(let name):
+                return "/Lot/SearchForLot/\(name)"
             case .lotDesign(let companyID, let lotID):
-                return "/Lot/GetLotDesign?companyid=\(companyID)&lotid=\(lotID)"
+                return "/Lot/GetLotDesign/\(companyID)/\(lotID)"
             case .peakTimes(let companyID, let lotID):
                 return "/Lot/GetPeakTimes/\(companyID)/\(lotID)"
             case .companyStats(let companyName):
                 return "/Statistic/\(companyName)/"
             case .lotStats(let companyName, let lotID):
                 return "/Statistic/\(companyName)/\(lotID)"
+            case .addReservation:
+                return "/Reservation/AddReservation"
+            case .reservations(let email):
+                return "Reservation/GetReservations/\(email)"
+            case .customerProfile(let email):
+                return "/Customer/GetCustomer/\(email)"
         }
     }
 
     // MARK: - Parameters
-    private var parameters: Parameters? {
-        //        switch self {
-        //            case .lot: break
-        //            case .lots(latitude: let latitude, longitude: let longitude, radius: let radius):
-        //            break
-        //        }
-        return nil
+    private var parameters: Data? {
+        switch self {
+            case .addReservation(let reservation):
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = .prettyPrinted
+
+                let json = try! encoder.encode(reservation)
+                print(String(data: json, encoding: .utf8))
+
+
+                return json
+            default:
+                return nil
+        }
     }
+    
 
     // MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
@@ -82,11 +103,7 @@ enum APIRouter: URLRequestConvertible {
 
         // Parameters
         if let parameters = parameters {
-            do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-            } catch {
-                throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
-            }
+            urlRequest.httpBody = parameters
         }
 
         print(urlRequest.url)
