@@ -226,10 +226,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="T9K-1P-5h6">
-                                <rect key="frame" x="8" y="651.33333333333337" width="390" height="178.66666666666663"/>
+                                <rect key="frame" x="8" y="708" width="390" height="122"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-87-baC" customClass="MDCButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="29.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="27.333333333333332"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -242,7 +242,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mA-Vb-8sT" customClass="MDCButton">
-                                        <rect key="frame" x="0.0" y="49.666666666666622" width="390" height="29.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="47.333333333333371" width="390" height="27.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,22 +255,8 @@
                                             <action selector="reservationsPressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="V0o-fd-VIL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wK-DQ-Unj" customClass="MDCButton">
-                                        <rect key="frame" x="0.0" y="99.333333333333258" width="390" height="29.666666666666657"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Settings" image="gear" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="settingsPressed:" destination="Ykp-Ue-6My" eventType="touchUpInside" id="qDD-5a-6kD"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhb-Fk-v4v" customClass="MDCButton">
-                                        <rect key="frame" x="0.0" y="149" width="390" height="29.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="94.666666666666629" width="390" height="27.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -877,7 +863,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" name="blueCardHeader"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.52156862745098043" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xxi-hW-dOv" firstAttribute="trailing" secondItem="RZu-uF-tLq" secondAttribute="trailing" id="0fH-6a-Qrf"/>
                             <constraint firstItem="RZu-uF-tLq" firstAttribute="top" secondItem="6xe-Ri-UeU" secondAttribute="bottom" constant="8" id="QIf-xb-wMq"/>
@@ -903,16 +889,12 @@
         <image name="ParkInnLogo" width="200" height="200"/>
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="book.fill" catalog="system" width="128" height="100"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="location.north" catalog="system" width="108" height="128"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
-        <namedColor name="blueCardHeader">
-            <color red="0.30588235294117649" green="0.63921568627450975" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="darkBlueCardHeader">
             <color red="0.10588235294117647" green="0.14901960784313725" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

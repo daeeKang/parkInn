@@ -27,9 +27,6 @@ class UserMenuVC: UIViewController {
         performSegue(withIdentifier: "toMyReservationsVC", sender: nil)
     }
 
-    @IBAction func settingsPressed(_ sender: Any) {
-    }
-
     @IBAction func logoutPressed(_ sender: Any) {
         Auth0
         .webAuth()
