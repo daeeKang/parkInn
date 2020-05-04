@@ -3,7 +3,6 @@ import Konva from "konva";
 import Modal from "react-modal";
 import api from "../../utils/api";
 import "./Renderer.css";
-import Header from '../Header/Header';
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
 import GetLot from "./GetLot";
 import Profile from "../Profile";
@@ -11,8 +10,6 @@ import config from '../../auth_config.json';
 
 import GridContainer from '../Grid/GridContainer';
 import GridItem from '../Grid/GridItem';
-import { NavLink } from 'react-router-dom';
-import Home from './home.svg';
 
 
 export default class Renderer extends React.Component {
@@ -654,7 +651,6 @@ export default class Renderer extends React.Component {
     render() {
         return (
             <div>
-                {/* <Header /> */}
                 <div
                     className="parkingLotForm"
                     style={
@@ -831,10 +827,6 @@ export default class Renderer extends React.Component {
                         erase
                     </button>
                     <button onClick={this.serializeData}>save</button>
-
-                    <NavLink to="/dash">
-                        <button className="home"><img src={Home} height="22px" width="22px" /></button>
-                    </NavLink>
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}

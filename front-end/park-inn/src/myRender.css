@@ -15,7 +15,7 @@
     position: fixed;
     display: inline;
     z-index: 69;
-    top: 1vh;
+    top: 10vh;
     left: 1vw;
     padding: 20px;
     opacity: 100%;
@@ -210,36 +210,4 @@ button {
     overflow: hidden;
     transition: 0.4s;
     margin: 10px;
-}
-
-button:hover {
-    color: #fff;
-    background-color: #adc9e0;
-    font-weight: 200;
-    /* font-style: italic; */
-    border: solid 2px #fff;
-}
-
-.home {
-    font-family: 'Helvetica';
-    font-weight: 350;
-    display: block;
-    text-decoration: none;
-    color: #555;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: solid 2px #366387;
-    text-align: center;
-    overflow: hidden;
-    transition: 0.4s;
-    margin: 10px;
-}
-
-.home:hover {
-    color: #fff;
-    background-color: #adc9e0;
-    font-weight: 200;
-    font-style: italic;
-    border: solid 2px #fff;
 }
