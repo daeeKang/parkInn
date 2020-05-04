@@ -10,12 +10,28 @@ import UIKit
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var carLabel: UILabel!
+    @IBOutlet weak var licensePlateLabel: UILabel!
+
+    var customerProfile: CustomerProfile!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        populateFields()
     }
-    
+
+    private func populateFields() {
+        nameLabel.text = self.customerProfile.fullName
+        emailLabel.text = self.customerProfile.username
+
+        let car = customerProfile.cars[0]
+        carLabel.text = "\(car.color.capitalized) \(car.make.capitalized) \(car.model.capitalized)"
+        licensePlateLabel.text = car.license
+    }
 
     /*
     // MARK: - Navigation

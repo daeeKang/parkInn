@@ -45,4 +45,10 @@ class UserMenuVC: UIViewController {
             }
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let profileVC = segue.destination as? ProfileVC {
+            profileVC.customerProfile = SessionManager.shared.customerProfile!
+        }
+    }
 }
