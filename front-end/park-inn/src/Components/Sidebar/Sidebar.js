@@ -44,7 +44,7 @@ class Sidebar extends React.Component {
                     </li>
 
                     <li>
-                        <NavLink className="link" onClick={this.closeMenu} to='/parking'>
+                        <NavLink className="link" onClick={this.closeMenu} to='/renderer'>
                             <img src={ParkingIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Manage Parking</span>
                         </NavLink>
                     </li>
@@ -55,17 +55,17 @@ class Sidebar extends React.Component {
                         </NavLink>
                     </li>
 
-                    <li>
+                    {/* <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/events'>
                             <img src={EventIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Event Calendar</span>
                         </NavLink>
-                    </li>
+                    </li> */}
 
-                    <li>
+                    {/* <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/incidents'>
                             <img src={IncidentIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Incident Reporting</span>
                         </NavLink>
-                    </li>
+                    </li> */}
 
                     <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/management'>

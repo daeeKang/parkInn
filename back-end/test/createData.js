@@ -28,6 +28,7 @@ function createReservation() {
     const reservation1 = new model.Reservation({
         companyid: '8e9fe90e-bd10-48d2-8084-8f259157c832',
         lotid: 1,
+        lotName: lotName[0],
         spotid: 0,
         starttime: newDate,
         endtime: addHours(newDate, 2),
@@ -43,6 +44,7 @@ function createReservation() {
       const reservation2 = new model.Reservation({
         companyid: '8e9fe90e-bd10-48d2-8084-8f259157c832',
         lotid: 2,
+        lotName: lotName[1],
         spotid: 0,
         starttime: oldDate,
         endtime: addHours(oldDate, 3),
@@ -134,8 +136,8 @@ function createLot(lotid, companyid, name){
 
 function createRevenue(lotid, companyid, name){
     const priceInPennies = 2000;
-    const startDate = new Date('2019-01-01');
-    const endDate = new Date('2020-01-01');
+    const startDate = new Date('2020-01-01');
+    const endDate = new Date('2020-05-01');
     for(let i = 0; i < 100; i++){
         const revenue = new model.Revenue({
             companyid: companyid,
