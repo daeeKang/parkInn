@@ -23,10 +23,11 @@ class ManagementVC: UIViewController, UICollectionViewDelegate {
         configureHierarchy()
         configureDataSource()
 
-        fetchLots(with: "8e9fe90e-bd10-48d2-8084-8f259157c832")
+        fetchLots()
     }
 
-    private func fetchLots(with companyID: String) {
+    private func fetchLots() {
+        let companyID = SessionManager.shared.staffProfile!.companyID
         APIService.getLots(companyID: companyID) { [unowned self] result in
             switch result {
                 case .success(let lots):

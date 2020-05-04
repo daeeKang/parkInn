@@ -70,7 +70,9 @@ class MainVC: UIViewController {
         barChartView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         barChartView.clipsToBounds = true
 
-        APIService.getCompanyStats(companyName:"Flamingo") { Result in
+        let companyName = SessionManager.shared.staffProfile!.companyName
+
+        APIService.getCompanyStats(companyName: companyName) { Result in
             switch Result {
                 case .success (let result):
                     self.statsObject = result
