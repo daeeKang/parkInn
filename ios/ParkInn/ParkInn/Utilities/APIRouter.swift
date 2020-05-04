@@ -18,6 +18,7 @@ enum APIRouter: URLRequestConvertible {
     case peakTimes(companyID: String, lotID: String)
     case companyStats(companyName: String)
     case customerProfile(email: String)
+    case staffProfile(email: String)
     case lotStats(companyName: String, lotID: String)
     case lotsNamed(name: String)
     case addReservation(reservation: Reservation)
@@ -27,7 +28,7 @@ enum APIRouter: URLRequestConvertible {
     private var method: HTTPMethod {
         switch self {
             case .lot, .lots, .companyLots, .lotsNamed, .lotDesign,
-                 .peakTimes, .companyStats, .lotStats, .customerProfile, .reservations:
+                 .peakTimes, .companyStats, .lotStats, .customerProfile, .staffProfile, .reservations:
                 return .get
             case .addReservation:
                 return .post
@@ -59,6 +60,8 @@ enum APIRouter: URLRequestConvertible {
                 return "Reservation/GetReservations/\(email)"
             case .customerProfile(let email):
                 return "/Customer/GetCustomer/\(email)"
+            case .staffProfile(let email):
+                return "/Staff/GetStaff/\(email)"
         }
     }
 

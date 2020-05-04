@@ -15,6 +15,7 @@ class APIService {
     typealias LotStatsCompletion = (Result<LotStats, AFError>) -> ()
     typealias CompanyStatsCompletion = (Result<CompanyStats, AFError>) -> ()
     typealias CustomerProfileCompletion = (Result<CustomerProfile, AFError>) -> ()
+    typealias StaffProfileCompletion = (Result<StaffProfile, AFError>) -> ()
     typealias AddReservationCompletion = (AFDataResponse<String>) -> ()
     typealias ReservationsCompletion = (Result<[Reservation], AFError>) -> ()
 
@@ -52,6 +53,10 @@ class APIService {
 
     static func getCustomerProfile(email: String, completion: @escaping CustomerProfileCompletion) {
         performRequest(route: .customerProfile(email: email), completion: completion)
+    }
+
+    static func getStaffProfile(email: String, completion: @escaping StaffProfileCompletion) {
+        performRequest(route: .staffProfile(email: email), completion: completion)
     }
 
     static func addReservation(reservation: Reservation, completion: @escaping AddReservationCompletion) {
