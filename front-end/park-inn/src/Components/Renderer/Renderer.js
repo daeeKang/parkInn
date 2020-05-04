@@ -12,6 +12,7 @@ import config from '../../auth_config.json';
 import GridContainer from '../Grid/GridContainer';
 import GridItem from '../Grid/GridItem';
 import { NavLink } from 'react-router-dom';
+import HomeDialog from './HomeDialog';
 import Home from './home.svg';
 
 
@@ -796,9 +797,12 @@ export default class Renderer extends React.Component {
                     </button>
                     <button onClick={this.serializeData}>save</button>
 
-                    <NavLink to="/dash">
+                    {/* old home button no dialog */}
+                    {/* <NavLink to="/dash">
                         <button className="home"><img src={Home} height="22px" width="22px" /></button>
-                    </NavLink>
+                    </NavLink> */}
+
+                    <HomeDialog />
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}
