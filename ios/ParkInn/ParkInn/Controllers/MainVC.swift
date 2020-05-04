@@ -128,8 +128,8 @@ class MainVC: UIViewController {
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         pieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
 
-        pieChartDataSet.colors = colorsOfCharts(numbersOfColor: 2)
-        pieChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+        pieChartDataSet.colors = [UIColor.PIColors.darkTealCardHeader, UIColor.PIColors.mediumGreenCardHeader]
+        pieChartView.backgroundColor = UIColor.PIColors.lightBlueCardHeader
 
         pieChartView.centerText = totalSpots
         pieChartView.drawCenterTextEnabled = true
