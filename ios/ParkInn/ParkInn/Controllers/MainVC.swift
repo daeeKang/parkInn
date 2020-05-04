@@ -49,12 +49,9 @@ class MainVC: UIViewController {
     }
 
     private func setupCategories() {
-        let events = Category(name: "Events", image: UIImage(systemName: "calendar")!, color: UIColor.PIColors.yellowCardHeader)
-        let revenue = Category(name: "Revenue", image: UIImage(systemName: "dollarsign.square.fill")!, color: UIColor.PIColors.greenCardHeader)
-        let incidents = Category(name: "Incidents", image: UIImage(systemName: "bell.fill")!, color: UIColor.PIColors.redCardHeader)
-        let manage = Category(name: "Manage", image: UIImage(systemName: "car.fill")!, color: UIColor.PIColors.tealCardHeader)
+        let manage = Category(name: "View Lots", image: UIImage(systemName: "car.fill")!, color: UIColor.PIColors.tealCardHeader)
 
-        categories.append(contentsOf: [manage, revenue, events, incidents])
+        categories.append(contentsOf: [manage])
     }
 
     private func setupCharts() {
@@ -179,7 +176,9 @@ class MainVC: UIViewController {
 // MARK: - UICollectionViewDataSource/Delegate
 
 extension MainVC: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toManagementVC", sender: nil)
+    }
 }
 
 // MARK: - Diffable Datasource and UICollectionViewFlowLayout
@@ -194,7 +193,7 @@ extension MainVC {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: .fractionalWidth(0.33))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitem: item, count: 2)
+                                                       subitem: item, count: 1)
         let spacing = CGFloat(10)
         group.interItemSpacing = .fixed(spacing)
 
@@ -211,13 +210,13 @@ extension MainVC {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .clear
         collectionView.collectionViewLayout = createLayout()
-        let nib = UINib(nibName: "CategoryCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "CategoryCell")
+        let nib = UINib(nibName: "CardCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "CardCell")
     }
 
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Category>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, category) -> UICollectionViewCell? in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as? CategoryCell else { fatalError("Could not create new cell") }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as? CardCell else { fatalError("Could not create new cell") }
 
             cell.configureCell(with: category)
 

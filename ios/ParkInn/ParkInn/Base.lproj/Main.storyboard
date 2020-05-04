@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Kx-DI-N5x">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="309"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="161.66666666666666"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mDh-El-ba7">
                                     <size key="itemSize" width="299" height="266"/>
@@ -95,33 +95,38 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVa-M0-k4Y" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="325" width="382" height="200"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bcr-Gn-fnB">
+                                <rect key="frame" x="16" y="177.66666666666669" width="382" height="580.33333333333326"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVa-M0-k4Y" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="282.66666666666669"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEA-Qm-3KJ" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="297.66666666666663" width="382" height="282.66666666666663"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="l7v-jQ-pkI"/>
+                                    <constraint firstItem="SVa-M0-k4Y" firstAttribute="top" secondItem="bcr-Gn-fnB" secondAttribute="top" id="APa-tY-rUp"/>
+                                    <constraint firstAttribute="trailing" secondItem="IEA-Qm-3KJ" secondAttribute="trailing" id="IdB-tj-Q8l"/>
+                                    <constraint firstItem="IEA-Qm-3KJ" firstAttribute="leading" secondItem="bcr-Gn-fnB" secondAttribute="leading" id="UOf-PH-Fcb"/>
+                                    <constraint firstAttribute="trailing" secondItem="SVa-M0-k4Y" secondAttribute="trailing" id="j09-Qk-pA9"/>
+                                    <constraint firstItem="SVa-M0-k4Y" firstAttribute="leading" secondItem="bcr-Gn-fnB" secondAttribute="leading" id="krN-9f-sQV"/>
+                                    <constraint firstAttribute="bottom" secondItem="IEA-Qm-3KJ" secondAttribute="bottom" id="ogw-2T-YRO"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEA-Qm-3KJ" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="541" width="382" height="200"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="abj-CD-ZHF"/>
-                                </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SVa-M0-k4Y" firstAttribute="top" secondItem="5Kx-DI-N5x" secondAttribute="bottom" constant="16" id="Bo6-m5-PFd"/>
-                            <constraint firstItem="5Kx-DI-N5x" firstAttribute="height" secondItem="DRT-Gm-k0e" secondAttribute="height" multiplier="0.382426" id="DNC-qh-6IR"/>
-                            <constraint firstItem="IEA-Qm-3KJ" firstAttribute="top" secondItem="SVa-M0-k4Y" secondAttribute="bottom" constant="16" id="DiI-VW-6i8"/>
+                            <constraint firstItem="bcr-Gn-fnB" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" constant="16" id="5UW-k2-c9E"/>
+                            <constraint firstItem="5Kx-DI-N5x" firstAttribute="height" secondItem="DRT-Gm-k0e" secondAttribute="height" multiplier="0.2" id="DNC-qh-6IR"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" id="Hy2-Mn-kjy"/>
-                            <constraint firstItem="Wni-3b-Cb9" firstAttribute="trailing" secondItem="SVa-M0-k4Y" secondAttribute="trailing" constant="16" id="MNg-O7-orI"/>
+                            <constraint firstItem="bcr-Gn-fnB" firstAttribute="top" secondItem="5Kx-DI-N5x" secondAttribute="bottom" constant="16" id="JLC-dq-p3U"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="trailing" secondItem="Wni-3b-Cb9" secondAttribute="trailing" id="MmX-No-FLl"/>
-                            <constraint firstItem="Wni-3b-Cb9" firstAttribute="trailing" secondItem="IEA-Qm-3KJ" secondAttribute="trailing" constant="16" id="dlb-zs-988"/>
-                            <constraint firstItem="SVa-M0-k4Y" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" constant="16" id="e8J-BD-CPw"/>
+                            <constraint firstItem="Wni-3b-Cb9" firstAttribute="trailing" secondItem="bcr-Gn-fnB" secondAttribute="trailing" constant="16" id="chC-ql-GRe"/>
                             <constraint firstItem="5Kx-DI-N5x" firstAttribute="top" secondItem="Wni-3b-Cb9" secondAttribute="top" id="lB1-Z2-rjj"/>
-                            <constraint firstItem="IEA-Qm-3KJ" firstAttribute="leading" secondItem="Wni-3b-Cb9" secondAttribute="leading" constant="16" id="vZK-CG-EMi"/>
+                            <constraint firstItem="Wni-3b-Cb9" firstAttribute="bottom" secondItem="bcr-Gn-fnB" secondAttribute="bottom" constant="16" id="tee-dI-WNo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wni-3b-Cb9"/>
                     </view>
@@ -156,50 +161,26 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2jP-zo-O4H">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.12850642200000001" green="0.1520202756" blue="0.20184746379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YB5-p8-KkY">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="manageCell" id="W6k-ni-y75" customClass="ManagementCVCell" customModule="ParkInn" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skI-3W-sBF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.86657208200000002" green="0.86672115329999999" blue="0.86656266449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="skI-3W-sBF" secondAttribute="trailing" id="Lw0-dD-3xx"/>
-                                            <constraint firstItem="skI-3W-sBF" firstAttribute="top" secondItem="W6k-ni-y75" secondAttribute="top" id="mFq-xV-djc"/>
-                                            <constraint firstItem="skI-3W-sBF" firstAttribute="leading" secondItem="W6k-ni-y75" secondAttribute="leading" id="nc0-ev-e6L"/>
-                                            <constraint firstAttribute="bottom" secondItem="skI-3W-sBF" secondAttribute="bottom" id="ufA-NN-bwn"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="testLabel" destination="skI-3W-sBF" id="c3E-3u-fmd"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
-                                    <outlet property="dataSource" destination="AhQ-yT-AZM" id="xvM-4y-D4Q"/>
                                     <outlet property="delegate" destination="AhQ-yT-AZM" id="tLf-qZ-Bq0"/>
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GQe-1y-thU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Manage" id="lTw-RE-q3i"/>
+                    <navigationItem key="navigationItem" title="Parking Lots" id="lTw-RE-q3i">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="1zV-Ku-DhS"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="2jP-zo-O4H" id="ndA-yq-wkf"/>
                     </connections>
@@ -355,13 +336,10 @@
             <point key="canvasLocation" x="613" y="127"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="ParkInnLogo" width="200" height="200"/>
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
-
-        <image name="car" catalog="system" width="128" height="93"/>
-        <image name="chart.pie" catalog="system" width="128" height="121"/>
         <image name="chart.pie.fill" catalog="system" width="128" height="124"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>

@@ -29,6 +29,7 @@ class CardCell: MDCBaseCell {
         nameLabel.text = category.name
         categoryGlyph.image = category.image
         squareView.backgroundColor = category.color
+        lotImage.isHidden = true
     }
 
     public func configureCell(with lot: Lot) {
@@ -42,20 +43,23 @@ class CardCell: MDCBaseCell {
                     if image != nil {
                         DispatchQueue.main.async {
                             lot.image = image
-                            self.categoryGlyph.image = image
+                            self.lotImage.image = image
                         }
                     }
                 }
             }
         } else {
-            categoryGlyph.image = lot.image!
+            lotImage.image = lot.image!
         }
+
+        categoryGlyph.isHidden = true
     }
 
     private func formatViews() {
         // Corner Radii
         squareView.layer.cornerRadius = 5.0
         cardView.layer.cornerRadius = 5.0
+        lotImage.layer.cornerRadius = 5.0
 
         // Shadows
         squareView.layer.shadowOffset = CGSize(width: 0, height: 0)

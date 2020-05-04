@@ -9,29 +9,21 @@
 import UIKit
 
 //classe to manage cell structure
-class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ManagementVC: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet private weak var collectionView: UICollectionView!
-    
 
     var lots = [Lot]()
+
+    fileprivate var dataSource: UICollectionViewDiffableDataSource<Section, Lot>! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchLots(with: "8e9fe90e-bd10-48d2-8084-8f259157c832")
+        configureHierarchy()
+        configureDataSource()
 
-        //set up the amount of columns
-        let width = (view.frame.size.width - 20) / 2
-        //variable layout to access properties of collectionView
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        
-        //size of each cell
-        layout.itemSize = CGSize(width: width, height: width)
-        //space for all corners of the cell
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
-        
-        
+        fetchLots(with: "8e9fe90e-bd10-48d2-8084-8f259157c832")
     }
 
     private func fetchLots(with companyID: String) {
@@ -39,56 +31,80 @@ class ManagementVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             switch result {
                 case .success(let lots):
                     self.lots = lots
-                    self.collectionView.reloadData()
+                    self.createSnapshot()
                 case .failure(let error):
                     print(error.localizedDescription)
             }
         }
     }
     
-    //get number of items in the array
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return lots.count
-    }
-    
-    //iterates the cells applying any modifications
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "manageCell", for: indexPath) as! ManagementCVCell
-
-        let currentLot = lots[indexPath.row]
-        
-        cell.DisplayLot.layer.cornerRadius = 26
-        cell.LabelLot.layer.cornerRadius = 10
-        cell.LabelLot.layer.masksToBounds = true
-        
-        if currentLot.imageURL != nil {
-            let url = URL(string: currentLot.imageURL!)!
-            cell.DisplayLot.load(url: url)
-        } else {
-            // Display no image
-        }
-
-     
-        cell.LabelLot.backgroundColor = UIColor.white
-        cell.LabelLot.textColor = UIColor.black
-        cell.LabelLot.text = currentLot.name
-
-        
-        return cell
-        
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentLot = lots[indexPath.row]
 
-        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let desVC = mainStoryboard.instantiateViewController(identifier: "DisplayVC") as! DisplayVC
-        
-        desVC.lot = currentLot
-        
-        self.navigationController?.pushViewController(desVC, animated: true)
-        
-        
+        print(currentLot.name)
+//        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let desVC = mainStoryboard.instantiateViewController(identifier: "DisplayVC") as! DisplayVC
+//
+//        desVC.lot = currentLot
+//
+//        self.navigationController?.pushViewController(desVC, animated: true)
     }
 
+}
+
+extension ManagementVC {
+    func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalWidth(0.33))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitem: item, count: 2)
+        let spacing = CGFloat(10)
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = spacing
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 10, bottom: 0, trailing: 10)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+
+    private func configureHierarchy() {
+        collectionView.delegate = self
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .clear
+        collectionView.collectionViewLayout = createLayout()
+        let nib = UINib(nibName: "CardCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "CardCell")
+    }
+
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Lot>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, lot) -> UICollectionViewCell? in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as? CardCell else { fatalError("Could not create new cell") }
+
+            cell.configureCell(with: lot)
+
+            return cell
+        })
+
+        createSnapshot()
+    }
+
+    private func createSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Lot>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(lots)
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+}
+
+extension ManagementVC {
+    fileprivate enum Section {
+        case main
+    }
 }
