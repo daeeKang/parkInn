@@ -39,11 +39,11 @@ class CardCell: MDCBaseCell {
         if lot.image == nil {
             if let urlString = lot.imageURL,
                 let imageURL = URL(string: urlString) {
-                UIImageView.load(url: imageURL) { [unowned self] (image) in
+                UIImageView.load(url: imageURL) { [weak self] (image) in
                     if image != nil {
                         DispatchQueue.main.async {
                             lot.image = image
-                            self.lotImage.image = image
+                            self?.lotImage.image = image
                         }
                     }
                 }
