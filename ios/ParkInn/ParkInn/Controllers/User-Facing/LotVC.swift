@@ -104,18 +104,13 @@ class LotVC: UIViewController {
     func setBarChart() {
         peakTimesGraph.noDataText = "You need to provide data for the chart."
 
-
-        let hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
-        let fakeData = [0, 0, 0, 10, 30, 40, 50, 70, 70, 70, 60, 30, 30, 80, 80, 90, 100, 70, 30, 20, 10, 0, 0, 0]
-
         var dataEntries: [BarChartDataEntry] = []
 
-        for i in 5 ..< hours.count - 3
-        {
-//            let dataEntry = BarChartDataEntry(x: Double(hours[i]), y: Double(lot.peakTimes[i].count))
-            let dataEntry = BarChartDataEntry(x: Double(hours[i]), y: Double(fakeData[i]))
-
-            dataEntries.append(dataEntry)
+        for peakTime in lot.peakTimes {
+            if peakTime.hour > 4 && peakTime.hour < 20 {
+                let dataEntry = BarChartDataEntry(x: Double(peakTime.hour), y: Double(peakTime.count))
+                dataEntries.append(dataEntry)
+            }
         }
 
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Reservations Per Hour")
