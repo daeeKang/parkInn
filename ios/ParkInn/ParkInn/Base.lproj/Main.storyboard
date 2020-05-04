@@ -245,6 +245,20 @@
                                 </subviews>
                                 <color key="backgroundColor" name="lightBlueCardHeader"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vo2-b4-tcw" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="10" y="575" width="394" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tog-gC-frq">
+                                        <rect key="frame" x="14" y="12" width="150" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="lightBlueCardHeader"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -261,12 +275,14 @@
                         <outlet property="avLotView" destination="8Dh-hc-ryq" id="U9w-gq-jgy"/>
                         <outlet property="aveLabel" destination="NfV-m7-fCF" id="6ZZ-j7-ws8"/>
                         <outlet property="averageProgress" destination="KXU-Ra-yeM" id="dWv-Rm-74N"/>
+                        <outlet property="peakTG" destination="vo2-b4-tcw" id="qN5-ht-ypj"/>
+                        <outlet property="peakTGLabel" destination="Tog-gC-frq" id="GVS-cG-f8X"/>
                         <outlet property="showImage" destination="Y5Z-6Z-CkI" id="rHn-cR-2be"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPb-XY-CWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3550.7246376811595" y="125.89285714285714"/>
+            <point key="canvasLocation" x="3587" y="127"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="pNC-ZV-8Wn">

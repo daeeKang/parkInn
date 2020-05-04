@@ -11,6 +11,8 @@ import Charts
 
 class DisplayVC: UIViewController {
 
+    @IBOutlet weak var peakTGLabel: UILabel!
+    @IBOutlet weak var peakTG: BarChartView!
     @IBOutlet weak var aveLabel: UILabel!
     @IBOutlet weak var amLabel: UILabel!
     @IBOutlet weak var avLotView: UIView!
@@ -28,6 +30,7 @@ class DisplayVC: UIViewController {
         setParkAmount()
         setParkAve()
         setImage()
+        setpeakTG()
  
         navigationItem.title = lot.name
  
@@ -37,7 +40,7 @@ class DisplayVC: UIViewController {
         
         //Label
         amLabel.textColor = UIColor.darkGray
-        amLabel.text = "Avaliable Spots: \(lot.availableSpots)/\(lot.totalSpots)"
+        amLabel.text = "Available Spots: \(lot.availableSpots)/\(lot.totalSpots)"
         
         amLotView.layer.borderColor = UIColor.gray.cgColor
         amLotView.backgroundColor = UIColor.white
@@ -62,7 +65,7 @@ class DisplayVC: UIViewController {
     func setParkAve(){
         
         aveLabel.textColor = UIColor.darkGray
-        aveLabel.text = "Average Time Parked: \(lot.averageTimeParked.currentAverage)min"
+        aveLabel.text = "Average Time Parked: \(lot.averageTimeParked.currentAverage) min"
         
         avLotView.layer.borderColor = UIColor.gray.cgColor
         avLotView.backgroundColor = UIColor.white
@@ -93,6 +96,52 @@ class DisplayVC: UIViewController {
         
         showImage.layer.cornerRadius = 10.0
         
+    }
+    
+    func setpeakTG(){
+       peakTG.noDataText = "You need to provide data for the chart."
+
+        var dataEntries: [BarChartDataEntry] = []
+
+        for peakTime in lot.peakTimes {
+            if peakTime.hour > 4 && peakTime.hour < 20 {
+                let dataEntry = BarChartDataEntry(x: Double(peakTime.hour), y: Double(peakTime.count))
+                dataEntries.append(dataEntry)
+            }
+        }
+
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Reservations Per Hour")
+        chartDataSet.drawValuesEnabled = false
+        let chartData = BarChartData(dataSet: chartDataSet)
+
+        peakTG.data = chartData
+
+        peakTG.drawGridBackgroundEnabled = false
+        peakTG.autoScaleMinMaxEnabled = true
+        peakTG.xAxis.drawGridLinesEnabled = false
+        peakTG.xAxis.labelPosition = .bottom
+        peakTG.leftAxis.enabled = false
+        peakTG.rightAxis.enabled = false
+        peakTG.legend.enabled = false
+
+        let months = ["12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"]
+        peakTG.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
+        peakTG.xAxis.granularity = 1
+
+        peakTG.rightAxis.drawZeroLineEnabled = true
+
+        peakTG.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+
+        //        chartDataSet.colors = [.white]
+
+        peakTG.backgroundColor = UIColor.PIColors.lightBlueCardHeader
+        chartDataSet.colors = [UIColor.white]
+        
+        peakTG.layer.cornerRadius = 10.0
+        peakTG.clipsToBounds = true
+       
+        peakTGLabel.text = "Popular Times"
+        peakTGLabel.textColor = UIColor.darkGray
         
     }
     
