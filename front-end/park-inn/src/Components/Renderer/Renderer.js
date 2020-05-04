@@ -700,21 +700,20 @@ export default class Renderer extends React.Component {
                             </div>
                         </div>
                         <div>
-                        <br/><br/>
-                        <p id="pls">Number of Spaces:</p>
-                        <input
-                            type="text"
-                            id="numOfSpaces"
-                            className="formInput"
-                            value={this.state.numOfSpaces}
-                            onChange={this.parkingFormChange}
-                        />
-                        <br/><br/>
-                        <p id="pls">Select Size:</p>
-                            {/* <div class="slidecontainer"> */}
-                                <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider" />
-                            {/* </div> */}
-                        <br/><br/>
+                            <br/><br/>
+                            <p id="pls">Number of Spaces:</p>
+                            <input
+                                type="text"
+                                id="numOfSpaces"
+                                className="formInput"
+                                value={this.state.numOfSpaces}
+                                onChange={this.parkingFormChange}
+                            />
+                            <br/><br/>
+                            <p id="pls">Select Size:</p>
+                            {/* HELP WTF */}
+                            <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider" />
+                            <br/><br/>
                         </div>
                         
                         {/* <div className="bottom"> */}
