@@ -15,11 +15,12 @@
     position: fixed;
     display: inline;
     z-index: 69;
-    top: 10vh;
+    top: 1vh;
     left: 1vw;
     padding: 20px;
     opacity: 100%;
     transition: opacity 0.2s ease-out;
+    margin-top: 35px;
 }
 
 .devBox {
@@ -35,7 +36,16 @@
     background-color: lightgray;
 }
 
+.slidecontainer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .parkingLotForm {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 14px;
     background-color: white;
     position: fixed;
     right: -34vw;
@@ -50,8 +60,20 @@
     overflow-y: auto;
 }
 
+#pls {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 15px;
+}
+
 .formContainer {
-    padding: 40px;
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 14px;
+    padding: 20px;
+    justify-content: left;
 }
 
 .buttonSelected {
@@ -59,7 +81,11 @@
 }
 
 .formButtons {
-    border-radius: 10px;
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 14px;
+    border-radius: 8px;
     border: none;
     color: black;
     width: 8vw;
@@ -68,30 +94,42 @@
 }
 
 .redButton {
+    font-family: 'Helvetica';
+    font-weight: 350;
     background-color: rgb(255, 184, 184);
 }
 .redButton:hover {
+    color: #fff;
     background-color: rgb(255, 122, 122);
 }
 
 .greenButton {
+    font-family: 'Helvetica';
+    font-weight: 350;
     background-color: rgb(191, 252, 191);
 }
 .greenButton:hover {
+    color: #000;
     background-color: rgb(145, 252, 145);
 }
 
 .formInput {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #222;
     padding: 10px;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
-    border-radius: 13px;
+    border-radius: 0px;
     background-color: #ffffff;
-    border-color: black;
-    border-width: 2px;
+    border-color: rgb(206, 206, 206);
+    border-width: 0.5px;
     width: 100px;
-    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* margin-left: 50px; */
 }
+
 .formInput:focus {
     outline: none;
 }
@@ -104,14 +142,21 @@
 }
 
 .orientButton {
+    font-family: 'Helvetica';
+    font-weight: 350;
+    font-size: 14px;
     width: 10vw;
-    border-radius: 30px;
-    border: solid 4px #fd7f2c;
+    border-radius: 35px;
+    border: solid 2px #366387;
     display: inline-block;
+    margin-bottom: 2px;
+    opacity: 0.8;
 }
 
 .orientButton:hover {
-    background-color: #ffdcc5;
+    background-color: #366387;
+    opacity: 0.7;
+    color: #fff;
 }
 
 #orientUp {
@@ -127,16 +172,72 @@
 }
 
 button {
+    font-family: 'Helvetica';
+    font-weight: 350;
     display: block;
     text-decoration: none;
-    color: gray;
+    color: #555;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: solid 2px #fd7f2c;
+    border: solid 2px #366387;
     text-align: center;
     overflow: hidden;
-    font-weight: bold;
     transition: 0.4s;
     margin: 10px;
+}
+
+button:hover {
+    color: #fff;
+    background-color: #adc9e0;
+    font-weight: 200;
+    /* font-style: italic; */
+    border: solid 2px #fff;
+}
+
+.home {
+    font-family: 'Helvetica';
+    font-weight: 350;
+    display: block;
+    text-decoration: none;
+    color: #555;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 2px #366387;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.4s;
+    margin: 10px;
+}
+
+.home:hover {
+    color: #fff;
+    background-color: #adc9e0;
+    font-weight: 200;
+    font-style: italic;
+    border: solid 2px #fff;
+}
+
+.dial {
+    font-size: 12px;
+    color: #555;
+    background-color: #fff;
+    width: 100px;
+    height: 50px;
+    border: solid 1px #555;
+    border-radius: 2%;
+}
+
+.dial:hover {
+    color: #fff;
+    background-color: #555;
+}
+
+.bruh {
+    color: #555;
+}
+
+.bruh:hover {
+    color: #fff;
 }
