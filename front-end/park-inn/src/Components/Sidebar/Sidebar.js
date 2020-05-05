@@ -67,11 +67,11 @@ class Sidebar extends React.Component {
                         </NavLink>
                     </li> */}
 
-                    <li>
+                    {/* <li>
                         <NavLink className="link" onClick={this.closeMenu} to='/management'>
                             <img src={SettingsIcon} height="11px" width="11px" alt="press-link" /><span className="tab">Account Settings</span>
                         </NavLink>
-                    </li>
+                    </li> */}
                 </ul>
             </Menu>
         )
