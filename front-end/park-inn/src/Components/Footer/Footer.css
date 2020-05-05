@@ -1,0 +1,12 @@
+#footer-link {
+    font-family: 'Helvetica';
+    font-weight: 300;
+    color: #666;
+}
+
+#footer-link:hover {
+    font-weight: 700;
+    color: #adc9e0;
+    font-style: italic;
+}
+
