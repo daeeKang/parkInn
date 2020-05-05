@@ -282,7 +282,7 @@ Output:
 
 RESERVATION 
 ---------------------------------------
-./Reservation/AddReservation (POST)
+./Reservation/AddReservation/companyid/lotid/spotid/starttime/endtime/username (POST)
 Input:
 {
     companyid: String
@@ -367,3 +367,27 @@ Output:
         },
     }
 }
+
+./Statistic/GetMonthRevenue (GET)
+Input:
+{   
+    companyName: String,
+    monthAmount: Number, (The range of how many months back to today to calculate revenue)
+}
+Output:
+{
+    Revenue in Pennies
+}
+
+./Statistic/GetMonthRevenue (GET)
+Input:
+{   
+    companyName: String,
+    lotid: String,
+    monthAmount: Number, (The range of how many months back to today to calculate revenue)
+}
+Output:
+{
+    Revenue in Pennies
+}
+

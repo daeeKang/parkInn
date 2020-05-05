@@ -1,13 +1,25 @@
 import React from "react";
 import Konva from "konva";
 import Modal from "react-modal";
-import axios from "axios";
+import api from "../../utils/api";
 import "./Renderer.css";
 import Header from '../Header/Header';
 import { Stage, Layer, Star, Text, Line, Rect } from "react-konva";
+import GetLot from "./GetLot";
+import Profile from "../Profile";
+import config from '../../auth_config.json';
+
+import GridContainer from '../Grid/GridContainer';
+import GridItem from '../Grid/GridItem';
+import { NavLink } from 'react-router-dom';
+import HomeDialog from './HomeDialog';
+import Home from './home.svg';
+
 
 export default class Renderer extends React.Component {
     state = {
+        lotid: null,
+
         //state
         drawingState: "pan",
 
@@ -42,11 +54,20 @@ export default class Renderer extends React.Component {
             x: 0,
             y: 0,
         },
-        parkingCount: 123,
+        parkingCount: 100,
+        name: ""
     };
 
     componentDidMount() {
-        this.loadData();
+        if(this.props.user != undefined)
+            this.loadData(this.props.user)
+    }
+
+    updateName = (val) => {
+        this.setState({
+            name: val
+        })
+        console.log(val);
     }
 
     //H3LP3R FUNCT1ONSS ----------------------------------------------------------------------------------------------------------------------------
@@ -75,11 +96,12 @@ export default class Renderer extends React.Component {
         };
 
         out = JSON.stringify(out);
-        axios
+        api
             .post("http://localhost:8000/Lot/UpdateLotDesign", {
-                companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
-                lotid: 1,
+                companyid: this.props.user.companyid,
+                lotid: this.state.lotid,
                 design: out,
+                parkingLabel: this.state.parkingLabel
             })
             .then(function (res) {
                 console.log(res);
@@ -89,26 +111,66 @@ export default class Renderer extends React.Component {
             });
     };
 
-    loadData = async () => {
-        await axios
-            .get("http://localhost:8000/Lot/GetLotDesign", {
-                params: {
-                    companyid: "8e9fe90e-bd10-48d2-8084-8f259157c832",
-                    lotid: 1,
-                },
+    loadData = async(a) => {
+        if(a.companyid == undefined) {
+            console.log("no companyid");
+            return;
+        }
+        let lotid;
+
+        await api
+            .get(`http://localhost:8000/Lot/GetLots/` + a.companyid, {
+                client_id: config.clientId,
+                email: a.username,
+                connection: config.connection,
             })
             .then((res) => {
-                let parsed = res.data;
-                if(parsed.parkingLines == undefined) return;
+                lotid = res.data[0].lotid
                 this.setState({
-                    walls: parsed.walls,
-                    parkingLines: parsed.parkingLines,
-                    parkingLabel: parsed.parkingLabel,
+                    lotid: lotid
+                })
+
+                api
+                .get("http://localhost:8000/Lot/GetLotDesign/"+a.companyid+"/"+lotid, {
+                    client_id: config.clientId,
+                    email: a.username,
+                    connection: config.connection,
+                })
+                .then((res) => {
+                    let parsed = res.data;
+                    console.log(parsed);
+                    if(parsed.parkingLines == undefined) return;
+                    this.setState({
+                        walls: parsed.walls,
+                        parkingLines: parsed.parkingLines,
+                        parkingLabel: parsed.parkingLabel,
+                    });
+
+                    if(this.state.parkingLabel.length != 0){
+                        if(!isNaN(parseInt(this.state.parkingLabel[this.state.parkingLabel.length - 1].text))){
+                            this.setState({
+                                parkingCount: 100
+                            })
+                        } else 
+                        this.setState({
+                            parkingCount: parseInt(this.state.parkingLabel[this.state.parkingLabel.length - 1].text)
+                        })
+                    } else {
+                        this.setState({
+                            parkingCount: 100
+                        })
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
                 });
             })
             .catch((err) => {
-                console.log(err);
-            });
+                console.log(err)
+            })
+
+        
+
     };
 
     //EVENT HANDLERS DOWN BELOOOOWW-----------------------------------------------------------------------------------------------------------------
@@ -462,18 +524,6 @@ export default class Renderer extends React.Component {
                 }
                 break;
             }
-            // case "up":{
-            //     for (let i = 0; i < num; i++) {
-            //         labels.push({
-            //             x: origx + (dimensions.width / num) * i,
-            //             y: origy,
-            //             width: dimensions.width / num,
-            //             height: dimensions.width / num / 2,
-            //             text: ++inText,
-            //             rotation: 0
-            //         });
-            //     }
-            // }
             case "left":
             case "right": {
                 for (let i = 0; i < num; i++) {
@@ -581,7 +631,9 @@ export default class Renderer extends React.Component {
 
     //-----------------------------REACT TYPE STYLING------------------------------------------------//
     buttonSelected = {
-        backgroundColor: "#ffd8b9",
+        color: "#fff",
+        backgroundColor: "#294b66",
+        opacity: "0.9",
     };
 
     modalStyle = {
@@ -603,7 +655,7 @@ export default class Renderer extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                {/* <Header /> */}
                 <div
                     className="parkingLotForm"
                     style={
@@ -613,7 +665,7 @@ export default class Renderer extends React.Component {
                     }
                 >
                     <div className="formContainer">
-                        Orientation:
+                        <p id="pls">Select an Orientation:</p>
                         <div>
                             <div>
                                 <button
@@ -621,14 +673,14 @@ export default class Renderer extends React.Component {
                                     onClick={() => this.changeOrient("down")}
                                     style={this.state.orient === "down"? this.buttonSelected : null}
                                 >
-                                left to right
+                                Left to Right
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("up")}
                                     style={this.state.orient === "up"? this.buttonSelected : null}
                                 >
-                                right to left
+                                Right to Left
                                 </button>
                             </div>
                             <div>
@@ -637,62 +689,52 @@ export default class Renderer extends React.Component {
                                     onClick={() => this.changeOrient("right")}
                                     style={this.state.orient === "right"? this.buttonSelected : null}
                                 >
-                                up to down
+                                Up to Down
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("left")}
                                     style={this.state.orient === "left"? this.buttonSelected : null}
                                 >
-                                down to up
+                                Down to Up
                                 </button>
                             </div>
                         </div>
-                        num of spaces:
-                        <input
-                            type="text"
-                            id="numOfSpaces"
-                            className="formInput"
-                            value={this.state.numOfSpaces}
-                            onChange={this.parkingFormChange}
-                        />
                         <div>
-                            Naming:
-                            <div class="slidecontainer">
-                                size<input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
-                            </div>
-                            <div>
-                                prefix: 
-                                <input 
-                                    type="text"
-                                    className="formInput"
-                                />
-                            </div>
-                            <div>
-                                Start:
-                                <input 
-                                    className="formInput"
-                                    type="text"
-                                />
-                            </div>
+                            <br/><br/>
+                            <p id="pls">Number of Spaces:</p>
+                            <input
+                                type="text"
+                                id="numOfSpaces"
+                                className="formInput"
+                                value={this.state.numOfSpaces}
+                                onChange={this.parkingFormChange}
+                            />
+                            <br/><br/>
+                            <p id="pls">Select Size:</p>
+                            {/* HELP WTF */}
+                            <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider" />
+                            <br/><br/>
                         </div>
-                       
-                        <br />
-                        <br />
-                        <button
-                            className="formButtons greenButton"
-                            id="accept"
-                            onClick={this.parkingFormChange}
-                        >
-                            Okay
-                        </button>
-                        <button
-                            className="formButtons redButton"
-                            id="cancel"
-                            onClick={this.exitParkingForm}
-                        >
-                            nah
-                        </button>
+                        
+                        {/* <div className="bottom"> */}
+                            {/* <center> */}
+                                <button
+                                className="formButtons greenButton"
+                                id="accept"
+                                onClick={this.parkingFormChange}
+                                >
+                                    Okay
+                                </button>
+                                <button
+                                    className="formButtons redButton"
+                                    id="cancel"
+                                    onClick={this.exitParkingForm}
+                                >
+                                    Discard
+                                </button>
+                            {/* </center> */}
+                        {/* </div> */}
                     </div>
                 </div>
 
@@ -754,7 +796,13 @@ export default class Renderer extends React.Component {
                         erase
                     </button>
                     <button onClick={this.serializeData}>save</button>
-                    <button onClick={this.loadData}>load</button>
+
+                    {/* old home button no dialog */}
+                    {/* <NavLink to="/dash">
+                        <button className="home"><img src={Home} height="22px" width="22px" /></button>
+                    </NavLink> */}
+
+                    <HomeDialog />
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}

@@ -89,4 +89,38 @@ router.get("/:companyName/:lotid", async (req, res) => {
     }
 });
 
+router.get("/GetMonthRevenue/:companyName/:amountMonth", async (req, res) => {
+    const company = await model.Company.findOne({
+        companyName: req.params.companyName,
+    });
+    if (company == null) {
+        res.send("No company " + req.params.companyName + " found");
+    } else {
+        try {
+            const revenue = await model.Revenue.getMonthCompanyRevenue(company.companyid, req.params.amountMonth);
+            res.send(String(revenue));
+        } catch (err) {
+            console.log(err);        
+            res.sendStatus(500);
+        }
+    }
+});
+
+router.get("/GetMonthRevenue/:companyName/:lotid/:amountMonth", async (req, res) => {
+    const company = await model.Company.findOne({
+        companyName: req.params.companyName,
+    });
+    if (company == null) {
+        res.send("No company " + req.params.companyName + " found");
+    } else {
+        try {
+            const revenue = await model.Revenue.getMonthLotRevenue(company.companyid, req.params.lotid, req.params.amountMonth);
+            res.send(String(revenue));
+        } catch (err) {
+            console.log(err);        
+            res.sendStatus(500);
+        }
+    }
+});
+
 module.exports = router;
