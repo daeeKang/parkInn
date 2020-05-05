@@ -33,7 +33,7 @@ export default props => {
               </GridItem>
               <GridItem xs={12} sm={12} md={4} lg={4}>
                 <p id="about-heading">Customer Features</p>
-                <center><img src={Customer} width="236" height="262" alt="manage"/></center>
+                <center><img src={Customer} className="feature-phone" alt="manage"/></center>
                 {/* <p id="features-text" style={{fontSize: "20px"}}>Our <font color="#adc9e0"><b>mobile application</b></font> allows guests to search for different parking lots in your city,
                 view price comparisons between lots, reserve spots in advance, and pay online.</p>
                 <div id="right">

@@ -112,7 +112,7 @@ function MainLandingLayout(props) {
               <br /><br /><br /><br />
             </div>
             <br/><br/><br/>
-            <div>
+            <div id="learn-more">
               <a href="#about">
                 <p id="landing-link">
                   <img src={Arrow} className="next" height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Learn More</span>
