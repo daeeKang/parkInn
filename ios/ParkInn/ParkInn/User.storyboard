@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tex-fH-Frt">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -694,6 +694,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Reservations Found!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWz-p5-IiT">
+                                <rect key="frame" x="98" y="409" width="218" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Reservations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xe-Ri-UeU">
                                 <rect key="frame" x="8" y="16" width="398" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
@@ -927,7 +933,9 @@
                         <color key="backgroundColor" red="0.18823529411764706" green="0.52156862745098043" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xxi-hW-dOv" firstAttribute="trailing" secondItem="RZu-uF-tLq" secondAttribute="trailing" id="0fH-6a-Qrf"/>
+                            <constraint firstItem="bWz-p5-IiT" firstAttribute="centerX" secondItem="ohZ-v7-zmO" secondAttribute="centerX" id="QI9-aE-J5e"/>
                             <constraint firstItem="RZu-uF-tLq" firstAttribute="top" secondItem="6xe-Ri-UeU" secondAttribute="bottom" constant="8" id="QIf-xb-wMq"/>
+                            <constraint firstItem="bWz-p5-IiT" firstAttribute="centerY" secondItem="ohZ-v7-zmO" secondAttribute="centerY" id="SN4-VG-yaH"/>
                             <constraint firstItem="RZu-uF-tLq" firstAttribute="leading" secondItem="xxi-hW-dOv" secondAttribute="leading" id="W6I-cb-Kff"/>
                             <constraint firstItem="xxi-hW-dOv" firstAttribute="bottom" secondItem="RZu-uF-tLq" secondAttribute="bottom" id="bLe-5z-7ro"/>
                             <constraint firstItem="6xe-Ri-UeU" firstAttribute="leading" secondItem="xxi-hW-dOv" secondAttribute="leading" constant="8" id="cHh-Vp-Ahg"/>
@@ -939,6 +947,7 @@
                     <navigationItem key="navigationItem" id="mQC-J0-0yP"/>
                     <connections>
                         <outlet property="collectionView" destination="RZu-uF-tLq" id="2hd-O7-c5k"/>
+                        <outlet property="noReservationsLabel" destination="bWz-p5-IiT" id="bFU-54-c3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAX-ti-iXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
