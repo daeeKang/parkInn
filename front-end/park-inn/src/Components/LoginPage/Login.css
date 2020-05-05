@@ -456,6 +456,19 @@ a:hover {
   color: var(--primaryColorDark);
 }
 
+.feature-rectangle {
+  width: 100%;
+  height: 30%;
+  padding: 5px 5px 5px 5px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 950px) {
+  .feature-rectangle {
+    width: 100%;
+    height: 75%;
+  }
+}
+
 /* transitions for landing text lol */
 /* .fade-in-title {
   animation: fadeIn ease 1s;
