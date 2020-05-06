@@ -71,10 +71,33 @@ ul li {
 }
 
 .link:hover {
-  color: #14BACE;
+  color: #90CAF9;
 }
 
 .tab { 
   display: inline-block; 
   margin-left: 20px; 
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+.account-title {
+  font-family: 'Helvetica';
+  font-weight: 100px;
+  font-size: 16px;
+  text-transform: none;
+  color: #999;
+}
+
+.account-title:hover {
+  color:rgb(190, 190, 190);
+}
+
+div:focus {
+  outline: 0px;
 }
