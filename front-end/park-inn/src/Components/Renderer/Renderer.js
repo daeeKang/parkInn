@@ -9,6 +9,12 @@ import GetLot from "./GetLot";
 import Profile from "../Profile";
 import config from '../../auth_config.json';
 
+import GridContainer from '../Grid/GridContainer';
+import GridItem from '../Grid/GridItem';
+import { NavLink } from 'react-router-dom';
+import HomeDialog from './HomeDialog';
+import Home from './home.svg';
+
 
 export default class Renderer extends React.Component {
     state = {
@@ -625,7 +631,9 @@ export default class Renderer extends React.Component {
 
     //-----------------------------REACT TYPE STYLING------------------------------------------------//
     buttonSelected = {
-        backgroundColor: "#ffd8b9",
+        color: "#fff",
+        backgroundColor: "#294b66",
+        opacity: "0.9",
     };
 
     modalStyle = {
@@ -647,7 +655,7 @@ export default class Renderer extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                {/* <Header /> */}
                 <div
                     className="parkingLotForm"
                     style={
@@ -657,7 +665,7 @@ export default class Renderer extends React.Component {
                     }
                 >
                     <div className="formContainer">
-                        Orientation:
+                        <p id="pls">Select an Orientation:</p>
                         <div>
                             <div>
                                 <button
@@ -665,14 +673,14 @@ export default class Renderer extends React.Component {
                                     onClick={() => this.changeOrient("down")}
                                     style={this.state.orient === "down"? this.buttonSelected : null}
                                 >
-                                left to right
+                                Left to Right
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("up")}
                                     style={this.state.orient === "up"? this.buttonSelected : null}
                                 >
-                                right to left
+                                Right to Left
                                 </button>
                             </div>
                             <div>
@@ -681,62 +689,52 @@ export default class Renderer extends React.Component {
                                     onClick={() => this.changeOrient("right")}
                                     style={this.state.orient === "right"? this.buttonSelected : null}
                                 >
-                                up to down
+                                Up to Down
                                 </button>
                                 <button
                                     className="orientButton"
                                     onClick={() => this.changeOrient("left")}
                                     style={this.state.orient === "left"? this.buttonSelected : null}
                                 >
-                                down to up
+                                Down to Up
                                 </button>
                             </div>
                         </div>
-                        num of spaces:
-                        <input
-                            type="text"
-                            id="numOfSpaces"
-                            className="formInput"
-                            value={this.state.numOfSpaces}
-                            onChange={this.parkingFormChange}
-                        />
                         <div>
-                            Naming:
-                            <div class="slidecontainer">
-                                size<input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider"/>
-                            </div>
-                            <div>
-                                prefix: 
-                                <input 
-                                    type="text"
-                                    className="formInput"
-                                />
-                            </div>
-                            <div>
-                                Start:
-                                <input 
-                                    className="formInput"
-                                    type="text"
-                                />
-                            </div>
+                            <br/><br/>
+                            <p id="pls">Number of Spaces:</p>
+                            <input
+                                type="text"
+                                id="numOfSpaces"
+                                className="formInput"
+                                value={this.state.numOfSpaces}
+                                onChange={this.parkingFormChange}
+                            />
+                            <br/><br/>
+                            <p id="pls">Select Size:</p>
+                            {/* HELP WTF */}
+                            <input onChange={this.changeLabelSize} type="range" min="20" max="80" value={this.state.labelSize} class="slider" />
+                            <br/><br/>
                         </div>
-                       
-                        <br />
-                        <br />
-                        <button
-                            className="formButtons greenButton"
-                            id="accept"
-                            onClick={this.parkingFormChange}
-                        >
-                            Okay
-                        </button>
-                        <button
-                            className="formButtons redButton"
-                            id="cancel"
-                            onClick={this.exitParkingForm}
-                        >
-                            nah
-                        </button>
+                        
+                        {/* <div className="bottom"> */}
+                            {/* <center> */}
+                                <button
+                                className="formButtons greenButton"
+                                id="accept"
+                                onClick={this.parkingFormChange}
+                                >
+                                    Okay
+                                </button>
+                                <button
+                                    className="formButtons redButton"
+                                    id="cancel"
+                                    onClick={this.exitParkingForm}
+                                >
+                                    Discard
+                                </button>
+                            {/* </center> */}
+                        {/* </div> */}
                     </div>
                 </div>
 
@@ -798,6 +796,13 @@ export default class Renderer extends React.Component {
                         erase
                     </button>
                     <button onClick={this.serializeData}>save</button>
+
+                    {/* old home button no dialog */}
+                    {/* <NavLink to="/dash">
+                        <button className="home"><img src={Home} height="22px" width="22px" /></button>
+                    </NavLink> */}
+
+                    <HomeDialog />
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}
