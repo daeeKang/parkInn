@@ -45,7 +45,7 @@ const BoxShadow = {
 
 // set background color for card headers
 const lightBlueCardHeader = {
-  background: "#90CAF9",
+  background: "#83bedb",
   ...BoxShadow
 };
 
@@ -95,12 +95,12 @@ const yellowCardHeader = {
 };
 
 const lightTealCardHeader = {
-  background: "#74c9d4",
+  background: "#89dce6",
   ...BoxShadow
 };
 
 const tealCardHeader = {
-  background: "#14BACE",
+  background: "#75abc5",
   ...BoxShadow
 };
 

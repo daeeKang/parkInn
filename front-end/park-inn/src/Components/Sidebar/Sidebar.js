@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import Pub from '../Icons/pub.jpg';
 import DashboardIcon from '../Icons/dashboard.svg';
 import ParkingIcon from '../Icons/parking.svg';
-import StatsIcon from '../Icons/statistics.svg';
+import StatsIcon from '../Icons/statistics_black.svg';
 import EventIcon from '../Icons/event.svg';
 import IncidentIcon from '../Icons/incidents.svg';
 import SettingsIcon from '../Icons/settings.svg';

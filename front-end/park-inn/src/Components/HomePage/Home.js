@@ -38,8 +38,8 @@ export default function Home() {
       <GridContainer>
           <GridItem xs={12} sm={6} md={6} lg={6}>
             <Card>
-              <CardHeader color="green" icon>
-                <CardIcon color="green">
+              <CardHeader color="lightBlue" icon>
+                <CardIcon color="lightBlue">
                   <img
                     src={StatisticsIcon}
                     height="30px"
@@ -47,14 +47,18 @@ export default function Home() {
                     alt="event"
                   />
                 </CardIcon>
-                <p id="icon-subtitle">Statistics</p>
+                <h3 id="icon-subtitle">Welcome to ParkInn!</h3>
+                <p id="icon-text">
+                  View your <font color="#83bedb">daily earnings</font>,
+                  <font color="#83bedb"> users parked</font>, and <font color="#83bedb">more</font>.
+                </p>
                 <Divider />
                 <NavLink className="link" to="/statistics">
                   <p id="link">
                     <img
                       src={ArrowIcon}
-                      height="12px"
-                      width="12 px"
+                      height="11px"
+                      width="11px"
                       alt="press-link"
                     />{' '}
                     See Statistics
@@ -66,8 +70,8 @@ export default function Home() {
 
           <GridItem xs={12} sm={6} md={6} lg={6}>
             <Card>
-              <CardHeader color="teal" icon>
-                <CardIcon color="teal">
+              <CardHeader color="lightBlue" icon>
+                <CardIcon color="lightBlue">
                   <img
                     src={ParkingIcon}
                     height="30px"
@@ -75,9 +79,9 @@ export default function Home() {
                     alt="parking"
                   />
                 </CardIcon>
-                <p id="icon-subtitle">Manage Spaces</p>
+                <h3 id="icon-subtitle">Manage Spaces</h3>
                 <p id="icon-text">
-                  <font color="#14BACE">
+                  <font color="#83bedb">
                     <b>{amountOfLots} lot(s)</b>
                   </font>{' '}
                   to view
