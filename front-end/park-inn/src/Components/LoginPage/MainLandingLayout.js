@@ -75,7 +75,7 @@ function MainLandingLayout(props) {
 
   return (
     <a name="parkinn">
-    {/* <div className="landing"> */}
+    <div className="landing">
     <Container>
       <br/><br/>
       <GridContainer spacing={3}>
@@ -102,11 +102,19 @@ function MainLandingLayout(props) {
             <br/>
 
             <div>
-              {!isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
+              {/* {!isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
                   redirect_uri: `${config.address}/dash`
               })}>Log in ></button>)}
 
               {!isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
+                  redirect_uri: `${config.address}/dash`
+              })}>Sign up ></button>)} */}
+
+              {isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
+                  redirect_uri: `${config.address}/dash`
+              })}>Log in ></button>)}
+
+              {isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
                   redirect_uri: `${config.address}/dash`
               })}>Sign up ></button>)}
               <br /><br /><br /><br />
@@ -123,7 +131,7 @@ function MainLandingLayout(props) {
           </GridItem>
       </GridContainer>
     </Container>
-    {/* </div> */}
+    </div>
     </a>
   );
 }

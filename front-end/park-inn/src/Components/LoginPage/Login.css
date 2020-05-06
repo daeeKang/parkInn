@@ -96,15 +96,10 @@ a:hover {
 }
 
 /* keep in case we want a landing background */
-/* .landing {
-  align-items: right;
-  background-color: #fff;
-  background-image: url(./test.png);
-  background-size: cover;
+.landing {
   height: 100vh;
   width: 100vw;
 }
-*/
 
 .landing-product {
   display: flex;
@@ -113,10 +108,10 @@ a:hover {
 
 .landing-button {
   font-family: "Helvetica";
-  color: #888;
+  color: #777;
   background-color: #fff;
   font-size: medium;
-  font-weight: 100;
+  font-weight: 200;
   float: left;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -132,7 +127,10 @@ a:hover {
 }
 
 .landing-button:hover {
+  font-weight: 300;
   color: #adc9e0;
+  background-color: #fff;
+  border-style: none;
 }
 
 .landing-list {
@@ -149,7 +147,7 @@ a:hover {
 
 #landing-title {
   font-family: 'Muli';
-  color: #777;
+  color: #666;
   font-weight: 100;
   font-size: 48px;
   letter-spacing: 1px;
@@ -159,7 +157,7 @@ a:hover {
 
 #landing-subtitle {
   font-family: 'Muli';
-  color: #888;
+  color: #777;
   font-weight: 100;
   font-size: 24px;
   letter-spacing: 1px;
@@ -225,6 +223,15 @@ a:hover {
   padding: 30px 30px 30px 30px;
 }
 
+.pls-about {
+  height: 100vh;
+  width: 100vw;
+}
+
+.pls-features {
+  padding-bottom: 10%;
+}
+
 .about-img {
   justify-content: center;
   display: flex;
@@ -248,7 +255,7 @@ a:hover {
 
 #about-subtitle {
   font-family: 'Helvetica';
-  color: #777;
+  color: #666;
   font-weight: 100;
   font-size: 20px;
   letter-spacing: 0.7px;
@@ -266,7 +273,7 @@ a:hover {
 
 #about-text {
   font-family: 'Helvetica';
-  color: #777;
+  color: #666;
   font-weight: 100;
   font-size: 18px;
   letter-spacing: 0.7px;
@@ -311,7 +318,7 @@ a:hover {
 
 #features-text {
   font-family: 'Helvetica';
-  color: #777;
+  color: #666;
   font-weight: 100;
   font-size: 22px;
   letter-spacing: 0.7px;
@@ -459,7 +466,9 @@ a:hover {
 .feature-rectangle {
   width: 100%;
   height: 46%;
-  padding: 5px 5px 5px 5px;
+  margin: 40px 0px 40px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
 }
 
 .feature-phone {

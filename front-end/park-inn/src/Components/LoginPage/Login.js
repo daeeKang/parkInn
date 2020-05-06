@@ -32,7 +32,7 @@ export default props => {
         <MainLanding />
         <About />
         <CoreFeatures />
-        <Products />
+        {/* <Products /> */}
 
         {/* original login page */}
         {/* <div className="login-page">
