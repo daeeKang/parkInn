@@ -47,7 +47,7 @@ export default function Statistics() {
       <Header></Header>
       <div className="dash-pad">
       <GridContainer>
-        {/* <div id="card-container"> */}
+        <div id="card-container">
           <GridItem xs={12} sm={12} md={4} lg={4}>
             <Card>
               <CardHeader color="blue" icon>
@@ -115,7 +115,7 @@ export default function Statistics() {
               </CardHeader>
             </Card>
           </GridItem>
-        {/* </div> */}
+        </div>
 
         {/* <div id="graph-container"> */}
           <GridItem xs={12} sm={12} md={6} lg={6}>

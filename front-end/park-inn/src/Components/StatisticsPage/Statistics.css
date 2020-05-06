@@ -17,12 +17,13 @@
   font-family: 'Helvetica';
   margin: '5px';
   font-size: '12px';
+  text-align: left;
 }
 
 #card-container {
   display: flex;
   width: 100%;
-  margin: 1% 5% 1% 5%;
+  margin: 1% 0 1% 0%;
   justify-content: space-evenly;
 }
 
