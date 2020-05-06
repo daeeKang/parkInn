@@ -110,13 +110,13 @@ function MainLandingLayout(props) {
                   redirect_uri: `${config.address}/dash`
               })}>Sign up ></button>)} */}
 
-              {isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
+              <button className="landing-button" onClick={() => loginWithRedirect({
                   redirect_uri: `${config.address}/dash`
-              })}>Log in ></button>)}
+              })}>Log in ></button>
 
-              {isAuthenticated && ( <button className="landing-button" onClick={() => loginWithRedirect({
+              <button className="landing-button" onClick={() => loginWithRedirect({
                   redirect_uri: `${config.address}/dash`
-              })}>Sign up ></button>)}
+              })}>Sign up ></button>
               <br /><br /><br /><br />
             </div>
             <br/><br/><br/>
