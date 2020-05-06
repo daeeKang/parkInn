@@ -5,65 +5,24 @@ import ReactDOM from 'react-dom';
 
 import { useAuth0 } from '../react-auth0-spa';
 
-// function UserData() {
-//   const { user } = useAuth0();
-//   return user;
-// }
-
 export function SetData() {
   const { user } = useAuth0();
-  const [totalRevenue, setTotalRevenue] = useState('0.00');
   const [peakTimes, setPeakTimes] = useState({
     labels: [],
     series: [],
   });
-  const [totalParked, setTotalParked] = useState(0);
-  const [averageTimeParked, setAverageTimeParked] = useState(0);
   const [monthlyRevenue, setMonthlyRevenue] = useState({
     labels: [],
     series: [],
   });
-
-  useEffect(() => {
-    fetchTotalRevenue(user, setTotalRevenue);
-    fetchPeakTimes(user, setPeakTimes);
-    fetchPeopleParked(user, setTotalParked);
-    fetchAverageTimeParked(user, setAverageTimeParked);
-    fetchMonthlyRevenue(user, setMonthlyRevenue);
-  }, [user, totalRevenue, totalParked, averageTimeParked]);
-  return [
-    totalRevenue,
-    peakTimes,
-    totalParked,
-    averageTimeParked,
-    monthlyRevenue,
-  ];
-}
-
-export function SetHomeData() {
-  const { user } = useAuth0();
-  const [peakTimes, setPeakTimes] = useState({
-    labels: [],
-    series: [],
-  });
-  const [monthlyRevenue, setMonthlyRevenue] = useState(0);
+  const [amountOfLots, setAmountOfLots] = useState(0);
 
   useEffect(() => {
     fetchPeakTimes(user, setPeakTimes);
     fetchMonthlyRevenue(user, setMonthlyRevenue);
+    fetchAmountOfLots(user, setAmountOfLots);
   }, [user]);
-  return [peakTimes, monthlyRevenue];
-}
-
-async function fetchTotalRevenue(user, setTotalRevenue) {
-  try {
-    const { data } = await api.get(`Statistic/${user.companyName}`);
-    var rev = data.companyStatistics.revenue;
-    rev = rev / 100;
-    setTotalRevenue(rev.toFixed(2));
-  } catch (err) {
-    console.log(err);
-  }
+  return [peakTimes, monthlyRevenue, amountOfLots];
 }
 
 async function fetchPeakTimes(user, setPeakTimes) {
@@ -81,29 +40,6 @@ async function fetchPeakTimes(user, setPeakTimes) {
     }
     peakTimes.series.push(seriesArr);
     setPeakTimes(peakTimes);
-    return peakTimes;
-  } catch (err) {
-    console.log(err.message);
-  }
-}
-
-async function fetchPeopleParked(user, setTotalParked, index = 0) {
-  try {
-    const { data } = await api.get(`Statistic/${user.companyName}`);
-    const amountParked =
-      data.lotStatistics[index].totalSpots -
-      data.lotStatistics[index].availableSpots;
-    setTotalParked(amountParked);
-  } catch (err) {
-    console.log(err.message);
-  }
-}
-
-async function fetchAverageTimeParked(user, setAverageTimeParked, index = 0) {
-  try {
-    const { data } = await api.get(`Statistic/${user.companyName}`);
-    const avg = data.lotStatistics[index].averageTimeParked.currentAverage;
-    setAverageTimeParked(avg);
   } catch (err) {
     console.log(err.message);
   }
@@ -154,3 +90,15 @@ async function fetchMonthlyRevenue(user, setMonthlyRevenue) {
     console.log(err.message);
   }
 }
+
+async function fetchAmountOfLots(user, setAmountOfLots) {
+  try {
+    const { data } = await api.get(`Lot/GetLots/${user.companyid}`);
+    const amount = data.length;
+    setAmountOfLots(amount);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function penniesToDollar(rev) {}

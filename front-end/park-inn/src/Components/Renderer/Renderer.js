@@ -754,6 +754,7 @@ export default class Renderer extends React.Component {
     */}
 
                 <div className="controls">
+                    <HomeDialog />
                     <button onClick={this.resetOrigin}>reset</button>
                     <button
                         onClick={this.toggleMoveStage}
@@ -801,8 +802,6 @@ export default class Renderer extends React.Component {
                     {/* <NavLink to="/dash">
                         <button className="home"><img src={Home} height="22px" width="22px" /></button>
                     </NavLink> */}
-
-                    <HomeDialog />
                 </div>
 
                 {/*--------------------------below is the shit for rendering-------------------------------------*/}
