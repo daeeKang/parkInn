@@ -37,7 +37,7 @@ class Sidebar extends React.Component {
             >
                 <div className="center">
                     <p className="account-title">Welcome, Püber!</p>
-                    <NavLink className="account-title" onClick={this.closeMenu} to='/management'>
+                    <NavLink className="account-title" onClick={this.closeMenu} to='/dash'>
                         <img src={Pub} height="80px" width="80px" padding="10px" alt="account-button" />
                     </NavLink>
                 </div>

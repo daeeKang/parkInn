@@ -14,7 +14,7 @@ export default props => {
   return(
     <a name="about">
       {/* <div className="about-us"> */}
-      <div className="about-us-2 pls-about">
+      <div className="about-us-2">
           <br/>
           <Container>
             <GridContainer spacing={5}>
