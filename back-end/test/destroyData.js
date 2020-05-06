@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const MongoClient = require('mongodb').MongoClient;
 dotenv.config();
-const collections = ['companies', 'customers', 'lots', 'parkingtimes', 'revenues', 'staffs', 'users'];
+const collections = ['companies', 'customers', 'lots', 'parkingtimes', 'revenues', 'staffs', 'users', 'reservations'];
 let collectionCount = 0;
 
 MongoClient.connect(process.env.MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true }, function(err, db) {
@@ -24,7 +24,7 @@ MongoClient.connect(process.env.MONGO_URI, { useUnifiedTopology: true, useNewUrl
 });
 
 function wait(){
-    if (collectionCount != 14){
+    if (collectionCount != collections.length * 2){
       setTimeout(wait, 1000);
     } else {
         console.log('dab on em we cleaned mongoDB');

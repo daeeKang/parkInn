@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './Home.css';
 import '../ChartData/Charts.css';
 import { NavLink } from 'react-router-dom';
 // import Login from '../LoginPage/Login' //just place holder for now maybe lol
-
 import GridContainer from './../Grid/GridContainer';
 import GridItem from './../Grid/GridItem';
 import Card from './../Card/Card';
@@ -15,7 +16,7 @@ import { Divider } from '@material-ui/core';
 // icons used
 import MoneyIcon from '../Icons/money_white.svg';
 import IncidentIcon from '../Icons/incident_white.svg';
-import EventIcon from '../Icons/event_white.svg';
+import StatisticsIcon from '../Icons/statistics.svg';
 import ParkingIcon from '../Icons/parking_white.svg';
 import ArrowIcon from '../Icons/arrow.svg';
 
@@ -26,23 +27,26 @@ import {
   peakHoursChart,
 } from './../ChartData/Charts';
 
-export default props => {
+import { SetData } from '../../utils/homeApi';
+
+export default function Home() {
+  const [peakTimes, monthlyRevenue, amountOfLots] = SetData();
   return (
     <div>
+      <Header />
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
             <CardHeader color="green" icon>
               <CardIcon color="green">
-                <img src={MoneyIcon} height="30px" width="30px" alt="money" />
+                <img
+                  src={StatisticsIcon}
+                  height="30px"
+                  width="30px"
+                  alt="event"
+                />
               </CardIcon>
-              <p id="icon-subtitle">Today's Revenue</p>
-              <p id="icon-text">
-                <font color="#81C784">
-                  <b>$1,000</b>
-                </font>{' '}
-                earned
-              </p>
+              <p id="icon-subtitle">Statistics</p>
               <Divider />
               <NavLink className="link" to="/statistics">
                 <p id="link">
@@ -52,70 +56,7 @@ export default props => {
                     width="12 px"
                     alt="press-link"
                   />{' '}
-                  See Daily Revenue
-                </p>
-              </NavLink>
-            </CardHeader>
-          </Card>
-        </GridItem>
-
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="red" icon>
-              <CardIcon color="red">
-                <img
-                  src={IncidentIcon}
-                  height="30px"
-                  width="30px"
-                  alt="incident"
-                />
-              </CardIcon>
-              <p id="icon-subtitle">Incidents</p>
-              <p id="icon-text">
-                <font color="#E57373">
-                  <b>2 incident(s)</b>
-                </font>{' '}
-                to be resolved
-              </p>
-              <Divider />
-              <NavLink className="link" to="/incidents">
-                <p id="link">
-                  <img
-                    src={ArrowIcon}
-                    height="12px"
-                    width="12 px"
-                    alt="press-link"
-                  />{' '}
-                  Resolve Incidents
-                </p>
-              </NavLink>
-            </CardHeader>
-          </Card>
-        </GridItem>
-
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="yellow" icon>
-              <CardIcon color="yellow">
-                <img src={EventIcon} height="30px" width="30px" alt="event" />
-              </CardIcon>
-              <p id="icon-subtitle">Upcoming Events</p>
-              <p id="icon-text">
-                <font color="#FFB74D">
-                  <b>1 events(s)</b>
-                </font>{' '}
-                upcoming
-              </p>
-              <Divider />
-              <NavLink className="link" to="/events">
-                <p id="link">
-                  <img
-                    src={ArrowIcon}
-                    height="12px"
-                    width="12 px"
-                    alt="press-link"
-                  />{' '}
-                  See Event Calendar
+                  See Statistics
                 </p>
               </NavLink>
             </CardHeader>
@@ -136,12 +77,12 @@ export default props => {
               <p id="icon-subtitle">Manage Spaces</p>
               <p id="icon-text">
                 <font color="#14BACE">
-                  <b>1 lot(s)</b>
+                  <b>{amountOfLots} lot(s)</b>
                 </font>{' '}
                 to view
               </p>
               <Divider />
-              <NavLink className="link" to="/parking">
+              <NavLink className="link" to="/renderer">
                 <p id="link">
                   <img
                     src={ArrowIcon}
@@ -159,10 +100,10 @@ export default props => {
         {/* testing graph card */}
         <GridItem xs={12} sm={12} md={6}>
           <Card chart>
-            <CardHeader color="darkBlue">
+            <CardHeader color="blue">
               <ChartistGraph
                 className="ct-chart-line"
-                data={monthlySalesChart.data}
+                data={monthlyRevenue}
                 type={'Line'}
                 options={monthlySalesChart.options}
                 listener={monthlySalesChart.animation}
@@ -188,10 +129,10 @@ export default props => {
 
         <GridItem xs={12} sm={12} md={6}>
           <Card chart>
-            <CardHeader color="lightBlue">
+            <CardHeader color="darkBlue">
               <ChartistGraph
                 className="ct-chart-bar"
-                data={peakHoursChart.data}
+                data={peakTimes}
                 type={'Bar'}
                 options={peakHoursChart.options}
                 listener={peakHoursChart.animation}
@@ -252,6 +193,7 @@ export default props => {
       </GridContainer>
 
       {/* <Login/> */}
+      <Footer />
     </div>
   );
-};
+}

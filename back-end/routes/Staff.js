@@ -1,26 +1,49 @@
-const router = require('express').Router();
-const model = require('../model/Model')
+const router = require("express").Router();
+const model = require("../model/Model");
+const checkJwt = require("../middleware/checkJwt");
 
-router.post('/AddStaff', (req, res) => {
+router.post("/AddStaff", checkJwt, (req, res) => {
     const staff = new model.Staff({
-        username: req.body.username,
-        first: req.body.first,
-        last: req.body.last,
+        username: req.body.username.toLowerCase(),
+        name: {
+            givenName: req.body.first,
+            familyName: req.body.last,
+        },
         employeeid: req.body.employeeid,
         companyid: req.body.companyid,
-        admin: req.body.admin
+        companyName: req.body.companyName,
+        admin: req.body.admin,
     });
 
-    customer.save().then(res => {
-        console.log(res, 'staff member ${username} saved')
-    }).catch(err => {
-        console.log(err);
-    });
 
-    res.status(201).json({
-        mesage: 'post request',
-        createdProduct: staff
+    staff.save(function(err){
+        if ( err && err.code !== 11000 ) {
+            res.status(500).send(err);
+            return;
+        }
+      
+        //duplicate key
+        if ( err && err.code === 11000 ) {
+            res.status(500).send(err);
+            return;
+        }
+        console.log(res, "staff member ${username} saved");
+        res.status(201).json({
+            mesage: "post request",
+            createdProduct: staff,
+        });
+      });
+});
+
+router.get("/GetStaff/:username", checkJwt, async (req, res) => {
+    const staff = await model.Staff.findOne({
+        username: req.params.username,
     });
+    try {
+        res.send(staff);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
 module.exports = router;

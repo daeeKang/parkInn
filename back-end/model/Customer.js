@@ -3,8 +3,10 @@ const Schema = mongoose.Schema;
 
 let CustomerSchema = new Schema({
     username: {type: String, required: true, unique: true},
-    first: {type: String, required: true},
-    last: {type: String, requred: true},
+    name: {
+        givenName: {type: String, required: true},
+        familyName: {type: String, requred: true},
+    },
     status: {type: String, default: null},
     reservation: {type: Date, default: null}, 
     car: [{

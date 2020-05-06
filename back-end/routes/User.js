@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const model = require('../model/Model')
+const model = require('../model/Model');
 const {check, validationResult } = require('express-validator');
+const checkJwt = require('../middleware/checkJwt');
 
 router.post('/AddUser', [
     check('username').isEmail(), 
@@ -35,7 +36,7 @@ router.post('/AddUser', [
     });
 });
 
-router.get('/GetUser', async (req, res) => {
+router.get('/GetUser', checkJwt, async (req, res) => {
 
     const userData = await model.User.findOne({username: req.body.username});
 
@@ -54,7 +55,7 @@ router.get('/GetUser', async (req, res) => {
 
 });
 
-router.get('/GetUser/:username/:password', async (req, res) => {
+router.get('/GetUser/:username/:password', checkJwt, async (req, res) => {
 
     const userData = await model.User.findOne({username: req.params.username});
 
