@@ -47,17 +47,18 @@ export default function Statistics() {
       <Header></Header>
       <GridContainer>
         <div id="card-container">
-          <GridItem xs={12} sm={6} md={3}>
+          <GridItem xs={12} sm={12} md={4} lg={4}>
             <Card>
-              <CardHeader color="lightTeal" icon>
-                <CardIcon color="lightTeal">
+              <CardHeader color="blue" icon>
+                <CardIcon color="blue">
                   <img src={ClockIcon} height="30px" width="30px" alt="money" />
                 </CardIcon>
                 <p id="icon-subtitle">Average Time Parked</p>
                 <p id="icon-text">
                   <font color="#74c9d4">
-                    <b>{averageTimeParked} minute(s)</b>
-                  </font>
+                    <b>{averageTimeParked}</b>
+                  </font>{' '}
+                  minute(s)
                 </p>
                 <Divider />
                 hi
@@ -65,30 +66,13 @@ export default function Statistics() {
             </Card>
           </GridItem>
 
-          <GridItem xs={12} sm={6} md={3}>
-            <Card>
-              <CardHeader color="green" icon>
-                <CardIcon color="green">
-                  <img src={MoneyIcon} height="30px" width="30px" alt="money" />
-                </CardIcon>
-                <p id="icon-subtitle">Total Revenue</p>
-                <p id="icon-text">
-                  <font color="#63c454">
-                    <b>${totalRevenue}</b>
-                  </font>
-                </p>
-                <Divider />
-                hi
-              </CardHeader>
-            </Card>
-          </GridItem>
-
-          <GridItem xs={12} sm={6} md={3}>
+          <GridItem xs={12} sm={12} md={4} lg={4}>
             <Card>
               <CardHeader color="red" icon>
                 <CardIcon color="red">
                   <img src={UserIcon} height="30px" width="30px" alt="money" />
                 </CardIcon>
+                <p id="icon-subtitle">Customers Parked</p>
                 <p id="icon-text">
                   <font color="#E57373">
                     <b>{totalParked}</b>
@@ -96,7 +80,8 @@ export default function Statistics() {
                   parked
                 </p>
                 <Divider />
-                <NavLink className="link" to="/lotUtil">
+                hi
+                {/* <NavLink className="link" to="/lotUtil">
                   <p id="link">
                     <img
                       src={ArrowIcon}
@@ -106,14 +91,33 @@ export default function Statistics() {
                     />{' '}
                     View Lot Utilization
                   </p>
-                </NavLink>
+                </NavLink> */}
+              </CardHeader>
+            </Card>
+          </GridItem>
+
+          <GridItem xs={12} sm={12} md={4} lg={4}>
+            <Card>
+              <CardHeader color="green" icon>
+                <CardIcon color="green">
+                  <img src={MoneyIcon} height="30px" width="30px" alt="money" />
+                </CardIcon>
+                <p id="icon-subtitle">Total Revenue</p>
+                <p id="icon-text">
+                  <font color="#63c454">
+                    <b>${totalRevenue}</b>
+                  </font> {' '}
+                  earned
+                </p>
+                <Divider />
+                hi
               </CardHeader>
             </Card>
           </GridItem>
         </div>
 
         <div id="graph-container">
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={6} lg={6}>
             <Card chart>
               <CardHeader color="blue">
                 <ChartistGraph
@@ -127,14 +131,14 @@ export default function Statistics() {
               <CardBody>
                 <Divider />
                 <br />
-                <font color="#999999" id="card-text">
+                <font color="#555" id="card-text">
                   Monthly Revenue Earned
                 </font>
               </CardBody>
             </Card>
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={6} lg={6}>
             <Card chart>
               <CardHeader color="darkBlue">
                 <ChartistGraph
@@ -148,7 +152,7 @@ export default function Statistics() {
               <CardBody>
                 <Divider />
                 <br />
-                <font color="#999999" id="card-text">
+                <font color="#555" id="card-text">
                   Peak Hours
                 </font>
               </CardBody>
