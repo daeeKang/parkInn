@@ -31,141 +31,132 @@ import { SetData } from '../../utils/homeApi';
 
 export default function Home() {
   const [peakTimes, monthlyRevenue, amountOfLots] = SetData();
-  console.log('monthlyRevenue :>> ', monthlyRevenue);
   return (
     <div>
       <Header />
       <GridContainer>
-        <div class="top-part">
-          <div class="parkinn-icon">
-            <div class="parkinn-logo"></div>
-          </div>
-          <div class="card-container">
-            <GridItem xs={12} sm={6} md={3}>
-              <Card>
-                <CardHeader color="green" icon>
-                  <CardIcon color="green">
-                    <img
-                      src={StatisticsIcon}
-                      height="30px"
-                      width="30px"
-                      alt="event"
-                    />
-                  </CardIcon>
-                  <p id="icon-subtitle">Statistics</p>
-                  <Divider />
-                  <NavLink className="link" to="/statistics">
-                    <p id="link">
-                      <img
-                        src={ArrowIcon}
-                        height="12px"
-                        width="12 px"
-                        alt="press-link"
-                      />{' '}
-                      See Statistics
-                    </p>
-                  </NavLink>
-                </CardHeader>
-              </Card>
-            </GridItem>
-
-            <GridItem xs={12} sm={6} md={3}>
-              <Card>
-                <CardHeader color="teal" icon>
-                  <CardIcon color="teal">
-                    <img
-                      src={ParkingIcon}
-                      height="30px"
-                      width="30px"
-                      alt="parking"
-                    />
-                  </CardIcon>
-                  <p id="icon-subtitle">Manage Spaces</p>
-                  <p id="icon-text">
-                    <font color="#14BACE">
-                      <b>{amountOfLots} lot(s)</b>
-                    </font>{' '}
-                    to view
-                  </p>
-                  <Divider />
-                  <NavLink className="link" to="/renderer">
-                    <p id="link">
-                      <img
-                        src={ArrowIcon}
-                        height="12px"
-                        width="12 px"
-                        alt="press-link"
-                      />{' '}
-                      Manage Parking Lots
-                    </p>
-                  </NavLink>
-                </CardHeader>
-              </Card>
-            </GridItem>
-          </div>
-        </div>
-
-        <div class="graph-container">
-          {/* testing graph card */}
-          <GridItem xs={12} sm={12} md={6}>
-            <Card chart>
-              <CardHeader color="blue">
-                <ChartistGraph
-                  className="ct-chart-line"
-                  data={monthlySalesChart.data}
-                  type={'Line'}
-                  options={monthlySalesChart.options}
-                  listener={monthlySalesChart.animation}
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="green" icon>
+              <CardIcon color="green">
+                <img
+                  src={StatisticsIcon}
+                  height="30px"
+                  width="30px"
+                  alt="event"
                 />
-              </CardHeader>
-              <CardBody>
-                <Divider />
-                <NavLink className="link" to="/statistics">
-                  <p id="link">
-                    <br></br>
-                    <img
-                      src={ArrowIcon}
-                      height="12px"
-                      width="12 px"
-                      alt="press-link"
-                    />{' '}
-                    View Monthly Sales
-                  </p>
-                </NavLink>
-              </CardBody>
-            </Card>
-          </GridItem>
+              </CardIcon>
+              <p id="icon-subtitle">Statistics</p>
+              <Divider />
+              <NavLink className="link" to="/statistics">
+                <p id="link">
+                  <img
+                    src={ArrowIcon}
+                    height="12px"
+                    width="12 px"
+                    alt="press-link"
+                  />{' '}
+                  See Statistics
+                </p>
+              </NavLink>
+            </CardHeader>
+          </Card>
+        </GridItem>
 
-          <GridItem xs={12} sm={12} md={6}>
-            <Card chart>
-              <CardHeader color="darkBlue">
-                <ChartistGraph
-                  className="ct-chart-bar"
-                  data={peakTimes}
-                  type={'Bar'}
-                  options={peakHoursChart.options}
-                  listener={peakHoursChart.animation}
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="teal" icon>
+              <CardIcon color="teal">
+                <img
+                  src={ParkingIcon}
+                  height="30px"
+                  width="30px"
+                  alt="parking"
                 />
-              </CardHeader>
-              <CardBody>
-                <Divider />
-                <NavLink className="link" to="/statistics">
-                  <p id="link">
-                    <br></br>
-                    <img
-                      src={ArrowIcon}
-                      height="12px"
-                      width="12 px"
-                      alt="press-link"
-                    />{' '}
-                    View Peak Hours
-                  </p>
-                </NavLink>
-              </CardBody>
-            </Card>
-          </GridItem>
+              </CardIcon>
+              <p id="icon-subtitle">Manage Spaces</p>
+              <p id="icon-text">
+                <font color="#14BACE">
+                  <b>{amountOfLots} lot(s)</b>
+                </font>{' '}
+                to view
+              </p>
+              <Divider />
+              <NavLink className="link" to="/renderer">
+                <p id="link">
+                  <img
+                    src={ArrowIcon}
+                    height="12px"
+                    width="12 px"
+                    alt="press-link"
+                  />{' '}
+                  Manage Parking Lots
+                </p>
+              </NavLink>
+            </CardHeader>
+          </Card>
+        </GridItem>
 
-          {/* <GridItem xs={12} sm={12} md={4}>
+        {/* testing graph card */}
+        <GridItem xs={12} sm={12} md={6}>
+          <Card chart>
+            <CardHeader color="blue">
+              <ChartistGraph
+                className="ct-chart-line"
+                data={monthlyRevenue}
+                type={'Line'}
+                options={monthlySalesChart.options}
+                listener={monthlySalesChart.animation}
+              />
+            </CardHeader>
+            <CardBody>
+              <Divider />
+              <NavLink className="link" to="/statistics">
+                <p id="link">
+                  <br></br>
+                  <img
+                    src={ArrowIcon}
+                    height="12px"
+                    width="12 px"
+                    alt="press-link"
+                  />{' '}
+                  View Monthly Sales
+                </p>
+              </NavLink>
+            </CardBody>
+          </Card>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={6}>
+          <Card chart>
+            <CardHeader color="darkBlue">
+              <ChartistGraph
+                className="ct-chart-bar"
+                data={peakTimes}
+                type={'Bar'}
+                options={peakHoursChart.options}
+                listener={peakHoursChart.animation}
+              />
+            </CardHeader>
+            <CardBody>
+              <Divider />
+              <NavLink className="link" to="/statistics">
+                <p id="link">
+                  <br></br>
+                  <img
+                    src={ArrowIcon}
+                    height="12px"
+                    width="12 px"
+                    alt="press-link"
+                  />{' '}
+                  View Peak Hours
+                </p>
+              </NavLink>
+            </CardBody>
+          </Card>
+        </GridItem>
+
+        {/* <GridItem xs={12} sm={12} md={4}>
                     <Card style={{ width: "20rem" }}>
                         <CardBody>
                             <CardHeader color="yellow">
@@ -181,7 +172,7 @@ export default function Home() {
                     </Card>
                 </GridItem> */}
 
-          {/* <GridItem xs={12} sm={12} md={4}>
+        {/* <GridItem xs={12} sm={12} md={4}>
                     <Card style={{ width: "20rem" }}>
                         <img
                         // className={classes.cardImgTop}
@@ -199,7 +190,6 @@ export default function Home() {
                         </CardBody>
                     </Card>
                 </GridItem> */}
-        </div>
       </GridContainer>
 
       {/* <Login/> */}

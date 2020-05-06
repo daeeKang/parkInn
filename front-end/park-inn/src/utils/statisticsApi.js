@@ -54,7 +54,6 @@ export function SetHomeData() {
 
 async function fetchTotalRevenue(user, setTotalRevenue) {
   try {
-    console.log('user.companyName :>> ', user.companyName);
     const { data } = await api.get(`Statistic/${user.companyName}`);
     var rev = data.companyStatistics.revenue;
     rev = rev / 100;
