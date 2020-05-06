@@ -66,19 +66,20 @@ export default function Statistics() {
           </GridItem>
 
           <GridItem xs={12} sm={6} md={3}>
-            <Card style={{ height: '9rem' }}>
-              <CardBody>
-                <CardHeader color="darkBlue">
-                  <h2 id="card-title">
-                    <center>Total Revenue</center>
-                  </h2>
-                </CardHeader>
-                <br />
+            <Card>
+              <CardHeader color="green" icon>
+                <CardIcon color="green">
+                  <img src={MoneyIcon} height="30px" width="30px" alt="money" />
+                </CardIcon>
+                <p id="icon-subtitle">Total Revenue</p>
+                <p id="icon-text">
+                  <font color="#63c454">
+                    <b>${totalRevenue}</b>
+                  </font>
+                </p>
                 <Divider />
-                <h2 id="card-text">
-                  <center>{totalRevenue}</center>
-                </h2>
-              </CardBody>
+                hi
+              </CardHeader>
             </Card>
           </GridItem>
 
@@ -117,7 +118,7 @@ export default function Statistics() {
               <CardHeader color="blue">
                 <ChartistGraph
                   className="ct-chart-line"
-                  data={monthlySalesChart.data}
+                  data={monthlyRevenue}
                   type={'Line'}
                   options={monthlySalesChart.options}
                   listener={monthlySalesChart.animation}

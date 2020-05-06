@@ -72,7 +72,6 @@ async function fetchMonthlyRevenue(user, setMonthlyRevenue) {
       const { data } = await api.get(
         `Statistic/GetMonthRevenue/${user.companyName}/${i}`,
       );
-      console.log(`data[${i}] :>> `, data);
       if (i == 1) {
         currMonthRev = data / 100;
         seriesArr.push(currMonthRev.toFixed(2));
@@ -86,7 +85,6 @@ async function fetchMonthlyRevenue(user, setMonthlyRevenue) {
 
     monthlyRevenue.series.push(seriesArr);
     setMonthlyRevenue(monthlyRevenue);
-    console.log('monthlyRevenue :>> ', monthlyRevenue);
     return monthlyRevenue;
   } catch (err) {
     console.log(err.message);

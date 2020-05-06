@@ -19,7 +19,10 @@ export function SetData() {
   });
   const [totalParked, setTotalParked] = useState(0);
   const [averageTimeParked, setAverageTimeParked] = useState(0);
-  const [monthlyRevenue, setMonthlyRevenue] = useState(0);
+  const [monthlyRevenue, setMonthlyRevenue] = useState({
+    labels: [],
+    series: [],
+  });
 
   useEffect(() => {
     fetchTotalRevenue(user, setTotalRevenue);
@@ -107,11 +110,47 @@ async function fetchAverageTimeParked(user, setAverageTimeParked, index = 0) {
 }
 
 async function fetchMonthlyRevenue(user, setMonthlyRevenue) {
+  let monthlyRevenue = {
+    labels: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
+    series: [],
+  };
+  let seriesArr = [];
+  let totalRev = 0;
   try {
-    const { data } = await api.get(`Statistic/${user.companyName}`);
-    var rev = data;
-    setMonthlyRevenue('eep');
+    for (let i = 1; i <= 12; i++) {
+      let currMonthRev = 0;
+
+      const { data } = await api.get(
+        `Statistic/GetMonthRevenue/${user.companyName}/${i}`,
+      );
+      if (i == 1) {
+        currMonthRev = data / 100;
+        seriesArr.push(currMonthRev.toFixed(2));
+      } else {
+        currMonthRev = data - totalRev;
+        currMonthRev = data / 100;
+        seriesArr.push(currMonthRev.toFixed(2));
+      }
+      totalRev += data;
+    }
+
+    monthlyRevenue.series.push(seriesArr);
+    setMonthlyRevenue(monthlyRevenue);
+    return monthlyRevenue;
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 }
