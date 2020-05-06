@@ -23,6 +23,20 @@ RevenueSchema.statics.getLotRevenue = async function(companyid, lotid) {
     return 0;
 }
 
+RevenueSchema.statics.getMonthCompanyRevenue = async function(companyid, monthAmount = 1){
+    const data = await this.find({
+        companyid: companyid,
+        date: {$gte: subMonths(new Date(), monthAmount)},
+    }, function(err, result) {
+        if(err) throw err;
+        return result;
+    });
+    if(data) return data.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.amount;
+    }, 0);
+    return 0;
+}
+
 RevenueSchema.statics.getMonthLotRevenue = async function(companyid, lotid, monthAmount = 1) {
     const data = await this.find({
         companyid: companyid,
