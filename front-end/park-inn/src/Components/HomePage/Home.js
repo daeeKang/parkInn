@@ -70,8 +70,8 @@ export default function Home() {
 
           <GridItem xs={12} sm={6} md={6} lg={6}>
             <Card>
-              <CardHeader color="lightBlue" icon>
-                <CardIcon color="lightBlue">
+              <CardHeader color="darkBlue" icon>
+                <CardIcon color="darkBlue">
                   <img
                     src={ParkingIcon}
                     height="30px"
@@ -81,7 +81,7 @@ export default function Home() {
                 </CardIcon>
                 <h3 id="icon-subtitle">Manage Spaces</h3>
                 <p id="icon-text">
-                  <font color="#83bedb">
+                  <font color="#273941">
                     <b>{amountOfLots} lot(s)</b>
                   </font>{' '}
                   to view
@@ -105,7 +105,7 @@ export default function Home() {
           {/* testing graph card */}
           <GridItem xs={12} sm={12} md={6} lg={6}>
             <Card chart>
-              <CardHeader color="blue">
+              <CardHeader color="lightBlue">
                 <ChartistGraph
                   className="ct-chart-line"
                   data={monthlyRevenue}
