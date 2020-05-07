@@ -79,7 +79,6 @@ export default props => {
                         <DialogContentText>
                             <h1 className="acc-title acc-sub">
                                 You will be taken back ParkInn's home page.<br/>
-                                Any unsaved changes will be lost.<br/>
                             </h1>
                         </DialogContentText>
                     </DialogContent>

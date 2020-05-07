@@ -49,8 +49,8 @@ export default function Home() {
                 </CardIcon>
                 <h3 id="icon-subtitle">Welcome to ParkInn!</h3>
                 <p id="icon-text">
-                  View your <font color="#83bedb">daily earnings</font>,
-                  <font color="#83bedb"> users parked</font>, and <font color="#83bedb">more</font>.
+                  View your <font color="#83bedb"><b>earnings</b></font>,
+                  <font color="#83bedb"> <b>customers parked</b></font>, and <font color="#83bedb"><b>more</b></font>.
                 </p>
                 <Divider />
                 <NavLink className="link" to="/statistics">
