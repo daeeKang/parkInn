@@ -13,7 +13,7 @@ let ParkingTimesSchema = new Schema({
 });
 
 ParkingTimesSchema.statics.YesterdaysPeakTimes = async function(companyid, lotid){
-    const today = new Date('12-31-2019'); //TO DO: Take out hard coded date and grab current date
+    const today = new Date('05-06-2020'); //TO DO: Take out hard coded date and grab current date
     let times = await this.findOne({
         companyid: companyid,
         lotid: lotid,
