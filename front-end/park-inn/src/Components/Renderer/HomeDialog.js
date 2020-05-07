@@ -34,16 +34,22 @@ export default function HomeDialog() {
           onClose={handleClose}
           aria-labelledby="responsive-dialog-title"
         >
-        <DialogTitle id="responsive-dialog-title">{"Do you wish to go back to the dashboard?"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">
+          <h1 className="acc-title">
+            {"Do you wish to go back to the dashboard?"}
+          </h1>
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            If you do not manually save before exiting the parking lot designer,
-            all of your changes will be lost. Continue editing if you wish to save your changes.
+          <DialogContentText className="acc-title acc-sub">
+            <h1 className="acc-title acc-sub">
+              If you do not manually save before exiting the parking lot designer,
+              all of your changes will be lost. Continue editing if you wish to save your changes.
+            </h1>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <button className="dial" onClick={handleClose}>
-            Continue Editing
+          <button className="dial stay" onClick={handleClose}>
+            Keep Editing
           </button>
           {/* <button className="dial" onClick={handleClose}>
             <NavLink className="bruh" to="/dash">Go Home</NavLink>

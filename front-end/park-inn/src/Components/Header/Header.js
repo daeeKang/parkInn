@@ -1,23 +1,43 @@
 import React from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
-import { Menu, MenuItem, Button } from '@material-ui/core';
 import { useAuth0 } from '../../react-auth0-spa';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Sidebar from '../Sidebar/Sidebar';
 import config from '../../auth_config.json';
 
+import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 export default props => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const { isAuthenticated, loginWithRedirect, logout, getTokenSilently } = useAuth0();
-    const handleClick = event => {
-      setAnchorEl(event.currentTarget);
+    const [open, setOpen] = React.useState(false);
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  
+    const handleClickOpen = () => {
+      setOpen(true);
     };
   
     const handleClose = () => {
-      setAnchorEl(null);
+      setOpen(false);
     };
+  
+    // const [anchorEl, setAnchorEl] = React.useState(null);
+    const { isAuthenticated, loginWithRedirect, logout, getTokenSilently } = useAuth0();
+    // const handleClick = event => {
+    //   setAnchorEl(event.currentTarget);
+    // };
+  
+    // const handleClose = () => {
+    //   setAnchorEl(null);
+    // };
 
     const logoutWithRedirect = () =>
     logout({
@@ -40,25 +60,37 @@ export default props => {
         <div class="header">
             <Sidebar />
             <div class="header-right">
-                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                    <AccountCircleIcon style={{ padding: 10 }} fontSize="large" />
-                </Button>
+                <button className="acc-btn" onClick={handleClickOpen}>
+                    <AccountCircleIcon fontSize="large" />
+                </button>
 
-                <Menu
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
+                <Dialog
+                    fullScreen={fullScreen}
+                    open={open}
                     onClose={handleClose}
+                    aria-labelledby="responsive-dialog-title"
                 >
-                    <NavLink className="link" to='/management'>
-                        <MenuItem onClick={handleClose}>Account Settings</MenuItem>
-                    </NavLink>
-                    <NavLink className="link" to='/management'>
-                        {isAuthenticated && <MenuItem onClick={() => logoutWithRedirect()}>Logout</MenuItem>}
-                    </NavLink>
-                    {/* <MenuItem onClick={apiRequest}>API Request</MenuItem> */}
-                </Menu>
+                    <DialogTitle id="responsive-dialog-title">
+                        <h1 className="acc-title">
+                            {"Logout now?"}
+                        </h1>
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            <h1 className="acc-title acc-sub">
+                                You will be taken back ParkInn's home page.<br/>
+                            </h1>
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <button className="acc-link" autoFocus onClick={handleClose}>
+                            No
+                        </button>
+                        <button className="acc-link acc-log" onClick={() => logoutWithRedirect()} to='/' autoFocus>
+                            Logout
+                        </button>
+                    </DialogActions>
+                </Dialog>
             </div>
         </div>
     )

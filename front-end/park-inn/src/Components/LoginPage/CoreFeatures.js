@@ -5,11 +5,14 @@ import GridItem from '../Grid/GridItem.js';
 
 import Arrow from './arrow_down.svg';
 import pls from './phone_transparent.png';
+import Customer from './phoneywoney.png';
+import Renderer from './Renderer.png';
+import Statistics from './Statistics.png';
 
 export default props => {
   return(
     <a name="features">
-      <div className="about-us-2">
+      <div className="about-us-2 pls-features">
           <br/>
           <Container>
             <GridContainer spacing={5}>
@@ -23,14 +26,15 @@ export default props => {
               </GridItem>
               <GridItem xs={12} sm={12} md={4} lg={4}>
                 <p id="about-heading">Manage Parking</p>
-                <img src={pls} height="300" width="400" alt="manage"/>
+                <img src={Renderer} className="feature-rectangle" alt="manage"/>
+                {/* <br/>
                 <p id="features-text" style={{fontSize: "19px"}}>Our <font color="#adc9e0"><b>parking lot designer</b></font> allows you to create the layout of your virtual parking lot,
-                change prices of individual spots, or mark certain spots as unavailable during special event parking.</p>
+                change prices of individual spots, or mark certain spots as unavailable during special event parking.</p> */}
               </GridItem>
               <GridItem xs={12} sm={12} md={4} lg={4}>
                 <p id="about-heading">Customer Features</p>
-                <img src={pls} height="300" width="400" alt="manage"/>
-                <p id="features-text" style={{fontSize: "20px"}}>Our <font color="#adc9e0"><b>mobile application</b></font> allows guests to search for different parking lots in your city,
+                <center><img src={Customer} className="feature-phone" alt="manage"/></center>
+                {/* <p id="features-text" style={{fontSize: "20px"}}>Our <font color="#adc9e0"><b>mobile application</b></font> allows guests to search for different parking lots in your city,
                 view price comparisons between lots, reserve spots in advance, and pay online.</p>
                 <div id="right">
                   <a href="#products">
@@ -38,11 +42,31 @@ export default props => {
                         <img src={Arrow} className="next" height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Get Started</span>
                       </p>
                   </a>
-                </div>
+                </div> */}
               </GridItem>
               <GridItem xs={12} sm={12} md={4} lg={4}>
                 <p id="about-heading">Company Statistics</p>
-                <img src={pls} height="300" width="400" alt="manage"/>
+                <img src={Statistics} className="feature-rectangle" alt="manage"/>
+                {/* <br/>
+                <p id="features-text" style={{fontSize: "20px"}}>View your <font color="#adc9e0"><b>company's analytics</b></font> such as revenue earned, weekly/monthly sales trends,
+                peak parking hours, average wait times, and live lot utilization.</p> */}
+              </GridItem>
+              <GridItem xs={12} sm={12} md={4} lg={4}>
+                <p id="features-text" style={{fontSize: "19px"}}>Our <font color="#adc9e0"><b>parking lot designer</b></font> allows you to create the layout of your virtual parking lot,
+                change prices of individual spots, or mark certain spots as unavailable during special event parking.</p>
+              </GridItem>
+              <GridItem xs={12} sm={12} md={4} lg={4}>
+                <p id="features-text" style={{fontSize: "20px"}}>Our <font color="#adc9e0"><b>mobile application</b></font> allows guests to search for different parking lots in your city,
+                  view price comparisons between lots, reserve spots in advance, and pay online.</p>
+                {/* <div id="right">
+                  <a href="#products">
+                      <p id="landing-link">
+                        <img src={Arrow} className="next" height="20px" width="20px" fill="gray" alt="next" /><span className="tab">Get Started</span>
+                      </p>
+                  </a>
+                </div> */}
+              </GridItem>
+              <GridItem xs={12} sm={12} md={4} lg={4}>
                 <p id="features-text" style={{fontSize: "20px"}}>View your <font color="#adc9e0"><b>company's analytics</b></font> such as revenue earned, weekly/monthly sales trends,
                 peak parking hours, average wait times, and live lot utilization.</p>
               </GridItem>

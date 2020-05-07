@@ -56,7 +56,7 @@ export default function Statistics() {
                 </CardIcon>
                 <p id="icon-subtitle">Average Time Parked</p>
                 <p id="icon-text">
-                  <font color="#74c9d4">
+                  <font color="#4ea3cc">
                     <b>{averageTimeParked}</b>
                   </font>{' '}
                   minute(s)

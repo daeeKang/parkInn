@@ -55,7 +55,7 @@ const blueCardHeader = {
 };
 
 const darkBlueCardHeader = {
-    background: "#1B262C",
+    background: "#273941",
     ...BoxShadow
 };
 

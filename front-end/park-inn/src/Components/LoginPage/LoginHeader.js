@@ -7,6 +7,9 @@ import AppBar from './HeaderStyles';
 import Toolbar, { styles as toolbarStyles } from './Toolbar';
 import './Login.css';
 
+import { useAuth0 } from '../../react-auth0-spa';
+import config from '../../auth_config.json';
+
 const styles = (theme) => ({
   title: {
     fontSize: 24,
@@ -38,6 +41,11 @@ const styles = (theme) => ({
 
 function AppAppBar(props) {
   const { classes } = props;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const { isAuthenticated, loginWithRedirect, logout, getTokenSilently } = useAuth0();
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
 
   return (
     <div>
@@ -66,8 +74,10 @@ function AppAppBar(props) {
             {/* sign up buttons -- will change to responsive drawer l8r */}
             <div className={classes.right}>
                 <ul className="landing-list">                  
-                  {/* <li className="landing-item"><a href="#login"><p id="nav-link">Login</p></a></li> */}
-                  <li className="landing-item"><a href="#products"><p id="nav-link">Products</p></a></li>
+                  <li className="landing-item"
+                      onClick={() => loginWithRedirect({ redirect_uri: `${config.address}/dash`})}>
+                        <p id="nav-link">Login</p>
+                  </li>
                   <li className="landing-item"><a href="#features"><p id="nav-link">Features</p></a></li>
                   <li className="landing-item"><a href="#about"><p id="nav-link">About</p></a></li>
                 </ul>
