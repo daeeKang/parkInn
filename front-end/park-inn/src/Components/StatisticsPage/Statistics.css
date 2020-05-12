@@ -1,0 +1,35 @@
+.center {
+  text-align: center;
+  overflow: auto;
+}
+
+#card-header {
+  text-align: center;
+  text-transform: uppercase;
+  /* font-family: 'Muli'; */
+  font-family: 'Helvetica';
+  font-weight: '100';
+  font-size: '14px';
+  color: white;
+}
+
+#card-text {
+  font-family: 'Helvetica';
+  margin: '5px';
+  font-size: '12px';
+  text-align: left;
+}
+
+#card-container {
+  display: flex;
+  width: 100%;
+  margin: 1% 0 1% 0%;
+  justify-content: space-evenly;
+}
+
+#graph-container {
+  display: flex;
+  width: 90%;
+  margin: 0 0 5% 5%;
+  justify-content: space-evenly;
+}

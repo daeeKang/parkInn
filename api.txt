@@ -1,0 +1,393 @@
+
+COMPANY
+----------------------------
+
+./Company/AddCompany (POST)
+input:
+{
+	“companyid”: string,
+	“companyName”: string,
+	“Lots”: [int],
+	“revenue”: int
+}
+
+CUSTOMER
+----------------------------
+
+./Custommer/AddCustomer (POST)
+Input: 
+{
+	username: string
+	first: string  
+    last: string
+    status: string
+    reservation: Date
+    car: [{
+        color: String,
+        license: String,
+        make: String,
+        model: String,
+    }]
+}
+
+./Customer/GetCustomers (GET)
+Input:
+{
+    //not done yet
+}
+
+./Customer/GetCustomer (GET)
+Input:
+{
+    username: string
+}
+Output:
+{
+    //not done yet
+}
+
+LOT 
+----------------------------
+
+./Lot/AddLot (POST)
+Input:
+{
+	companyid: string,
+	lotid: int,
+	spots: [{
+        spotid: int,
+        active: bool,
+        unavailable: date,
+        category: string
+    }],
+    location: {
+        lat: double,
+        long, double
+    }
+}
+
+./Lot/UpdatePeakTimes (POST) //this is for uploading entire 24 hours
+Input: 
+{
+    companyid: string
+    lotid: string
+    [{
+        hour: Number,
+        count: Number,
+    }]
+}
+
+./Lot/UpdateSpot (PATCH)
+Input:
+{
+    companyid: string
+    lotid: string
+    updateValue: bool
+}
+
+./Lot/GetLots (GET)
+Input:
+{
+    companyid: string
+}
+Output:{
+    [{
+        companyid: String
+        lotid: String
+        spots: [{
+            spotid: String,
+            active: Boolean,
+            unavailable: Date
+            category: String
+        }]
+        totalSpots: Number,
+        availableSpots: Number,
+        peakTimes: [{
+            hour: Number,
+            count: Number,
+        }],
+        location: {
+            latitude: Number, 
+            longitude: Number,
+        }
+    }]
+}
+
+./Lot/GetLot (GET)
+Input:
+{
+    companyid: String
+    lotid: string
+}
+Output:
+{
+    {
+        companyid: String
+        lotid: String
+        spots: [{
+            spotid: String,
+            active: Boolean,
+            unavailable: Date
+            category: String
+        }]
+        totalSpots: Number,
+        availableSpots: Number,
+        peakTimes: [{
+            hour: Number,
+            count: Number,
+        }],
+        location: {
+            latitude: Number, 
+            longitude: Number,
+        }
+    }
+}
+
+./Lot/GetParkingSpot (GET)
+Input:
+{
+    companyid: string
+    lotid: string
+}
+Output:
+{
+    spotid: String,
+    active: Boolean,
+    unavailable: Date
+    category: String
+}
+
+./Lot/GetPeakTimes (GET)
+Input:
+{
+    companyid: string,
+    lotid: string
+}
+Output:
+{
+    [{
+        _id: somebullshitidignorethis
+        hour: Number,
+        count: Number,
+    }]
+}
+
+./Lot/GetLotsWithinArea (GET)
+Input:
+{
+    latitude: Number,
+    longitude: Number,
+    radius: Number (in Miles)
+}
+Output:
+{
+    [{
+    companyid: { type: String, required: true },
+    lotid: { type: Number, required: true },
+    lotName: { type: String, default: null },
+    spots: [
+        {
+            spotid: String,
+            active: Boolean,
+            unavailable: { type: Date, default: null },
+            category: { type: String, default: "general" },
+            username: { type: String, default: null }
+        }
+    ],
+    totalSpots: Number,
+    availableSpots: Number,
+    averageTimeParked: {
+        currentAverage: { type: Number, default: 0 },
+        totalCount: { type: Number, default: 0 },
+    },
+    peakTimes: [
+        {
+            hour: Number,
+            count: Number
+        }
+    ],
+    location: {
+        latitude: Number,
+        longitude: Number
+    },
+    lotDesign: String,
+    imgURL: { type: String, default: null }
+    }]
+}
+
+./Lot/SearchForLot (GET)
+Input:
+{
+    lotname: String (if it is more than one word then spaces must be replaced with '-', name has to be spelled correctly but search is case insensitive)
+}
+Output:
+{
+    [{
+        companyid: String,
+        lotid: String,
+        lotName: String,
+        spots: [{
+            spotid: String,
+            active: Boolean,
+            unavailable: Date,
+            category: String,
+            username: String,
+        }]
+        totalSpots: Number,
+        availableSpots: Number,
+        averageTimeParked: {
+            currentAverage: Number,
+            totalCount: Number,
+        },
+        peakTimes: [{
+            hour: Number,
+            count: Number,
+        }],
+        location: {
+            latitude: Number, 
+            longitude: Number,
+        }
+        lotDesign: String,
+        imgURL: String,
+    }]
+}
+
+USER 
+---------------------------------------
+./User/AddUser (POST)
+Input:
+{
+    username: string
+    role: string
+    first: string
+    last: string
+    companyid: string
+}
+
+./User/GetUser (GET)
+Input: 
+{
+    username: string
+    password: string
+}
+Output: 
+{
+    username: String
+    password: String
+    role: String
+    first: String
+    last: String
+    companyid: String
+}
+
+RESERVATION 
+---------------------------------------
+./Reservation/AddReservation/companyid/lotid/spotid/starttime/endtime/username (POST)
+Input:
+{
+    companyid: String
+    lotid: String
+    spotid: String
+    starttime: Date (javascript date format I guess)
+    endtime: Date (javascript date format I guess)
+    username: String
+    expired: Boolean (optional, auto set to false)
+}
+
+STATISTICS
+---------------------------------------
+./Statistic (GET)
+Input:
+{   
+    companyName: String
+}
+Output:
+{
+    statistics: {
+        lotStatistics:[{
+            lotid: String,
+            availableSpots: Number,
+            totalSpots: Number,
+            peakTimes: {
+                times: {
+                    hour: Number,
+                    count: Number,                    
+                }
+                date: Date, (Peak Times are from the day before)
+            }, 
+            averageTimeParked: {
+                currentAverage: Number, (in Minutes),
+                totalCount: Number
+            },
+            revenue: Number (in Pennies)
+        }],
+
+        (Company statistics will have the sum of all the lots)
+        companyStatistics:{
+            availableSpots: Number,
+            totalSpots: Number,
+            peakTimes: [{
+                hour: Number,
+                count: Number,
+            }],
+            averageTimeParked: {
+                currentAverage: Number, (in Minutes)
+                totalCount: Number,  
+            },
+            revenue: Number, (in Pennies)
+        }
+    }
+}
+
+./Statistic (GET)
+Input:
+{   
+    companyName: String,
+    lotid: String,
+}
+Output:
+{
+    statistics: {
+        lotStatistics:{
+            lotid: String,
+            availableSpots: Number,
+            totalSpots: Number,
+            peakTimes: {
+                times: {
+                    hour: Number,
+                    count: Number,                    
+                }
+                date: Date, (Peak Times are from the day before)
+            }, 
+            averageTimeParked: {
+                currentAverage: Number, (in Minutes),
+                totalCount: Number
+            },
+            revenue: Number (in Pennies)
+        },
+    }
+}
+
+./Statistic/GetMonthRevenue (GET)
+Input:
+{   
+    companyName: String,
+    monthAmount: Number, (The range of how many months back to today to calculate revenue)
+}
+Output:
+{
+    Revenue in Pennies
+}
+
+./Statistic/GetMonthRevenue (GET)
+Input:
+{   
+    companyName: String,
+    lotid: String,
+    monthAmount: Number, (The range of how many months back to today to calculate revenue)
+}
+Output:
+{
+    Revenue in Pennies
+}
+

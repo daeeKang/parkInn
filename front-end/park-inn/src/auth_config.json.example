@@ -1,0 +1,7 @@
+{
+  "domain": "{DOMAIN}",
+  "clientId": "{CLIENT_ID}",
+  "audience": "{AUDIENCE}",
+  "address": "http://localhost:3000",
+  "connection": "{CONNECTION}"
+}

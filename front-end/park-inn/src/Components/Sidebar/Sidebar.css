@@ -1,0 +1,104 @@
+.bm-item {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: #d1d1d1;
+    transition: color 0.2s;
+  }
+  
+.bm-item:hover {
+    color: white;
+}
+  
+.bm-burger-button {
+    position: fixed;
+    width: 33px;
+    height: 27px;
+    left: 36px;
+    top: 36px;
+}
+  
+.bm-burger-bars {
+    background: #263238;
+}
+  
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+  
+.bm-cross {
+    background: #bdc3c7;
+}
+  
+.bm-menu {
+    background: #ffffff;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    color: #999;
+}
+  
+.bm-morph-shape {
+    fill: #373a47;
+}
+  
+.bm-item-list {
+    color: #bdc3c7;
+}
+  
+.bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+}
+
+ul li {
+  font-family: 'Helvetica';
+  padding: 15px;
+  font-weight: 100px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.link {
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.link:hover {
+  color: #90CAF9;
+}
+
+.tab { 
+  display: inline-block; 
+  margin-left: 20px; 
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+.account-title {
+  font-family: 'Helvetica';
+  font-weight: 100px;
+  font-size: 16px;
+  text-transform: none;
+  color: #999;
+}
+
+.account-title:hover {
+  color:rgb(190, 190, 190);
+}
+
+div:focus {
+  outline: 0px;
+}

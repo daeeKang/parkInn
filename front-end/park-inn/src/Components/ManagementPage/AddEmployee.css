@@ -1,0 +1,38 @@
+@import "../../styles/variables.css";
+
+.add-page {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.input-fields {
+  display: flex;
+  border-bottom: 1px solid;
+}
+
+.add-button {
+  border: 0;
+}
+
+/* .add-container {
+  display: flex;
+  background: white;
+  color: var(--textColor);
+  height: 5%;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-weight: 100;
+  font-size: 14px;
+  letter-spacing: 2px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: double;
+  margin-top: 10px;
+  padding-bottom: 10px;
+} */

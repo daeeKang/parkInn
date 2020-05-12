@@ -1,0 +1,273 @@
+*:focus {
+    outline: 0; /* hax to remove border when selecting tingz */
+}
+
+/*TODO hide this*/
+.header {
+}
+
+.acc-title {
+    font-family: "Helvetica";
+    font-weight: 100;
+    color: #555;
+    font-size: 20px;
+  }
+  
+.acc-sub {
+    color: #777;
+    font-size: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.makeStyles-footer-49 {
+    display: none;
+}
+/**/
+
+.controls {
+    position: fixed;
+    display: inline;
+    z-index: 69;
+    top: 1vh;
+    left: 1vw;
+    padding: 20px;
+    opacity: 100%;
+    transition: opacity 0.2s ease-out;
+    margin-top: 20px;
+}
+
+.devBox {
+    position: fixed;
+    display: inline;
+    z-index: 69;
+    top: 80vh;
+    padding: 10px;
+    right: 5vw;
+    opacity: 100%;
+    border-style: dotted;
+    color: black;
+    background-color: lightgray;
+}
+
+.slidecontainer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.parkingLotForm {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 14px;
+    background-color: white;
+    position: fixed;
+    right: -34vw;
+    display: block;
+    width: 30vw;
+    height: 100vh;
+    z-index: 1;
+    transition: all 500ms ease;
+    -webkit-box-shadow: 2px 7px 30px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 7px 30px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 30px 0px rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+}
+
+#pls {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 15px;
+}
+
+.formContainer {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 14px;
+    padding: 20px;
+    justify-content: left;
+}
+
+.buttonSelected {
+    background: #b3e1ff;
+}
+
+.formButtons {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #555;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    color: black;
+    width: 8vw;
+    height: 6vh;
+    display: inline-block;
+}
+
+.redButton {
+    font-family: 'Helvetica';
+    font-weight: 350;
+    background-color: rgb(255, 184, 184);
+}
+.redButton:hover {
+    color: #fff;
+    background-color: rgb(255, 122, 122);
+}
+
+.greenButton {
+    font-family: 'Helvetica';
+    font-weight: 350;
+    background-color: rgb(191, 252, 191);
+}
+.greenButton:hover {
+    color: #000;
+    background-color: rgb(145, 252, 145);
+}
+
+.formInput {
+    font-family: 'Helvetica';
+    font-weight: '100';
+    color: #222;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 0px;
+    background-color: #ffffff;
+    border-color: rgb(206, 206, 206);
+    border-width: 0.5px;
+    width: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* margin-left: 50px; */
+}
+
+.formInput:focus {
+    outline: none;
+}
+
+.parkingOrientSvg {
+    fill:#fff;
+    stroke:#231f20;
+    stroke-miterlimit:10;
+    stroke-width:20px;
+}
+
+.orientButton {
+    font-family: 'Helvetica';
+    font-weight: 350;
+    font-size: 14px;
+    width: 10vw;
+    border-radius: 35px;
+    border: solid 2px #366387;
+    display: inline-block;
+    margin-bottom: 2px;
+    opacity: 0.8;
+}
+
+.orientButton:hover {
+    background-color: #366387;
+    opacity: 0.7;
+    color: #fff;
+}
+
+#orientUp {
+    transform: scaleY(-1);
+}
+
+#orientRight {
+    transform: rotate(270deg);
+}
+
+#orientLeft {
+    transform: rotate(90deg);
+}
+
+button {
+    font-family: 'Helvetica';
+    font-weight: 350;
+    display: block;
+    text-decoration: none;
+    color: #555;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 2px #366387;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.4s;
+    margin: 10px;
+}
+
+button:hover {
+    color: #fff;
+    background-color: #adc9e0;
+    font-weight: 200;
+    /* font-style: italic; */
+    border: solid 2px #fff;
+}
+
+.home {
+    font-family: 'Helvetica';
+    font-weight: 350;
+    display: block;
+    text-decoration: none;
+    color: #555;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 2px #366387;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.4s;
+    margin: 10px;
+}
+
+.home:hover {
+    color: #fff;
+    background-color: #adc9e0;
+    font-weight: 200;
+    font-style: italic;
+    border: solid 2px #fff;
+}
+
+.dial {
+    font-family: "Helvetica";
+    font-weight: 100;
+    font-size: 13px;
+    color: #fff;
+    background-color: #555;
+    width: 100px;
+    height: 40px;
+    border: solid 1px #555;
+    border-radius: 2%;
+    text-transform: uppercase;
+}
+
+.stay {
+    color: #555;
+    background-color: #fff;
+    font-size: 11px;
+    border: 0px;
+    border-style: none;
+}
+
+.stay:hover {
+    font-weight: 500;
+    border: 0px;
+}
+
+.dial:hover {
+    color: #555;
+    background-color: #fff;
+}
+
+.bruh {
+    color: #555;
+}
+
+.bruh:hover {
+    color: #fff;
+}
