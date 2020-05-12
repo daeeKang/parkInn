@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
+  - Auth0 (1.22.1):
+    - JWTDecode
+    - SimpleKeychain
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
+  - JWTDecode (2.4.1)
   - MaterialComponents (103.1.0):
     - MaterialComponents/ActionSheet (= 103.1.0)
     - "MaterialComponents/ActionSheet+Theming (= 103.1.0)"
@@ -575,28 +582,39 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
+  - SimpleKeychain (0.11.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
+  - Auth0 (~> 1.19)
+  - Charts
   - MaterialComponents
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Auth0
+    - Charts
+    - JWTDecode
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
     - MotionAnimator
     - MotionInterchange
+    - SimpleKeychain
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Auth0: c3dd0b6f9031e9cc38be2a6973f766f33ccbad83
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
+  JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
   MaterialComponents: 0312a643d1aed5e5f10cba4be06a6aa62bd07c14
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
+  SimpleKeychain: 0c657949c7afff92337d2ff64052d5eb5c53823e
 
-PODFILE CHECKSUM: 80ef46513aff4efccc75eb1f0f6a8dbf48534275
+PODFILE CHECKSUM: 6b58cddb38987723cf43a89f5ac5a4f2b226fea1
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.8.4
