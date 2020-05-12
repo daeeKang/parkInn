@@ -10,6 +10,7 @@
 		038B185123FCC2A300410A1A /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B185023FCC2A300410A1A /* MenuVC.swift */; };
 		163BAD4B8C8401380C019B80 /* Pods_ParkInn_ParkInnUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C938CF4BFA13A309D615269C /* Pods_ParkInn_ParkInnUITests.framework */; };
 		351FE58F2428298900F7E00B /* DisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FE58E2428298900F7E00B /* DisplayVC.swift */; };
+		35BEB0D3246017E3002BA659 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BEB0D2246017E3002BA659 /* CircularProgressView.swift */; };
 		35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */; };
 		88AF660D91A0662B6D7F7972 /* Pods_ParkInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */; };
 		8E02805A23F5653800057727 /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02805923F5653800057727 /* StatsVC.swift */; };
@@ -50,6 +51,9 @@
 		8E9C412A2450FEA500C61E53 /* GridScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C41292450FEA500C61E53 /* GridScene.swift */; };
 		8E9C58802453B8EF000B3D94 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C587F2453B8EF000B3D94 /* DateTableViewCell.swift */; };
 		8E9C58822453B8FC000B3D94 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C58812453B8FC000B3D94 /* DatePickerTableViewCell.swift */; };
+		8E9FCBF6244E891200EB4A98 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9FCBF4244E891200EB4A98 /* CardCell.swift */; };
+		8E9FCBF7244E891200EB4A98 /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9FCBF5244E891200EB4A98 /* CardCell.xib */; };
+		8E9FCBF9244E945D00EB4A98 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9FCBF8244E945D00EB4A98 /* Category.swift */; };
 		8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */; };
 		8EA91952240C5A7A00DE7EB3 /* Lot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA91951240C5A7A00DE7EB3 /* Lot.swift */; };
 		8EDA3A252453CB3300B5993B /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA3A242453CB3300B5993B /* Reservation.swift */; };
@@ -58,6 +62,7 @@
 		8EE3D151245A16DE00545FF5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D150245A16DE00545FF5 /* ProfileVC.swift */; };
 		8EE3D153245A16EC00545FF5 /* MyReservationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D152245A16EC00545FF5 /* MyReservationsVC.swift */; };
 		8EE3D155245A27F700545FF5 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3D154245A27F700545FF5 /* ReservationCell.swift */; };
+		8EE710BC245FD6230000AADA /* StaffProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE710BB245FD6230000AADA /* StaffProfile.swift */; };
 		FB17EA658A24E1B6861BA201 /* Pods_ParkInnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +86,7 @@
 /* Begin PBXFileReference section */
 		038B185023FCC2A300410A1A /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		351FE58E2428298900F7E00B /* DisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayVC.swift; sourceTree = "<group>"; };
+		35BEB0D2246017E3002BA659 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementCVCell.swift; sourceTree = "<group>"; };
 		47CCD8676814AB4A0B0E29DD /* Pods-ParkInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.debug.xcconfig"; sourceTree = "<group>"; };
 		59ED785E62F4300390FFA17C /* Pods-ParkInn-ParkInnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn-ParkInnUITests.debug.xcconfig"; path = "Target Support Files/Pods-ParkInn-ParkInnUITests/Pods-ParkInn-ParkInnUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +136,9 @@
 		8E9C41292450FEA500C61E53 /* GridScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridScene.swift; sourceTree = "<group>"; };
 		8E9C587F2453B8EF000B3D94 /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		8E9C58812453B8FC000B3D94 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		8E9FCBF4244E891200EB4A98 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		8E9FCBF5244E891200EB4A98 /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
+		8E9FCBF8244E945D00EB4A98 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8EA1ABFE23F52F1800CC0ECA /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8EA91951240C5A7A00DE7EB3 /* Lot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lot.swift; sourceTree = "<group>"; };
 		8EDA3A242453CB3300B5993B /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
@@ -138,6 +147,7 @@
 		8EE3D150245A16DE00545FF5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		8EE3D152245A16EC00545FF5 /* MyReservationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationsVC.swift; sourceTree = "<group>"; };
 		8EE3D154245A27F700545FF5 /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
+		8EE710BB245FD6230000AADA /* StaffProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffProfile.swift; sourceTree = "<group>"; };
 		8F733C6C9ADE3859593F1E60 /* Pods_ParkInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A600FBED4FB426781DAA4822 /* Pods_ParkInnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkInnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE520EE589228C4C7C1C68DA /* Pods-ParkInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkInn.release.xcconfig"; path = "Target Support Files/Pods-ParkInn/Pods-ParkInn.release.xcconfig"; sourceTree = "<group>"; };
@@ -308,7 +318,10 @@
 			isa = PBXGroup;
 			children = (
 				35CF17AA240A031E0003AD63 /* ManagementCVCell.swift */,
+				35BEB0D2246017E3002BA659 /* CircularProgressView.swift */,
 				8E33BFB6240A633C00A29F55 /* LotMarkerView.swift */,
+				8E9FCBF4244E891200EB4A98 /* CardCell.swift */,
+				8E9FCBF5244E891200EB4A98 /* CardCell.xib */,
 				8E2E71C92443F90200A69221 /* SearchResultCell.swift */,
 				8E9C41272450FE9E00C61E53 /* Grid.swift */,
 				8E9C41292450FEA500C61E53 /* GridScene.swift */,
@@ -327,8 +340,10 @@
 				8E33BFB4240A516300A29F55 /* LotAnnotation.swift */,
 				8E54C622243F1D0400F15E8F /* LotDesign.swift */,
 				8E54C624243F223D00F15E8F /* CompanyStats.swift */,
+				8E9FCBF8244E945D00EB4A98 /* Category.swift */,
 				8EDA3A242453CB3300B5993B /* Reservation.swift */,
 				8EDA3A282459F43100B5993B /* CustomerProfile.swift */,
+				8EE710BB245FD6230000AADA /* StaffProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,6 +465,7 @@
 				8E98C93023F38022008F612A /* Main.storyboard in Resources */,
 				8E37459B243153D6009C2A33 /* (null) in Resources */,
 				8E7D6AAA244D159200B8B5A4 /* Colors.xcassets in Resources */,
+				8E9FCBF7244E891200EB4A98 /* CardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +603,7 @@
 				8E2E71C82443D1CF00A69221 /* SearchResultsVC.swift in Sources */,
 				8E02805A23F5653800057727 /* StatsVC.swift in Sources */,
 				8E2E71CA2443F90200A69221 /* SearchResultCell.swift in Sources */,
+				35BEB0D3246017E3002BA659 /* CircularProgressView.swift in Sources */,
 				8E9C58802453B8EF000B3D94 /* DateTableViewCell.swift in Sources */,
 				8E33BFAD240A27A800A29F55 /* MapVC.swift in Sources */,
 				8EA1ABFF23F52F1800CC0ECA /* MainVC.swift in Sources */,
@@ -600,7 +617,9 @@
 				8E02805C23F5654600057727 /* ManagementVC.swift in Sources */,
 				8E9C41282450FE9E00C61E53 /* Grid.swift in Sources */,
 				8E7D6AAC244D177B00B8B5A4 /* UIColor+extensions.swift in Sources */,
+				8E9FCBF6244E891200EB4A98 /* CardCell.swift in Sources */,
 				8EDA3A292459F43100B5993B /* CustomerProfile.swift in Sources */,
+				8EE710BC245FD6230000AADA /* StaffProfile.swift in Sources */,
 				8EE3D151245A16DE00545FF5 /* ProfileVC.swift in Sources */,
 				8E54C625243F223D00F15E8F /* CompanyStats.swift in Sources */,
 				038B185123FCC2A300410A1A /* MenuVC.swift in Sources */,
@@ -613,6 +632,7 @@
 				8E98C92B23F38022008F612A /* SceneDelegate.swift in Sources */,
 				8E7CE153243FC81D0041E943 /* AlertController+Convenience.swift in Sources */,
 				8E7CE151243FC4940041E943 /* SessionManager.swift in Sources */,
+				8E9FCBF9244E945D00EB4A98 /* Category.swift in Sources */,
 				35CF17AB240A031E0003AD63 /* ManagementCVCell.swift in Sources */,
 				8E4CC297240F9DD500C73960 /* UIImage+extensions.swift in Sources */,
 				8E9C412A2450FEA500C61E53 /* GridScene.swift in Sources */,

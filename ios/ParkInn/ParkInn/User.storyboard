@@ -32,7 +32,7 @@
         <!--Search ResultsVC-->
         <scene sceneID="NzW-XL-kRG">
             <objects>
-                <viewController storyboardIdentifier="SearchResultsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ali-hJ-TzZ" customClass="SearchResultsVC" customModule="ParkInn_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResultsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ali-hJ-TzZ" customClass="SearchResultsVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Eb8-ky-G4B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="100" id="pcI-lW-B0C" customClass="SearchResultCell" customModule="ParkInn_Mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="100" id="pcI-lW-B0C" customClass="SearchResultCell" customModule="ParkInn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pcI-lW-B0C" id="a20-ZP-Ovq">
@@ -131,7 +131,7 @@
         <!--MapVC-->
         <scene sceneID="Lyz-FR-Whl">
             <objects>
-                <viewController id="ENg-mR-61y" customClass="MapVC" customModule="ParkInn_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ENg-mR-61y" customClass="MapVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ovE-LD-5t2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,7 +220,7 @@
         <!--User MenuVC-->
         <scene sceneID="yC5-Co-OfC">
             <objects>
-                <viewController id="Ykp-Ue-6My" customClass="UserMenuVC" customModule="ParkInn_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ykp-Ue-6My" customClass="UserMenuVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYR-eR-zsk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,7 +292,7 @@
         <!--ProfileVC-->
         <scene sceneID="8wy-GE-mL2">
             <objects>
-                <viewController id="Ome-Pu-44E" customClass="ProfileVC" customModule="ParkInn_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ome-Pu-44E" customClass="ProfileVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c50-hp-LBL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,7 +415,7 @@
         <!--LotVC-->
         <scene sceneID="x0l-Hh-GVI">
             <objects>
-                <viewController storyboardIdentifier="LotVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XOA-2H-7b0" customClass="LotVC" customModule="ParkInn_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LotVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XOA-2H-7b0" customClass="LotVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UT-xC-qnw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -555,7 +555,7 @@
         <!--ReservationVC-->
         <scene sceneID="9Om-5L-VBM">
             <objects>
-                <viewController id="s56-Du-AiK" customClass="ReservationVC" customModule="ParkInn_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="s56-Du-AiK" customClass="ReservationVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcD-4y-E7o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -570,7 +570,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerTableViewCellIdentifier" rowHeight="95" id="kBL-OL-5ag" customClass="DatePickerTableViewCell" customModule="ParkInn_Mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerTableViewCellIdentifier" rowHeight="95" id="kBL-OL-5ag" customClass="DatePickerTableViewCell" customModule="ParkInn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kBL-OL-5ag" id="79r-XP-TYX">
@@ -594,7 +594,7 @@
                                             <outlet property="datePicker" destination="69m-9X-vKJ" id="I2Y-la-J6E"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateTableViewCellIdentifier" rowHeight="71" id="ahu-21-lPR" customClass="DateTableViewCell" customModule="ParkInn_Mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateTableViewCellIdentifier" rowHeight="71" id="ahu-21-lPR" customClass="DateTableViewCell" customModule="ParkInn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="123" width="414" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahu-21-lPR" id="ZMG-Lu-a4E">
@@ -689,11 +689,17 @@
         <!--My ReservationsVC-->
         <scene sceneID="TBT-xU-JHr">
             <objects>
-                <viewController id="aiV-Y0-47Z" customClass="MyReservationsVC" customModule="ParkInn_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aiV-Y0-47Z" customClass="MyReservationsVC" customModule="ParkInn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ohZ-v7-zmO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Reservations Found!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWz-p5-IiT">
+                                <rect key="frame" x="98" y="409" width="218" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Reservations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xe-Ri-UeU">
                                 <rect key="frame" x="8" y="16" width="398" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
@@ -710,7 +716,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReservationCell" id="l7P-We-rMr" customClass="ReservationCell" customModule="ParkInn_Mobile" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReservationCell" id="l7P-We-rMr" customClass="ReservationCell" customModule="ParkInn" customModuleProvider="target">
                                         <rect key="frame" x="14.666666666666666" y="0.0" width="385" height="594"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="A23-g3-FkG">
@@ -927,7 +933,9 @@
                         <color key="backgroundColor" red="0.18823529411764706" green="0.52156862745098043" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xxi-hW-dOv" firstAttribute="trailing" secondItem="RZu-uF-tLq" secondAttribute="trailing" id="0fH-6a-Qrf"/>
+                            <constraint firstItem="bWz-p5-IiT" firstAttribute="centerX" secondItem="ohZ-v7-zmO" secondAttribute="centerX" id="QI9-aE-J5e"/>
                             <constraint firstItem="RZu-uF-tLq" firstAttribute="top" secondItem="6xe-Ri-UeU" secondAttribute="bottom" constant="8" id="QIf-xb-wMq"/>
+                            <constraint firstItem="bWz-p5-IiT" firstAttribute="centerY" secondItem="ohZ-v7-zmO" secondAttribute="centerY" id="SN4-VG-yaH"/>
                             <constraint firstItem="RZu-uF-tLq" firstAttribute="leading" secondItem="xxi-hW-dOv" secondAttribute="leading" id="W6I-cb-Kff"/>
                             <constraint firstItem="xxi-hW-dOv" firstAttribute="bottom" secondItem="RZu-uF-tLq" secondAttribute="bottom" id="bLe-5z-7ro"/>
                             <constraint firstItem="6xe-Ri-UeU" firstAttribute="leading" secondItem="xxi-hW-dOv" secondAttribute="leading" constant="8" id="cHh-Vp-Ahg"/>
@@ -939,6 +947,7 @@
                     <navigationItem key="navigationItem" id="mQC-J0-0yP"/>
                     <connections>
                         <outlet property="collectionView" destination="RZu-uF-tLq" id="2hd-O7-c5k"/>
+                        <outlet property="noReservationsLabel" destination="bWz-p5-IiT" id="bFU-54-c3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAX-ti-iXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -45,6 +45,7 @@ class SessionManager {
 
     var profile: UserInfo?
     var customerProfile: CustomerProfile?
+    var staffProfile: StaffProfile?
 
     private init () { }
 
@@ -79,7 +80,17 @@ class SessionManager {
                             }
                         } else if profile.nickname == "staff" || profile.nickname == "admin" {
                             // Get Staff Profile
-                            callback(nil)
+//                            callback(nil)
+                            APIService.getStaffProfile(email: email) { (result) in
+                                switch result {
+                                    case .success(let staffProfile):
+                                        print(staffProfile)
+                                        self.staffProfile = staffProfile
+                                        callback(nil)
+                                    case .failure(let error):
+                                        callback(error)
+                                }
+                            }
                         }
                     case .failure(let error):
                         callback(error)
@@ -100,6 +111,7 @@ class SessionManager {
     func logout() {
         self.profile = nil
         self.customerProfile = nil
+        self.staffProfile = nil
         self.keychain.clearAll()
     }
 

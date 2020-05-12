@@ -11,6 +11,7 @@ import UIKit
 class MyReservationsVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noReservationsLabel: UILabel!
 
     enum Section {
         case main
@@ -39,8 +40,9 @@ class MyReservationsVC: UIViewController {
                         return lhs.startTime < rhs.startTime
                     }
                     self.createSnapshot()
-                case .failure(let error):
-                    fatalError(error.localizedDescription)
+                    self.noReservationsLabel.isHidden = true
+                case .failure:
+                    self.noReservationsLabel.isHidden = false
             }
         }
     }
